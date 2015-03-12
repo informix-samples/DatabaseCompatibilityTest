@@ -6,14 +6,18 @@ import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * A basic implementation of the JDBC client interface. This class enables use
+ * of more than one session, identified by a textual id. Each session represents
+ * a single connection to the database server.
+ * 
+ */
 public class BasicJdbcClient implements JdbcClient {
-	
-	//public static final String DEFAULT_ID = "default";
-		
+
 	private final Map<String, JdbcSession> sessions = new HashMap<String, JdbcSession>();
 	private String lastUrl = null;
 	private String lastSessionId = "default";
-	
+
 	@Override
 	public JdbcSession newSession(String url, String id) throws SQLException {
 		if (url != null) {
@@ -26,7 +30,7 @@ public class BasicJdbcClient implements JdbcClient {
 		this.sessions.put(lastSessionId, session);
 		return session;
 	}
-	
+
 	@Override
 	public synchronized JdbcSession getJdbcSession(String id) {
 		if (id == null) {
@@ -53,7 +57,7 @@ public class BasicJdbcClient implements JdbcClient {
 		}
 		return c;
 	}
-	
+
 	@Override
 	public Connection newConnection(String url) throws SQLException {
 		return DriverManager.getConnection(url);

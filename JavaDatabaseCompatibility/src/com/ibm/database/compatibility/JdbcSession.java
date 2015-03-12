@@ -15,11 +15,26 @@ public interface JdbcSession extends Closeable {
 	 * @return
 	 */
 	public String getId();
-	
+
+	/**
+	 * Returns the id of the last statement used by this session.
+	 * 
+	 * @return the id of the last statement used by this session
+	 */
 	public String getLastStatementId();
-	
+
+	/**
+	 * Returns the id of the last prepared statement used by this session.
+	 * 
+	 * @return the id of the last prepared statement used by this session
+	 */
 	public String getLastPreparedStatementId();
-	
+
+	/**
+	 * Returns the id of the last result set used by this session.
+	 * 
+	 * @return the id of the last result set used by this session
+	 */
 	public String getLastResultSetId();
 
 	/**
@@ -68,7 +83,9 @@ public interface JdbcSession extends Closeable {
 	 * the last statement id used with this session.
 	 * 
 	 * @param id
-	 * @return
+	 *            the statement to remove from this session
+	 * @return the statement that was removed or <code>null</code> if there was
+	 *         no statement with the specified id
 	 */
 	public Statement removeStatement(String id);
 
@@ -82,6 +99,15 @@ public interface JdbcSession extends Closeable {
 
 	public PreparedStatement putPreparedStatement(String id, PreparedStatement ps);
 
+	/**
+	 * Dissociates the prepared statement referenced by the specified id from
+	 * this session. This automatically closes the prepared statement.
+	 * 
+	 * @param id
+	 *            the prepared statement to remove from this session
+	 * @return the prepared statement that was removed or <code>null</code> if
+	 *         there was no prepared statement with the specified id
+	 */
 	public PreparedStatement removePreparedStatement(String id);
 
 	/**
@@ -94,6 +120,15 @@ public interface JdbcSession extends Closeable {
 
 	public ResultSet putResultSet(String id, ResultSet resultSet);
 
+	/**
+	 * Dissociates the result set referenced by the specified id from this
+	 * session. This automatically closes the result set.
+	 * 
+	 * @param id
+	 *            the result set to remove from this session
+	 * @return the result set that was removed or <code>null</code> if there was
+	 *         no result set with the specified id
+	 */
 	public ResultSet removeResultSet(String id);
 
 }

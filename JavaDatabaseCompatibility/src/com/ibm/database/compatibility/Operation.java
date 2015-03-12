@@ -15,38 +15,96 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 import com.google.gson.JsonArray;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonToken;
 import com.google.gson.stream.JsonWriter;
 
 public class Operation {
-	
+
 	private static final Logger logger = LoggerFactory.getLogger(Operation.class);
-	private static final Gson gson = new GsonBuilder().disableHtmlEscaping().create();
-	
-//	{ "stmt_type" : "stmt" | "pstmt" , // should we use a statement or a prepared statement
-//		  "sql" : "...." , // the sql to be run/prepared
-//		  "binds" : [ "Lance" , 34 , "3412 W ..." ] // for prepared statements, the binds can be ordered or by column name
-//		          : { "name" : "Lance" , "age" : 34 , "address" : "3412 W..." }
-//		  "result" : [ { } , { } ]  // An array of rows
-//		}
-	
-	private String resource = null; // session | statement | preparedStatement
+
+	private String resource = null; // session | statement | preparedStatement | resultSet
 	private String action = null; // create | execute | close
 	private String sessionId = null;
 	private String statementId = null;
 	private String url = null;
 	private String className = null;
 	private String sql = null;
-	private Object[] binds = null;
+	private Binding[] bindings = null;
 	private JsonArray expectedResults = null;
-	
+
 	private Operation() {
-		
+
 	}
-	
+
+	public static class Builder {
+		private String resource = null;
+		private String action = null;
+		private String sessionId = null;
+		private String statementId = null;
+		private String url = null;
+		private String className = null;
+		private String sql = null;
+		private Binding[] bindings = null;
+		private JsonArray expectedResults = null;
+
+		public Operation build() {
+			Operation op = new Operation();
+			op.resource = resource;
+			op.action = action;
+			op.sessionId = sessionId;
+			op.statementId = statementId;
+			op.url = url;
+			op.className = className;
+			op.sql = sql;
+			op.bindings = bindings;
+			op.expectedResults = expectedResults;
+			return op;
+		}
+
+		public Builder resource(final String resource) {
+			this.resource = resource;
+			return this;
+		}
+
+		public Builder action(final String action) {
+			this.action = action;
+			return this;
+		}
+
+		public Builder sessionId(final String sessionId) {
+			this.sessionId = sessionId;
+			return this;
+		}
+
+		public Builder statementId(final String statementId) {
+			this.statementId = statementId;
+			return this;
+		}
+
+		public Builder url(final String url) {
+			this.url = url;
+			return this;
+		}
+
+		public Builder className(final String className) {
+			this.className = className;
+			return this;
+		}
+
+		public Builder sql(final String sql) {
+			this.sql = sql;
+			return this;
+		}
+		
+		public Builder bindings(final Binding[] bindings) {
+			this.bindings = new Binding[bindings.length];
+			System.arraycopy(bindings, 0, this.bindings, 0, bindings.length);
+			return this;
+		}
+	}
+
 	public void invoke(JdbcClient client) throws IOException, SQLException {
 		if (resource.equalsIgnoreCase("session")) {
 			if (action.equalsIgnoreCase("create")) {
@@ -95,13 +153,13 @@ public class Operation {
 						}
 					}
 				} finally {
-//					if (stmt != null && statementId == null) {
-//						try {
-//							stmt.close();
-//						} catch (SQLException e) {
-//							// do nothing
-//						}
-//					}
+					//					if (stmt != null && statementId == null) {
+					//						try {
+					//							stmt.close();
+					//						} catch (SQLException e) {
+					//							// do nothing
+					//						}
+					//					}
 				}
 			} else if (action.equalsIgnoreCase("close")) {
 				JdbcSession jdbcSession = client.getJdbcSession(sessionId);
@@ -134,10 +192,8 @@ public class Operation {
 						jdbcSession.putPreparedStatement(statementId, pstmt);
 					}
 					logger.debug("executing statement id {}", jdbcSession.getLastPreparedStatementId());
-					if (binds != null && binds.length > 0) {
-						for (int i=0; i < binds.length; ++i) {
-							pstmt.setObject(i+1, binds[i]);
-						}						
+					if (this.bindings != null) {
+						Binding.bindAll(this.bindings, pstmt);
 					}
 					if (pstmt.execute()) {
 						ResultSet rs = pstmt.getResultSet();
@@ -148,13 +204,13 @@ public class Operation {
 						}
 					}
 				} finally {
-//					if (pstmt != null && statementId == null) {
-//						try {
-//							pstmt.close();
-//						} catch (SQLException e) {
-//							// do nothing
-//						}
-//					}
+					//					if (pstmt != null && statementId == null) {
+					//						try {
+					//							pstmt.close();
+					//						} catch (SQLException e) {
+					//							// do nothing
+					//						}
+					//					}
 				}				
 			} else if (action.equalsIgnoreCase("close")) {
 				JdbcSession jdbcSession = client.getJdbcSession(sessionId);
@@ -165,14 +221,14 @@ public class Operation {
 			throw new RuntimeException(MessageFormat.format("Unsupported resource type {0}", resource));
 		}
 	}
-	
+
 	public Operation(String resource, String action, String sql) {
 		this.resource = resource;
 		this.action = action;
 		this.sql = sql;
 	}
 
-	static String convertResultSetToJson(ResultSet rs) throws IOException, SQLException {
+	String convertResultSetToJson(ResultSet rs) throws IOException, SQLException {
 		ResultSetMetaData rsmd = rs.getMetaData();
 		StringWriter sw = new StringWriter();
 		JsonWriter jw = new JsonWriter(sw);
@@ -183,7 +239,7 @@ public class Operation {
 			for (int i=1; i <= rsmd.getColumnCount(); ++i) {
 				jw.name(rsmd.getColumnLabel(i));
 				Object value = rs.getObject(i);
-				gson.toJson(value, value.getClass(), jw);
+				GsonUtils.newGson().toJson(value, value.getClass(), jw);
 			}
 			jw.endObject();
 		}
@@ -192,7 +248,7 @@ public class Operation {
 		String json = sw.toString();
 		return json;
 	}
-	
+
 	static void compareResults(JsonArray expectedJson, String actualJson) throws IOException {
 		JsonReader expected = null;
 		JsonReader actual = null;
@@ -307,22 +363,16 @@ public class Operation {
 			}
 		}
 	}
-		
+
 	public static Operation fromJson(String line) {
+		final Gson gson = GsonUtils.newGson();
 		Operation operation = gson.fromJson(line, Operation.class);
 		return operation;
 	}
-	
+
+	@Override
 	public String toString() {
-		return gson.toJson(this);
-	}
-	
-	public static void main(String[] args) {
-		Operation o = new Operation("statement", "execute", "select tabname from systables where tabid > 99");
-		String s = gson.toJson(o);
-		System.out.println(s);
-		Operation o2 = gson.fromJson(s, Operation.class);
-		System.out.println(o2);
+		return GsonUtils.newGson().toJson(this);
 	}
 
 }

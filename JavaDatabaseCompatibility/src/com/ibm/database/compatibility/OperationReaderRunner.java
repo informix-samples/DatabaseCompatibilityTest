@@ -3,12 +3,12 @@ package com.ibm.database.compatibility;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
-public class OperationStreamRunner implements Runnable {
+public class OperationReaderRunner implements Runnable {
 
 	private final JdbcClient client;
-	private final OperationStream os;
+	private final OperationReader os;
 
-	public OperationStreamRunner(JdbcClient client, OperationStream os) {
+	public OperationReaderRunner(JdbcClient client, OperationReader os) {
 		this.client = client;
 		this.os = os;
 	}
@@ -30,10 +30,10 @@ public class OperationStreamRunner implements Runnable {
 
 	public static void main(String[] args) {
 		JdbcClient client = new BasicJdbcClient();
-		OperationStream os = null;
+		JsonOperationReader os = null;
 		try {
-			os = new JsonOperationStream("/tmp/ops.json");
-			OperationStreamRunner osr = new OperationStreamRunner(client, os);
+			os = new JsonOperationReader("/tmp/ops.json");
+			OperationReaderRunner osr = new OperationReaderRunner(client, os);
 			osr.run();
 		} catch (FileNotFoundException e) {
 			if (os != null) {

@@ -7,32 +7,25 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.Reader;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 
-public class JsonOperationStream implements OperationStream, Closeable {
+public class JsonOperationReader implements OperationReader, Closeable {
 
 	private final Reader reader;
 	private final BufferedReader bufferedReader;
 	private String nextLine = null;
 
-	public JsonOperationStream(String pathToFile) throws FileNotFoundException {
+	public JsonOperationReader(String pathToFile) throws FileNotFoundException {
 		this(new FileReader(pathToFile));
 	}
 
-	public JsonOperationStream(File file) throws FileNotFoundException {
+	public JsonOperationReader(File file) throws FileNotFoundException {
 		this(new FileReader(file));
 	}
 
-	public JsonOperationStream(Reader reader) {
+	public JsonOperationReader(Reader reader) {
 		this.reader = reader;
 		this.bufferedReader = new BufferedReader(reader);
-		try {
-			this.nextLine = this.bufferedReader.readLine();
-		} catch (IOException e) {
-			throw new RuntimeException("Error reading next line from file", e);
-		}
+		advanceNextLine();
 	}
 
 	@Override
