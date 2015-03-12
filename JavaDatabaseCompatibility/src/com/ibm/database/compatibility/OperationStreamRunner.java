@@ -19,7 +19,7 @@ public class OperationStreamRunner implements Runnable {
 			while (os.hasNext()) {
 				Operation op = os.next();
 				if (op != null) {
-					System.out.println(op.toString());
+					//System.out.println(op.toString());
 					op.invoke(client);
 				}
 			}

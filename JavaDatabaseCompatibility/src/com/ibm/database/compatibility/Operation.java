@@ -11,6 +11,9 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.text.MessageFormat;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonArray;
@@ -20,6 +23,7 @@ import com.google.gson.stream.JsonWriter;
 
 public class Operation {
 	
+	private static final Logger logger = LoggerFactory.getLogger(Operation.class);
 	private static final Gson gson = new GsonBuilder().disableHtmlEscaping().create();
 	
 //	{ "stmt_type" : "stmt" | "pstmt" , // should we use a statement or a prepared statement
@@ -54,9 +58,11 @@ public class Operation {
 						throw new RuntimeException(MessageFormat.format("Unable to load class {0}", className), e);
 					}
 				}
-				client.newSession(url, sessionId);
+				JdbcSession session = client.newSession(url, sessionId);
+				logger.debug("created new session id {}", session.getId());
 			} else if (action.equalsIgnoreCase("close")) {
-				client.removeJdbcSession(sessionId);
+				JdbcSession session = client.removeJdbcSession(sessionId);
+				logger.debug("closed session id {}", session.getId());
 			} else {
 				throw new RuntimeException(MessageFormat.format("Unsupported session action {0}", action));
 			}
@@ -71,6 +77,7 @@ public class Operation {
 				 */
 				JdbcSession jdbcSession = client.getJdbcSession(sessionId);
 				jdbcSession.createStatement(statementId);
+				logger.debug("created new statement id {}", jdbcSession.getLastStatementId());
 			} else if (action.equalsIgnoreCase("execute")) {
 				Statement stmt = null;
 				try {
@@ -79,32 +86,27 @@ public class Operation {
 					if (stmt == null) {
 						stmt = jdbcSession.createStatement(statementId);
 					}
+					logger.debug("executing statement id {}", jdbcSession.getLastStatementId());
 					if (stmt.execute(sql)) {
 						ResultSet rs = stmt.getResultSet();
-						ResultSetMetaData rsmd = rs.getMetaData();
-						while (rs.next()) {
-							StringBuilder sb = new StringBuilder();
-							for (int i=1; i <= rsmd.getColumnCount(); ++i) {
-								if (i > 1) {
-									sb.append(" , ");
-								}
-								sb.append(rs.getObject(i));
-							}
-							System.out.println(sb.toString());
+						String actualResults = convertResultSetToJson(rs);
+						if (expectedResults != null) {
+							compareResults(expectedResults, actualResults);
 						}
 					}
 				} finally {
-					if (stmt != null && statementId == null) {
-						try {
-							stmt.close();
-						} catch (SQLException e) {
-							// do nothing
-						}
-					}
-				}				
+//					if (stmt != null && statementId == null) {
+//						try {
+//							stmt.close();
+//						} catch (SQLException e) {
+//							// do nothing
+//						}
+//					}
+				}
 			} else if (action.equalsIgnoreCase("close")) {
 				JdbcSession jdbcSession = client.getJdbcSession(sessionId);
 				jdbcSession.removeStatement(statementId);
+				logger.debug("closed statement id {}", jdbcSession.getLastStatementId());
 			}
 		} else if (resource.equalsIgnoreCase("preparedStatement")) {
 			if (action.equalsIgnoreCase("create")) {
@@ -120,6 +122,7 @@ public class Operation {
 				Connection c = jdbcSession.getConnection();
 				PreparedStatement pstmt = c.prepareStatement(sql);
 				jdbcSession.putPreparedStatement(statementId, pstmt);
+				logger.debug("created prepared statement id {}", jdbcSession.getLastPreparedStatementId());
 			} else if (action.equalsIgnoreCase("execute")) {
 				PreparedStatement pstmt = null;
 				try {
@@ -130,6 +133,7 @@ public class Operation {
 						pstmt = c.prepareStatement(sql);
 						jdbcSession.putPreparedStatement(statementId, pstmt);
 					}
+					logger.debug("executing statement id {}", jdbcSession.getLastPreparedStatementId());
 					if (binds != null && binds.length > 0) {
 						for (int i=0; i < binds.length; ++i) {
 							pstmt.setObject(i+1, binds[i]);
@@ -138,23 +142,24 @@ public class Operation {
 					if (pstmt.execute()) {
 						ResultSet rs = pstmt.getResultSet();
 						String actualResults = convertResultSetToJson(rs);
-						System.out.println(actualResults);
+						//System.out.println(actualResults);
 						if (expectedResults != null) {
 							compareResults(expectedResults, actualResults);
 						}
 					}
 				} finally {
-					if (pstmt != null && statementId == null) {
-						try {
-							pstmt.close();
-						} catch (SQLException e) {
-							// do nothing
-						}
-					}
+//					if (pstmt != null && statementId == null) {
+//						try {
+//							pstmt.close();
+//						} catch (SQLException e) {
+//							// do nothing
+//						}
+//					}
 				}				
 			} else if (action.equalsIgnoreCase("close")) {
 				JdbcSession jdbcSession = client.getJdbcSession(sessionId);
 				jdbcSession.removeStatement(statementId);
+				logger.debug("closed statement id {}", jdbcSession.getLastPreparedStatementId());
 			}
 		} else {
 			throw new RuntimeException(MessageFormat.format("Unsupported resource type {0}", resource));
@@ -265,8 +270,10 @@ public class Operation {
 					break;
 				case NUMBER:
 					try {
-						if (expected.nextDouble() != actual.nextDouble()) {
-							System.out.println(MessageFormat.format("double mismatch at {0}", expected.getPath()));
+						double expectedDouble = expected.nextDouble();
+						double actualDouble = actual.nextDouble();
+						if (expectedDouble != actualDouble) {
+							System.out.println(MessageFormat.format("double mismatch at {0} (expected: {1}, actual: {2})", expected.getPath(), expectedDouble, actualDouble));
 						}
 					} catch (IllegalStateException e) {
 						System.out.println(MessageFormat.format("expected double at at {0}", actual.getPath()));
@@ -304,6 +311,10 @@ public class Operation {
 	public static Operation fromJson(String line) {
 		Operation operation = gson.fromJson(line, Operation.class);
 		return operation;
+	}
+	
+	public String toString() {
+		return gson.toJson(this);
 	}
 	
 	public static void main(String[] args) {

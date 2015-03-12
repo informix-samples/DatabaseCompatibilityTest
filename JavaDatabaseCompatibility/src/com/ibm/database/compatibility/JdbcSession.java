@@ -9,25 +9,69 @@ import java.sql.Statement;
 
 public interface JdbcSession extends Closeable {
 
-	public static final String DEFAULT_ID = "default";
-	
 	/**
 	 * Returns this session's id.
 	 * 
 	 * @return
 	 */
 	public String getId();
+	
+	public String getLastStatementId();
+	
+	public String getLastPreparedStatementId();
+	
+	public String getLastResultSetId();
 
+	/**
+	 * Returns the JDBC connection associated with this session.
+	 * 
+	 * @return the JDBC connection associated with this session
+	 * @throws SQLException
+	 */
 	public Connection getConnection() throws SQLException;
 
+	/**
+	 * Creates a new JDBC statement with the specified id. If the
+	 * <code>id</code> is null, it is assumed to be the last statement id used
+	 * with this session.
+	 * 
+	 * @param id
+	 * @return
+	 * @throws SQLException
+	 */
 	public Statement createStatement(String id) throws SQLException;
-	
+
+	/**
+	 * Retrieves the JDBC statement associated with the specified id. If the
+	 * <code>id</code> is null, it is assumed to be the last statement id used
+	 * with this session.
+	 * 
+	 * @param id
+	 * @return
+	 */
 	public Statement getStatement(String id);
 
+	/**
+	 * Manually adds a JDBC statement to the map of those associated with this
+	 * session. If the <code>id</code> is <code>null</code>, it is assumed to be
+	 * the last statement id used with this session.
+	 * 
+	 * @param id
+	 * @param s
+	 * @return
+	 */
 	public Statement putStatement(String id, Statement s);
 
+	/**
+	 * Removes a JDBC statement from the map of those associated with this
+	 * session. If the <code>id</code> is <code>null</code>, it is assumed to be
+	 * the last statement id used with this session.
+	 * 
+	 * @param id
+	 * @return
+	 */
 	public Statement removeStatement(String id);
-	
+
 	/**
 	 * Returns the JDBC PreparedStatement associated with the specified id.
 	 * 

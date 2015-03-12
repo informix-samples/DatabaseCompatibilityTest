@@ -6,24 +6,28 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.HashMap;
 import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
 
 public class BasicJdbcSession implements JdbcSession {
-
+	
+	private static final String DEFAULT_ID = "default";
+	
 	private final JdbcClient client;
 	private final String id;
 	private final String url;
 	private Connection connection;
-	private final Map<String, Statement> statements = new ConcurrentHashMap<String, Statement>();
-	private final Map<String, PreparedStatement> preparedStatements = new ConcurrentHashMap<String, PreparedStatement>();
-	private final Map<String, ResultSet> resultSets = new ConcurrentHashMap<String, ResultSet>();
+	private String lastStatementId = DEFAULT_ID;
+	private final Map<String, Statement> statements = new HashMap<String, Statement>();
+	private String lastPreparedStatementId = DEFAULT_ID;
+	private final Map<String, PreparedStatement> preparedStatements = new HashMap<String, PreparedStatement>();
+	private String lastResultSetId = DEFAULT_ID;
+	private final Map<String, ResultSet> resultSets = new HashMap<String, ResultSet>();
 
 	BasicJdbcSession(JdbcClient client, String id, String url) {
 		this.client = client;
 		this.id = id;
 		this.url = url;
-		
 	}
 	
 	@Override
@@ -40,9 +44,11 @@ public class BasicJdbcSession implements JdbcSession {
 	}
 
 	@Override
-	public Statement createStatement(String id) throws SQLException {
+	public synchronized Statement createStatement(String id) throws SQLException {
 		if (id == null) {
-			id = DEFAULT_ID;
+			id = lastStatementId;
+		} else {
+			lastStatementId = id;
 		}
 		Connection c = getConnection();
 		Statement stmt = c.createStatement();
@@ -51,25 +57,31 @@ public class BasicJdbcSession implements JdbcSession {
 	}
 	
 	@Override
-	public Statement getStatement(String id) {
+	public synchronized Statement getStatement(String id) {
 		if (id == null) {
-			id = DEFAULT_ID;
+			id = lastStatementId;
+		} else {
+			lastStatementId = id;
 		}
 		return this.statements.get(id);
 	}
 
 	@Override
-	public Statement putStatement(String id, Statement s) {
+	public synchronized Statement putStatement(String id, Statement s) {
 		if (id == null) {
-			id = DEFAULT_ID;
+			id = lastStatementId;
+		} else {
+			lastStatementId = id;
 		}
 		return this.statements.put(id, s);
 	}
 
 	@Override
-	public Statement removeStatement(String id) {
+	public synchronized Statement removeStatement(String id) {
 		if (id == null) {
-			id = DEFAULT_ID;
+			id = lastStatementId;
+		} else {
+			lastStatementId = id;
 		}
 		Statement s = this.statements.remove(id);
 		if (s != null) {
@@ -83,25 +95,31 @@ public class BasicJdbcSession implements JdbcSession {
 	}
 
 	@Override
-	public PreparedStatement getPreparedStatement(String id) {
+	public synchronized PreparedStatement getPreparedStatement(String id) {
 		if (id == null) {
-			id = DEFAULT_ID;
+			id = lastPreparedStatementId;
+		} else {
+			lastPreparedStatementId = id;
 		}
 		return preparedStatements.get(id);
 	}
 
 	@Override
-	public PreparedStatement putPreparedStatement(String id, PreparedStatement ps) {
+	public synchronized PreparedStatement putPreparedStatement(String id, PreparedStatement ps) {
 		if (id == null) {
-			id = DEFAULT_ID;
+			id = lastPreparedStatementId;
+		} else {
+			lastPreparedStatementId = id;
 		}
 		return this.preparedStatements.put(id, ps);
 	}
 
 	@Override
-	public PreparedStatement removePreparedStatement(String id) {
+	public synchronized PreparedStatement removePreparedStatement(String id) {
 		if (id == null) {
-			id = DEFAULT_ID;
+			id = lastPreparedStatementId;
+		} else {
+			lastPreparedStatementId = id;
 		}
 		PreparedStatement ps = this.preparedStatements.remove(id);
 		if (ps != null) {
@@ -115,25 +133,31 @@ public class BasicJdbcSession implements JdbcSession {
 	}
 
 	@Override
-	public ResultSet getResultSet(String id) {
+	public synchronized ResultSet getResultSet(String id) {
 		if (id == null) {
-			id = DEFAULT_ID;
+			id = lastResultSetId;
+		} else {
+			lastResultSetId = id;
 		}
 		return resultSets.get(id);
 	}
 
 	@Override
-	public ResultSet putResultSet(String id, ResultSet resultSet) {
+	public synchronized ResultSet putResultSet(String id, ResultSet resultSet) {
 		if (id == null) {
-			id = DEFAULT_ID;
+			id = lastResultSetId;
+		} else {
+			lastResultSetId = id;
 		}
 		return this.resultSets.put(id, resultSet);
 	}
 
 	@Override
-	public ResultSet removeResultSet(String id) {
+	public synchronized ResultSet removeResultSet(String id) {
 		if (id == null) {
-			id = DEFAULT_ID;
+			id = lastResultSetId;
+		} else {
+			lastResultSetId = id;
 		}
 		ResultSet rs = this.resultSets.remove(id);
 		if (rs != null) {
@@ -153,6 +177,21 @@ public class BasicJdbcSession implements JdbcSession {
 		} catch (Exception e) {
 			throw new IOException("Unable to close JDBC connection", e);
 		}
+	}
+
+	@Override
+	public synchronized String getLastStatementId() {
+		return this.lastStatementId;
+	}
+
+	@Override
+	public synchronized String getLastPreparedStatementId() {
+		return this.lastPreparedStatementId;
+	}
+
+	@Override
+	public synchronized String getLastResultSetId() {
+		return this.lastResultSetId;
 	}
 
 }

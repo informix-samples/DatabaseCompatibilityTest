@@ -14,3 +14,4 @@ hs_err_pid*
 # Eclipse Project Gradle
 .gradle
 .DS_Store
+bin/

@@ -3,14 +3,16 @@ package com.ibm.database.compatibility;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.util.HashMap;
 import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
 
 public class BasicJdbcClient implements JdbcClient {
+	
+	//public static final String DEFAULT_ID = "default";
 		
-	private final Map<String, JdbcSession> sessions = new ConcurrentHashMap<String, JdbcSession>();
+	private final Map<String, JdbcSession> sessions = new HashMap<String, JdbcSession>();
 	private String lastUrl = null;
-	private String lastSessionId = DEFAULT_ID;
+	private String lastSessionId = "default";
 	
 	@Override
 	public JdbcSession newSession(String url, String id) throws SQLException {
@@ -26,7 +28,7 @@ public class BasicJdbcClient implements JdbcClient {
 	}
 	
 	@Override
-	public JdbcSession getJdbcSession(String id) {
+	public synchronized JdbcSession getJdbcSession(String id) {
 		if (id == null) {
 			return sessions.get(lastSessionId);
 		} else {
@@ -35,12 +37,12 @@ public class BasicJdbcClient implements JdbcClient {
 	}
 
 	@Override
-	public JdbcSession putJdbcSession(String id, JdbcSession c) {
+	public synchronized JdbcSession putJdbcSession(String id, JdbcSession c) {
 		return this.sessions.put(id, c);
 	}
 
 	@Override
-	public JdbcSession removeJdbcSession(String id) {
+	public synchronized JdbcSession removeJdbcSession(String id) {
 		JdbcSession c = this.sessions.remove(id);
 		if (c != null) {
 			try {
@@ -51,10 +53,15 @@ public class BasicJdbcClient implements JdbcClient {
 		}
 		return c;
 	}
-		
+	
 	@Override
 	public Connection newConnection(String url) throws SQLException {
 		return DriverManager.getConnection(url);
+	}
+
+	@Override
+	public synchronized JdbcSession[] getJdbcSessions() {
+		return this.sessions.values().toArray(new JdbcSession[0]);
 	}
 
 }

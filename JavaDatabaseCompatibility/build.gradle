@@ -18,6 +18,9 @@ def BuildDate = new Date();
 dependencies {
 	compile group: 'com.google.code.gson' , name: 'gson' , version: '2.+'
 	compile group: 'com.informix', name: 'jdbc', version: '4.1.0-SNAPSHOT'
+	compile group: 'org.slf4j', name: 'slf4j-api', version: '1.7.5'
+	compile group: 'ch.qos.logback' , name: 'logback-core' , version: '1.+'
+	compile group: 'ch.qos.logback' , name: 'logback-classic' , version: '1.+'
 }
 
 // Java component configuration for plugin:'java'
