@@ -1,0 +1,32 @@
+
+------------------------------------------------------------
+Root project
+------------------------------------------------------------
+
+archives - Configuration for archive artifacts.
+No dependencies
+
+compile - Compile classpath for source set 'main'.
++--- com.google.code.gson:gson:2.+ -> 2.3.1
+\--- com.informix:jdbc:4.1.0-SNAPSHOT
+     \--- org.mongodb:bson:2.13.0+ -> 2.13.0
+
+default - Configuration for default artifacts.
++--- com.google.code.gson:gson:2.+ -> 2.3.1
+\--- com.informix:jdbc:4.1.0-SNAPSHOT
+     \--- org.mongodb:bson:2.13.0+ -> 2.13.0
+
+runtime - Runtime classpath for source set 'main'.
++--- com.google.code.gson:gson:2.+ -> 2.3.1
+\--- com.informix:jdbc:4.1.0-SNAPSHOT
+     \--- org.mongodb:bson:2.13.0+ -> 2.13.0
+
+testCompile - Compile classpath for source set 'test'.
++--- com.google.code.gson:gson:2.+ -> 2.3.1
+\--- com.informix:jdbc:4.1.0-SNAPSHOT
+     \--- org.mongodb:bson:2.13.0+ -> 2.13.0
+
+testRuntime - Runtime classpath for source set 'test'.
++--- com.google.code.gson:gson:2.+ -> 2.3.1
+\--- com.informix:jdbc:4.1.0-SNAPSHOT
+     \--- org.mongodb:bson:2.13.0+ -> 2.13.0
