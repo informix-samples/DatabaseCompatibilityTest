@@ -8,9 +8,6 @@ import java.io.Flushable;
 import java.io.IOException;
 import java.io.Writer;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-
 public class JsonOperationWriter implements OperationWriter, Flushable, Closeable {
 	
 	private final Writer writer;
@@ -32,6 +29,7 @@ public class JsonOperationWriter implements OperationWriter, Flushable, Closeabl
 	@Override
 	public void write(Operation op) throws IOException {
 		bufferedWriter.write(GsonUtils.newGson().toJson(op));
+		bufferedWriter.newLine();
 	}
 
 	@Override
@@ -39,7 +37,8 @@ public class JsonOperationWriter implements OperationWriter, Flushable, Closeabl
 		String[] lines = comment.split("\n");
 		for (String line : lines) {
 			bufferedWriter.write("# ");
-			bufferedWriter.write(line);			
+			bufferedWriter.write(line);
+			bufferedWriter.newLine();
 		}
 	}
 
