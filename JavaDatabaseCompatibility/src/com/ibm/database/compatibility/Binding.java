@@ -62,7 +62,11 @@ public class Binding {
 			ps.setFloat(getIndex(), (Float) getValue());
 			break;
 		case INT:
-			ps.setInt(getIndex(), (Integer) getValue());
+			if (getValue() instanceof String) {
+				ps.setInt(getIndex(), Integer.parseInt((String)getValue()));
+			} else if (getValue() instanceof Number){
+				ps.setInt(getIndex(), ((Number) getValue()).intValue());
+			}
 			break;
 		case OBJECT:
 			ps.setObject(getIndex(), getValue());
@@ -81,69 +85,71 @@ public class Binding {
 			Integer index = null;
 			Object value = null;
 			SqlDataType type = null;
-			JsonToken token = reader.peek();
-			switch (token) {
-			case BEGIN_ARRAY:
-			case END_ARRAY:
-				throw new IllegalArgumentException("arrays are not supported as a binding");
-			case BEGIN_OBJECT:
-				String name = reader.nextName();
-				if (name.equalsIgnoreCase("index")) {
-					index = reader.nextInt();
-				} else if (name.equalsIgnoreCase("value")) {
-					switch (reader.peek()) {
-					case BEGIN_ARRAY:
-					case END_ARRAY:
-						throw new IllegalArgumentException("arrays are not supported as a value");
-					case BEGIN_OBJECT:
-						break;
-					case BOOLEAN:
-						value = reader.nextBoolean();
-						break;
-					case END_DOCUMENT:
-						break;
-					case END_OBJECT:
-						break;
-					case NAME:
-						break;
-					case NULL:
-						break;
-					case NUMBER:
-						value = readNumber(reader);
-						break;
-					case STRING:
-						value = reader.nextString();
-						break;
-					default:
-						break;
-					
+			while (true) {
+				JsonToken token = reader.peek();
+				switch (token) {
+				case BEGIN_ARRAY:
+				case END_ARRAY:
+					throw new IllegalArgumentException("arrays are not supported as a binding");
+				case BEGIN_OBJECT:
+					reader.beginObject();
+					break;
+				case BOOLEAN:
+					value = reader.nextBoolean();
+					return new Binding(null, value, null);
+				case END_DOCUMENT:
+					break;
+				case END_OBJECT:
+					reader.endObject();
+					return new Binding(index, value, type);
+				case NAME:
+					String name = reader.nextName();
+					if (name.equalsIgnoreCase("index")) {
+						index = reader.nextInt();
+					} else if (name.equalsIgnoreCase("value")) {
+						switch (reader.peek()) {
+						case BEGIN_ARRAY:
+						case END_ARRAY:
+							throw new IllegalArgumentException("arrays are not supported as a value");
+						case BEGIN_OBJECT:
+							break;
+						case BOOLEAN:
+							value = reader.nextBoolean();
+							break;
+						case END_DOCUMENT:
+							break;
+						case END_OBJECT:
+							break;
+						case NAME:
+							break;
+						case NULL:
+							break;
+						case NUMBER:
+							value = readNumber(reader);
+							break;
+						case STRING:
+							value = reader.nextString();
+							break;
+						default:
+							break;
+						}
+					} else if (name.equalsIgnoreCase("type")) {
+						type = SqlDataType.lookup(reader.nextString());
 					}
-				} else if (name.equalsIgnoreCase("type")) {
-					type = SqlDataType.lookup(reader.nextString());
+					break;
+				case NULL:
+					reader.nextNull();
+					return null;
+				case NUMBER:
+					value = readNumber(reader);
+					return new Binding(null, value, null);
+				case STRING:
+					value = reader.nextString();
+					return new Binding(null, value, null);
+				default:
+					break;
 				}
-				return new Binding(index, value, type);
-			case BOOLEAN:
-				value = reader.nextBoolean();
-				return new Binding(null, value, null);
-			case END_DOCUMENT:
-				break;
-			case END_OBJECT:
-				break;
-			case NAME:
-				break;
-			case NULL:
-				reader.nextNull();
-				return null;
-			case NUMBER:
-				value = readNumber(reader);
-				return new Binding(null, value, null);
-			case STRING:
-				value = reader.nextString();
-				return new Binding(null, value, null);
-			default:
-				break;
 			}
-			return null;
 		}
 		
 		private static Object readNumber(JsonReader reader) throws IOException {
