@@ -14,9 +14,9 @@
 {"resource":"statement","action":"execute","statementId":"createPeopleTable","sql":"drop table if exists people"}
 {"resource":"statement","action":"execute","sql":"create table people(firstName varchar(10), lastName varchar(10), age int)"}
 {"resource":"preparedStatement","action":"create","statementId":"insertPeople","sql":"insert into people values(?,?,?)"}
-{"resource":"preparedStatement","action":"execute",bindings:["lance","feagan",34]}
-{"resource":"preparedStatement","action":"execute",bindings:["brian","hughes",33]}
+{"resource":"preparedStatement","action":"execute","bindings":["lance","feagan",34]}
+{"resource":"preparedStatement","action":"execute","bindings":["brian","hughes",33]}
 {"resource":"preparedStatement","action":"close","statementId":"insertPeople"}
-{"resource":"statement","action":"execute","sql":"select * from people","expectedResults":[{firstname:"lance",lastname:"feagan",age:34},{firstname:"brian",lastname:"hughes",age:33}]}
+{"resource":"statement","action":"execute","sql":"select * from people","expectedResults":[{"firstname":"lance","lastname":"feagan","age":34},{"firstname":"brian","lastname":"hughes","age":33}]}
 {"resource":"statement","action":"execute","sql":"drop table if exists people"}
 {"resource":"statement","action":"close","statementId":"createPeopleTable"}
