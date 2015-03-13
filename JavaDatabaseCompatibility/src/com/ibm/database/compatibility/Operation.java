@@ -144,7 +144,7 @@ public class Operation {
 					if (stmt == null) {
 						stmt = jdbcSession.createStatement(statementId);
 					}
-					logger.debug("executing statement id {}", jdbcSession.getLastStatementId());
+					logger.debug("executing statement (id: {} , sql: {})", jdbcSession.getLastStatementId(), sql);
 					if (stmt.execute(sql)) {
 						ResultSet rs = stmt.getResultSet();
 						String actualResults = convertResultSetToJson(rs);
@@ -191,7 +191,7 @@ public class Operation {
 						pstmt = c.prepareStatement(sql);
 						jdbcSession.putPreparedStatement(statementId, pstmt);
 					}
-					logger.debug("executing statement id {}", jdbcSession.getLastPreparedStatementId());
+					logger.debug("executing prepared statement (id: {})", jdbcSession.getLastPreparedStatementId());
 					if (this.bindings != null) {
 						Binding.bindAll(this.bindings, pstmt);
 					}
@@ -215,7 +215,7 @@ public class Operation {
 			} else if (action.equalsIgnoreCase("close")) {
 				JdbcSession jdbcSession = client.getJdbcSession(sessionId);
 				jdbcSession.removeStatement(statementId);
-				logger.debug("closed statement id {}", jdbcSession.getLastPreparedStatementId());
+				logger.debug("closed prepared statement id {}", jdbcSession.getLastPreparedStatementId());
 			}
 		} else {
 			throw new RuntimeException(MessageFormat.format("Unsupported resource type {0}", resource));
