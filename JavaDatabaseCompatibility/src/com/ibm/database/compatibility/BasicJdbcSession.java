@@ -14,8 +14,8 @@ public class BasicJdbcSession implements JdbcSession {
 	private static final String DEFAULT_ID = "default";
 	
 	private final JdbcClient client;
-	private final String id;
-	private final String url;
+	private final String sessionId;
+	private final String credentialsId;
 	private Connection connection;
 	private String lastStatementId = DEFAULT_ID;
 	private final Map<String, Statement> statements = new HashMap<String, Statement>();
@@ -24,23 +24,24 @@ public class BasicJdbcSession implements JdbcSession {
 	private String lastResultSetId = DEFAULT_ID;
 	private final Map<String, ResultSet> resultSets = new HashMap<String, ResultSet>();
 
-	BasicJdbcSession(JdbcClient client, String id, String url) {
+	BasicJdbcSession(JdbcClient client, String sessionId, String credentialsId) {
 		this.client = client;
-		this.id = id;
-		this.url = url;
+		this.sessionId = sessionId;
+		this.credentialsId = credentialsId;
 	}
 	
 	@Override
 	public synchronized Connection getConnection() throws SQLException {
 		if (connection == null) {
-			this.connection = client.newConnection(url);
+			final DatabaseCredential credentials = client.getDatabaseCredential(this.credentialsId);
+			this.connection = client.newConnection(credentials.getUrl());
 		}
 		return this.connection;
 	}
 
 	@Override
 	public String getId() {
-		return this.id;
+		return this.sessionId;
 	}
 
 	@Override

@@ -26,9 +26,15 @@ public class Operation {
 
 	private String resource = null; // session | statement | preparedStatement | resultSet
 	private String action = null; // create | execute | close
+	private String credentialId = null;
 	private String sessionId = null;
 	private String statementId = null;
-	private String url = null;
+	private String host = null;
+	private Integer port = null;
+	private String databaseName = null;
+	private String user = null;
+	private String password = null;
+	private String additionalConnectionProperties = null;
 	private String className = null;
 	private String sql = null;
 	private Binding[] bindings = null;
@@ -41,9 +47,15 @@ public class Operation {
 	public static class Builder {
 		private String resource = null;
 		private String action = null;
+		private String credentialId = null;
 		private String sessionId = null;
 		private String statementId = null;
-		private String url = null;
+		private String host = null;
+		private Integer port = null;
+		private String databaseName = null;
+		private String user = null;
+		private String password = null;
+		private String additionalConnectionProperties = null;
 		private String className = null;
 		private String sql = null;
 		private Binding[] bindings = null;
@@ -53,9 +65,15 @@ public class Operation {
 			Operation op = new Operation();
 			op.resource = resource;
 			op.action = action;
+			op.credentialId = credentialId;
 			op.sessionId = sessionId;
 			op.statementId = statementId;
-			op.url = url;
+			op.host = host;
+			op.port = port;
+			op.databaseName = databaseName;
+			op.user = user;
+			op.password = password;
+			op.additionalConnectionProperties = additionalConnectionProperties;
 			op.className = className;
 			op.sql = sql;
 			op.bindings = bindings;
@@ -72,6 +90,11 @@ public class Operation {
 			this.action = action;
 			return this;
 		}
+		
+		public Builder credentialId(final String credentialId) {
+			this.credentialId = credentialId;
+			return this;
+		}
 
 		public Builder sessionId(final String sessionId) {
 			this.sessionId = sessionId;
@@ -83,8 +106,33 @@ public class Operation {
 			return this;
 		}
 
-		public Builder url(final String url) {
-			this.url = url;
+		public Builder host(final String host) {
+			this.host = host;
+			return this;
+		}
+
+		public Builder port(final Integer port) {
+			this.port = port;
+			return this;
+		}
+
+		public Builder db(final String databaseName) {
+			this.databaseName = databaseName;
+			return this;
+		}
+
+		public Builder user(final String user) {
+			this.user = user;
+			return this;
+		}
+
+		public Builder password(final String password) {
+			this.password = password;
+			return this;
+		}
+
+		public Builder additionalConnectionProperties(final String additionalConnectionProperties) {
+			this.additionalConnectionProperties = additionalConnectionProperties;
 			return this;
 		}
 
@@ -106,9 +154,36 @@ public class Operation {
 	}
 
 	public void invoke(JdbcClient client) throws IOException, SQLException {
-		if (resource.equalsIgnoreCase("session")) {
+		if (resource.equalsIgnoreCase("credentials")) {
+			if(action.equalsIgnoreCase("create"))	{
+				/*-
+				 * { "resource" : "credential" ,
+				 *   "action" : "create" ,
+				 *   "credentialId" : "mydb" ,
+				 *   "host" : "10.168.8.130" ,
+				 *   "port" : 40000 ,
+				 *   "db" : "textdb" ,
+				 *   "user" : "informix" ,
+				 *   "password" : "informix" ,
+				 *   "additionalConnectionProperties" : "CLIENT_LOCALE=en_us.utf8;DB_LOCALE=en_us.utf8"
+				 * }
+				 */
+				DatabaseCredential credential = client.newCredential(credentialId, host, port, databaseName, user, password, additionalConnectionProperties);
+				logger.debug("creating credential: id = {}, url = {}", credential.getCredentialId(), credential.getUrl());
+			}
+			if(action.equalsIgnoreCase("close")) {
+				/*
+				 * { "resource" : "credential" ,
+				 *   "action" : "close" ,
+				 *   "credentialId" : "mydb"
+				 * }
+				 */
+				DatabaseCredential credential = client.removeCredential(credentialId);
+				logger.debug("closing credential: id = {}, url = {}",credential.getCredentialId(), credential.getUrl() );
+			}
+		} else if (resource.equalsIgnoreCase("session")) {
 			if (action.equalsIgnoreCase("create")) {
-				// { resource: "createSession" , url: "jdbc:informix-sqli://..." , className = "com.informix.jdbc.IfxDriver" }
+				// { resource: "createSession" , credentialsId , className = "com.informix.jdbc.IfxDriver" }
 				if (className != null) {
 					try {
 						Class.forName(className);
@@ -116,7 +191,7 @@ public class Operation {
 						throw new RuntimeException(MessageFormat.format("Unable to load class {0}", className), e);
 					}
 				}
-				JdbcSession session = client.newSession(url, sessionId);
+				JdbcSession session = client.newSession(sessionId);
 				logger.debug("created new session id {}", session.getId());
 			} else if (action.equalsIgnoreCase("close")) {
 				JdbcSession session = client.removeJdbcSession(sessionId);

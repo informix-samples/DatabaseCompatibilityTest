@@ -15,11 +15,10 @@ public interface JdbcClient {
 	 * Creates a new JDBC session to the database specified by the url.
 	 * 
 	 * @param url
-	 * @param id
 	 * @return
 	 * @throws SQLException
 	 */
-	public JdbcSession newSession(String url, String id) throws SQLException;
+	public JdbcSession newSession(String url) throws SQLException;
 
 	/**
 	 * Returns the JDBC JdbcSession associated with the specified id.
@@ -65,4 +64,46 @@ public interface JdbcClient {
 	 */
 	public Connection newConnection(String url) throws SQLException;
 
+	/**
+	 * Creates a new Database Credentials to the specified credential object.
+	 * 
+	 * @param credentialId
+	 * 			the name of the credentials
+	 * @param host
+	 * 			the host name or ip the database resides
+	 * @param port
+	 * 			the port number the database is using
+	 * @param databaseName
+	 * 			the name of the database
+	 * @param user 
+	 * 			the name of the user
+	 * @param password
+	 * 			the password of the user
+	 * @param additionalConnectionProperties
+	 * 			additional connection properties
+	 * 			ie: "CLIENT_LOCALE=en_us.utf8;DB_LOCALE=en_us.utf8" 
+	 * @return
+	 */
+	public DatabaseCredential newCredential(String credentialId, String host,
+			Integer port, String databaseName, String user, String password,
+			String additionalConnectionProperties);
+
+	/**
+	 * Closes a new Database Credential to the specified credential object
+	 * 
+	 * @param credentialId
+	 * 			the name of the credentials
+	 * @return
+	 */
+	public DatabaseCredential removeCredential(String credentialId);
+
+	/**
+	 * Returns the Database Credential associated with the specified id
+	 * 
+	 * @param credentialId
+	 * 			the name of the credentials
+	 * @return
+	 */
+	public DatabaseCredential getDatabaseCredential(String credentialId);
+	
 }
