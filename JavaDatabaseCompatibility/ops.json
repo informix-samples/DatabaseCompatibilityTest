@@ -1,5 +1,6 @@
 # initialize the default session
-{"resource":"session","action":"create","url":"jdbc:informix-sqli://10.168.8.130:40000/textdb:INFORMIXSERVER=ids0;USER=informix;PASSWORD=informix;CLIENT_LOCALE=en_us.utf8;DB_LOCALE=en_us.utf8","className":"com.informix.jdbc.IfxDriver"}
+{"resource":"credentials","action":"create","credentialId":"mydb","host":"10.168.8.130","port":40000,"databaseName":"mydb","user":"informix","password":"informix","additionalConnectionProperties":"CLIENT_LOCALE=en_us.utf8;DB_LOCALE=en_us.utf8"}
+{"resource":"session","action":"create","credentialId":"mydb","className":"com.informix.jdbc.IfxDriver"}
 # run some simple count statements
 {"resource":"statement","action":"execute","sql":"select count(tabname) as count from systables where tabid > 99"}
 {"resource":"statement","action":"create","statementId":"test"}
