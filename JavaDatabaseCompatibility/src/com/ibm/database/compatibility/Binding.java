@@ -212,7 +212,9 @@ public class Binding {
 				if (binding.getValue() instanceof Number) {
 					writer.value((Number) binding.getValue());
 				} else if (binding.getValue() instanceof String) {
-						writer.value((String) binding.getValue());
+					writer.value((String) binding.getValue());
+				} else if (binding.getValue() instanceof Boolean) {
+					writer.value((Boolean) binding.getValue());
 				} else {
 					writer.value(GsonUtils.newGson().toJson(binding.getValue()));
 				}

@@ -19,8 +19,9 @@ public class DecimalColumn extends AbstractColumn implements Column {
 		return (double) (seed + Math.PI) * (i % nunique);
 	}
 	
-	public boolean isNumeric() {
-		return true;
+	@SuppressWarnings("rawtypes")
+	public Class getJavaClassName() {
+		return Double.class;
 	}
 	
 }

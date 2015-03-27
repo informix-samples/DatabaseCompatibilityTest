@@ -18,8 +18,8 @@ public class FloatColumn extends AbstractColumn implements Column {
 		return (float) (seed + Math.PI) * (i % nunique);
 	}
 	
-	public boolean isNumeric() {
-		return true;
+	@SuppressWarnings("rawtypes")
+	public Class getJavaClassName() {
+		return Float.class;
 	}
-
 }

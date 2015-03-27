@@ -50,7 +50,8 @@ public class CharColumn extends AbstractColumn implements Column {
 		return v;
 	}
 	
-	public boolean isNumeric() {
-		return false;
+	@SuppressWarnings("rawtypes")
+	public Class getJavaClassName() {
+		return String.class;
 	}
 }

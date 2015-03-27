@@ -40,8 +40,8 @@ public class Operation {
 	private Binding[] bindings = null;
 	private JsonArray expectedResults = null;
 	
-	private int errorCount = 0;
-
+	private Integer errorCount = null;
+	
 	private Operation() {
 
 	}
@@ -161,6 +161,7 @@ public class Operation {
 	}
 
 	public void invoke(JdbcClient client) throws IOException, SQLException {
+		this.errorCount = 0;
 		if (resource.equalsIgnoreCase("credentials")) {
 			if(action.equalsIgnoreCase("create"))	{
 				/*-
@@ -364,6 +365,7 @@ public class Operation {
 					} catch (IllegalStateException e) {
 						logError(MessageFormat.format("expected boolean at at {0}", actual.getPath()));
 					}
+					break;
 				case END_ARRAY:
 					expected.endArray();
 					try {

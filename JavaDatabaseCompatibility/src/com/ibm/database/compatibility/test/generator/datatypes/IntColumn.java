@@ -18,8 +18,9 @@ public class IntColumn extends AbstractColumn implements Column {
 		return (Integer) getNumericValue(i);
 	}
 	
-	public boolean isNumeric() {
-		return true;
+	@SuppressWarnings("rawtypes")
+	public Class getJavaClassName() {
+		return Integer.class;
 	}
 
 }

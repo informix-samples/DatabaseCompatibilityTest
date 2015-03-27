@@ -6,5 +6,5 @@ public interface Column {
 	public String getColumnTypeName();
 	public String getColumnTypeAsSQLString();
 	public Object getValue(int i);
-	public boolean isNumeric();
+	public Class getJavaClassName();
 }
