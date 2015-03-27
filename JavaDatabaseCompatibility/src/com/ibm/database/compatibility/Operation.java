@@ -151,6 +151,11 @@ public class Operation {
 			System.arraycopy(bindings, 0, this.bindings, 0, bindings.length);
 			return this;
 		}
+		
+		public Builder expectedResults(final JsonArray expectedResults) {
+			this.expectedResults = expectedResults;
+			return this;
+		}
 	}
 
 	public void invoke(JdbcClient client) throws IOException, SQLException {
@@ -424,6 +429,9 @@ public class Operation {
 				default:
 					break;
 				}
+			}
+			if (actual.hasNext()) {
+				System.out.println("compare results failed: actual has more results than expected");
 			}
 		} finally {
 			try {
