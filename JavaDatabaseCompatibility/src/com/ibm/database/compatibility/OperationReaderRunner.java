@@ -2,6 +2,7 @@ package com.ibm.database.compatibility;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.sql.SQLException;
 
 public class OperationReaderRunner implements Runnable {
 
@@ -23,6 +24,9 @@ public class OperationReaderRunner implements Runnable {
 					op.invoke(client);
 				}
 			}
+		} catch (SQLException e) {
+			System.err.println(e.getErrorCode() + ":" + e.getMessage());
+			e.printStackTrace();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
