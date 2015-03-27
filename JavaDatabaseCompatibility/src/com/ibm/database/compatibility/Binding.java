@@ -8,6 +8,7 @@ import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 
+import com.google.gson.JsonArray;
 import com.google.gson.TypeAdapter;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonToken;
@@ -47,7 +48,11 @@ public class Binding {
 	public void bind(PreparedStatement ps) throws SQLException {
 		switch (getTypeOfValue()) {
 		case BOOLEAN:
-			ps.setBoolean(getIndex(), (Boolean) getValue());
+			if (getValue() instanceof String) {
+				ps.setBoolean(getIndex(), Boolean.parseBoolean((String)getValue()));
+			} else {
+				ps.setBoolean(getIndex(), (Boolean) getValue());
+			}
 			break;
 		case BYTE:
 			break;
@@ -56,10 +61,22 @@ public class Binding {
 			ps.setString(getIndex(), (String) getValue());
 			break;
 		case DOUBLE:
-			ps.setDouble(getIndex(), (Double) getValue());
+			if (getValue() instanceof String) {
+				ps.setDouble(getIndex(), Double.parseDouble((String)getValue()));
+			} else {
+				ps.setDouble(getIndex(), (Double) getValue());
+			}
 			break;
 		case FLOAT:
-			ps.setFloat(getIndex(), (Float) getValue());
+			if (getValue() instanceof String) {
+				ps.setFloat(getIndex(), Float.parseFloat((String)getValue()));
+			} else if (getValue() instanceof Integer) {
+				ps.setFloat(getIndex(), (Integer) getValue());
+			} else if (getValue() instanceof Double) {
+				ps.setFloat(getIndex(), ((Double) getValue()).floatValue());
+			} else {
+				ps.setFloat(getIndex(), (Float) getValue());
+			}
 			break;
 		case INT:
 			if (getValue() instanceof String) {
@@ -72,7 +89,11 @@ public class Binding {
 			ps.setObject(getIndex(), getValue());
 			break;
 		case SHORT:
-			ps.setShort(getIndex(), (Short) getValue());
+			if (getValue() instanceof String) {
+				ps.setShort(getIndex(), Short.parseShort((String)getValue()));
+			} else {
+				ps.setShort(getIndex(), (Short) getValue());
+			}
 			break;
 		default:
 			break;
@@ -154,14 +175,15 @@ public class Binding {
 		
 		private static Object readNumber(JsonReader reader) throws IOException {
 			Number value = null;
+			String valueAsString = reader.nextString();
 			try {
-				value = reader.nextInt();
+				value = Integer.parseInt(valueAsString) ;
 			} catch (NumberFormatException e0) {
 				try {
-					value = reader.nextLong();
+					value = Long.parseLong(valueAsString);
 				} catch (NumberFormatException e1) {
 					try {
-						value = reader.nextDouble();
+						value = Double.parseDouble(valueAsString);
 					} catch (NumberFormatException e2) {
 						throw new RuntimeException(MessageFormat.format("Unable to read {0} as number", reader.nextString()));
 					}
@@ -187,7 +209,13 @@ public class Binding {
 			}
 			if (binding.getValue() != null) {
 				writer.name("value");
-				writer.value(GsonUtils.newGson().toJson(binding.getValue()));
+				if (binding.getValue() instanceof Number) {
+					writer.value((Number) binding.getValue());
+				} else if (binding.getValue() instanceof String) {
+						writer.value((String) binding.getValue());
+				} else {
+					writer.value(GsonUtils.newGson().toJson(binding.getValue()));
+				}
 			}
 			writer.endObject();
 		}
