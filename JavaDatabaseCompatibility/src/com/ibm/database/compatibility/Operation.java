@@ -39,6 +39,8 @@ public class Operation {
 	private String sql = null;
 	private Binding[] bindings = null;
 	private JsonArray expectedResults = null;
+	
+	private int errorCount = 0;
 
 	private Operation() {
 
@@ -329,7 +331,7 @@ public class Operation {
 		return json;
 	}
 
-	static void compareResults(JsonArray expectedJson, String actualJson) throws IOException {
+	private void compareResults(JsonArray expectedJson, String actualJson) throws IOException {
 		JsonReader expected = null;
 		JsonReader actual = null;
 		try {
@@ -343,7 +345,7 @@ public class Operation {
 					try {
 						actual.beginArray();
 					} catch (IllegalStateException e) {
-						System.out.println(MessageFormat.format("expected begin array at at {0}", actual.getPath()));
+						logError(MessageFormat.format("expected begin array at at {0}", actual.getPath()));
 					}
 					break;
 				case BEGIN_OBJECT:
@@ -351,30 +353,30 @@ public class Operation {
 					try {
 						actual.beginObject();
 					} catch (IllegalStateException e) {
-						System.out.println(MessageFormat.format("expected begin object at at {0}", actual.getPath()));
+						logError(MessageFormat.format("expected begin object at at {0}", actual.getPath()));
 					}
 					break;
 				case BOOLEAN:
 					try {
 						if (expected.nextBoolean() != actual.nextBoolean()) {
-							System.out.println(MessageFormat.format("boolean mismatch at {0}", expected.getPath()));
+							logError(MessageFormat.format("boolean mismatch at {0}", expected.getPath()));
 						}
 					} catch (IllegalStateException e) {
-						System.out.println(MessageFormat.format("expected boolean at at {0}", actual.getPath()));
+						logError(MessageFormat.format("expected boolean at at {0}", actual.getPath()));
 					}
 				case END_ARRAY:
 					expected.endArray();
 					try {
 						actual.endArray();
 					} catch (IllegalStateException e) {
-						System.out.println(MessageFormat.format("expected end array at at {0}", actual.getPath()));
+						logError(MessageFormat.format("expected end array at at {0}", actual.getPath()));
 					}
 					break;
 				case END_DOCUMENT:
 					try {
 						actual.hasNext();
 					} catch (IllegalStateException e) {
-						System.out.println(MessageFormat.format("expected end document at at {0}", actual.getPath()));
+						logError(MessageFormat.format("expected end document at at {0}", actual.getPath()));
 					}
 					break;
 				case END_OBJECT:
@@ -382,7 +384,7 @@ public class Operation {
 					try {
 						actual.endObject();
 					} catch (IllegalStateException e) {
-						System.out.println(MessageFormat.format("expected end object at at {0}", actual.getPath()));
+						logError(MessageFormat.format("expected end object at at {0}", actual.getPath()));
 					}
 					break;
 				case NAME:
@@ -390,10 +392,10 @@ public class Operation {
 						String expectedName = expected.nextName();
 						String actualName = actual.nextName();
 						if (!expectedName.equals(actualName)) {
-							System.out.println(MessageFormat.format("name mismatch at {0} (expected: {1}, actual: {2})", expected.getPath(), expectedName, actualName));
+							logError(MessageFormat.format("name mismatch at {0} (expected: {1}, actual: {2})", expected.getPath(), expectedName, actualName));
 						}
 					} catch (IllegalStateException e) {
-						System.out.println(MessageFormat.format("expected name at at {0}", actual.getPath()));
+						logError(MessageFormat.format("expected name at at {0}", actual.getPath()));
 					}
 					break;
 				case NULL:
@@ -401,7 +403,7 @@ public class Operation {
 					try {
 						actual.nextNull();
 					} catch (IllegalStateException e) {
-						System.out.println(MessageFormat.format("expected null at at {0}", actual.getPath()));
+						logError(MessageFormat.format("expected null at at {0}", actual.getPath()));
 					}
 					break;
 				case NUMBER:
@@ -409,10 +411,10 @@ public class Operation {
 						double expectedDouble = expected.nextDouble();
 						double actualDouble = actual.nextDouble();
 						if (expectedDouble != actualDouble) {
-							System.out.println(MessageFormat.format("double mismatch at {0} (expected: {1}, actual: {2})", expected.getPath(), expectedDouble, actualDouble));
+							logError(MessageFormat.format("double mismatch at {0} (expected: {1}, actual: {2})", expected.getPath(), expectedDouble, actualDouble));
 						}
 					} catch (IllegalStateException e) {
-						System.out.println(MessageFormat.format("expected double at at {0}", actual.getPath()));
+						logError(MessageFormat.format("expected double at at {0}", actual.getPath()));
 					}
 					break;
 				case STRING:
@@ -420,10 +422,10 @@ public class Operation {
 						String expectedString = expected.nextString();
 						String actualString = actual.nextString();
 						if (!expectedString.equals(actualString)) {
-							System.out.println(MessageFormat.format("string mismatch at {0} (expected: {1}, actual: {2})", expected.getPath(), expectedString, actualString));
+							logError(MessageFormat.format("string mismatch at {0} (expected: {1}, actual: {2})", expected.getPath(), expectedString, actualString));
 						}
 					} catch (IllegalStateException e) {
-						System.out.println(MessageFormat.format("expected string at at {0}", actual.getPath()));
+						logError(MessageFormat.format("expected string at at {0}", actual.getPath()));
 					}
 					break;
 				default:
@@ -431,7 +433,7 @@ public class Operation {
 				}
 			}
 			if (actual.hasNext()) {
-				System.out.println("compare results failed: actual has more results than expected");
+				logError("compare results failed: actual has more results than expected");
 			}
 		} finally {
 			try {
@@ -445,6 +447,15 @@ public class Operation {
 				// do nothing
 			}
 		}
+	}
+	
+	private void logError(final String message) {
+		logger.error(message);
+		errorCount ++;
+	}
+	
+	public int getErrorCount() {
+		return errorCount;
 	}
 
 	public static Operation fromJson(String line) {
