@@ -41,7 +41,7 @@ public class OperationReaderRunner implements Runnable {
 			}
 		} catch (SQLException e) {
 			fatalErrors = 1;
-			logger.error("SQLException:" + e.getErrorCode() + "" + e.getMessage(), e);
+			logger.error("SQLException:" + e.getErrorCode() + " " + e.getMessage(), e);
 		} catch (Exception e) {
 			fatalErrors = 1;
 			logger.error("Exception:" + e.getMessage(), e);

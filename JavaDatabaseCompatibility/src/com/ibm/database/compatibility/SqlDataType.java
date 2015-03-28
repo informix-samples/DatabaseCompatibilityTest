@@ -4,16 +4,18 @@ public enum SqlDataType {
 	BOOLEAN, //
 	BYTE, //
 	CHAR, //
-	SHORT, //
+	DATE, //
+	DOUBLE, //
+	FLOAT, //
 	INT, //
 	LONG, //
-	FLOAT, //
-	DOUBLE, //
-	VARCHAR, //
+	LVARCHAR, //
+	NCHAR, //
 	OBJECT, //
-	DATE, //
+	SHORT, //
 	TIME, //
-	TIMESTAMP; //
+	TIMESTAMP, //
+	VARCHAR; //
 
 	public static SqlDataType lookup(String name) {
 		for (SqlDataType sdt : SqlDataType.values()) {

@@ -58,6 +58,8 @@ public class Binding {
 			break;
 		case CHAR:
 		case VARCHAR:
+		case LVARCHAR:
+		case NCHAR:
 			ps.setString(getIndex(), (String) getValue());
 			break;
 		case DOUBLE:

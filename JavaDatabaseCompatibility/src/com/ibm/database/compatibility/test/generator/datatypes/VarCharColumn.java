@@ -5,7 +5,7 @@ import java.util.List;
 
 import com.ibm.database.compatibility.SqlDataType;
 
-public class VarCharColumn extends AbstractColumn implements Column {
+public class VarcharColumn extends AbstractColumn implements Column {
 
 	protected int colLength;
 	protected boolean fillColumn = false;
@@ -19,7 +19,7 @@ public class VarCharColumn extends AbstractColumn implements Column {
 		);
 	protected static final int nunique = dataValues.size();
 	
-	public VarCharColumn(String colName, int colLength, int seed, boolean fillColumn) {
+	public VarcharColumn(String colName, int colLength, int seed, boolean fillColumn) {
 		super(SqlDataType.VARCHAR, colName, seed);
 		this.colLength = colLength;
 		this.fillColumn = fillColumn;
