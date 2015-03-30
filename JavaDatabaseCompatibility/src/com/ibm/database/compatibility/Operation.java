@@ -231,6 +231,7 @@ public class Operation {
 					if (stmt.execute(sql)) {
 						ResultSet rs = stmt.getResultSet();
 						String actualResults = convertResultSetToJson(rs);
+						rs.close();
 						if (expectedResults != null) {
 							compareResults(expectedResults, actualResults);
 						}
@@ -281,6 +282,7 @@ public class Operation {
 					if (pstmt.execute()) {
 						ResultSet rs = pstmt.getResultSet();
 						String actualResults = convertResultSetToJson(rs);
+						rs.close();
 						//System.out.println(actualResults);
 						if (expectedResults != null) {
 							compareResults(expectedResults, actualResults);
