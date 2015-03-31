@@ -9,66 +9,42 @@ public class DatabaseCredential {
 	private String databaseName = null;
 	private String user = null;
 	private String password = null;
-	private String additionalConnectionProperties = null;
+	private String additionalConnectionProperties = "";
 	
-	private DatabaseCredential() {
-		
+	public DatabaseCredential(String credentialId) {
+		this.credentialId = credentialId;
+		getDatabaseCredentialsFromEnv();
 	}
 	
-	public static class Builder {
-		private String credentialId = null;
-		private String host = null;
-		private Integer port = null;
-		private String databaseName = null;
-		private String user = null;
-		private String password = null;
-		private String additionalConnectionProperties = null;
-		
-		public synchronized DatabaseCredential build() {
-			DatabaseCredential dc = new DatabaseCredential();
-			dc.credentialId = credentialId;
-			dc.host = host;
-			dc.port = port;
-			dc.databaseName = databaseName;
-			dc.user = user;
-			dc.password = password;
-			dc.additionalConnectionProperties = additionalConnectionProperties;
-			return dc;
+	private void getDatabaseCredentialsFromEnv() {
+		// In Bluemix, we'll get this info from VCAP services
+		if (System.getenv().containsKey("HOST")) {
+			host = System.getenv("HOST");
+		} else {
+			throw new RuntimeException("Missing HOST env variable");
 		}
-		
-		public Builder credentialId(final String credentialId) {
-			this.credentialId = credentialId;
-			return this;
+		if (System.getenv().containsKey("PORT")) {
+			port = Integer.parseInt(System.getenv("PORT"));
+		} else {
+			throw new RuntimeException("Missing PORT env variable");
 		}
-		
-		public Builder host(final String host) {
-			this.host = host;
-			return this;
+		if (System.getenv().containsKey("DATABASE")) {
+			databaseName = System.getenv("DATABASE");
+		} else {
+			throw new RuntimeException("Missing DATABASE env variable");
 		}
-		
-		public Builder port(final Integer port) {
-			this.port = port;
-			return this;
+		if (System.getenv().containsKey("USER")) {
+			user = System.getenv("USER");
+		} else {
+			throw new RuntimeException("Missing USER env variable");
 		}
-		
-		public Builder databaseName(final String databaseName) {
-			this.databaseName = databaseName;
-			return this;
+		if (System.getenv().containsKey("PASSWORD")) {
+			password = System.getenv("PASSWORD");
+		} else {
+			throw new RuntimeException("Missing PASSWORD env variable");
 		}
-		
-		public Builder user(final String user) {
-			this.user = user;
-			return this;
-		}
-		
-		public Builder password(final String password) {
-			this.password = password;
-			return this;
-		}
-		
-		public Builder additionalConnectionProperties(final String additionalConnectionProperties) {
-			this.additionalConnectionProperties = additionalConnectionProperties;
-			return this;
+		if (System.getenv().containsKey("CONN_PROPERTIES")) {
+			additionalConnectionProperties = System.getenv().get("CONN_PROPERTIES");
 		}
 	}
 	

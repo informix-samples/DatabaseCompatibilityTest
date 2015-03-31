@@ -29,12 +29,6 @@ public class Operation {
 	private String credentialId = null;
 	private String sessionId = null;
 	private String statementId = null;
-	private String host = null;
-	private Integer port = null;
-	private String databaseName = null;
-	private String user = null;
-	private String password = null;
-	private String additionalConnectionProperties = null;
 	private String className = null;
 	private String sql = null;
 	private Binding[] bindings = null;
@@ -52,12 +46,6 @@ public class Operation {
 		private String credentialId = null;
 		private String sessionId = null;
 		private String statementId = null;
-		private String host = null;
-		private Integer port = null;
-		private String databaseName = null;
-		private String user = null;
-		private String password = null;
-		private String additionalConnectionProperties = null;
 		private String className = null;
 		private String sql = null;
 		private Binding[] bindings = null;
@@ -70,12 +58,6 @@ public class Operation {
 			op.credentialId = credentialId;
 			op.sessionId = sessionId;
 			op.statementId = statementId;
-			op.host = host;
-			op.port = port;
-			op.databaseName = databaseName;
-			op.user = user;
-			op.password = password;
-			op.additionalConnectionProperties = additionalConnectionProperties;
 			op.className = className;
 			op.sql = sql;
 			op.bindings = bindings;
@@ -108,36 +90,6 @@ public class Operation {
 			return this;
 		}
 
-		public Builder host(final String host) {
-			this.host = host;
-			return this;
-		}
-
-		public Builder port(final Integer port) {
-			this.port = port;
-			return this;
-		}
-
-		public Builder db(final String databaseName) {
-			this.databaseName = databaseName;
-			return this;
-		}
-
-		public Builder user(final String user) {
-			this.user = user;
-			return this;
-		}
-
-		public Builder password(final String password) {
-			this.password = password;
-			return this;
-		}
-
-		public Builder additionalConnectionProperties(final String additionalConnectionProperties) {
-			this.additionalConnectionProperties = additionalConnectionProperties;
-			return this;
-		}
-
 		public Builder className(final String className) {
 			this.className = className;
 			return this;
@@ -166,17 +118,11 @@ public class Operation {
 			if(action.equalsIgnoreCase("create"))	{
 				/*-
 				 * { "resource" : "credential" ,
-				 *   "action" : "create" ,
-				 *   "credentialId" : "mydb" ,
-				 *   "host" : "10.168.8.130" ,
-				 *   "port" : 40000 ,
-				 *   "db" : "textdb" ,
-				 *   "user" : "informix" ,
-				 *   "password" : "informix" ,
-				 *   "additionalConnectionProperties" : "CLIENT_LOCALE=en_us.utf8;DB_LOCALE=en_us.utf8"
+				 *   "action" : "create" 
 				 * }
+				 * Actual server credential info should be picked up from the environment, e.g. VCAP services.
 				 */
-				DatabaseCredential credential = client.newCredential(credentialId, host, port, databaseName, user, password, additionalConnectionProperties);
+				DatabaseCredential credential = client.newCredential(credentialId);
 				logger.debug("creating credential: id = {}, url = {}", credential.getCredentialId(), credential.getUrl());
 			}
 			if(action.equalsIgnoreCase("close")) {

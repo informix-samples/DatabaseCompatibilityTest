@@ -59,15 +59,12 @@ public class OperationReaderRunner implements Runnable {
 
 		if (nonFatalErrors == 0 && fatalErrors == 0) {
 			System.out.println("\n\nTEST PASSED");
-			System.out.println(MessageFormat.format("successful operations: {0}", successfulOps));
-			System.out.println(MessageFormat.format("errors: {0}", nonFatalErrors + fatalErrors));
-			System.out.println(MessageFormat.format("fatal errors: {0} ", fatalErrors));
 		} else {
 			System.err.println("\n\nTEST FAILED");	
-			System.err.println(MessageFormat.format("successful operations: {0}", successfulOps));
-			System.err.println(MessageFormat.format("errors: {0}", nonFatalErrors + fatalErrors));
-			System.err.println(MessageFormat.format("fatal errors: {0} ", fatalErrors));
 		}
+		System.out.println(MessageFormat.format("successful operations: {0}", successfulOps));
+		System.out.println(MessageFormat.format("errors: {0}", nonFatalErrors + fatalErrors));
+		System.out.println(MessageFormat.format("fatal errors: {0} ", fatalErrors));
 
 	}
 
@@ -78,7 +75,7 @@ public class OperationReaderRunner implements Runnable {
 			os = new JsonOperationReader("dataTypeTest_CHAR.json");
 			OperationReaderRunner osr = new OperationReaderRunner(client, os);
 			osr.run();
-		} catch (FileNotFoundException e) {
+		} catch (Exception e) {
 			if (os != null) {
 				try {
 					os.close();

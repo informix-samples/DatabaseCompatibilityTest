@@ -67,13 +67,11 @@ public class BasicJdbcClient implements JdbcClient {
 	}
 
 	@Override
-	public DatabaseCredential newCredential(String credentialId, String host,
-			Integer port, String databaseName, String user, String password,
-			String additionalConnectionProperties) {
+	public DatabaseCredential newCredential(String credentialId) {
 		if(credentialId != null) {
 			this.lastCredentialId = credentialId;
 		}
-		DatabaseCredential credential = new DatabaseCredential.Builder().credentialId(this.lastCredentialId).host(host).port(port).databaseName(databaseName).user(user).password(password).additionalConnectionProperties(additionalConnectionProperties).build();
+		DatabaseCredential credential = new DatabaseCredential(this.lastCredentialId);
 		this.credentials.put(lastCredentialId, credential);
 		return credential;
 	}

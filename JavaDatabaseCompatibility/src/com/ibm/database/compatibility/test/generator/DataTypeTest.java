@@ -27,15 +27,8 @@ public class DataTypeTest {
 	public static int N_INSERTS = 10;
 	public static int N_QUERIES = 3;
 	
-	public static String host = "localhost";
-	public static int port = 8088;
-	public static String dbname = "test";
-	public static String user = "informix";
-	public static String password = "password";
-	public static String additionalConnectionProperties = "CLIENT_LOCALE=en_us.utf8;DB_LOCALE=en_us.utf8";
-	
 	public static Operation getCreateCredentialsOperation() {
-		return new Operation.Builder().resource("credentials").action("create").credentialId("test").host(host).port(port).db(dbname).user(user).password(password).additionalConnectionProperties(additionalConnectionProperties).build();
+		return new Operation.Builder().resource("credentials").action("create").credentialId("test").build();
 	}
 	
 	public static Operation getCreateSessionOperation(String sessionId) {
@@ -407,32 +400,10 @@ public class DataTypeTest {
 //		jow.writeComment("end of integer test");
 //	}
 	
-	public static void getSystemEnv() {
-		if (System.getenv().containsKey("HOST")) {
-			host = System.getenv("HOST");
-		}
-		if (System.getenv().containsKey("PORT")) {
-			port = Integer.parseInt(System.getenv("PORT"));
-		}
-		if (System.getenv().containsKey("DATABASE")) {
-			dbname = System.getenv("DATABASE");
-		}
-		if (System.getenv().containsKey("USER")) {
-			user = System.getenv("USER");
-		}
-		if (System.getenv().containsKey("PASSWORD")) {
-			password = System.getenv("PASSWORD");
-		}
-		if (System.getenv().containsKey("CONN_PROPERTIES")) {
-			additionalConnectionProperties = System.getenv().get("CONN_PROPERTIES");
-		}
-	}
-	
 	/**
 	 * @param args
 	 */
 	public static void main(String[] args) throws IOException {
-		getSystemEnv();
 		generateIntTest("dataTypeTest_INT.json");
 		generateFloatTest("dataTypeTest_FLOAT.json");
 		generateCharTest("dataTypeTest_CHAR.json");

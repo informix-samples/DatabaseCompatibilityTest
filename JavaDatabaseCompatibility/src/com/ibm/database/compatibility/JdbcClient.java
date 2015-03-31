@@ -65,28 +65,13 @@ public interface JdbcClient {
 	public Connection newConnection(String url) throws SQLException;
 
 	/**
-	 * Creates a new Database Credentials to the specified credential object.
+	 * Creates a new database credential object.
 	 * 
 	 * @param credentialId
-	 * 			the name of the credentials
-	 * @param host
-	 * 			the host name or ip the database resides
-	 * @param port
-	 * 			the port number the database is using
-	 * @param databaseName
-	 * 			the name of the database
-	 * @param user 
-	 * 			the name of the user
-	 * @param password
-	 * 			the password of the user
-	 * @param additionalConnectionProperties
-	 * 			additional connection properties
-	 * 			ie: "CLIENT_LOCALE=en_us.utf8;DB_LOCALE=en_us.utf8" 
+	 * 			the name of the credentials 
 	 * @return
 	 */
-	public DatabaseCredential newCredential(String credentialId, String host,
-			Integer port, String databaseName, String user, String password,
-			String additionalConnectionProperties);
+	public DatabaseCredential newCredential(String credentialId);
 
 	/**
 	 * Closes a new Database Credential to the specified credential object
