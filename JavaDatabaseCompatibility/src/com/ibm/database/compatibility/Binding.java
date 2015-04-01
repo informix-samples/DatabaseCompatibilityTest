@@ -8,7 +8,6 @@ import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 
-import com.google.gson.JsonArray;
 import com.google.gson.TypeAdapter;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonToken;
@@ -87,18 +86,26 @@ public class Binding {
 				ps.setInt(getIndex(), ((Number) getValue()).intValue());
 			}
 			break;
+		case BIGINT:
+		case INT8:
+			if (getValue() instanceof String) {
+				ps.setLong(getIndex(), Long.parseLong((String)getValue()));
+			} else if (getValue() instanceof Number){
+				ps.setLong(getIndex(), ((Long) getValue()).longValue());
+			}
+			break;
 		case OBJECT:
 			ps.setObject(getIndex(), getValue());
 			break;
-		case SHORT:
+		case SMALLINT:
 			if (getValue() instanceof String) {
 				ps.setShort(getIndex(), Short.parseShort((String)getValue()));
 			} else {
-				ps.setShort(getIndex(), (Short) getValue());
+				ps.setShort(getIndex(), ((Integer) getValue()).shortValue());
 			}
 			break;
 		default:
-			break;
+			throw new RuntimeException(MessageFormat.format("No binding found for type {0}", getTypeOfValue()));
 		}
 	}
 	

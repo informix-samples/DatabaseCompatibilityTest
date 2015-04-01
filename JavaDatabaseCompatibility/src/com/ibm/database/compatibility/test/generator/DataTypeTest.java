@@ -11,19 +11,31 @@ import com.google.gson.JsonObject;
 import com.ibm.database.compatibility.Binding;
 import com.ibm.database.compatibility.Binding.BindingsBuilder;
 import com.ibm.database.compatibility.JsonOperationWriter;
+import com.ibm.database.compatibility.SqlDataType;
+import com.ibm.database.compatibility.test.generator.datatypes.BigIntColumn;
 import com.ibm.database.compatibility.test.generator.datatypes.BooleanColumn;
 import com.ibm.database.compatibility.test.generator.datatypes.CharColumn;
 import com.ibm.database.compatibility.test.generator.datatypes.Column;
 import com.ibm.database.compatibility.test.generator.datatypes.FloatColumn;
+import com.ibm.database.compatibility.test.generator.datatypes.Int8Column;
 import com.ibm.database.compatibility.test.generator.datatypes.IntColumn;
 import com.ibm.database.compatibility.test.generator.datatypes.LVarcharColumn;
 import com.ibm.database.compatibility.test.generator.datatypes.NCharColumn;
+import com.ibm.database.compatibility.test.generator.datatypes.SmallIntColumn;
 import com.ibm.database.compatibility.test.generator.datatypes.VarcharColumn;
 
 public class DataTypeTest {
 	
+	public static String FILEPATH = "resources/";
+	public static String FILEPREFIX = "dataTypeTest_";
+	public static String FILESUFFIX = ".json";
+	
 	public static int N_INSERTS = 10;
 	public static int N_QUERIES = 3;
+	
+	public static String getTestOutputFileName(String datatype) {
+		return FILEPATH + FILEPREFIX + datatype + FILESUFFIX;
+	}
 	
 	/**
 	 * Create a data type test for the specified column types 
@@ -72,7 +84,7 @@ public class DataTypeTest {
 		bb = new Binding.BindingsBuilder().add(1, column.getValue(insertI), column.getColumnTypeName());
 		jow.write(TestGeneratorUtils.getExecutePstmtOperation("query", bb.build(), expectedResult));
 		
-		jow.writeComment("query for udpated row");
+		jow.writeComment("query for updated row");
 		expectedResult.add(row);
 		bb = new Binding.BindingsBuilder().add(1, column.getValue(updateI), column.getColumnTypeName());
 		jow.write(TestGeneratorUtils.getExecutePstmtOperation("query", bb.build(), expectedResult));
@@ -166,10 +178,11 @@ public class DataTypeTest {
 		}
 	}
 	
-	public static void generateIntTest(String filename) throws IOException {
+	public static void generateIntTest() throws IOException {
+		String datatype = SqlDataType.INT.toString();
 		String testName = "int datatype test";
 		String tabName = "int_test";
-		JsonOperationWriter jow = new JsonOperationWriter(filename);
+		JsonOperationWriter jow = new JsonOperationWriter(getTestOutputFileName(datatype));
 		TestGeneratorUtils.writeStartTestInfo(jow, testName);
 		
 		createDataTypeTest_CRUD(jow, tabName, new IntColumn("i0", 0));
@@ -187,12 +200,73 @@ public class DataTypeTest {
 		jow.flush();
 		jow.close();
 	}
+
+	public static void generateBigIntTest() throws IOException {
+		String datatype = SqlDataType.BIGINT.toString();
+		String testName = "bigint datatype test";
+		String tabName = "bigint_test";
+		JsonOperationWriter jow = new JsonOperationWriter(getTestOutputFileName(datatype));
+		TestGeneratorUtils.writeStartTestInfo(jow, testName);
+		
+		createDataTypeTest_CRUD(jow, tabName, new BigIntColumn("i0", 10));
+
+		List<Column> columns = new ArrayList<Column>();
+		int nColumns = 3;
+		for (int j = 0; j < nColumns; j++) {
+			columns.add(new BigIntColumn("i" + j, 60 - j));
+		}
+		createDataTypeTest_QueryInsertPstmt(jow,tabName, columns, N_INSERTS, N_QUERIES);
+		TestGeneratorUtils.writeEndTestInfo(jow, testName);
+		jow.flush();
+		jow.close();
+	}
+
+	public static void generateInt8Test() throws IOException {
+		String datatype = SqlDataType.INT8.toString();
+		String testName = "int8 datatype test";
+		String tabName = "int8_test";
+		JsonOperationWriter jow = new JsonOperationWriter(getTestOutputFileName(datatype));
+		TestGeneratorUtils.writeStartTestInfo(jow, testName);
+		
+		createDataTypeTest_CRUD(jow, tabName, new Int8Column("i0", 12));
+
+		List<Column> columns = new ArrayList<Column>();
+		int nColumns = 3;
+		for (int j = 0; j < nColumns; j++) {
+			columns.add(new Int8Column("i" + j, 59 - j));
+		}
+		createDataTypeTest_QueryInsertPstmt(jow,tabName, columns, N_INSERTS, N_QUERIES);
+		TestGeneratorUtils.writeEndTestInfo(jow, testName);
+		jow.flush();
+		jow.close();
+	}
+
+	public static void generateSmallIntTest() throws IOException {
+		String datatype = SqlDataType.SMALLINT.toString();
+		String testName = "smallint datatype test";
+		String tabName = "smallint_test";
+		JsonOperationWriter jow = new JsonOperationWriter(getTestOutputFileName(datatype));
+		TestGeneratorUtils.writeStartTestInfo(jow, testName);
+		
+		createDataTypeTest_CRUD(jow, tabName, new SmallIntColumn("i0", 11));
+
+		List<Column> columns = new ArrayList<Column>();
+		int nColumns = 3;
+		for (int j = 0; j < nColumns; j++) {
+			columns.add(new SmallIntColumn("i" + j, 59 - j));
+		}
+		createDataTypeTest_QueryInsertPstmt(jow,tabName, columns, N_INSERTS, N_QUERIES);
+		TestGeneratorUtils.writeEndTestInfo(jow, testName);
+		jow.flush();
+		jow.close();
+	}
 	
-	public static void generateFloatTest(String filename) throws IOException {
+	public static void generateFloatTest() throws IOException {
 		// TODO: Test precision in float column?
+		String datatype = SqlDataType.FLOAT.toString();
 		String testName = "float datatype test";
 		String tabName = "float_test";
-		JsonOperationWriter jow = new JsonOperationWriter(filename);
+		JsonOperationWriter jow = new JsonOperationWriter(getTestOutputFileName(datatype));
 		TestGeneratorUtils.writeStartTestInfo(jow, testName);
 		
 		createDataTypeTest_CRUD(jow, tabName, new FloatColumn("i0", 0));
@@ -211,10 +285,11 @@ public class DataTypeTest {
 		jow.close();
 	}
 	
-	public static void generateCharTest(String filename) throws IOException {
+	public static void generateCharTest() throws IOException {
+		String datatype = SqlDataType.CHAR.toString();
 		String testName = "char datatype test";
 		String tabName = "char_test";
-		JsonOperationWriter jow = new JsonOperationWriter(filename);
+		JsonOperationWriter jow = new JsonOperationWriter(getTestOutputFileName(datatype));
 		TestGeneratorUtils.writeStartTestInfo(jow, testName);
 		
 		createDataTypeTest_CRUD(jow, tabName, new CharColumn("i0", 1, 0, true));
@@ -242,10 +317,11 @@ public class DataTypeTest {
 		jow.close();
 	}
 	
-	public static void generateVarcharTest(String filename) throws IOException {
+	public static void generateVarcharTest() throws IOException {
+		String datatype = SqlDataType.VARCHAR.toString();
 		String testName = "varchar datatype test";
 		String tabName = "varchar_test";
-		JsonOperationWriter jow = new JsonOperationWriter(filename);
+		JsonOperationWriter jow = new JsonOperationWriter(getTestOutputFileName(datatype));
 		TestGeneratorUtils.writeStartTestInfo(jow, testName);
 		
 		createDataTypeTest_CRUD(jow, tabName, new VarcharColumn("i0", 5, 0, true));
@@ -267,10 +343,11 @@ public class DataTypeTest {
 		jow.close();
 	}
 
-	public static void generateLVarcharTest(String filename) throws IOException {
+	public static void generateLVarcharTest() throws IOException {
+		String datatype = SqlDataType.LVARCHAR.toString();
 		String testName = "lvarchar datatype test";
 		String tabName = "lvarchar_test";
-		JsonOperationWriter jow = new JsonOperationWriter(filename);
+		JsonOperationWriter jow = new JsonOperationWriter(getTestOutputFileName(datatype));
 		TestGeneratorUtils.writeStartTestInfo(jow, testName);
 		
 		createDataTypeTest_CRUD(jow, tabName, new LVarcharColumn("i0", 500, 0));
@@ -292,10 +369,11 @@ public class DataTypeTest {
 		jow.close();
 	}
 	
-	public static void generateNCharTest(String filename) throws IOException {
+	public static void generateNCharTest() throws IOException {
+		String datatype = SqlDataType.NCHAR.toString();
 		String testName = "nchar datatype test";
 		String tabName = "nchar_test";
-		JsonOperationWriter jow = new JsonOperationWriter(filename);
+		JsonOperationWriter jow = new JsonOperationWriter(getTestOutputFileName(datatype));
 		TestGeneratorUtils.writeStartTestInfo(jow, testName);
 		
 		createDataTypeTest_CRUD(jow, tabName, new NCharColumn("i0", 2, 0));
@@ -317,10 +395,11 @@ public class DataTypeTest {
 		jow.close();
 	}
 
-	public static void generateBooleanTest(String filename) throws IOException {
+	public static void generateBooleanTest() throws IOException {
+		String datatype = SqlDataType.BOOLEAN.toString();
 		String testName = "boolean datatype test";
 		String tabName = "boolean_test";
-		JsonOperationWriter jow = new JsonOperationWriter(filename);
+		JsonOperationWriter jow = new JsonOperationWriter(getTestOutputFileName(datatype));
 		TestGeneratorUtils.writeStartTestInfo(jow, testName);
 		
 		createDataTypeTest_CRUD(jow, tabName, new BooleanColumn("i0", 0));
@@ -385,13 +464,16 @@ public class DataTypeTest {
 	 * @param args
 	 */
 	public static void main(String[] args) throws IOException {
-		generateIntTest("dataTypeTest_INT.json");
-		generateFloatTest("dataTypeTest_FLOAT.json");
-		generateCharTest("dataTypeTest_CHAR.json");
-		generateVarcharTest("dataTypeTest_VARCHAR.json");
-		generateLVarcharTest("dataTypeTest_LVARCHAR.json");
-		generateNCharTest("dataTypeTest_NCHAR.json");
-		generateBooleanTest("dataTypeTest_BOOLEAN.json");
+		generateIntTest();
+		generateBigIntTest();
+		generateInt8Test();
+		generateSmallIntTest();
+		generateFloatTest();
+		generateCharTest();
+		generateVarcharTest();
+		generateLVarcharTest();
+		generateNCharTest();
+		generateBooleanTest();
 	}
 
 }

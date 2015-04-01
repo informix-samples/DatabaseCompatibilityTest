@@ -4,7 +4,7 @@ import com.ibm.database.compatibility.SqlDataType;
 
 public abstract class AbstractColumn implements Column {
 
-	protected final SqlDataType columnType;
+	protected SqlDataType columnType;
 	protected final String columnName;
 	protected final int seed; 
 	
