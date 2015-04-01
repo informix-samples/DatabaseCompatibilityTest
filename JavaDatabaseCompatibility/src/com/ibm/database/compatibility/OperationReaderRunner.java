@@ -1,6 +1,5 @@
 package com.ibm.database.compatibility;
 
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.text.MessageFormat;
@@ -72,7 +71,7 @@ public class OperationReaderRunner implements Runnable {
 		JdbcClient client = new BasicJdbcClient();
 		JsonOperationReader os = null;
 		try {
-			os = new JsonOperationReader("dataTypeTest_CHAR.json");
+			os = new JsonOperationReader("resources/dataTypeTest_CHAR.json");
 			OperationReaderRunner osr = new OperationReaderRunner(client, os);
 			osr.run();
 		} catch (Exception e) {

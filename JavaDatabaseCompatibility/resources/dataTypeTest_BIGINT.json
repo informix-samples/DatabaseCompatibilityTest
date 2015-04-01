@@ -1,0 +1,58 @@
+# start of test: bigint datatype test
+{"resource":"credentials","action":"create","credentialId":"test"}
+# ---- Testing CRUD operations ----
+{"resource":"session","action":"create","sessionId":"testCRUD","className":"com.informix.jdbc.IfxDriver"}
+# creating table
+{"resource":"statement","action":"execute","statementId":"ddl","sql":"DROP TABLE IF EXISTS bigint_test"}
+{"resource":"statement","action":"execute","statementId":"ddl","sql":"CREATE TABLE bigint_test (i0 BIGINT)"}
+{"resource":"statement","action":"close","statementId":"ddl"}
+# insert row
+{"resource":"preparedStatement","action":"create","statementId":"insert","sql":"INSERT INTO bigint_test VALUES (?)"}
+{"resource":"preparedStatement","action":"execute","statementId":"insert","bindings":[{"index":1,"type":"BIGINT","value":549755813888}]}
+# query for row
+{"resource":"preparedStatement","action":"create","statementId":"query","sql":"SELECT * FROM bigint_test WHERE i0 = ? "}
+{"resource":"preparedStatement","action":"execute","statementId":"query","bindings":[{"index":1,"type":"BIGINT","value":549755813888}],"expectedResults":[{"i0":549755813888}]}
+# update row
+{"resource":"preparedStatement","action":"create","statementId":"update","sql":"UPDATE bigint_test SET i0 = ? WHERE i0 = ?"}
+{"resource":"preparedStatement","action":"execute","statementId":"update","bindings":[{"index":1,"type":"BIGINT","value":1099511627776},{"index":2,"type":"BIGINT","value":549755813888}],"expectedResults":[{"i0":549755813888}]}
+# query for original row
+{"resource":"preparedStatement","action":"execute","statementId":"query","bindings":[{"index":1,"type":"BIGINT","value":549755813888}],"expectedResults":[]}
+# query for updated row
+{"resource":"preparedStatement","action":"execute","statementId":"query","bindings":[{"index":1,"type":"BIGINT","value":1099511627776}],"expectedResults":[{"i0":1099511627776}]}
+# delete row
+{"resource":"preparedStatement","action":"create","statementId":"delete","sql":"DELETE FROM bigint_test WHERE i0 = ?"}
+{"resource":"preparedStatement","action":"execute","statementId":"delete","bindings":[{"index":1,"type":"BIGINT","value":1099511627776}],"expectedResults":[{"i0":1099511627776}]}
+# query for delete row
+{"resource":"preparedStatement","action":"execute","statementId":"query","bindings":[{"index":1,"type":"BIGINT","value":1099511627776}],"expectedResults":[]}
+# dropping table
+{"resource":"statement","action":"execute","statementId":"ddl","sql":"DROP TABLE IF EXISTS bigint_test"}
+{"resource":"statement","action":"close","statementId":"ddl"}
+# ---- Testing query and insert prepared statement reuse ----
+{"resource":"session","action":"create","sessionId":"testPstmt","className":"com.informix.jdbc.IfxDriver"}
+# creating table
+{"resource":"statement","action":"execute","statementId":"ddl","sql":"DROP TABLE IF EXISTS bigint_test"}
+{"resource":"statement","action":"execute","statementId":"ddl","sql":"CREATE TABLE bigint_test (i0 BIGINT,i1 BIGINT,i2 BIGINT)"}
+{"resource":"statement","action":"close","statementId":"ddl"}
+# inserting data
+{"resource":"preparedStatement","action":"create","statementId":"insert","sql":"INSERT INTO bigint_test VALUES (?,?,?)"}
+{"resource":"preparedStatement","action":"execute","statementId":"insert","bindings":[{"index":1,"type":"BIGINT","value":4294967296},{"index":2,"type":"BIGINT","value":2305843009213693952},{"index":3,"type":"BIGINT","value":1152921504606846976}]}
+{"resource":"preparedStatement","action":"execute","statementId":"insert","bindings":[{"index":1,"type":"BIGINT","value":8589934592},{"index":2,"type":"BIGINT","value":4294967296},{"index":3,"type":"BIGINT","value":2305843009213693952}]}
+{"resource":"preparedStatement","action":"execute","statementId":"insert","bindings":[{"index":1,"type":"BIGINT","value":17179869184},{"index":2,"type":"BIGINT","value":8589934592},{"index":3,"type":"BIGINT","value":4294967296}]}
+{"resource":"preparedStatement","action":"execute","statementId":"insert","bindings":[{"index":1,"type":"BIGINT","value":34359738368},{"index":2,"type":"BIGINT","value":17179869184},{"index":3,"type":"BIGINT","value":8589934592}]}
+{"resource":"preparedStatement","action":"execute","statementId":"insert","bindings":[{"index":1,"type":"BIGINT","value":68719476736},{"index":2,"type":"BIGINT","value":34359738368},{"index":3,"type":"BIGINT","value":17179869184}]}
+{"resource":"preparedStatement","action":"execute","statementId":"insert","bindings":[{"index":1,"type":"BIGINT","value":137438953472},{"index":2,"type":"BIGINT","value":68719476736},{"index":3,"type":"BIGINT","value":34359738368}]}
+{"resource":"preparedStatement","action":"execute","statementId":"insert","bindings":[{"index":1,"type":"BIGINT","value":274877906944},{"index":2,"type":"BIGINT","value":137438953472},{"index":3,"type":"BIGINT","value":68719476736}]}
+{"resource":"preparedStatement","action":"execute","statementId":"insert","bindings":[{"index":1,"type":"BIGINT","value":549755813888},{"index":2,"type":"BIGINT","value":274877906944},{"index":3,"type":"BIGINT","value":137438953472}]}
+{"resource":"preparedStatement","action":"execute","statementId":"insert","bindings":[{"index":1,"type":"BIGINT","value":1099511627776},{"index":2,"type":"BIGINT","value":549755813888},{"index":3,"type":"BIGINT","value":274877906944}]}
+{"resource":"preparedStatement","action":"execute","statementId":"insert","bindings":[{"index":1,"type":"BIGINT","value":2199023255552},{"index":2,"type":"BIGINT","value":1099511627776},{"index":3,"type":"BIGINT","value":549755813888}]}
+{"resource":"preparedStatement","action":"close","statementId":"insert"}
+# running equality query and validating data
+{"resource":"preparedStatement","action":"create","statementId":"query","sql":"SELECT * FROM bigint_test WHERE i0 = ? "}
+{"resource":"preparedStatement","action":"execute","statementId":"query","bindings":[{"index":1,"type":"BIGINT","value":4294967296}],"expectedResults":[{"i0":4294967296,"i1":2305843009213693952,"i2":1152921504606846976}]}
+{"resource":"preparedStatement","action":"execute","statementId":"query","bindings":[{"index":1,"type":"BIGINT","value":34359738368}],"expectedResults":[{"i0":34359738368,"i1":17179869184,"i2":8589934592}]}
+{"resource":"preparedStatement","action":"execute","statementId":"query","bindings":[{"index":1,"type":"BIGINT","value":274877906944}],"expectedResults":[{"i0":274877906944,"i1":137438953472,"i2":68719476736}]}
+{"resource":"preparedStatement","action":"close","statementId":"query"}
+# dropping table
+{"resource":"statement","action":"execute","statementId":"ddl","sql":"DROP TABLE IF EXISTS bigint_test"}
+{"resource":"statement","action":"close","statementId":"ddl"}
+# end of test: bigint datatype test

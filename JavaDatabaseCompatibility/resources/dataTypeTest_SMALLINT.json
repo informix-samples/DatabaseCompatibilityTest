@@ -1,0 +1,58 @@
+# start of test: smallint datatype test
+{"resource":"credentials","action":"create","credentialId":"test"}
+# ---- Testing CRUD operations ----
+{"resource":"session","action":"create","sessionId":"testCRUD","className":"com.informix.jdbc.IfxDriver"}
+# creating table
+{"resource":"statement","action":"execute","statementId":"ddl","sql":"DROP TABLE IF EXISTS smallint_test"}
+{"resource":"statement","action":"execute","statementId":"ddl","sql":"CREATE TABLE smallint_test (i0 SMALLINT)"}
+{"resource":"statement","action":"close","statementId":"ddl"}
+# insert row
+{"resource":"preparedStatement","action":"create","statementId":"insert","sql":"INSERT INTO smallint_test VALUES (?)"}
+{"resource":"preparedStatement","action":"execute","statementId":"insert","bindings":[{"index":1,"type":"SMALLINT","value":38}]}
+# query for row
+{"resource":"preparedStatement","action":"create","statementId":"query","sql":"SELECT * FROM smallint_test WHERE i0 = ? "}
+{"resource":"preparedStatement","action":"execute","statementId":"query","bindings":[{"index":1,"type":"SMALLINT","value":38}],"expectedResults":[{"i0":38}]}
+# update row
+{"resource":"preparedStatement","action":"create","statementId":"update","sql":"UPDATE smallint_test SET i0 = ? WHERE i0 = ?"}
+{"resource":"preparedStatement","action":"execute","statementId":"update","bindings":[{"index":1,"type":"SMALLINT","value":99},{"index":2,"type":"SMALLINT","value":38}],"expectedResults":[{"i0":38}]}
+# query for original row
+{"resource":"preparedStatement","action":"execute","statementId":"query","bindings":[{"index":1,"type":"SMALLINT","value":38}],"expectedResults":[]}
+# query for updated row
+{"resource":"preparedStatement","action":"execute","statementId":"query","bindings":[{"index":1,"type":"SMALLINT","value":99}],"expectedResults":[{"i0":99}]}
+# delete row
+{"resource":"preparedStatement","action":"create","statementId":"delete","sql":"DELETE FROM smallint_test WHERE i0 = ?"}
+{"resource":"preparedStatement","action":"execute","statementId":"delete","bindings":[{"index":1,"type":"SMALLINT","value":99}],"expectedResults":[{"i0":99}]}
+# query for delete row
+{"resource":"preparedStatement","action":"execute","statementId":"query","bindings":[{"index":1,"type":"SMALLINT","value":99}],"expectedResults":[]}
+# dropping table
+{"resource":"statement","action":"execute","statementId":"ddl","sql":"DROP TABLE IF EXISTS smallint_test"}
+{"resource":"statement","action":"close","statementId":"ddl"}
+# ---- Testing query and insert prepared statement reuse ----
+{"resource":"session","action":"create","sessionId":"testPstmt","className":"com.informix.jdbc.IfxDriver"}
+# creating table
+{"resource":"statement","action":"execute","statementId":"ddl","sql":"DROP TABLE IF EXISTS smallint_test"}
+{"resource":"statement","action":"execute","statementId":"ddl","sql":"CREATE TABLE smallint_test (i0 SMALLINT,i1 SMALLINT,i2 SMALLINT)"}
+{"resource":"statement","action":"close","statementId":"ddl"}
+# inserting data
+{"resource":"preparedStatement","action":"create","statementId":"insert","sql":"INSERT INTO smallint_test VALUES (?,?,?)"}
+{"resource":"preparedStatement","action":"execute","statementId":"insert","bindings":[{"index":1,"type":"SMALLINT","value":59},{"index":2,"type":"SMALLINT","value":58},{"index":3,"type":"SMALLINT","value":57}]}
+{"resource":"preparedStatement","action":"execute","statementId":"insert","bindings":[{"index":1,"type":"SMALLINT","value":60},{"index":2,"type":"SMALLINT","value":59},{"index":3,"type":"SMALLINT","value":58}]}
+{"resource":"preparedStatement","action":"execute","statementId":"insert","bindings":[{"index":1,"type":"SMALLINT","value":61},{"index":2,"type":"SMALLINT","value":60},{"index":3,"type":"SMALLINT","value":59}]}
+{"resource":"preparedStatement","action":"execute","statementId":"insert","bindings":[{"index":1,"type":"SMALLINT","value":62},{"index":2,"type":"SMALLINT","value":61},{"index":3,"type":"SMALLINT","value":60}]}
+{"resource":"preparedStatement","action":"execute","statementId":"insert","bindings":[{"index":1,"type":"SMALLINT","value":63},{"index":2,"type":"SMALLINT","value":62},{"index":3,"type":"SMALLINT","value":61}]}
+{"resource":"preparedStatement","action":"execute","statementId":"insert","bindings":[{"index":1,"type":"SMALLINT","value":64},{"index":2,"type":"SMALLINT","value":63},{"index":3,"type":"SMALLINT","value":62}]}
+{"resource":"preparedStatement","action":"execute","statementId":"insert","bindings":[{"index":1,"type":"SMALLINT","value":65},{"index":2,"type":"SMALLINT","value":64},{"index":3,"type":"SMALLINT","value":63}]}
+{"resource":"preparedStatement","action":"execute","statementId":"insert","bindings":[{"index":1,"type":"SMALLINT","value":66},{"index":2,"type":"SMALLINT","value":65},{"index":3,"type":"SMALLINT","value":64}]}
+{"resource":"preparedStatement","action":"execute","statementId":"insert","bindings":[{"index":1,"type":"SMALLINT","value":67},{"index":2,"type":"SMALLINT","value":66},{"index":3,"type":"SMALLINT","value":65}]}
+{"resource":"preparedStatement","action":"execute","statementId":"insert","bindings":[{"index":1,"type":"SMALLINT","value":68},{"index":2,"type":"SMALLINT","value":67},{"index":3,"type":"SMALLINT","value":66}]}
+{"resource":"preparedStatement","action":"close","statementId":"insert"}
+# running equality query and validating data
+{"resource":"preparedStatement","action":"create","statementId":"query","sql":"SELECT * FROM smallint_test WHERE i0 = ? "}
+{"resource":"preparedStatement","action":"execute","statementId":"query","bindings":[{"index":1,"type":"SMALLINT","value":59}],"expectedResults":[{"i0":59,"i1":58,"i2":57}]}
+{"resource":"preparedStatement","action":"execute","statementId":"query","bindings":[{"index":1,"type":"SMALLINT","value":62}],"expectedResults":[{"i0":62,"i1":61,"i2":60}]}
+{"resource":"preparedStatement","action":"execute","statementId":"query","bindings":[{"index":1,"type":"SMALLINT","value":65}],"expectedResults":[{"i0":65,"i1":64,"i2":63}]}
+{"resource":"preparedStatement","action":"close","statementId":"query"}
+# dropping table
+{"resource":"statement","action":"execute","statementId":"ddl","sql":"DROP TABLE IF EXISTS smallint_test"}
+{"resource":"statement","action":"close","statementId":"ddl"}
+# end of test: smallint datatype test
