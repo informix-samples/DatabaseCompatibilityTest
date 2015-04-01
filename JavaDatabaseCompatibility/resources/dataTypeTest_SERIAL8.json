@@ -1,0 +1,52 @@
+# start of test: serial8 datatype test
+{"resource":"credentials","action":"create","credentialId":"test"}
+# ---- Testing CRUD operations ----
+{"resource":"session","action":"create","sessionId":"testCRUD","className":"com.informix.jdbc.IfxDriver"}
+# creating table
+{"resource":"statement","action":"execute","statementId":"ddl","sql":"DROP TABLE IF EXISTS serial8_test"}
+{"resource":"statement","action":"execute","statementId":"ddl","sql":"CREATE TABLE serial8_test (i0 SERIAL8)"}
+{"resource":"statement","action":"close","statementId":"ddl"}
+# insert row
+{"resource":"preparedStatement","action":"create","statementId":"insert","sql":"INSERT INTO serial8_test VALUES (?)"}
+{"resource":"preparedStatement","action":"execute","statementId":"insert","bindings":[{"index":1,"type":"SERIAL8","value":2147483730}]}
+# query for row
+{"resource":"preparedStatement","action":"create","statementId":"query","sql":"SELECT * FROM serial8_test WHERE i0 = ? "}
+{"resource":"preparedStatement","action":"execute","statementId":"query","bindings":[{"index":1,"type":"SERIAL8","value":2147483730}],"expectedResults":[{"i0":2147483730}]}
+# updates not supported on this datatype... skipping update
+# delete row
+{"resource":"preparedStatement","action":"create","statementId":"delete","sql":"DELETE FROM serial8_test WHERE i0 = ?"}
+{"resource":"preparedStatement","action":"execute","statementId":"delete","bindings":[{"index":1,"type":"SERIAL8","value":2147483730}],"expectedResults":[{"i0":2147483730}]}
+# query for deleted row
+{"resource":"preparedStatement","action":"execute","statementId":"query","bindings":[{"index":1,"type":"SERIAL8","value":2147483791}],"expectedResults":[]}
+# dropping table
+{"resource":"statement","action":"execute","statementId":"ddl","sql":"DROP TABLE IF EXISTS serial8_test"}
+{"resource":"statement","action":"close","statementId":"ddl"}
+# ---- Testing query and insert prepared statement reuse ----
+{"resource":"session","action":"create","sessionId":"testPstmt","className":"com.informix.jdbc.IfxDriver"}
+# creating table
+{"resource":"statement","action":"execute","statementId":"ddl","sql":"DROP TABLE IF EXISTS serial8_test"}
+{"resource":"statement","action":"execute","statementId":"ddl","sql":"CREATE TABLE serial8_test (id SERIAL8,value VARCHAR(20))"}
+{"resource":"statement","action":"close","statementId":"ddl"}
+# inserting data
+{"resource":"preparedStatement","action":"create","statementId":"insert","sql":"INSERT INTO serial8_test VALUES (?,?)"}
+{"resource":"preparedStatement","action":"execute","statementId":"insert","bindings":[{"index":1,"type":"SERIAL8","value":2147483648},{"index":2,"type":"VARCHAR","value":"Montana"}]}
+{"resource":"preparedStatement","action":"execute","statementId":"insert","bindings":[{"index":1,"type":"SERIAL8","value":2147483649},{"index":2,"type":"VARCHAR","value":"Nebraska"}]}
+{"resource":"preparedStatement","action":"execute","statementId":"insert","bindings":[{"index":1,"type":"SERIAL8","value":2147483650},{"index":2,"type":"VARCHAR","value":"Nevada"}]}
+{"resource":"preparedStatement","action":"execute","statementId":"insert","bindings":[{"index":1,"type":"SERIAL8","value":2147483651},{"index":2,"type":"VARCHAR","value":"New Hampshire"}]}
+{"resource":"preparedStatement","action":"execute","statementId":"insert","bindings":[{"index":1,"type":"SERIAL8","value":2147483652},{"index":2,"type":"VARCHAR","value":"New Jersey"}]}
+{"resource":"preparedStatement","action":"execute","statementId":"insert","bindings":[{"index":1,"type":"SERIAL8","value":2147483653},{"index":2,"type":"VARCHAR","value":"New Meixco"}]}
+{"resource":"preparedStatement","action":"execute","statementId":"insert","bindings":[{"index":1,"type":"SERIAL8","value":2147483654},{"index":2,"type":"VARCHAR","value":"New York"}]}
+{"resource":"preparedStatement","action":"execute","statementId":"insert","bindings":[{"index":1,"type":"SERIAL8","value":2147483655},{"index":2,"type":"VARCHAR","value":"North Carolina"}]}
+{"resource":"preparedStatement","action":"execute","statementId":"insert","bindings":[{"index":1,"type":"SERIAL8","value":2147483656},{"index":2,"type":"VARCHAR","value":"North Dakota"}]}
+{"resource":"preparedStatement","action":"execute","statementId":"insert","bindings":[{"index":1,"type":"SERIAL8","value":2147483657},{"index":2,"type":"VARCHAR","value":"Ohio"}]}
+{"resource":"preparedStatement","action":"close","statementId":"insert"}
+# running equality query and validating data
+{"resource":"preparedStatement","action":"create","statementId":"query","sql":"SELECT * FROM serial8_test WHERE id = ? "}
+{"resource":"preparedStatement","action":"execute","statementId":"query","bindings":[{"index":1,"type":"SERIAL8","value":2147483658}],"expectedResults":[]}
+{"resource":"preparedStatement","action":"execute","statementId":"query","bindings":[{"index":1,"type":"SERIAL8","value":2147483660}],"expectedResults":[]}
+{"resource":"preparedStatement","action":"execute","statementId":"query","bindings":[{"index":1,"type":"SERIAL8","value":2147483662}],"expectedResults":[]}
+{"resource":"preparedStatement","action":"close","statementId":"query"}
+# dropping table
+{"resource":"statement","action":"execute","statementId":"ddl","sql":"DROP TABLE IF EXISTS serial8_test"}
+{"resource":"statement","action":"close","statementId":"ddl"}
+# end of test: serial8 datatype test

@@ -80,6 +80,7 @@ public class Binding {
 			}
 			break;
 		case INT:
+		case SERIAL:
 			if (getValue() instanceof String) {
 				ps.setInt(getIndex(), Integer.parseInt((String)getValue()));
 			} else if (getValue() instanceof Number){
@@ -88,6 +89,8 @@ public class Binding {
 			break;
 		case BIGINT:
 		case INT8:
+		case BIGSERIAL:
+		case SERIAL8:
 			if (getValue() instanceof String) {
 				ps.setLong(getIndex(), Long.parseLong((String)getValue()));
 			} else if (getValue() instanceof Number){

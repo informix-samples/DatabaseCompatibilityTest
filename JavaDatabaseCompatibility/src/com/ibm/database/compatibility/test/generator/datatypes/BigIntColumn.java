@@ -20,7 +20,7 @@ public class BigIntColumn extends AbstractColumn implements Column {
 	
 	@SuppressWarnings("rawtypes")
 	public Class getJavaClassName() {
-		return Integer.class;
+		return Long.class;
 	}
 
 }

@@ -2,6 +2,7 @@ package com.ibm.database.compatibility;
 
 public enum SqlDataType {
 	BIGINT, //
+	BIGSERIAL, //
 	BOOLEAN, //
 	BYTE, //
 	CHAR, //
@@ -14,6 +15,8 @@ public enum SqlDataType {
 	LVARCHAR, //
 	NCHAR, //
 	OBJECT, //
+	SERIAL, //
+	SERIAL8, //
 	SMALLINT, //
 	TIME, //
 	TIMESTAMP, //

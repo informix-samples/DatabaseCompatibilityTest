@@ -13,6 +13,7 @@ import com.ibm.database.compatibility.Binding.BindingsBuilder;
 import com.ibm.database.compatibility.JsonOperationWriter;
 import com.ibm.database.compatibility.SqlDataType;
 import com.ibm.database.compatibility.test.generator.datatypes.BigIntColumn;
+import com.ibm.database.compatibility.test.generator.datatypes.BigSerialColumn;
 import com.ibm.database.compatibility.test.generator.datatypes.BooleanColumn;
 import com.ibm.database.compatibility.test.generator.datatypes.CharColumn;
 import com.ibm.database.compatibility.test.generator.datatypes.Column;
@@ -21,6 +22,8 @@ import com.ibm.database.compatibility.test.generator.datatypes.Int8Column;
 import com.ibm.database.compatibility.test.generator.datatypes.IntColumn;
 import com.ibm.database.compatibility.test.generator.datatypes.LVarcharColumn;
 import com.ibm.database.compatibility.test.generator.datatypes.NCharColumn;
+import com.ibm.database.compatibility.test.generator.datatypes.Serial8Column;
+import com.ibm.database.compatibility.test.generator.datatypes.SerialColumn;
 import com.ibm.database.compatibility.test.generator.datatypes.SmallIntColumn;
 import com.ibm.database.compatibility.test.generator.datatypes.VarcharColumn;
 
@@ -44,14 +47,26 @@ public class DataTypeTest {
 	 * @param jow
 	 * @param tabName
 	 * @param tableColumns
-	 * @param nInserts
-	 * @param nQueries
 	 * @throws IOException
 	 */
 	public static void createDataTypeTest_CRUD(JsonOperationWriter jow, String tabName, Column column) throws IOException {
+		createDataTypeTest_CRUD(jow, tabName, column, true);
+	}
+	
+	/**
+	 * Create a data type test for the specified column types 
+	 * that tests all of the CRUD operations on that type.
+	 * 
+	 * @param jow
+	 * @param tabName
+	 * @param tableColumns
+	 * @param supportsUpdates
+	 * @throws IOException
+	 */
+	public static void createDataTypeTest_CRUD(JsonOperationWriter jow, String tabName, Column column, boolean supportsUpdates) throws IOException {
 		List<Column> tableColumns = Arrays.asList(column);
-		int insertI = 27;
-		int updateI = 88;
+		int insertSeed = 27;
+		int updateSeed = 88;
 		
 		jow.writeComment("---- Testing CRUD operations ----");
 		jow.write(TestGeneratorUtils.getCreateSessionOperation("testCRUD"));
@@ -62,40 +77,44 @@ public class DataTypeTest {
 		
 		jow.writeComment("insert row");
 		jow.write(TestGeneratorUtils.getInsertPstmtOperation("insert", tabName, 1));
-		JsonObject row = TestGeneratorUtils.writeInsertExecuteStatement(jow, tableColumns, insertI);
+		JsonObject row = TestGeneratorUtils.writeInsertExecuteStatement(jow, tableColumns, insertSeed);
 		
 		jow.writeComment("query for row");
 		jow.write(TestGeneratorUtils.getCreatePreparedStatementForQueryOperation("query", tabName, column));
 		JsonArray expectedResult = new JsonArray();
 		expectedResult.add(row);
-		BindingsBuilder bb = new Binding.BindingsBuilder().add(1, column.getValue(insertI), column.getColumnTypeName());
+		BindingsBuilder bb = new Binding.BindingsBuilder().add(1, column.getValue(insertSeed), column.getColumnTypeName());
 		jow.write(TestGeneratorUtils.getExecutePstmtOperation("query", bb.build(), expectedResult));
 		
-		jow.writeComment("update row");
-		jow.write(TestGeneratorUtils.getUpdatePstmtOperation("update", tabName, column, column));
-		bb = new Binding.BindingsBuilder().add(1, column.getValue(updateI), column.getColumnTypeName())
-				.add(2, column.getValue(insertI), column.getColumnTypeName());
-		jow.write(TestGeneratorUtils.getExecutePstmtOperation("update", bb.build(), expectedResult));
-		row = new JsonObject();
-		row.add(column.getColumnName(), TestGeneratorUtils.createJsonElement(column.getValue(updateI)));
-
-		jow.writeComment("query for original row");
-		expectedResult = new JsonArray();
-		bb = new Binding.BindingsBuilder().add(1, column.getValue(insertI), column.getColumnTypeName());
-		jow.write(TestGeneratorUtils.getExecutePstmtOperation("query", bb.build(), expectedResult));
-		
-		jow.writeComment("query for updated row");
-		expectedResult.add(row);
-		bb = new Binding.BindingsBuilder().add(1, column.getValue(updateI), column.getColumnTypeName());
-		jow.write(TestGeneratorUtils.getExecutePstmtOperation("query", bb.build(), expectedResult));
+		if (supportsUpdates) {
+			jow.writeComment("update row");
+			jow.write(TestGeneratorUtils.getUpdatePstmtOperation("update", tabName, column, column));
+			bb = new Binding.BindingsBuilder().add(1, column.getValue(updateSeed), column.getColumnTypeName())
+					.add(2, column.getValue(insertSeed), column.getColumnTypeName());
+			jow.write(TestGeneratorUtils.getExecutePstmtOperation("update", bb.build(), expectedResult));
+			row = new JsonObject();
+			row.add(column.getColumnName(), TestGeneratorUtils.createJsonElement(column.getValue(updateSeed)));
+	
+			jow.writeComment("query for original row");
+			expectedResult = new JsonArray();
+			bb = new Binding.BindingsBuilder().add(1, column.getValue(insertSeed), column.getColumnTypeName());
+			jow.write(TestGeneratorUtils.getExecutePstmtOperation("query", bb.build(), expectedResult));
+			
+			jow.writeComment("query for updated row");
+			expectedResult.add(row);
+			bb = new Binding.BindingsBuilder().add(1, column.getValue(updateSeed), column.getColumnTypeName());
+			jow.write(TestGeneratorUtils.getExecutePstmtOperation("query", bb.build(), expectedResult));
+		} else {
+			jow.writeComment("updates not supported on this datatype... skipping update");
+		}
 		
 		jow.writeComment("delete row");
 		jow.write(TestGeneratorUtils.getDeletePstmtOperation("delete", tabName, column));
 		jow.write(TestGeneratorUtils.getExecutePstmtOperation("delete", bb.build(), expectedResult));
 		
-		jow.writeComment("query for delete row");
+		jow.writeComment("query for deleted row");
 		expectedResult = new JsonArray();
-		bb = new Binding.BindingsBuilder().add(1, column.getValue(updateI), column.getColumnTypeName());
+		bb = new Binding.BindingsBuilder().add(1, column.getValue(updateSeed), column.getColumnTypeName());
 		jow.write(TestGeneratorUtils.getExecutePstmtOperation("query", bb.build(), expectedResult));
 		
 		jow.writeComment("dropping table");
@@ -255,6 +274,60 @@ public class DataTypeTest {
 		for (int j = 0; j < nColumns; j++) {
 			columns.add(new SmallIntColumn("i" + j, 59 - j));
 		}
+		createDataTypeTest_QueryInsertPstmt(jow,tabName, columns, N_INSERTS, N_QUERIES);
+		TestGeneratorUtils.writeEndTestInfo(jow, testName);
+		jow.flush();
+		jow.close();
+	}
+	
+	public static void generateSerialTest() throws IOException {
+		String datatype = SqlDataType.SERIAL.toString();
+		String testName = "serial datatype test";
+		String tabName = "serial_test";
+		JsonOperationWriter jow = new JsonOperationWriter(getTestOutputFileName(datatype));
+		TestGeneratorUtils.writeStartTestInfo(jow, testName);
+		
+		createDataTypeTest_CRUD(jow, tabName, new SerialColumn("i0", 55, false), false);
+
+		List<Column> columns = new ArrayList<Column>();
+		columns.add(new SerialColumn("id", 0, true));
+		columns.add(new VarcharColumn("value", 20, 0, false));
+		createDataTypeTest_QueryInsertPstmt(jow,tabName, columns, N_INSERTS, N_QUERIES);
+		TestGeneratorUtils.writeEndTestInfo(jow, testName);
+		jow.flush();
+		jow.close();
+	}
+	
+	public static void generateBigSerialTest() throws IOException {
+		String datatype = SqlDataType.BIGSERIAL.toString();
+		String testName = "bigserial datatype test";
+		String tabName = "bigserial_test";
+		JsonOperationWriter jow = new JsonOperationWriter(getTestOutputFileName(datatype));
+		TestGeneratorUtils.writeStartTestInfo(jow, testName);
+		
+		createDataTypeTest_CRUD(jow, tabName, new BigSerialColumn("i0", 55, false), false);
+
+		List<Column> columns = new ArrayList<Column>();
+		columns.add(new BigSerialColumn("id", 0, true));
+		columns.add(new VarcharColumn("value", 20, 0, false));
+		createDataTypeTest_QueryInsertPstmt(jow,tabName, columns, N_INSERTS, N_QUERIES);
+		TestGeneratorUtils.writeEndTestInfo(jow, testName);
+		jow.flush();
+		jow.close();
+	}
+	
+	public static void generateSerial8Test() throws IOException {
+		String datatype = SqlDataType.SERIAL8.toString();
+		String testName = "serial8 datatype test";
+		String tabName = "serial8_test";
+		JsonOperationWriter jow = new JsonOperationWriter(getTestOutputFileName(datatype));
+		TestGeneratorUtils.writeStartTestInfo(jow, testName);
+		
+		createDataTypeTest_CRUD(jow, tabName, new Serial8Column("i0", 55, false), false);
+
+		List<Column> columns = new ArrayList<Column>();
+		columns.add(new Serial8Column("id", 0, true));
+		columns.add(new VarcharColumn("value", 20, 0, false));
 		createDataTypeTest_QueryInsertPstmt(jow,tabName, columns, N_INSERTS, N_QUERIES);
 		TestGeneratorUtils.writeEndTestInfo(jow, testName);
 		jow.flush();
@@ -468,6 +541,9 @@ public class DataTypeTest {
 		generateBigIntTest();
 		generateInt8Test();
 		generateSmallIntTest();
+		generateSerialTest();
+		generateBigSerialTest();
+		generateSerial8Test();
 		generateFloatTest();
 		generateCharTest();
 		generateVarcharTest();

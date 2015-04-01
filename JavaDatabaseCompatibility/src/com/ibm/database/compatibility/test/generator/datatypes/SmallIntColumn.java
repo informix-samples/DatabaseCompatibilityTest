@@ -8,5 +8,10 @@ public class SmallIntColumn extends IntColumn implements Column {
 		super(colName, seed);
 		this.columnType = SqlDataType.SMALLINT;
 	}
+	
+	@SuppressWarnings("rawtypes")
+	public Class getJavaClassName() {
+		return Short.class;
+	}
 
 }
