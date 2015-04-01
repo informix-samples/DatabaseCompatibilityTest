@@ -1,0 +1,34 @@
+# start of test: transaction test
+{"resource":"credentials","action":"create","credentialId":"test"}
+{"resource":"session","action":"create","sessionId":"testTxn","className":"com.informix.jdbc.IfxDriver"}
+# creating table
+{"resource":"statement","action":"execute","statementId":"ddl","sql":"DROP TABLE IF EXISTS transaction_test"}
+{"resource":"statement","action":"execute","statementId":"ddl","sql":"CREATE TABLE transaction_test (int_col INT,varchar_col VARCHAR(20))"}
+{"resource":"statement","action":"close","statementId":"ddl"}
+# start transaction
+{"resource":"session","action":"startTransaction","sessionId":"testTxn"}
+# insert row
+{"resource":"preparedStatement","action":"create","statementId":"insert","sql":"INSERT INTO transaction_test VALUES (?,?)"}
+{"resource":"preparedStatement","action":"execute","statementId":"insert","bindings":[{"index":1,"type":"INT","value":93},{"index":2,"type":"VARCHAR","value":"Vermont"}]}
+# query table
+{"resource":"preparedStatement","action":"create","statementId":"query","sql":"SELECT * FROM transaction_test"}
+{"resource":"preparedStatement","action":"execute","statementId":"query","expectedResults":[{"int_col":93,"varchar_col":"Vermont"}]}
+# rollback transaction
+{"resource":"session","action":"rollbackTransaction","sessionId":"testTxn"}
+# query table
+{"resource":"preparedStatement","action":"execute","statementId":"query","expectedResults":[]}
+# start transaction
+{"resource":"session","action":"startTransaction","sessionId":"testTxn"}
+# insert rows
+{"resource":"preparedStatement","action":"execute","statementId":"insert","bindings":[{"index":1,"type":"INT","value":98},{"index":2,"type":"VARCHAR","value":"Wyoming"}]}
+{"resource":"preparedStatement","action":"execute","statementId":"insert","bindings":[{"index":1,"type":"INT","value":15},{"index":2,"type":"VARCHAR","value":"Tennessee"}]}
+# query table
+{"resource":"preparedStatement","action":"execute","statementId":"query","expectedResults":[{"int_col":98,"varchar_col":"Wyoming"},{"int_col":15,"varchar_col":"Tennessee"}]}
+# commit transaction
+{"resource":"session","action":"commitTransaction","sessionId":"testTxn"}
+# query table
+{"resource":"preparedStatement","action":"execute","statementId":"query","expectedResults":[{"int_col":98,"varchar_col":"Wyoming"},{"int_col":15,"varchar_col":"Tennessee"}]}
+# drop table
+{"resource":"statement","action":"execute","statementId":"ddl","sql":"DROP TABLE IF EXISTS transaction_test"}
+{"resource":"statement","action":"close","statementId":"ddl"}
+# end of test: transaction test
