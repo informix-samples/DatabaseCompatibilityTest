@@ -43,6 +43,25 @@ public class BasicJdbcSession implements JdbcSession {
 	public String getId() {
 		return this.sessionId;
 	}
+	
+	@Override
+	public synchronized void startTransaction() throws SQLException {
+		getConnection().setAutoCommit(false);
+	}
+
+	@Override
+	public synchronized void commitTransaction() throws SQLException {
+		Connection c = getConnection();
+		c.commit();
+		c.setAutoCommit(true);
+	}
+	
+	@Override
+	public synchronized void rollbackTransaction() throws SQLException {
+		Connection c = getConnection();
+		c.rollback();
+		c.setAutoCommit(true);
+	}
 
 	@Override
 	public synchronized Statement createStatement(String id) throws SQLException {

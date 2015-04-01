@@ -25,7 +25,7 @@ public class Operation {
 	private static final Logger logger = LoggerFactory.getLogger(Operation.class);
 
 	private String resource = null; // session | statement | preparedStatement | resultSet
-	private String action = null; // create | execute | close
+	private String action = null; // create | execute | close | startTransaction | commitTransaction | rollbackTransaction
 	private String credentialId = null;
 	private String sessionId = null;
 	private String statementId = null;
@@ -150,6 +150,18 @@ public class Operation {
 			} else if (action.equalsIgnoreCase("close")) {
 				JdbcSession session = client.removeJdbcSession(sessionId);
 				logger.debug("closed session id {}", session.getId());
+			} else if (action.equalsIgnoreCase("startTransaction")) {
+				JdbcSession session = client.getJdbcSession(sessionId);
+				session.startTransaction();
+				logger.debug("starting transaction on session id {}", session.getId());
+			} else if (action.equalsIgnoreCase("commitTransaction")) {
+				JdbcSession session = client.getJdbcSession(sessionId);
+				session.commitTransaction();
+				logger.debug("committing transaction on session id {}", session.getId());
+			} else if (action.equalsIgnoreCase("rollbackTransaction")) {
+				JdbcSession session = client.getJdbcSession(sessionId);
+				session.rollbackTransaction();
+				logger.debug("rolling back transaction on session id {}", session.getId());
 			} else {
 				throw new RuntimeException(MessageFormat.format("Unsupported session action {0}", action));
 			}

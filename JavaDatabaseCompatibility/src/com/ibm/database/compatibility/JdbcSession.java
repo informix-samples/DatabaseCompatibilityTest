@@ -46,6 +46,30 @@ public interface JdbcSession extends Closeable {
 	public Connection getConnection() throws SQLException;
 
 	/**
+	 * Starts a transaction on the connection associated with this session
+	 * by setting auto commit to false.
+	 * 
+	 * @throws SQLException
+	 */
+	public void startTransaction() throws SQLException;
+	
+	/**
+	 * Commits the transaction on the connection associated with this session
+	 * and resets auto commit to true.
+	 * 
+	 * @throws SQLException
+	 */
+	public void commitTransaction() throws SQLException;
+	
+	/**
+	 * Rolls back the transaction on the connection associated with this session
+	 * and resets auto commit to true.
+	 * 
+	 * @throws SQLException
+	 */
+	public void rollbackTransaction() throws SQLException;
+	
+	/**
 	 * Creates a new JDBC statement with the specified id. If the
 	 * <code>id</code> is null, it is assumed to be the last statement id used
 	 * with this session.

@@ -8,12 +8,9 @@ import java.util.List;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
-import com.google.gson.JsonPrimitive;
 import com.ibm.database.compatibility.Binding;
 import com.ibm.database.compatibility.Binding.BindingsBuilder;
 import com.ibm.database.compatibility.JsonOperationWriter;
-import com.ibm.database.compatibility.Operation;
-import com.ibm.database.compatibility.Operation.Builder;
 import com.ibm.database.compatibility.test.generator.datatypes.BooleanColumn;
 import com.ibm.database.compatibility.test.generator.datatypes.CharColumn;
 import com.ibm.database.compatibility.test.generator.datatypes.Column;
@@ -27,151 +24,6 @@ public class DataTypeTest {
 	
 	public static int N_INSERTS = 10;
 	public static int N_QUERIES = 3;
-	
-	public static Operation getCreateCredentialsOperation() {
-		return new Operation.Builder().resource("credentials").action("create").credentialId("test").build();
-	}
-	
-	public static Operation getCreateSessionOperation(String sessionId) {
-		return new Operation.Builder().resource("session").action("create").sessionId(sessionId).className("com.informix.jdbc.IfxDriver").build();
-	}
-	
-	public static Operation getCloseSessionOperation(String sessionId) {
-		return new Operation.Builder().resource("session").action("close").sessionId(sessionId).build();
-	}
-	
-	public static Operation getCreateStatementOperation(String stmtId) {
-		return new Operation.Builder().resource("statement").action("create").statementId(stmtId).build();
-	}
-
-	public static Operation getExecuteStatementOperation(String stmtId, String sql) {
-		return new Operation.Builder().resource("statement").action("execute").statementId(stmtId).sql(sql).build();
-	}
-	
-	public static Operation getCloseStatementOperation(String stmtId) {
-		return new Operation.Builder().resource("statement").action("close").statementId(stmtId).build();
-	}
-	
-	public static Operation getCreatePreparedStatementOperation(String stmtId, String sql) {
-		return new Operation.Builder().resource("preparedStatement").action("create").statementId(stmtId).sql(sql).build();
-	}
-
-	public static Operation getExecutePstmtOperation(String stmtId, Binding[] bindings) {
-		return getExecutePstmtOperation(stmtId, bindings, null);
-	} 
-	
-	public static Operation getExecutePstmtOperation(String stmtId, Binding[] bindings, JsonArray expectedResults) {
-		Builder op = new Operation.Builder().resource("preparedStatement").action("execute").statementId(stmtId).bindings(bindings);
-		if (expectedResults != null) {
-			op.expectedResults(expectedResults);
-		}
-		return op.build();
-	}
-	
-	public static Operation getClosePresparedStatementOperation(String stmtId) {
-		return new Operation.Builder().resource("preparedStatement").action("close").statementId(stmtId).build();
-	}
-		
-	public static Operation getDropTableOperation(String stmtId, String tabName) {
-		return getExecuteStatementOperation(stmtId, "DROP TABLE IF EXISTS " + tabName);
-	}
-	
-	public static Operation getCreateTableOperation(String stmtId, String tabName, List<Column> columns) {
-		StringBuilder sql = new StringBuilder("CREATE TABLE ");
-		sql.append(tabName);
-		sql.append(" (");
-		int i = 0;
-		for (Column c : columns) {
-			if (i > 0) {
-				sql.append(",");
-			}
-			sql.append(c.getColumnName() + " " + c.getColumnTypeAsSQLString());
-			i++;
-		}
-		sql.append(")");
-		return getExecuteStatementOperation(stmtId, sql.toString());
-	}
-	
-	public static Operation getInsertPstmtOperation(String stmtId, String tabName, int colCount) {
-		StringBuilder sql = new StringBuilder("INSERT INTO ");
-		sql.append(tabName);
-		sql.append(" VALUES (");
-		for (int i = 0; i < colCount; i++) {
-			if (i > 0) {
-				sql.append(",");
-			}
-			sql.append("?");
-		}
-		sql.append(")");
-		return getCreatePreparedStatementOperation(stmtId, sql.toString());
-	}
-	
-	public static Operation getUpdatePstmtOperation(String stmtId, String tabName, Column updateColumn, Column queryColumn) {
-		StringBuilder sql = new StringBuilder("UPDATE ");
-		sql.append(tabName);
-		sql.append(" SET ");
-		sql.append(updateColumn.getColumnName());
-		sql.append(" = ? WHERE ");
-		sql.append(queryColumn.getColumnName());
-		sql.append(" = ?");
-		return getCreatePreparedStatementOperation(stmtId, sql.toString());
-	}
-
-	public static Operation getDeletePstmtOperation(String stmtId, String tabName,Column queryColumn) {
-		StringBuilder sql = new StringBuilder("DELETE FROM ");
-		sql.append(tabName);
-		sql.append(" WHERE ");
-		sql.append(queryColumn.getColumnName());
-		sql.append(" = ?");
-		return getCreatePreparedStatementOperation(stmtId, sql.toString());
-	}
-	
-	public static JsonObject writeInsertExecuteStatement(JsonOperationWriter jow, List<Column> tableColumns, int i) throws IOException {
-		JsonObject row = new JsonObject();
-		BindingsBuilder bb = new Binding.BindingsBuilder();
-		for (int j = 0; j < tableColumns.size(); j++) {
-			Column c = tableColumns.get(j);
-			Object v = c.getValue(i);
-			row.add(c.getColumnName(), createJsonElement(v));
-			bb.add(j + 1, v, c.getColumnTypeName());
-		}
-		jow.write(getExecutePstmtOperation("insert", bb.build()));
-		return row;
-	}
-	
-	public static JsonElement createJsonElement(Object v) {
-		if (v instanceof Number) {
-			return new JsonPrimitive((Number) v);
-		} else if (v instanceof String) {
-			return new JsonPrimitive((String) v);
-		} else if (v instanceof Boolean) {
-			return new JsonPrimitive((Boolean) v);
-		} else {
-			throw new RuntimeException("Unhandled type for column value. Type: " + v.getClass().getCanonicalName());
-		}
-	}
-	
-	public static Operation getCreatePreparedStatementForQueryOperation(String stmtId, String query) {
-		return getCreatePreparedStatementOperation(stmtId, query);
-	}
-	
-	public static Operation getCreatePreparedStatementForQueryOperation(String stmtId, String tabName, Column columnToQuery) {
-		StringBuilder sql = new StringBuilder("SELECT * FROM ");
-		sql.append(tabName);
-		sql.append(" WHERE ");
-		sql.append(columnToQuery.getColumnName());
-		sql.append(" = ? ");
-		return getCreatePreparedStatementOperation(stmtId, sql.toString());
-	}
-	
-	public static void writeStartTestInfo(JsonOperationWriter jow, String testName) throws IOException {
-		jow.writeComment("start of test: " + testName);
-		jow.write(getCreateCredentialsOperation());
-	}
-	
-	public static void writeEndTestInfo(JsonOperationWriter jow, String testName) throws IOException {
-		jow.writeComment("end of test: " + testName);
-	}
 	
 	/**
 	 * Create a data type test for the specified column types 
@@ -190,53 +42,53 @@ public class DataTypeTest {
 		int updateI = 88;
 		
 		jow.writeComment("---- Testing CRUD operations ----");
-		jow.write(getCreateSessionOperation("testCRUD"));
+		jow.write(TestGeneratorUtils.getCreateSessionOperation("testCRUD"));
 		jow.writeComment("creating table");
-		jow.write(getDropTableOperation("ddl", tabName));
-		jow.write(getCreateTableOperation("ddl", tabName, tableColumns));
-		jow.write(getCloseStatementOperation("ddl"));
+		jow.write(TestGeneratorUtils.getDropTableOperation("ddl", tabName));
+		jow.write(TestGeneratorUtils.getCreateTableOperation("ddl", tabName, tableColumns));
+		jow.write(TestGeneratorUtils.getCloseStatementOperation("ddl"));
 		
 		jow.writeComment("insert row");
-		jow.write(getInsertPstmtOperation("insert", tabName, 1));
-		JsonObject row = writeInsertExecuteStatement(jow, tableColumns, insertI);
+		jow.write(TestGeneratorUtils.getInsertPstmtOperation("insert", tabName, 1));
+		JsonObject row = TestGeneratorUtils.writeInsertExecuteStatement(jow, tableColumns, insertI);
 		
 		jow.writeComment("query for row");
-		jow.write(getCreatePreparedStatementForQueryOperation("query", tabName, column));
+		jow.write(TestGeneratorUtils.getCreatePreparedStatementForQueryOperation("query", tabName, column));
 		JsonArray expectedResult = new JsonArray();
 		expectedResult.add(row);
 		BindingsBuilder bb = new Binding.BindingsBuilder().add(1, column.getValue(insertI), column.getColumnTypeName());
-		jow.write(getExecutePstmtOperation("query", bb.build(), expectedResult));
+		jow.write(TestGeneratorUtils.getExecutePstmtOperation("query", bb.build(), expectedResult));
 		
 		jow.writeComment("update row");
-		jow.write(getUpdatePstmtOperation("update", tabName, column, column));
+		jow.write(TestGeneratorUtils.getUpdatePstmtOperation("update", tabName, column, column));
 		bb = new Binding.BindingsBuilder().add(1, column.getValue(updateI), column.getColumnTypeName())
 				.add(2, column.getValue(insertI), column.getColumnTypeName());
-		jow.write(getExecutePstmtOperation("update", bb.build(), expectedResult));
+		jow.write(TestGeneratorUtils.getExecutePstmtOperation("update", bb.build(), expectedResult));
 		row = new JsonObject();
-		row.add(column.getColumnName(), createJsonElement(column.getValue(updateI)));
+		row.add(column.getColumnName(), TestGeneratorUtils.createJsonElement(column.getValue(updateI)));
 
 		jow.writeComment("query for original row");
 		expectedResult = new JsonArray();
 		bb = new Binding.BindingsBuilder().add(1, column.getValue(insertI), column.getColumnTypeName());
-		jow.write(getExecutePstmtOperation("query", bb.build(), expectedResult));
+		jow.write(TestGeneratorUtils.getExecutePstmtOperation("query", bb.build(), expectedResult));
 		
 		jow.writeComment("query for udpated row");
 		expectedResult.add(row);
 		bb = new Binding.BindingsBuilder().add(1, column.getValue(updateI), column.getColumnTypeName());
-		jow.write(getExecutePstmtOperation("query", bb.build(), expectedResult));
+		jow.write(TestGeneratorUtils.getExecutePstmtOperation("query", bb.build(), expectedResult));
 		
 		jow.writeComment("delete row");
-		jow.write(getDeletePstmtOperation("delete", tabName, column));
-		jow.write(getExecutePstmtOperation("delete", bb.build(), expectedResult));
+		jow.write(TestGeneratorUtils.getDeletePstmtOperation("delete", tabName, column));
+		jow.write(TestGeneratorUtils.getExecutePstmtOperation("delete", bb.build(), expectedResult));
 		
 		jow.writeComment("query for delete row");
 		expectedResult = new JsonArray();
 		bb = new Binding.BindingsBuilder().add(1, column.getValue(updateI), column.getColumnTypeName());
-		jow.write(getExecutePstmtOperation("query", bb.build(), expectedResult));
+		jow.write(TestGeneratorUtils.getExecutePstmtOperation("query", bb.build(), expectedResult));
 		
 		jow.writeComment("dropping table");
-		jow.write(getDropTableOperation("ddl", tabName));
-		jow.write(getCloseStatementOperation("ddl"));
+		jow.write(TestGeneratorUtils.getDropTableOperation("ddl", tabName));
+		jow.write(TestGeneratorUtils.getCloseStatementOperation("ddl"));
 	}
 	
 	
@@ -252,33 +104,33 @@ public class DataTypeTest {
 	 */
 	public static void createDataTypeTest_QueryInsertPstmt(JsonOperationWriter jow, String tabName, List<Column> tableColumns, int nInserts, int nQueries) throws IOException {
 		jow.writeComment("---- Testing query and insert prepared statement reuse ----");
-		jow.write(getCreateSessionOperation("testPstmt"));
+		jow.write(TestGeneratorUtils.getCreateSessionOperation("testPstmt"));
 		jow.writeComment("creating table");
-		jow.write(getDropTableOperation("ddl", tabName));
-		jow.write(getCreateTableOperation("ddl", tabName, tableColumns));
-		jow.write(getCloseStatementOperation("ddl"));
+		jow.write(TestGeneratorUtils.getDropTableOperation("ddl", tabName));
+		jow.write(TestGeneratorUtils.getCreateTableOperation("ddl", tabName, tableColumns));
+		jow.write(TestGeneratorUtils.getCloseStatementOperation("ddl"));
 		
 		jow.writeComment("inserting data");
-		jow.write(getInsertPstmtOperation("insert", tabName, tableColumns.size()));
+		jow.write(TestGeneratorUtils.getInsertPstmtOperation("insert", tabName, tableColumns.size()));
 		JsonArray tableData = new JsonArray();
 		for (int i = 0; i < nInserts; i++) {
-			JsonObject row = writeInsertExecuteStatement(jow, tableColumns, i);
+			JsonObject row = TestGeneratorUtils.writeInsertExecuteStatement(jow, tableColumns, i);
 			tableData.add(row);
 		}
-		jow.write(getClosePresparedStatementOperation("insert"));
+		jow.write(TestGeneratorUtils.getClosePresparedStatementOperation("insert"));
 		
 		jow.writeComment("running equality query and validating data");
-		jow.write(getCreatePreparedStatementForQueryOperation("query", tabName, tableColumns.get(0)));
+		jow.write(TestGeneratorUtils.getCreatePreparedStatementForQueryOperation("query", tabName, tableColumns.get(0)));
 		for (int i = 0; i < nQueries; i++) {
 			int index = (i * 3) % nInserts;
 			BindingsBuilder bb = new Binding.BindingsBuilder().add(0, tableColumns.get(0).getValue(index), tableColumns.get(0).getColumnTypeName());
-			jow.write(getExecutePstmtOperation("query", bb.build(), getMatchingRows(tableData, tableColumns.get(0), tableColumns.get(0).getValue(index))));
+			jow.write(TestGeneratorUtils.getExecutePstmtOperation("query", bb.build(), getMatchingRows(tableData, tableColumns.get(0), tableColumns.get(0).getValue(index))));
 		}
-		jow.write(getClosePresparedStatementOperation("query"));
+		jow.write(TestGeneratorUtils.getClosePresparedStatementOperation("query"));
 
 		jow.writeComment("dropping table");
-		jow.write(getDropTableOperation("ddl", tabName));
-		jow.write(getCloseStatementOperation("ddl"));
+		jow.write(TestGeneratorUtils.getDropTableOperation("ddl", tabName));
+		jow.write(TestGeneratorUtils.getCloseStatementOperation("ddl"));
 	}
 	
 	public static JsonArray getMatchingRows(JsonArray tableData, Column column, Object queryValue) {
@@ -318,7 +170,7 @@ public class DataTypeTest {
 		String testName = "int datatype test";
 		String tabName = "int_test";
 		JsonOperationWriter jow = new JsonOperationWriter(filename);
-		writeStartTestInfo(jow, testName);
+		TestGeneratorUtils.writeStartTestInfo(jow, testName);
 		
 		createDataTypeTest_CRUD(jow, tabName, new IntColumn("i0", 0));
 
@@ -331,17 +183,20 @@ public class DataTypeTest {
 			}
 			createDataTypeTest_QueryInsertPstmt(jow,tabName, columns, N_INSERTS, N_QUERIES);
 		}
-		writeEndTestInfo(jow, testName);
+		TestGeneratorUtils.writeEndTestInfo(jow, testName);
 		jow.flush();
 		jow.close();
 	}
 	
-	/*public static void generateFloatTest(String filename) throws IOException {
+	public static void generateFloatTest(String filename) throws IOException {
 		// TODO: Test precision in float column?
 		String testName = "float datatype test";
 		String tabName = "float_test";
 		JsonOperationWriter jow = new JsonOperationWriter(filename);
-		writeStartTestInfo(jow, testName);
+		TestGeneratorUtils.writeStartTestInfo(jow, testName);
+		
+		createDataTypeTest_CRUD(jow, tabName, new FloatColumn("i0", 0));
+
 		List<Column> columns = new ArrayList<Column>();
 		int[] nColumns = {1, 50, 100};
 		for (int n : nColumns) {
@@ -351,16 +206,16 @@ public class DataTypeTest {
 			}
 			createDataTypeTest_QueryInsertPstmt(jow,tabName, columns, N_INSERTS, N_QUERIES);
 		}
-		writeEndTestInfo(jow, testName);
+		TestGeneratorUtils.writeEndTestInfo(jow, testName);
 		jow.flush();
 		jow.close();
-	}*/
+	}
 	
 	public static void generateCharTest(String filename) throws IOException {
 		String testName = "char datatype test";
 		String tabName = "char_test";
 		JsonOperationWriter jow = new JsonOperationWriter(filename);
-		writeStartTestInfo(jow, testName);
+		TestGeneratorUtils.writeStartTestInfo(jow, testName);
 		
 		createDataTypeTest_CRUD(jow, tabName, new CharColumn("i0", 1, 0, true));
 		
@@ -382,7 +237,7 @@ public class DataTypeTest {
 		columns.add(new CharColumn("i0", 32767, 32767, true));
 		createDataTypeTest_QueryInsertPstmt(jow,tabName, columns, N_INSERTS, N_QUERIES);
 
-		writeEndTestInfo(jow, testName);
+		TestGeneratorUtils.writeEndTestInfo(jow, testName);
 		jow.flush();
 		jow.close();
 	}
@@ -391,7 +246,7 @@ public class DataTypeTest {
 		String testName = "varchar datatype test";
 		String tabName = "varchar_test";
 		JsonOperationWriter jow = new JsonOperationWriter(filename);
-		writeStartTestInfo(jow, testName);
+		TestGeneratorUtils.writeStartTestInfo(jow, testName);
 		
 		createDataTypeTest_CRUD(jow, tabName, new VarcharColumn("i0", 5, 0, true));
 		
@@ -407,7 +262,7 @@ public class DataTypeTest {
 				createDataTypeTest_QueryInsertPstmt(jow,tabName, columns, N_INSERTS, N_QUERIES);
 			}
 		}
-		writeEndTestInfo(jow, testName);
+		TestGeneratorUtils.writeEndTestInfo(jow, testName);
 		jow.flush();
 		jow.close();
 	}
@@ -416,7 +271,7 @@ public class DataTypeTest {
 		String testName = "lvarchar datatype test";
 		String tabName = "lvarchar_test";
 		JsonOperationWriter jow = new JsonOperationWriter(filename);
-		writeStartTestInfo(jow, testName);
+		TestGeneratorUtils.writeStartTestInfo(jow, testName);
 		
 		createDataTypeTest_CRUD(jow, tabName, new LVarcharColumn("i0", 500, 0));
 		
@@ -432,7 +287,7 @@ public class DataTypeTest {
 				createDataTypeTest_QueryInsertPstmt(jow,tabName, columns, 3, 1);
 			}
 		}
-		writeEndTestInfo(jow, testName);
+		TestGeneratorUtils.writeEndTestInfo(jow, testName);
 		jow.flush();
 		jow.close();
 	}
@@ -441,7 +296,7 @@ public class DataTypeTest {
 		String testName = "nchar datatype test";
 		String tabName = "nchar_test";
 		JsonOperationWriter jow = new JsonOperationWriter(filename);
-		writeStartTestInfo(jow, testName);
+		TestGeneratorUtils.writeStartTestInfo(jow, testName);
 		
 		createDataTypeTest_CRUD(jow, tabName, new NCharColumn("i0", 2, 0));
 		
@@ -457,7 +312,7 @@ public class DataTypeTest {
 				createDataTypeTest_QueryInsertPstmt(jow,tabName, columns, N_INSERTS, N_QUERIES);
 			}
 		}
-		writeEndTestInfo(jow, testName);
+		TestGeneratorUtils.writeEndTestInfo(jow, testName);
 		jow.flush();
 		jow.close();
 	}
@@ -466,7 +321,7 @@ public class DataTypeTest {
 		String testName = "boolean datatype test";
 		String tabName = "boolean_test";
 		JsonOperationWriter jow = new JsonOperationWriter(filename);
-		writeStartTestInfo(jow, testName);
+		TestGeneratorUtils.writeStartTestInfo(jow, testName);
 		
 		createDataTypeTest_CRUD(jow, tabName, new BooleanColumn("i0", 0));
 		
@@ -479,7 +334,7 @@ public class DataTypeTest {
 			}
 			createDataTypeTest_QueryInsertPstmt(jow,tabName, columns, N_INSERTS, 2);
 		}
-		writeEndTestInfo(jow, testName);
+		TestGeneratorUtils.writeEndTestInfo(jow, testName);
 		jow.flush();
 		jow.close();
 	}
@@ -531,7 +386,7 @@ public class DataTypeTest {
 	 */
 	public static void main(String[] args) throws IOException {
 		generateIntTest("dataTypeTest_INT.json");
-		//generateFloatTest("dataTypeTest_FLOAT.json");
+		generateFloatTest("dataTypeTest_FLOAT.json");
 		generateCharTest("dataTypeTest_CHAR.json");
 		generateVarcharTest("dataTypeTest_VARCHAR.json");
 		generateLVarcharTest("dataTypeTest_LVARCHAR.json");
