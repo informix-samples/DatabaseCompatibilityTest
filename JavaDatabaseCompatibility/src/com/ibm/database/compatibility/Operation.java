@@ -24,7 +24,7 @@ public class Operation {
 
 	private static final Logger logger = LoggerFactory.getLogger(Operation.class);
 
-	private String resource = null; // session | statement | preparedStatement | resultSet
+	private String resource = null; // credential | session | statement | preparedStatement | resultSet
 	private String action = null; // create | execute | close | startTransaction | commitTransaction | rollbackTransaction
 	private String credentialId = null;
 	private String sessionId = null;

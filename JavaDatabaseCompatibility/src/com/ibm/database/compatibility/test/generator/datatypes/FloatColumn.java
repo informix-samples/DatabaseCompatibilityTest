@@ -10,6 +10,11 @@ public class FloatColumn extends AbstractColumn implements Column {
 		super(SqlDataType.FLOAT, colName, seed);
 	}
 	
+	@Override 
+	public String getColumnTypeAsSQLString() {
+		return this.getColumnTypeName();
+	}
+	
 	public Object getValue(int i) {
 		return (Float) getNumericValue(i);
 	}

@@ -7,6 +7,7 @@ public enum SqlDataType {
 	BYTE, //
 	CHAR, //
 	DATE, //
+	DATETIME, //
 	DOUBLE, //
 	FLOAT, //
 	INT, //

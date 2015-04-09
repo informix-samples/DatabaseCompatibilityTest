@@ -1,6 +1,7 @@
 package com.ibm.database.compatibility;
 
 import java.io.IOException;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.text.MessageFormat;
@@ -60,6 +61,9 @@ public class Binding {
 		case LVARCHAR:
 		case NCHAR:
 			ps.setString(getIndex(), (String) getValue());
+			break;
+		case DATE:
+			ps.setDate(getIndex(), new Date((Long) getValue()));
 			break;
 		case DOUBLE:
 			if (getValue() instanceof String) {

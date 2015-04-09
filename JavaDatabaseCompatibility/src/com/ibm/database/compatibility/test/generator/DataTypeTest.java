@@ -17,6 +17,7 @@ import com.ibm.database.compatibility.test.generator.datatypes.BigSerialColumn;
 import com.ibm.database.compatibility.test.generator.datatypes.BooleanColumn;
 import com.ibm.database.compatibility.test.generator.datatypes.CharColumn;
 import com.ibm.database.compatibility.test.generator.datatypes.Column;
+import com.ibm.database.compatibility.test.generator.datatypes.DateColumn;
 import com.ibm.database.compatibility.test.generator.datatypes.FloatColumn;
 import com.ibm.database.compatibility.test.generator.datatypes.Int8Column;
 import com.ibm.database.compatibility.test.generator.datatypes.IntColumn;
@@ -491,6 +492,29 @@ public class DataTypeTest {
 		jow.close();
 	}
 	
+	public static void generateDateTest() throws IOException {
+		String datatype = SqlDataType.DATE.toString();
+		String testName = "date datatype test";
+		String tabName = "date_test";
+		JsonOperationWriter jow = new JsonOperationWriter(getTestOutputFileName(datatype));
+		TestGeneratorUtils.writeStartTestInfo(jow, testName);
+		
+		createDataTypeTest_CRUD(jow, tabName, new DateColumn("i0", 0));
+		
+		List<Column> columns = new ArrayList<Column>();
+		int[] nColumns = {1, 50, 100};
+		for (int n : nColumns) {
+			columns.clear();
+			for (int j = 0; j < n; j++) {
+				columns.add(new DateColumn("i" + j, j));
+			}
+			createDataTypeTest_QueryInsertPstmt(jow,tabName, columns, N_INSERTS, 2);
+		}
+		TestGeneratorUtils.writeEndTestInfo(jow, testName);
+		jow.flush();
+		jow.close();
+	}
+	
 //	public static void addIntegerTest(JsonOperationWriter jow) throws IOException {
 //		jow.writeComment("start of integer test");
 //		Operation createCredentials = new Operation.Builder().resource("credentials").action("create").credentialId("mydb").host("10.168.8.130").port(40000).db("textdb").user("informix").password("informix").additionalConnectionProperties("CLIENT_LOCALE=en_us.utf8;DB_LOCALE=en_us.utf8").build();
@@ -550,6 +574,7 @@ public class DataTypeTest {
 		generateLVarcharTest();
 		generateNCharTest();
 		generateBooleanTest();
+		generateDateTest();
 	}
 
 }
