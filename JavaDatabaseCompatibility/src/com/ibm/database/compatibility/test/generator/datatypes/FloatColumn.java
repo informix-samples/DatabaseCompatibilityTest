@@ -7,7 +7,7 @@ public class FloatColumn extends AbstractColumn implements Column {
 	private static int nunique = 100;
 
 	public FloatColumn(String colName, int seed) {
-		super(SqlDataType.FLOAT, colName, seed);
+		super(SqlDataType.SMALLFLOAT, colName, seed);
 	}
 	
 	@Override 
@@ -23,8 +23,7 @@ public class FloatColumn extends AbstractColumn implements Column {
 		return (float) (seed + Math.PI) * (i % nunique);
 	}
 	
-	@SuppressWarnings("rawtypes")
-	public Class getJavaClassName() {
+	public Class<?> getJavaClassName() {
 		return Float.class;
 	}
 }

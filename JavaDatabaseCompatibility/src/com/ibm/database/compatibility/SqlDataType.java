@@ -8,16 +8,18 @@ public enum SqlDataType {
 	CHAR, //
 	DATE, //
 	DATETIME, //
-	DOUBLE, //
-	FLOAT, //
+	DECIMAL, //
+	DOUBLE_PRECISION, //
 	INT, //
 	INT8, //
+	//INTERVAL, //Not supported in DB2
 	LONG, //
 	LVARCHAR, //
 	NCHAR, //
 	OBJECT, //
 	SERIAL, //
 	SERIAL8, //
+	SMALLFLOAT, //
 	SMALLINT, //
 	TIME, //
 	TIMESTAMP, //

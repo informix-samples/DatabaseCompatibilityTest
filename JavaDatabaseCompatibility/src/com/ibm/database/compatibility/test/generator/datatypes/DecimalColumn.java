@@ -8,7 +8,7 @@ public class DecimalColumn extends AbstractColumn implements Column {
 
 	public DecimalColumn(String colName, int seed) {
 		// TODO: Informix decimal mapping to Java type?
-		super(SqlDataType.DOUBLE, colName, seed);
+		super(SqlDataType.DOUBLE_PRECISION, colName, seed);
 	}
 	
 	public Object getValue(int i) {
@@ -19,8 +19,7 @@ public class DecimalColumn extends AbstractColumn implements Column {
 		return (double) (seed + Math.PI) * (i % nunique);
 	}
 	
-	@SuppressWarnings("rawtypes")
-	public Class getJavaClassName() {
+	public Class<?> getJavaClassName() {
 		return Double.class;
 	}
 	

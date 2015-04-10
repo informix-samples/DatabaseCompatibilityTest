@@ -13,6 +13,8 @@ public class JsonOperationReader implements OperationReader, Closeable {
 	private final Reader reader;
 	private final BufferedReader bufferedReader;
 	private String nextLine = null;
+	
+	private int lineNumber = 0;
 
 	public JsonOperationReader(String pathToFile) throws FileNotFoundException {
 		this(new FileReader(pathToFile));
@@ -38,6 +40,7 @@ public class JsonOperationReader implements OperationReader, Closeable {
 		Operation op = null;
 		if (this.nextLine != null) {
 			op = Operation.fromJson(this.nextLine);
+			op.setLine(lineNumber);
 			advanceNextLine();
 		}
 		return op;
@@ -46,6 +49,7 @@ public class JsonOperationReader implements OperationReader, Closeable {
 	private void advanceNextLine() {
 		try {
 			while (true) {
+				lineNumber++;
 				this.nextLine = this.bufferedReader.readLine();
 				if (this.nextLine == null || !this.nextLine.startsWith("#")) {
 					return;
@@ -62,5 +66,4 @@ public class JsonOperationReader implements OperationReader, Closeable {
 			this.bufferedReader.close();
 		}
 	}
-
 }

@@ -23,8 +23,7 @@ public class BigSerialColumn extends AbstractColumn implements Column {
 		}
 	}
 	
-	@SuppressWarnings("rawtypes")
-	public Class getJavaClassName() {
+	public Class<?> getJavaClassName() {
 		return Long.class;
 	}
 

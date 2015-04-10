@@ -65,8 +65,7 @@ public class LVarcharColumn extends AbstractColumn implements Column {
 		return sb.toString();
 	}
 	
-	@SuppressWarnings("rawtypes")
-	public Class getJavaClassName() {
+	public Class<?> getJavaClassName() {
 		return String.class;
 	}
 

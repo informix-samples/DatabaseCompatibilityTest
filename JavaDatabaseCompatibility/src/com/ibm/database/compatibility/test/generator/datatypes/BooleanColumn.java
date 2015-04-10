@@ -18,8 +18,7 @@ public class BooleanColumn extends AbstractColumn implements Column {
 		return false;
 	}
 	
-	@SuppressWarnings("rawtypes")
-	public Class getJavaClassName() {
+	public Class<?> getJavaClassName() {
 		return Boolean.class;
 	}
 	

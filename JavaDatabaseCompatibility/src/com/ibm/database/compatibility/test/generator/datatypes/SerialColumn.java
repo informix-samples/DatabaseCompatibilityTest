@@ -23,8 +23,7 @@ public class SerialColumn extends AbstractColumn implements Column {
 		}
 	}
 	
-	@SuppressWarnings("rawtypes")
-	public Class getJavaClassName() {
+	public Class<?> getJavaClassName() {
 		return Integer.class;
 	}
 

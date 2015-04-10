@@ -49,8 +49,7 @@ public class DateColumn extends AbstractColumn implements Column {
 		return dataValues.get((i + seed) % nunique);
 	}
 	
-	@SuppressWarnings("rawtypes")
-	public Class getJavaClassName() {
+	public Class<?> getJavaClassName() {
 		return Long.class;
 	}
 }

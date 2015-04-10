@@ -337,7 +337,7 @@ public class DataTypeTest {
 	
 	public static void generateFloatTest() throws IOException {
 		// TODO: Test precision in float column?
-		String datatype = SqlDataType.FLOAT.toString();
+		String datatype = SqlDataType.SMALLFLOAT.toString();
 		String testName = "float datatype test";
 		String tabName = "float_test";
 		JsonOperationWriter jow = new JsonOperationWriter(getTestOutputFileName(datatype));

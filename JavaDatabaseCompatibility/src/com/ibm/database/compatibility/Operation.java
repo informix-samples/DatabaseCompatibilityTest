@@ -34,12 +34,15 @@ public class Operation {
 	private Binding[] bindings = null;
 	private JsonArray expectedResults = null;
 	
-	private Integer errorCount = null;
+	private int errorCount = 0;
+	private int line = 0;
 	
 	private Operation() {
 
 	}
 
+	
+	
 	public static class Builder {
 		private String resource = null;
 		private String action = null;
@@ -412,8 +415,9 @@ public class Operation {
 	}
 	
 	private void logError(final String message) {
-		logger.error(message);
-		errorCount ++;
+		logger.error("Message: " + message);
+		logger.error(toString());
+		errorCount++;
 	}
 	
 	public int getErrorCount() {
@@ -431,4 +435,11 @@ public class Operation {
 		return GsonUtils.newGson().toJson(this);
 	}
 
+	public void setLine(int line) {
+		this.line = line;
+	}
+	
+	public int getLine() {
+		return line;
+	}
 }

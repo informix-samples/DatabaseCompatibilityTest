@@ -11,6 +11,7 @@ public class GsonUtils {
 		builder.disableHtmlEscaping();
 		builder.registerTypeAdapter(Binding.class, new BindingTypeAdapter());
 		Gson gson = builder.create();
+		// hello
 		return gson;
 	}
 	

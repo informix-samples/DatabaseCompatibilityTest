@@ -42,8 +42,7 @@ public class NCharColumn extends AbstractColumn implements Column {
 		}
 	}
 	
-	@SuppressWarnings("rawtypes")
-	public Class getJavaClassName() {
+	public Class<?> getJavaClassName() {
 		return String.class;
 	}
 

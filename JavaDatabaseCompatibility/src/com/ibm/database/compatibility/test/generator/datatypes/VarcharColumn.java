@@ -43,8 +43,7 @@ public class VarcharColumn extends AbstractColumn implements Column {
 		return v;
 	}
 	
-	@SuppressWarnings("rawtypes")
-	public Class getJavaClassName() {
+	public Class<?> getJavaClassName() {
 		return String.class;
 	}
 

@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.sql.Types;
 import java.text.MessageFormat;
 import java.util.Iterator;
 import java.util.LinkedList;
@@ -38,7 +39,7 @@ public class Binding {
 	}
 
 	public SqlDataType getTypeOfValue() {
-		if (typeOfValue == null) {
+		if (this.typeOfValue == null) {
 			return SqlDataType.OBJECT;
 		} else {
 			return this.typeOfValue;
@@ -50,6 +51,8 @@ public class Binding {
 		case BOOLEAN:
 			if (getValue() instanceof String) {
 				ps.setBoolean(getIndex(), Boolean.parseBoolean((String)getValue()));
+			} else if(getValue() == null) {
+				ps.setNull(getIndex(), Types.BOOLEAN);
 			} else {
 				ps.setBoolean(getIndex(), (Boolean) getValue());
 			}
@@ -63,23 +66,30 @@ public class Binding {
 			ps.setString(getIndex(), (String) getValue());
 			break;
 		case DATE:
-			ps.setDate(getIndex(), new Date((Long) getValue()));
+			if(getValue() == null) {
+				ps.setDate(getIndex(), null);
+			} else {
+				ps.setDate(getIndex(), new Date((Long) getValue()));
+			}
 			break;
-		case DOUBLE:
+		case DOUBLE_PRECISION:
 			if (getValue() instanceof String) {
 				ps.setDouble(getIndex(), Double.parseDouble((String)getValue()));
+			} else if(getValue() == null) {
+				ps.setNull(getIndex(), Types.DOUBLE);
 			} else {
 				ps.setDouble(getIndex(), (Double) getValue());
 			}
 			break;
-		case FLOAT:
+		case SMALLFLOAT:
 			if (getValue() instanceof String) {
 				ps.setFloat(getIndex(), Float.parseFloat((String)getValue()));
-			} else if (getValue() instanceof Integer) {
-				ps.setFloat(getIndex(), (Integer) getValue());
-			} else if (getValue() instanceof Double) {
-				ps.setFloat(getIndex(), ((Double) getValue()).floatValue());
-			} else {
+			} else if (getValue() instanceof Number) {
+				ps.setFloat(getIndex(), ((Number)getValue()).floatValue());
+			} else if(getValue() == null) {
+				ps.setNull(getIndex(), Types.FLOAT);
+			}
+			else {
 				ps.setFloat(getIndex(), (Float) getValue());
 			}
 			break;
@@ -87,6 +97,8 @@ public class Binding {
 		case SERIAL:
 			if (getValue() instanceof String) {
 				ps.setInt(getIndex(), Integer.parseInt((String)getValue()));
+			} else if(getValue() == null) {
+				ps.setNull(getIndex(), Types.INTEGER);
 			} else if (getValue() instanceof Number){
 				ps.setInt(getIndex(), ((Number) getValue()).intValue());
 			}
@@ -97,6 +109,8 @@ public class Binding {
 		case SERIAL8:
 			if (getValue() instanceof String) {
 				ps.setLong(getIndex(), Long.parseLong((String)getValue()));
+			} else if(getValue() == null) {
+				ps.setNull(getIndex(), Types.BIGINT);
 			} else if (getValue() instanceof Number){
 				ps.setLong(getIndex(), ((Long) getValue()).longValue());
 			}
@@ -107,6 +121,8 @@ public class Binding {
 		case SMALLINT:
 			if (getValue() instanceof String) {
 				ps.setShort(getIndex(), Short.parseShort((String)getValue()));
+			} else if(getValue() == null) {
+				ps.setNull(getIndex(), Types.SMALLINT);
 			} else {
 				ps.setShort(getIndex(), ((Integer) getValue()).shortValue());
 			}

@@ -18,8 +18,7 @@ public class BigIntColumn extends AbstractColumn implements Column {
 		return (Long) getNumericValue(i);
 	}
 	
-	@SuppressWarnings("rawtypes")
-	public Class getJavaClassName() {
+	public Class<?> getJavaClassName() {
 		return Long.class;
 	}
 
