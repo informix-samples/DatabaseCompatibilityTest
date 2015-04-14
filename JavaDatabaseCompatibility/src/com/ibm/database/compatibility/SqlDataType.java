@@ -15,7 +15,7 @@ public enum SqlDataType {
 	//INTERVAL, //Not supported in DB2
 	LONG, //
 	LVARCHAR, //
-	NCHAR, //
+	NVARCHAR, //
 	OBJECT, //
 	SERIAL, //
 	SERIAL8, //

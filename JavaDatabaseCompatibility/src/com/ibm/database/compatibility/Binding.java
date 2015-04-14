@@ -62,7 +62,8 @@ public class Binding {
 		case CHAR:
 		case VARCHAR:
 		case LVARCHAR:
-		case NCHAR:
+		case NVARCHAR:
+			
 			ps.setString(getIndex(), (String) getValue());
 			break;
 		case DATE:
@@ -305,6 +306,10 @@ public class Binding {
 			this.bindings.clear();
 			return this;
 		}
+	}
+	
+	public String toString() {
+		return "Index: " + index  + "\tType of Value: " + typeOfValue + "\tValue: " + value;
 	}
 }
 

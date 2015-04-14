@@ -444,13 +444,13 @@ public class DataTypeTest {
 	}
 	
 	public static void generateNCharTest() throws IOException {
-		String datatype = SqlDataType.NCHAR.toString();
+		String datatype = SqlDataType.NVARCHAR.toString();
 		String testName = "nchar datatype test";
 		String tabName = "nchar_test";
 		JsonOperationWriter jow = new JsonOperationWriter(getTestOutputFileName(datatype));
 		TestGeneratorUtils.writeStartTestInfo(jow, testName);
 		
-		createDataTypeTest_CRUD(jow, tabName, new NCharColumn("i0", 2, 0));
+		createDataTypeTest_CRUD(jow, tabName, new NCharColumn("i0", 10, 0));
 		
 		List<Column> columns = new ArrayList<Column>();
 		int[] charLegths = {50, 100};

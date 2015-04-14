@@ -16,7 +16,7 @@ public class NCharColumn extends AbstractColumn implements Column {
 	protected static final int nunique = dataValues.size();
 	
 	public NCharColumn(String colName, int colLength, int seed) {
-		super(SqlDataType.NCHAR, colName, seed);
+		super(SqlDataType.NVARCHAR, colName, seed);
 		this.colLength = colLength;
 	}
 	
