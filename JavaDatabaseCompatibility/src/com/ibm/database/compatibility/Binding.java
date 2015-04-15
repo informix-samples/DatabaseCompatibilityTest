@@ -1,7 +1,6 @@
 package com.ibm.database.compatibility;
 
 import java.io.IOException;
-import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.Types;
@@ -16,6 +15,7 @@ import com.google.gson.stream.JsonToken;
 import com.google.gson.stream.JsonWriter;
 
 public class Binding {
+	
 	private Integer index = null;
 	private Object value;
 	private SqlDataType typeOfValue;
@@ -63,14 +63,13 @@ public class Binding {
 		case VARCHAR:
 		case LVARCHAR:
 		case NVARCHAR:
-			
 			ps.setString(getIndex(), (String) getValue());
 			break;
 		case DATE:
 			if(getValue() == null) {
 				ps.setDate(getIndex(), null);
 			} else {
-				ps.setDate(getIndex(), new Date((Long) getValue()));
+				ps.setDate(getIndex(), new java.sql.Date((Long)getValue()));
 			}
 			break;
 		case DOUBLE_PRECISION:

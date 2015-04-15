@@ -561,6 +561,7 @@ public class DataTypeTest {
 	 * @param args
 	 */
 	public static void main(String[] args) throws IOException {
+		generateDateTest();
 		generateIntTest();
 		generateBigIntTest();
 		generateInt8Test();
@@ -574,7 +575,7 @@ public class DataTypeTest {
 		generateLVarcharTest();
 		generateNCharTest();
 		generateBooleanTest();
-		generateDateTest();
+		
 	}
 
 }
