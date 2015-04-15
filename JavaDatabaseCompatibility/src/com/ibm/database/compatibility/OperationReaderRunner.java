@@ -57,8 +57,10 @@ public class OperationReaderRunner implements Runnable {
 			logger.info("TEST [" + testName + "]  FAILED");
 		}
 		logger.info(MessageFormat.format("TEST successful operations: {0}", successfulOps));
-		logger.info(MessageFormat.format("TEST errors: {0}", nonFatalErrors + fatalErrors));
-		logger.info(MessageFormat.format("TEST fatal errors: {0} ", fatalErrors));
+		if(nonFatalErrors > 0 || fatalErrors > 0) {
+			logger.info(MessageFormat.format("TEST errors: {0}", nonFatalErrors + fatalErrors));
+			logger.info(MessageFormat.format("TEST fatal errors: {0} ", fatalErrors));
+		}
 	}
 
 	public static void main(String[] args) {
