@@ -18,6 +18,7 @@ import com.ibm.database.compatibility.test.generator.datatypes.BooleanColumn;
 import com.ibm.database.compatibility.test.generator.datatypes.CharColumn;
 import com.ibm.database.compatibility.test.generator.datatypes.Column;
 import com.ibm.database.compatibility.test.generator.datatypes.DateColumn;
+import com.ibm.database.compatibility.test.generator.datatypes.DateTimeColumn;
 import com.ibm.database.compatibility.test.generator.datatypes.FloatColumn;
 import com.ibm.database.compatibility.test.generator.datatypes.Int8Column;
 import com.ibm.database.compatibility.test.generator.datatypes.IntColumn;
@@ -515,6 +516,37 @@ public class DataTypeTest {
 		jow.close();
 	}
 	
+	public static void generateDateTimeTest() throws IOException {
+		
+		
+		String datatype = SqlDataType.DATETIME.toString();
+		String testName = "date datatype test";
+		String tabName = "date_test";
+		
+		for(int i = 1; i < 6; i++ ){
+			testName = "datetime(" + i + ") datatype test";
+			tabName = "date_test" + i;
+			datatype = SqlDataType.DATETIME.toString() + i;
+			JsonOperationWriter jow = new JsonOperationWriter(getTestOutputFileName(datatype));
+			TestGeneratorUtils.writeStartTestInfo(jow, testName);
+			
+			createDataTypeTest_CRUD(jow, tabName, new DateTimeColumn("i0", i, 0));
+			
+			List<Column> columns = new ArrayList<Column>();
+			int[] nColumns = {1, 50, 100};
+			for (int n : nColumns) {
+				columns.clear();
+				for (int j = 0; j < n; j++) {
+					columns.add(new DateTimeColumn("i" + j, i, j));
+				}
+				createDataTypeTest_QueryInsertPstmt(jow,tabName, columns, N_INSERTS, 2);
+			}
+			TestGeneratorUtils.writeEndTestInfo(jow, testName);
+			jow.flush();
+			jow.close();
+		}
+	}
+	
 //	public static void addIntegerTest(JsonOperationWriter jow) throws IOException {
 //		jow.writeComment("start of integer test");
 //		Operation createCredentials = new Operation.Builder().resource("credentials").action("create").credentialId("mydb").host("10.168.8.130").port(40000).db("textdb").user("informix").password("informix").additionalConnectionProperties("CLIENT_LOCALE=en_us.utf8;DB_LOCALE=en_us.utf8").build();
@@ -561,6 +593,7 @@ public class DataTypeTest {
 	 * @param args
 	 */
 	public static void main(String[] args) throws IOException {
+		generateDateTimeTest();
 		generateDateTest();
 		generateIntTest();
 		generateBigIntTest();

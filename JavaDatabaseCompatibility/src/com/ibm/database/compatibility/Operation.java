@@ -10,7 +10,6 @@ import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.text.MessageFormat;
-import java.text.SimpleDateFormat;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -276,7 +275,6 @@ public class Operation {
 	}
 
 	String convertResultSetToJson(ResultSet rs) throws IOException, SQLException {
-		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
 		ResultSetMetaData rsmd = rs.getMetaData();
 		StringWriter sw = new StringWriter();
 		JsonWriter jw = new JsonWriter(sw);
@@ -287,7 +285,13 @@ public class Operation {
 			for (int i=1; i <= rsmd.getColumnCount(); ++i) {
 				jw.name(rsmd.getColumnLabel(i));
 				Object value = rs.getObject(i);
-				if(value instanceof java.sql.Date) {
+				if(value instanceof java.sql.Timestamp) {
+					value = rs.getTimestamp(i);
+					System.out.println("timestamp value: " + rs.getTimestamp(i).getTime() + " nanos" + rs.getTimestamp(i).getNanos());
+					System.out.println("time value: " + rs.getTime(i).getTime());
+					System.out.println("Date value: " + rs.getDate(i).getTime());
+				}
+				if(value instanceof java.util.Date) {
 					value = rs.getDate(i).getTime();
 				}
 				GsonUtils.newGson().toJson(value, value.getClass(), jw);

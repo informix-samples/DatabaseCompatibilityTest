@@ -66,6 +66,7 @@ public class Binding {
 			ps.setString(getIndex(), (String) getValue());
 			break;
 		case DATE:
+		case DATETIME:
 			if(getValue() == null) {
 				ps.setDate(getIndex(), null);
 			} else {
