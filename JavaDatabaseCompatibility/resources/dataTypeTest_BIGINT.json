@@ -14,14 +14,14 @@
 {"resource":"preparedStatement","action":"execute","statementId":"query","bindings":[{"index":1,"type":"BIGINT","value":549755813888}],"expectedResults":[{"i0":549755813888}]}
 # update row
 {"resource":"preparedStatement","action":"create","statementId":"update","sql":"UPDATE bigint_test SET i0 = ? WHERE i0 = ?"}
-{"resource":"preparedStatement","action":"execute","statementId":"update","bindings":[{"index":1,"type":"BIGINT","value":1099511627776},{"index":2,"type":"BIGINT","value":549755813888}],"expectedResults":[{"i0":549755813888}]}
+{"resource":"preparedStatement","action":"execute","statementId":"update","bindings":[{"index":1,"type":"BIGINT","value":1099511627776},{"index":2,"type":"BIGINT","value":549755813888}]}
 # query for original row
 {"resource":"preparedStatement","action":"execute","statementId":"query","bindings":[{"index":1,"type":"BIGINT","value":549755813888}],"expectedResults":[]}
 # query for updated row
 {"resource":"preparedStatement","action":"execute","statementId":"query","bindings":[{"index":1,"type":"BIGINT","value":1099511627776}],"expectedResults":[{"i0":1099511627776}]}
 # delete row
 {"resource":"preparedStatement","action":"create","statementId":"delete","sql":"DELETE FROM bigint_test WHERE i0 = ?"}
-{"resource":"preparedStatement","action":"execute","statementId":"delete","bindings":[{"index":1,"type":"BIGINT","value":1099511627776}],"expectedResults":[{"i0":1099511627776}]}
+{"resource":"preparedStatement","action":"execute","statementId":"delete","bindings":[{"index":1,"type":"BIGINT","value":1099511627776}]}
 # query for deleted row
 {"resource":"preparedStatement","action":"execute","statementId":"query","bindings":[{"index":1,"type":"BIGINT","value":1099511627776}],"expectedResults":[]}
 # dropping table

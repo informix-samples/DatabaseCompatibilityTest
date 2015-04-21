@@ -14,14 +14,14 @@
 {"resource":"preparedStatement","action":"execute","statementId":"query","bindings":[{"index":1,"type":"VARCHAR","value":"Nevad"}],"expectedResults":[{"i0":"Nevad"}]}
 # update row
 {"resource":"preparedStatement","action":"create","statementId":"update","sql":"UPDATE varchar_test SET i0 = ? WHERE i0 = ?"}
-{"resource":"preparedStatement","action":"execute","statementId":"update","bindings":[{"index":1,"type":"VARCHAR","value":"Rhode"},{"index":2,"type":"VARCHAR","value":"Nevad"}],"expectedResults":[{"i0":"Nevad"}]}
+{"resource":"preparedStatement","action":"execute","statementId":"update","bindings":[{"index":1,"type":"VARCHAR","value":"Rhode"},{"index":2,"type":"VARCHAR","value":"Nevad"}]}
 # query for original row
 {"resource":"preparedStatement","action":"execute","statementId":"query","bindings":[{"index":1,"type":"VARCHAR","value":"Nevad"}],"expectedResults":[]}
 # query for updated row
 {"resource":"preparedStatement","action":"execute","statementId":"query","bindings":[{"index":1,"type":"VARCHAR","value":"Rhode"}],"expectedResults":[{"i0":"Rhode"}]}
 # delete row
 {"resource":"preparedStatement","action":"create","statementId":"delete","sql":"DELETE FROM varchar_test WHERE i0 = ?"}
-{"resource":"preparedStatement","action":"execute","statementId":"delete","bindings":[{"index":1,"type":"VARCHAR","value":"Rhode"}],"expectedResults":[{"i0":"Rhode"}]}
+{"resource":"preparedStatement","action":"execute","statementId":"delete","bindings":[{"index":1,"type":"VARCHAR","value":"Rhode"}]}
 # query for deleted row
 {"resource":"preparedStatement","action":"execute","statementId":"query","bindings":[{"index":1,"type":"VARCHAR","value":"Rhode"}],"expectedResults":[]}
 # dropping table

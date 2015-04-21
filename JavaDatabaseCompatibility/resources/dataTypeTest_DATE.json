@@ -14,14 +14,14 @@
 {"resource":"preparedStatement","action":"execute","statementId":"query","bindings":[{"index":1,"type":"DATE","value":1420092000000}],"expectedResults":[{"i0":1420092000000}]}
 # update row
 {"resource":"preparedStatement","action":"create","statementId":"update","sql":"UPDATE date_test SET i0 = ? WHERE i0 = ?"}
-{"resource":"preparedStatement","action":"execute","statementId":"update","bindings":[{"index":1,"type":"DATE","value":1413349200000},{"index":2,"type":"DATE","value":1420092000000}],"expectedResults":[{"i0":1420092000000}]}
+{"resource":"preparedStatement","action":"execute","statementId":"update","bindings":[{"index":1,"type":"DATE","value":1413349200000},{"index":2,"type":"DATE","value":1420092000000}]}
 # query for original row
 {"resource":"preparedStatement","action":"execute","statementId":"query","bindings":[{"index":1,"type":"DATE","value":1420092000000}],"expectedResults":[]}
 # query for updated row
 {"resource":"preparedStatement","action":"execute","statementId":"query","bindings":[{"index":1,"type":"DATE","value":1413349200000}],"expectedResults":[{"i0":1413349200000}]}
 # delete row
 {"resource":"preparedStatement","action":"create","statementId":"delete","sql":"DELETE FROM date_test WHERE i0 = ?"}
-{"resource":"preparedStatement","action":"execute","statementId":"delete","bindings":[{"index":1,"type":"DATE","value":1413349200000}],"expectedResults":[{"i0":1413349200000}]}
+{"resource":"preparedStatement","action":"execute","statementId":"delete","bindings":[{"index":1,"type":"DATE","value":1413349200000}]}
 # query for deleted row
 {"resource":"preparedStatement","action":"execute","statementId":"query","bindings":[{"index":1,"type":"DATE","value":1413349200000}],"expectedResults":[]}
 # dropping table

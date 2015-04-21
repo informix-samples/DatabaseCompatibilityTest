@@ -93,7 +93,7 @@ public class DataTypeTest {
 			jow.write(TestGeneratorUtils.getUpdatePstmtOperation("update", tabName, column, column));
 			bb = new Binding.BindingsBuilder().add(1, column.getValue(updateSeed), column.getColumnTypeName())
 					.add(2, column.getValue(insertSeed), column.getColumnTypeName());
-			jow.write(TestGeneratorUtils.getExecutePstmtOperation("update", bb.build(), expectedResult));
+			jow.write(TestGeneratorUtils.getExecutePstmtOperation("update", bb.build()));
 			row = new JsonObject();
 			row.add(column.getColumnName(), TestGeneratorUtils.createJsonElement(column.getValue(updateSeed)));
 	
@@ -112,7 +112,7 @@ public class DataTypeTest {
 		
 		jow.writeComment("delete row");
 		jow.write(TestGeneratorUtils.getDeletePstmtOperation("delete", tabName, column));
-		jow.write(TestGeneratorUtils.getExecutePstmtOperation("delete", bb.build(), expectedResult));
+		jow.write(TestGeneratorUtils.getExecutePstmtOperation("delete", bb.build()));
 		
 		jow.writeComment("query for deleted row");
 		expectedResult = new JsonArray();

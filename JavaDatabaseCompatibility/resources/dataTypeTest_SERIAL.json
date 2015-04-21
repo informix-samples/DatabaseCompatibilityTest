@@ -15,7 +15,7 @@
 # updates not supported on this datatype... skipping update
 # delete row
 {"resource":"preparedStatement","action":"create","statementId":"delete","sql":"DELETE FROM serial_test WHERE i0 = ?"}
-{"resource":"preparedStatement","action":"execute","statementId":"delete","bindings":[{"index":1,"type":"SERIAL","value":82}],"expectedResults":[{"i0":82}]}
+{"resource":"preparedStatement","action":"execute","statementId":"delete","bindings":[{"index":1,"type":"SERIAL","value":82}]}
 # query for deleted row
 {"resource":"preparedStatement","action":"execute","statementId":"query","bindings":[{"index":1,"type":"SERIAL","value":143}],"expectedResults":[]}
 # dropping table

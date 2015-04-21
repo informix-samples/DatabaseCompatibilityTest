@@ -14,14 +14,14 @@
 {"resource":"preparedStatement","action":"execute","statementId":"query","bindings":[{"index":1,"type":"CHAR","value":"A"}],"expectedResults":[{"i0":"A"}]}
 # update row
 {"resource":"preparedStatement","action":"create","statementId":"update","sql":"UPDATE char_test SET i0 = ? WHERE i0 = ?"}
-{"resource":"preparedStatement","action":"execute","statementId":"update","bindings":[{"index":1,"type":"CHAR","value":"I"},{"index":2,"type":"CHAR","value":"A"}],"expectedResults":[{"i0":"A"}]}
+{"resource":"preparedStatement","action":"execute","statementId":"update","bindings":[{"index":1,"type":"CHAR","value":"I"},{"index":2,"type":"CHAR","value":"A"}]}
 # query for original row
 {"resource":"preparedStatement","action":"execute","statementId":"query","bindings":[{"index":1,"type":"CHAR","value":"A"}],"expectedResults":[]}
 # query for updated row
 {"resource":"preparedStatement","action":"execute","statementId":"query","bindings":[{"index":1,"type":"CHAR","value":"I"}],"expectedResults":[{"i0":"I"}]}
 # delete row
 {"resource":"preparedStatement","action":"create","statementId":"delete","sql":"DELETE FROM char_test WHERE i0 = ?"}
-{"resource":"preparedStatement","action":"execute","statementId":"delete","bindings":[{"index":1,"type":"CHAR","value":"I"}],"expectedResults":[{"i0":"I"}]}
+{"resource":"preparedStatement","action":"execute","statementId":"delete","bindings":[{"index":1,"type":"CHAR","value":"I"}]}
 # query for deleted row
 {"resource":"preparedStatement","action":"execute","statementId":"query","bindings":[{"index":1,"type":"CHAR","value":"I"}],"expectedResults":[]}
 # dropping table

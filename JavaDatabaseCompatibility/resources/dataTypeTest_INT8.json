@@ -14,14 +14,14 @@
 {"resource":"preparedStatement","action":"execute","statementId":"query","bindings":[{"index":1,"type":"INT8","value":2199023255552}],"expectedResults":[{"i0":2199023255552}]}
 # update row
 {"resource":"preparedStatement","action":"create","statementId":"update","sql":"UPDATE int8_test SET i0 = ? WHERE i0 = ?"}
-{"resource":"preparedStatement","action":"execute","statementId":"update","bindings":[{"index":1,"type":"INT8","value":4398046511104},{"index":2,"type":"INT8","value":2199023255552}],"expectedResults":[{"i0":2199023255552}]}
+{"resource":"preparedStatement","action":"execute","statementId":"update","bindings":[{"index":1,"type":"INT8","value":4398046511104},{"index":2,"type":"INT8","value":2199023255552}]}
 # query for original row
 {"resource":"preparedStatement","action":"execute","statementId":"query","bindings":[{"index":1,"type":"INT8","value":2199023255552}],"expectedResults":[]}
 # query for updated row
 {"resource":"preparedStatement","action":"execute","statementId":"query","bindings":[{"index":1,"type":"INT8","value":4398046511104}],"expectedResults":[{"i0":4398046511104}]}
 # delete row
 {"resource":"preparedStatement","action":"create","statementId":"delete","sql":"DELETE FROM int8_test WHERE i0 = ?"}
-{"resource":"preparedStatement","action":"execute","statementId":"delete","bindings":[{"index":1,"type":"INT8","value":4398046511104}],"expectedResults":[{"i0":4398046511104}]}
+{"resource":"preparedStatement","action":"execute","statementId":"delete","bindings":[{"index":1,"type":"INT8","value":4398046511104}]}
 # query for deleted row
 {"resource":"preparedStatement","action":"execute","statementId":"query","bindings":[{"index":1,"type":"INT8","value":4398046511104}],"expectedResults":[]}
 # dropping table

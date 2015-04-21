@@ -14,14 +14,14 @@
 {"resource":"preparedStatement","action":"execute","statementId":"query","bindings":[{"index":1,"type":"BOOLEAN","value":false}],"expectedResults":[{"i0":false}]}
 # update row
 {"resource":"preparedStatement","action":"create","statementId":"update","sql":"UPDATE boolean_test SET i0 = ? WHERE i0 = ?"}
-{"resource":"preparedStatement","action":"execute","statementId":"update","bindings":[{"index":1,"type":"BOOLEAN","value":true},{"index":2,"type":"BOOLEAN","value":false}],"expectedResults":[{"i0":false}]}
+{"resource":"preparedStatement","action":"execute","statementId":"update","bindings":[{"index":1,"type":"BOOLEAN","value":true},{"index":2,"type":"BOOLEAN","value":false}]}
 # query for original row
 {"resource":"preparedStatement","action":"execute","statementId":"query","bindings":[{"index":1,"type":"BOOLEAN","value":false}],"expectedResults":[]}
 # query for updated row
 {"resource":"preparedStatement","action":"execute","statementId":"query","bindings":[{"index":1,"type":"BOOLEAN","value":true}],"expectedResults":[{"i0":true}]}
 # delete row
 {"resource":"preparedStatement","action":"create","statementId":"delete","sql":"DELETE FROM boolean_test WHERE i0 = ?"}
-{"resource":"preparedStatement","action":"execute","statementId":"delete","bindings":[{"index":1,"type":"BOOLEAN","value":true}],"expectedResults":[{"i0":true}]}
+{"resource":"preparedStatement","action":"execute","statementId":"delete","bindings":[{"index":1,"type":"BOOLEAN","value":true}]}
 # query for deleted row
 {"resource":"preparedStatement","action":"execute","statementId":"query","bindings":[{"index":1,"type":"BOOLEAN","value":true}],"expectedResults":[]}
 # dropping table

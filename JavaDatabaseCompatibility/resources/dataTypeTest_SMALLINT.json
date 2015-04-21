@@ -14,14 +14,14 @@
 {"resource":"preparedStatement","action":"execute","statementId":"query","bindings":[{"index":1,"type":"SMALLINT","value":38}],"expectedResults":[{"i0":38}]}
 # update row
 {"resource":"preparedStatement","action":"create","statementId":"update","sql":"UPDATE smallint_test SET i0 = ? WHERE i0 = ?"}
-{"resource":"preparedStatement","action":"execute","statementId":"update","bindings":[{"index":1,"type":"SMALLINT","value":99},{"index":2,"type":"SMALLINT","value":38}],"expectedResults":[{"i0":38}]}
+{"resource":"preparedStatement","action":"execute","statementId":"update","bindings":[{"index":1,"type":"SMALLINT","value":99},{"index":2,"type":"SMALLINT","value":38}]}
 # query for original row
 {"resource":"preparedStatement","action":"execute","statementId":"query","bindings":[{"index":1,"type":"SMALLINT","value":38}],"expectedResults":[]}
 # query for updated row
 {"resource":"preparedStatement","action":"execute","statementId":"query","bindings":[{"index":1,"type":"SMALLINT","value":99}],"expectedResults":[{"i0":99}]}
 # delete row
 {"resource":"preparedStatement","action":"create","statementId":"delete","sql":"DELETE FROM smallint_test WHERE i0 = ?"}
-{"resource":"preparedStatement","action":"execute","statementId":"delete","bindings":[{"index":1,"type":"SMALLINT","value":99}],"expectedResults":[{"i0":99}]}
+{"resource":"preparedStatement","action":"execute","statementId":"delete","bindings":[{"index":1,"type":"SMALLINT","value":99}]}
 # query for deleted row
 {"resource":"preparedStatement","action":"execute","statementId":"query","bindings":[{"index":1,"type":"SMALLINT","value":99}],"expectedResults":[]}
 # dropping table

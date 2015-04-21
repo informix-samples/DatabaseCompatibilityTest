@@ -14,14 +14,14 @@
 {"resource":"preparedStatement","action":"execute","statementId":"query","bindings":[{"index":1,"type":"NVARCHAR","value":"牛牛牛"}],"expectedResults":[{"i0":"牛牛牛"}]}
 # update row
 {"resource":"preparedStatement","action":"create","statementId":"update","sql":"UPDATE nchar_test SET i0 = ? WHERE i0 = ?"}
-{"resource":"preparedStatement","action":"execute","statementId":"update","bindings":[{"index":1,"type":"NVARCHAR","value":"猪猪猪"},{"index":2,"type":"NVARCHAR","value":"牛牛牛"}],"expectedResults":[{"i0":"牛牛牛"}]}
+{"resource":"preparedStatement","action":"execute","statementId":"update","bindings":[{"index":1,"type":"NVARCHAR","value":"猪猪猪"},{"index":2,"type":"NVARCHAR","value":"牛牛牛"}]}
 # query for original row
 {"resource":"preparedStatement","action":"execute","statementId":"query","bindings":[{"index":1,"type":"NVARCHAR","value":"牛牛牛"}],"expectedResults":[]}
 # query for updated row
 {"resource":"preparedStatement","action":"execute","statementId":"query","bindings":[{"index":1,"type":"NVARCHAR","value":"猪猪猪"}],"expectedResults":[{"i0":"猪猪猪"}]}
 # delete row
 {"resource":"preparedStatement","action":"create","statementId":"delete","sql":"DELETE FROM nchar_test WHERE i0 = ?"}
-{"resource":"preparedStatement","action":"execute","statementId":"delete","bindings":[{"index":1,"type":"NVARCHAR","value":"猪猪猪"}],"expectedResults":[{"i0":"猪猪猪"}]}
+{"resource":"preparedStatement","action":"execute","statementId":"delete","bindings":[{"index":1,"type":"NVARCHAR","value":"猪猪猪"}]}
 # query for deleted row
 {"resource":"preparedStatement","action":"execute","statementId":"query","bindings":[{"index":1,"type":"NVARCHAR","value":"猪猪猪"}],"expectedResults":[]}
 # dropping table

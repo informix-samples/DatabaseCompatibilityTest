@@ -14,14 +14,14 @@
 {"resource":"preparedStatement","action":"execute","statementId":"query","bindings":[{"index":1,"type":"SMALLFLOAT","value":84.823006}],"expectedResults":[{"i0":84.823006}]}
 # update row
 {"resource":"preparedStatement","action":"create","statementId":"update","sql":"UPDATE float_test SET i0 = ? WHERE i0 = ?"}
-{"resource":"preparedStatement","action":"execute","statementId":"update","bindings":[{"index":1,"type":"SMALLFLOAT","value":276.46017},{"index":2,"type":"SMALLFLOAT","value":84.823006}],"expectedResults":[{"i0":84.823006}]}
+{"resource":"preparedStatement","action":"execute","statementId":"update","bindings":[{"index":1,"type":"SMALLFLOAT","value":276.46017},{"index":2,"type":"SMALLFLOAT","value":84.823006}]}
 # query for original row
 {"resource":"preparedStatement","action":"execute","statementId":"query","bindings":[{"index":1,"type":"SMALLFLOAT","value":84.823006}],"expectedResults":[]}
 # query for updated row
 {"resource":"preparedStatement","action":"execute","statementId":"query","bindings":[{"index":1,"type":"SMALLFLOAT","value":276.46017}],"expectedResults":[{"i0":276.46017}]}
 # delete row
 {"resource":"preparedStatement","action":"create","statementId":"delete","sql":"DELETE FROM float_test WHERE i0 = ?"}
-{"resource":"preparedStatement","action":"execute","statementId":"delete","bindings":[{"index":1,"type":"SMALLFLOAT","value":276.46017}],"expectedResults":[{"i0":276.46017}]}
+{"resource":"preparedStatement","action":"execute","statementId":"delete","bindings":[{"index":1,"type":"SMALLFLOAT","value":276.46017}]}
 # query for deleted row
 {"resource":"preparedStatement","action":"execute","statementId":"query","bindings":[{"index":1,"type":"SMALLFLOAT","value":276.46017}],"expectedResults":[]}
 # dropping table

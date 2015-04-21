@@ -246,6 +246,10 @@ public class Operation {
 						if (expectedResults != null) {
 							compareResults(expectedResults, actualResults);
 						}
+					} else {
+						if (expectedResults != null) {
+							logError(MessageFormat.format("prepared statement (id: {0}) execution returned no results, expected {1}", statementId, expectedResults));
+						}
 					}
 				} finally {
 					//					if (pstmt != null && statementId == null) {
