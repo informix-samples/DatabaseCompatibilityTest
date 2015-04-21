@@ -66,11 +66,17 @@ public class Binding {
 			ps.setString(getIndex(), (String) getValue());
 			break;
 		case DATE:
-		case DATETIME:
 			if(getValue() == null) {
 				ps.setDate(getIndex(), null);
 			} else {
 				ps.setDate(getIndex(), new java.sql.Date((Long)getValue()));
+			}
+			break;
+		case DATETIME:
+			if(getValue() == null) {
+				ps.setTimestamp(getIndex(), null);
+			} else {
+				ps.setTimestamp(getIndex(), new java.sql.Timestamp((Long)getValue()));
 			}
 			break;
 		case DOUBLE_PRECISION:
