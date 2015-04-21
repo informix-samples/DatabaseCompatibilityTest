@@ -517,13 +517,11 @@ public class DataTypeTest {
 	}
 	
 	public static void generateDateTimeTest() throws IOException {
-		
-		
 		String datatype = SqlDataType.DATETIME.toString();
 		String testName = "date datatype test";
 		String tabName = "date_test";
 		
-		for(int i = 1; i < 6; i++ ){
+		for(int i = 0; i < 6; i++ ){
 			testName = "datetime(" + i + ") datatype test";
 			tabName = "date_test" + i;
 			datatype = SqlDataType.DATETIME.toString() + i;

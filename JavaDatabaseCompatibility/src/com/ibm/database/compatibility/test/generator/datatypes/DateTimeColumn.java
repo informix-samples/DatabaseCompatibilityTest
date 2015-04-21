@@ -39,19 +39,19 @@ public class DateTimeColumn extends AbstractColumn implements Column {
 				sb.append(':');
 				sb.append(r.nextInt(59)); 	//second
 				sb.append('.');
-				if( fractionSize > 1) {
+				if( fractionSize >= 1) {
 					sb.append(r.nextInt(9));
 				}
 				else {
 					sb.append(0);
 				}
-				if( fractionSize > 2) {
+				if( fractionSize >= 2) {
 					sb.append(r.nextInt(9));
 				}
 				else {
 					sb.append(0);
 				}
-				if( fractionSize > 3) {
+				if( fractionSize >= 3) {
 					sb.append(r.nextInt(9));
 				}
 				else {
@@ -74,7 +74,11 @@ public class DateTimeColumn extends AbstractColumn implements Column {
 	
 	@Override
 	public String getColumnTypeAsSQLString() {
-		return "DATETIME YEAR TO FRACTION(" + fractionSize + ")";
+		if (fractionSize == 0) {
+			return "DATETIME YEAR TO SECOND";
+		} else {
+			return "DATETIME YEAR TO FRACTION(" + fractionSize + ")";
+		}
 	}
 
 	@Override
