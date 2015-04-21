@@ -34,14 +34,12 @@ public class Operation {
 	private Binding[] bindings = null;
 	private JsonArray expectedResults = null;
 	
-	private int errorCount = 0;
-	private int line = 0;
+	private Integer errorCount = null;
+	private Integer line = null;
 	
 	private Operation() {
 
 	}
-
-	
 	
 	public static class Builder {
 		private String resource = null;
