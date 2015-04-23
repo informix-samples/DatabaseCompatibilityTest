@@ -9,7 +9,10 @@ import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.sql.Timestamp;
+import java.text.DateFormat;
 import java.text.MessageFormat;
+import java.text.SimpleDateFormat;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -289,9 +292,21 @@ public class Operation {
 				Object value = rs.getObject(i);
 				if(value instanceof java.sql.Timestamp) {
 					value = rs.getTimestamp(i);
-					System.out.println("timestamp value: " + rs.getTimestamp(i).getTime() + " nanos" + rs.getTimestamp(i).getNanos());
-					System.out.println("time value: " + rs.getTime(i).getTime());
-					System.out.println("Date value: " + rs.getDate(i).getTime());
+					Timestamp ts = (java.sql.Timestamp) value;
+					DateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+					if (rsmd.getColumnTypeName(i).equalsIgnoreCase("datetime year to fraction(4)")) {
+						String nanosString = Integer.toString(ts.getNanos() / 100000);
+						while (nanosString.length() < 4) {
+							nanosString = "0" + nanosString;
+						}
+						value = df.format(ts) + "." + nanosString;
+					} else if (rsmd.getColumnTypeName(i).equalsIgnoreCase("datetime year to fraction(5)")) {
+						String nanosString = Integer.toString(ts.getNanos() / 10000);
+						while (nanosString.length() < 5) {
+							nanosString = "0" + nanosString;
+						}
+						value = df.format(ts) + "." + nanosString;
+					}
 				}
 				if(value instanceof java.util.Date) {
 					value = rs.getDate(i).getTime();

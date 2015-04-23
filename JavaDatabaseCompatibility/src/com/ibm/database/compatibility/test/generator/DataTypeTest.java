@@ -19,6 +19,7 @@ import com.ibm.database.compatibility.test.generator.datatypes.CharColumn;
 import com.ibm.database.compatibility.test.generator.datatypes.Column;
 import com.ibm.database.compatibility.test.generator.datatypes.DateColumn;
 import com.ibm.database.compatibility.test.generator.datatypes.DateTimeColumn;
+import com.ibm.database.compatibility.test.generator.datatypes.DecimalColumn;
 import com.ibm.database.compatibility.test.generator.datatypes.FloatColumn;
 import com.ibm.database.compatibility.test.generator.datatypes.Int8Column;
 import com.ibm.database.compatibility.test.generator.datatypes.IntColumn;
@@ -337,7 +338,6 @@ public class DataTypeTest {
 	}
 	
 	public static void generateFloatTest() throws IOException {
-		// TODO: Test precision in float column?
 		String datatype = SqlDataType.SMALLFLOAT.toString();
 		String testName = "float datatype test";
 		String tabName = "float_test";
@@ -352,6 +352,29 @@ public class DataTypeTest {
 			columns.clear();
 			for (int j = 0; j < n; j++) {
 				columns.add(new FloatColumn("i" + j, j));
+			}
+			createDataTypeTest_QueryInsertPstmt(jow,tabName, columns, N_INSERTS, N_QUERIES);
+		}
+		TestGeneratorUtils.writeEndTestInfo(jow, testName);
+		jow.flush();
+		jow.close();
+	}
+	
+	public static void generateDecimalTest() throws IOException {
+		String datatype = SqlDataType.DECIMAL.toString();
+		String testName = "decimal datatype test";
+		String tabName = "decimal_test";
+		JsonOperationWriter jow = new JsonOperationWriter(getTestOutputFileName(datatype));
+		TestGeneratorUtils.writeStartTestInfo(jow, testName);
+		
+		createDataTypeTest_CRUD(jow, tabName, new DecimalColumn("i0", 0));
+
+		List<Column> columns = new ArrayList<Column>();
+		int[] nColumns = {1, 50, 100};
+		for (int n : nColumns) {
+			columns.clear();
+			for (int j = 0; j < n; j++) {
+				columns.add(new DecimalColumn("i" + j, 20, j));
 			}
 			createDataTypeTest_QueryInsertPstmt(jow,tabName, columns, N_INSERTS, N_QUERIES);
 		}
@@ -601,6 +624,7 @@ public class DataTypeTest {
 		generateBigSerialTest();
 		generateSerial8Test();
 		generateFloatTest();
+		generateDecimalTest();
 		generateCharTest();
 		generateVarcharTest();
 		generateLVarcharTest();

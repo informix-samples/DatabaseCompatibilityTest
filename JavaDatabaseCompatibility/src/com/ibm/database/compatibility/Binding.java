@@ -3,8 +3,12 @@ package com.ibm.database.compatibility;
 import java.io.IOException;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.sql.Timestamp;
 import java.sql.Types;
+import java.text.DateFormat;
 import java.text.MessageFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
@@ -75,11 +79,36 @@ public class Binding {
 		case DATETIME:
 			if(getValue() == null) {
 				ps.setTimestamp(getIndex(), null);
+			} else if (getValue() instanceof String) {
+				String dateString = (String) getValue();
+				if (dateString.length() > 23) {
+					dateString = dateString.substring(0,23);
+				}
+				DateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
+				java.util.Date d = null;
+				try {
+					d = df.parse(dateString);
+				} catch (ParseException e) {
+					throw new RuntimeException("Cannot parse date", e);
+				}
+				Timestamp ts = new Timestamp(d.getTime());
+				if (value.toString().indexOf('.') != -1) {
+					String fraction = value.toString().substring(dateString.indexOf('.') + 1);
+					if (fraction.length() > 3) {
+						if (fraction.length() == 4) {
+							ts.setNanos(Integer.parseInt(fraction) * 100000);
+						} else {
+							ts.setNanos(Integer.parseInt(fraction) * 10000);
+						}
+					}
+				}
+				ps.setTimestamp(getIndex(), ts);
 			} else {
 				ps.setTimestamp(getIndex(), new java.sql.Timestamp((Long)getValue()));
 			}
 			break;
 		case DOUBLE_PRECISION:
+		case DECIMAL:
 			if (getValue() instanceof String) {
 				ps.setDouble(getIndex(), Double.parseDouble((String)getValue()));
 			} else if(getValue() == null) {
