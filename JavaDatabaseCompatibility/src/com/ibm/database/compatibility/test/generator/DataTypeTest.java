@@ -80,7 +80,7 @@ public class DataTypeTest {
 		
 		jow.writeComment("insert row");
 		jow.write(TestGeneratorUtils.getInsertPstmtOperation("insert", tabName, 1));
-		JsonObject row = TestGeneratorUtils.writeInsertExecuteStatement(jow, tableColumns, insertSeed);
+		JsonObject row = TestGeneratorUtils.writeInsertExecuteStatement(jow, "insert", tableColumns, insertSeed);
 		
 		jow.writeComment("query for row");
 		jow.write(TestGeneratorUtils.getCreatePreparedStatementForQueryOperation("query", tabName, column));
@@ -148,7 +148,7 @@ public class DataTypeTest {
 		jow.write(TestGeneratorUtils.getInsertPstmtOperation("insert", tabName, tableColumns.size()));
 		JsonArray tableData = new JsonArray();
 		for (int i = 0; i < nInserts; i++) {
-			JsonObject row = TestGeneratorUtils.writeInsertExecuteStatement(jow, tableColumns, i);
+			JsonObject row = TestGeneratorUtils.writeInsertExecuteStatement(jow, "insert", tableColumns, i);
 			tableData.add(row);
 		}
 		jow.write(TestGeneratorUtils.getClosePresparedStatementOperation("insert"));

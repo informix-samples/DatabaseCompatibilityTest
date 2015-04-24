@@ -33,7 +33,7 @@ public class TransactionTest {
 		jow.write(TestGeneratorUtils.getStartTxnSessionOperation(sessionId));
 		jow.writeComment("insert row");
 		jow.write(TestGeneratorUtils.getInsertPstmtOperation("insert", tabName, tableColumns.size()));
-		JsonObject row = TestGeneratorUtils.writeInsertExecuteStatement(jow, tableColumns, 0);
+		JsonObject row = TestGeneratorUtils.writeInsertExecuteStatement(jow, "insert", tableColumns, 0);
 		jow.writeComment("query table");
 		jow.write(TestGeneratorUtils.getCreatePreparedStatementForQueryOperation("query", "SELECT * FROM " + tabName));
 		JsonArray expectedResult = new JsonArray();
@@ -49,9 +49,9 @@ public class TransactionTest {
 		jow.writeComment("start transaction");
 		jow.write(TestGeneratorUtils.getStartTxnSessionOperation(sessionId));
 		jow.writeComment("insert rows");
-		row = TestGeneratorUtils.writeInsertExecuteStatement(jow, tableColumns, 5);
+		row = TestGeneratorUtils.writeInsertExecuteStatement(jow, "insert", tableColumns, 5);
 		expectedResult.add(row);
-		row = TestGeneratorUtils.writeInsertExecuteStatement(jow, tableColumns, 22);
+		row = TestGeneratorUtils.writeInsertExecuteStatement(jow, "insert", tableColumns, 22);
 		expectedResult.add(row);
 		jow.writeComment("query table");
 		jow.write(TestGeneratorUtils.getExecutePstmtOperation("query", expectedResult));

@@ -28,12 +28,13 @@ public class Operation {
 	private static final Logger logger = LoggerFactory.getLogger(Operation.class);
 
 	private String resource = null; // credential | session | statement | preparedStatement | resultSet
-	private String action = null; // create | execute | close | startTransaction | commitTransaction | rollbackTransaction
+	private String action = null; // create | execute | fetch | close | startTransaction | commitTransaction | rollbackTransaction
 	private String credentialId = null;
 	private String sessionId = null;
 	private String statementId = null;
 	private String className = null;
 	private String sql = null;
+	private Integer nfetch = null;
 	private Binding[] bindings = null;
 	private JsonArray expectedResults = null;
 	
@@ -52,6 +53,7 @@ public class Operation {
 		private String statementId = null;
 		private String className = null;
 		private String sql = null;
+		private Integer nfetch = null;
 		private Binding[] bindings = null;
 		private JsonArray expectedResults = null;
 
@@ -64,6 +66,7 @@ public class Operation {
 			op.statementId = statementId;
 			op.className = className;
 			op.sql = sql;
+			op.nfetch = nfetch;
 			op.bindings = bindings;
 			op.expectedResults = expectedResults;
 			return op;
@@ -101,6 +104,11 @@ public class Operation {
 
 		public Builder sql(final String sql) {
 			this.sql = sql;
+			return this;
+		}
+		
+		public Builder nfetch(final Integer nfetch) {
+			this.nfetch = nfetch;
 			return this;
 		}
 		
@@ -187,12 +195,15 @@ public class Operation {
 					JdbcSession jdbcSession = client.getJdbcSession(sessionId);
 					stmt = jdbcSession.getStatement(statementId);
 					if (stmt == null) {
+						if (jdbcSession.getResultSet(statementId) != null) {
+							jdbcSession.removeResultSet(statementId);
+						}
 						stmt = jdbcSession.createStatement(statementId);
 					}
 					logger.debug("executing statement (id: {} , sql: {})", jdbcSession.getLastStatementId(), sql);
 					if (stmt.execute(sql)) {
 						ResultSet rs = stmt.getResultSet();
-						String actualResults = convertResultSetToJson(rs);
+						String actualResults = convertResultSetToJson(rs, nfetch);
 						rs.close();
 						if (expectedResults != null) {
 							compareResults(expectedResults, actualResults);
@@ -210,6 +221,12 @@ public class Operation {
 			} else if (action.equalsIgnoreCase("close")) {
 				JdbcSession jdbcSession = client.getJdbcSession(sessionId);
 				jdbcSession.removeStatement(statementId);
+				if (jdbcSession.getResultSet(statementId) != null) {
+					ResultSet rs = jdbcSession.getResultSet(statementId);
+					rs.close();
+					jdbcSession.removeResultSet(statementId);
+					logger.debug("closed result set associated with statement id {}", jdbcSession.getLastStatementId());
+				}
 				logger.debug("closed statement id {}", jdbcSession.getLastStatementId());
 			}
 		} else if (resource.equalsIgnoreCase("preparedStatement")) {
@@ -233,6 +250,9 @@ public class Operation {
 					JdbcSession jdbcSession = client.getJdbcSession(sessionId);
 					pstmt = jdbcSession.getPreparedStatement(statementId);
 					if (pstmt == null) {
+						if (jdbcSession.getResultSet(statementId) != null) {
+							jdbcSession.removeResultSet(statementId);
+						}
 						Connection c = jdbcSession.getConnection();
 						pstmt = c.prepareStatement(sql);
 						jdbcSession.putPreparedStatement(statementId, pstmt);
@@ -243,9 +263,12 @@ public class Operation {
 					}
 					if (pstmt.execute()) {
 						ResultSet rs = pstmt.getResultSet();
-						String actualResults = convertResultSetToJson(rs);
-						rs.close();
-						//System.out.println(actualResults);
+						String actualResults = convertResultSetToJson(rs, nfetch);
+						if (nfetch == null) {
+							rs.close();
+						} else {
+							jdbcSession.putResultSet(statementId, rs);
+						}
 						if (expectedResults != null) {
 							compareResults(expectedResults, actualResults);
 						}
@@ -262,11 +285,32 @@ public class Operation {
 					//							// do nothing
 					//						}
 					//					}
-				}				
+				}
+			} else if (action.equalsIgnoreCase("fetch")) {
+				JdbcSession jdbcSession = client.getJdbcSession(sessionId);
+				ResultSet rs = jdbcSession.getResultSet(statementId);
+				if (rs == null) {
+					throw new RuntimeException(MessageFormat.format("No results associated with id {0}. Cannot run fetch on an empty result", statementId));
+				}
+				logger.debug("executing fetch on prepared statement (id: {})", statementId);
+				String actualResults = convertResultSetToJson(rs, nfetch);
+				if (nfetch == null) {
+					rs.close();
+				}
+				//System.out.println(actualResults);
+				if (expectedResults != null) {
+					compareResults(expectedResults, actualResults);
+				}
 			} else if (action.equalsIgnoreCase("close")) {
 				JdbcSession jdbcSession = client.getJdbcSession(sessionId);
 				jdbcSession.removeStatement(statementId);
-				logger.debug("closed prepared statement id {}", jdbcSession.getLastPreparedStatementId());
+				if (jdbcSession.getResultSet(statementId) != null) {
+					ResultSet rs = jdbcSession.getResultSet(statementId);
+					rs.close();
+					jdbcSession.removeResultSet(statementId);
+					logger.debug("closed result set associated with prepared statement id {}", jdbcSession.getLastStatementId());
+				}
+				logger.debug("closed prepared statement id {}", statementId);
 			}
 		} else {
 			throw new RuntimeException(MessageFormat.format("Unsupported resource type {0}", resource));
@@ -279,13 +323,14 @@ public class Operation {
 		this.sql = sql;
 	}
 
-	String convertResultSetToJson(ResultSet rs) throws IOException, SQLException {
+	String convertResultSetToJson(ResultSet rs, Integer nfetch) throws IOException, SQLException {
 		ResultSetMetaData rsmd = rs.getMetaData();
 		StringWriter sw = new StringWriter();
 		JsonWriter jw = new JsonWriter(sw);
 		jw.setHtmlSafe(false);
 		jw.beginArray();
-		while (rs.next()) {
+		int fetched = 0;
+		while ((nfetch == null || fetched < nfetch) && rs.next()) {
 			jw.beginObject();
 			for (int i=1; i <= rsmd.getColumnCount(); ++i) {
 				jw.name(rsmd.getColumnLabel(i));
@@ -314,6 +359,7 @@ public class Operation {
 				GsonUtils.newGson().toJson(value, value.getClass(), jw);
 			}
 			jw.endObject();
+			fetched++;
 		}
 		jw.endArray();
 		jw.flush();

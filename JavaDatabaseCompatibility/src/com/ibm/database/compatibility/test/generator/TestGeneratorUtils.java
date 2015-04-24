@@ -57,17 +57,39 @@ public class TestGeneratorUtils {
 	}
 
 	public static Operation getExecutePstmtOperation(String stmtId, Binding[] bindings) {
-		return getExecutePstmtOperation(stmtId, bindings, null);
+		return getExecutePstmtOperation(stmtId, bindings, null, null);
 	} 
 	
 	public static Operation getExecutePstmtOperation(String stmtId, JsonArray expectedResults) {
-		return getExecutePstmtOperation(stmtId, null, expectedResults);
+		return getExecutePstmtOperation(stmtId, null, null, expectedResults);
 	}
-	
+
+	public static Operation getExecutePstmtOperation(String stmtId, int nfetch, JsonArray expectedResults) {
+		return getExecutePstmtOperation(stmtId, null, nfetch, expectedResults);
+	}
+
 	public static Operation getExecutePstmtOperation(String stmtId, Binding[] bindings, JsonArray expectedResults) {
+		return getExecutePstmtOperation(stmtId, bindings, null, expectedResults);
+	}
+		
+	public static Operation getExecutePstmtOperation(String stmtId, Binding[] bindings, Integer nfetch, JsonArray expectedResults) {
 		Builder op = new Operation.Builder().resource("preparedStatement").action("execute").statementId(stmtId);
 		if (bindings != null) {
 			op.bindings(bindings);
+		}
+		if (nfetch != null) {
+			op.nfetch(nfetch);
+		}
+		if (expectedResults != null) {
+			op.expectedResults(expectedResults);
+		}
+		return op.build();
+	}
+	
+	public static Operation getFetchPstmtOperation(String stmtId, Integer nfetch, JsonArray expectedResults) {
+		Builder op = new Operation.Builder().resource("preparedStatement").action("fetch").statementId(stmtId);
+		if (nfetch != null) {
+			op.nfetch(nfetch);
 		}
 		if (expectedResults != null) {
 			op.expectedResults(expectedResults);
@@ -133,7 +155,7 @@ public class TestGeneratorUtils {
 		return getCreatePreparedStatementOperation(stmtId, sql.toString());
 	}
 	
-	public static JsonObject writeInsertExecuteStatement(JsonOperationWriter jow, List<Column> tableColumns, int i) throws IOException {
+	public static JsonObject writeInsertExecuteStatement(JsonOperationWriter jow, String stmtId, List<Column> tableColumns, int i) throws IOException {
 		JsonObject row = new JsonObject();
 		BindingsBuilder bb = new Binding.BindingsBuilder();
 		for (int j = 0; j < tableColumns.size(); j++) {
@@ -142,7 +164,7 @@ public class TestGeneratorUtils {
 			row.add(c.getColumnName(), createJsonElement(v));
 			bb.add(j + 1, v, c.getColumnTypeName());
 		}
-		jow.write(getExecutePstmtOperation("insert", bb.build()));
+		jow.write(getExecutePstmtOperation(stmtId, bb.build()));
 		return row;
 	}
 	
