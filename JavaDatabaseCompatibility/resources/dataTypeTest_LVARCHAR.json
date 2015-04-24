@@ -1,7 +1,7 @@
 # start of test: lvarchar datatype test
 {"resource":"credentials","action":"create","credentialId":"test"}
 # ---- Testing CRUD operations ----
-{"resource":"session","action":"create","sessionId":"testCRUD","className":"com.informix.jdbc.IfxDriver"}
+{"resource":"session","action":"create","sessionId":"testCRUD"}
 # creating table
 {"resource":"statement","action":"execute","statementId":"ddl","sql":"DROP TABLE IF EXISTS lvarchar_test"}
 {"resource":"statement","action":"execute","statementId":"ddl","sql":"CREATE TABLE lvarchar_test (i0 LVARCHAR(500))"}
@@ -28,7 +28,7 @@
 {"resource":"statement","action":"execute","statementId":"ddl","sql":"DROP TABLE IF EXISTS lvarchar_test"}
 {"resource":"statement","action":"close","statementId":"ddl"}
 # ---- Testing query and insert prepared statement reuse ----
-{"resource":"session","action":"create","sessionId":"testPstmt","className":"com.informix.jdbc.IfxDriver"}
+{"resource":"session","action":"create","sessionId":"testPstmt"}
 # creating table
 {"resource":"statement","action":"execute","statementId":"ddl","sql":"DROP TABLE IF EXISTS lvarchar_test"}
 {"resource":"statement","action":"execute","statementId":"ddl","sql":"CREATE TABLE lvarchar_test (i0 LVARCHAR(1024))"}
@@ -47,7 +47,7 @@
 {"resource":"statement","action":"execute","statementId":"ddl","sql":"DROP TABLE IF EXISTS lvarchar_test"}
 {"resource":"statement","action":"close","statementId":"ddl"}
 # ---- Testing query and insert prepared statement reuse ----
-{"resource":"session","action":"create","sessionId":"testPstmt","className":"com.informix.jdbc.IfxDriver"}
+{"resource":"session","action":"create","sessionId":"testPstmt"}
 # creating table
 {"resource":"statement","action":"execute","statementId":"ddl","sql":"DROP TABLE IF EXISTS lvarchar_test"}
 {"resource":"statement","action":"execute","statementId":"ddl","sql":"CREATE TABLE lvarchar_test (i0 LVARCHAR(1024),i1 LVARCHAR(1024),i2 LVARCHAR(1024),i3 LVARCHAR(1024),i4 LVARCHAR(1024))"}
@@ -66,7 +66,7 @@
 {"resource":"statement","action":"execute","statementId":"ddl","sql":"DROP TABLE IF EXISTS lvarchar_test"}
 {"resource":"statement","action":"close","statementId":"ddl"}
 # ---- Testing query and insert prepared statement reuse ----
-{"resource":"session","action":"create","sessionId":"testPstmt","className":"com.informix.jdbc.IfxDriver"}
+{"resource":"session","action":"create","sessionId":"testPstmt"}
 # creating table
 {"resource":"statement","action":"execute","statementId":"ddl","sql":"DROP TABLE IF EXISTS lvarchar_test"}
 {"resource":"statement","action":"execute","statementId":"ddl","sql":"CREATE TABLE lvarchar_test (i0 LVARCHAR(2048))"}
@@ -85,7 +85,7 @@
 {"resource":"statement","action":"execute","statementId":"ddl","sql":"DROP TABLE IF EXISTS lvarchar_test"}
 {"resource":"statement","action":"close","statementId":"ddl"}
 # ---- Testing query and insert prepared statement reuse ----
-{"resource":"session","action":"create","sessionId":"testPstmt","className":"com.informix.jdbc.IfxDriver"}
+{"resource":"session","action":"create","sessionId":"testPstmt"}
 # creating table
 {"resource":"statement","action":"execute","statementId":"ddl","sql":"DROP TABLE IF EXISTS lvarchar_test"}
 {"resource":"statement","action":"execute","statementId":"ddl","sql":"CREATE TABLE lvarchar_test (i0 LVARCHAR(2048),i1 LVARCHAR(2048),i2 LVARCHAR(2048),i3 LVARCHAR(2048),i4 LVARCHAR(2048))"}
@@ -104,7 +104,7 @@
 {"resource":"statement","action":"execute","statementId":"ddl","sql":"DROP TABLE IF EXISTS lvarchar_test"}
 {"resource":"statement","action":"close","statementId":"ddl"}
 # ---- Testing query and insert prepared statement reuse ----
-{"resource":"session","action":"create","sessionId":"testPstmt","className":"com.informix.jdbc.IfxDriver"}
+{"resource":"session","action":"create","sessionId":"testPstmt"}
 # creating table
 {"resource":"statement","action":"execute","statementId":"ddl","sql":"DROP TABLE IF EXISTS lvarchar_test"}
 {"resource":"statement","action":"execute","statementId":"ddl","sql":"CREATE TABLE lvarchar_test (i0 LVARCHAR(5000))"}
@@ -123,7 +123,7 @@
 {"resource":"statement","action":"execute","statementId":"ddl","sql":"DROP TABLE IF EXISTS lvarchar_test"}
 {"resource":"statement","action":"close","statementId":"ddl"}
 # ---- Testing query and insert prepared statement reuse ----
-{"resource":"session","action":"create","sessionId":"testPstmt","className":"com.informix.jdbc.IfxDriver"}
+{"resource":"session","action":"create","sessionId":"testPstmt"}
 # creating table
 {"resource":"statement","action":"execute","statementId":"ddl","sql":"DROP TABLE IF EXISTS lvarchar_test"}
 {"resource":"statement","action":"execute","statementId":"ddl","sql":"CREATE TABLE lvarchar_test (i0 LVARCHAR(5000),i1 LVARCHAR(5000),i2 LVARCHAR(5000),i3 LVARCHAR(5000),i4 LVARCHAR(5000))"}

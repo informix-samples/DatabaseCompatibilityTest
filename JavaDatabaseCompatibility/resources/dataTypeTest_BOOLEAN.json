@@ -1,7 +1,7 @@
 # start of test: boolean datatype test
 {"resource":"credentials","action":"create","credentialId":"test"}
 # ---- Testing CRUD operations ----
-{"resource":"session","action":"create","sessionId":"testCRUD","className":"com.informix.jdbc.IfxDriver"}
+{"resource":"session","action":"create","sessionId":"testCRUD"}
 # creating table
 {"resource":"statement","action":"execute","statementId":"ddl","sql":"DROP TABLE IF EXISTS boolean_test"}
 {"resource":"statement","action":"execute","statementId":"ddl","sql":"CREATE TABLE boolean_test (i0 BOOLEAN)"}
@@ -28,7 +28,7 @@
 {"resource":"statement","action":"execute","statementId":"ddl","sql":"DROP TABLE IF EXISTS boolean_test"}
 {"resource":"statement","action":"close","statementId":"ddl"}
 # ---- Testing query and insert prepared statement reuse ----
-{"resource":"session","action":"create","sessionId":"testPstmt","className":"com.informix.jdbc.IfxDriver"}
+{"resource":"session","action":"create","sessionId":"testPstmt"}
 # creating table
 {"resource":"statement","action":"execute","statementId":"ddl","sql":"DROP TABLE IF EXISTS boolean_test"}
 {"resource":"statement","action":"execute","statementId":"ddl","sql":"CREATE TABLE boolean_test (i0 BOOLEAN)"}
@@ -55,7 +55,7 @@
 {"resource":"statement","action":"execute","statementId":"ddl","sql":"DROP TABLE IF EXISTS boolean_test"}
 {"resource":"statement","action":"close","statementId":"ddl"}
 # ---- Testing query and insert prepared statement reuse ----
-{"resource":"session","action":"create","sessionId":"testPstmt","className":"com.informix.jdbc.IfxDriver"}
+{"resource":"session","action":"create","sessionId":"testPstmt"}
 # creating table
 {"resource":"statement","action":"execute","statementId":"ddl","sql":"DROP TABLE IF EXISTS boolean_test"}
 {"resource":"statement","action":"execute","statementId":"ddl","sql":"CREATE TABLE boolean_test (i0 BOOLEAN,i1 BOOLEAN,i2 BOOLEAN,i3 BOOLEAN,i4 BOOLEAN,i5 BOOLEAN,i6 BOOLEAN,i7 BOOLEAN,i8 BOOLEAN,i9 BOOLEAN,i10 BOOLEAN,i11 BOOLEAN,i12 BOOLEAN,i13 BOOLEAN,i14 BOOLEAN,i15 BOOLEAN,i16 BOOLEAN,i17 BOOLEAN,i18 BOOLEAN,i19 BOOLEAN,i20 BOOLEAN,i21 BOOLEAN,i22 BOOLEAN,i23 BOOLEAN,i24 BOOLEAN,i25 BOOLEAN,i26 BOOLEAN,i27 BOOLEAN,i28 BOOLEAN,i29 BOOLEAN,i30 BOOLEAN,i31 BOOLEAN,i32 BOOLEAN,i33 BOOLEAN,i34 BOOLEAN,i35 BOOLEAN,i36 BOOLEAN,i37 BOOLEAN,i38 BOOLEAN,i39 BOOLEAN,i40 BOOLEAN,i41 BOOLEAN,i42 BOOLEAN,i43 BOOLEAN,i44 BOOLEAN,i45 BOOLEAN,i46 BOOLEAN,i47 BOOLEAN,i48 BOOLEAN,i49 BOOLEAN)"}
@@ -82,7 +82,7 @@
 {"resource":"statement","action":"execute","statementId":"ddl","sql":"DROP TABLE IF EXISTS boolean_test"}
 {"resource":"statement","action":"close","statementId":"ddl"}
 # ---- Testing query and insert prepared statement reuse ----
-{"resource":"session","action":"create","sessionId":"testPstmt","className":"com.informix.jdbc.IfxDriver"}
+{"resource":"session","action":"create","sessionId":"testPstmt"}
 # creating table
 {"resource":"statement","action":"execute","statementId":"ddl","sql":"DROP TABLE IF EXISTS boolean_test"}
 {"resource":"statement","action":"execute","statementId":"ddl","sql":"CREATE TABLE boolean_test (i0 BOOLEAN,i1 BOOLEAN,i2 BOOLEAN,i3 BOOLEAN,i4 BOOLEAN,i5 BOOLEAN,i6 BOOLEAN,i7 BOOLEAN,i8 BOOLEAN,i9 BOOLEAN,i10 BOOLEAN,i11 BOOLEAN,i12 BOOLEAN,i13 BOOLEAN,i14 BOOLEAN,i15 BOOLEAN,i16 BOOLEAN,i17 BOOLEAN,i18 BOOLEAN,i19 BOOLEAN,i20 BOOLEAN,i21 BOOLEAN,i22 BOOLEAN,i23 BOOLEAN,i24 BOOLEAN,i25 BOOLEAN,i26 BOOLEAN,i27 BOOLEAN,i28 BOOLEAN,i29 BOOLEAN,i30 BOOLEAN,i31 BOOLEAN,i32 BOOLEAN,i33 BOOLEAN,i34 BOOLEAN,i35 BOOLEAN,i36 BOOLEAN,i37 BOOLEAN,i38 BOOLEAN,i39 BOOLEAN,i40 BOOLEAN,i41 BOOLEAN,i42 BOOLEAN,i43 BOOLEAN,i44 BOOLEAN,i45 BOOLEAN,i46 BOOLEAN,i47 BOOLEAN,i48 BOOLEAN,i49 BOOLEAN,i50 BOOLEAN,i51 BOOLEAN,i52 BOOLEAN,i53 BOOLEAN,i54 BOOLEAN,i55 BOOLEAN,i56 BOOLEAN,i57 BOOLEAN,i58 BOOLEAN,i59 BOOLEAN,i60 BOOLEAN,i61 BOOLEAN,i62 BOOLEAN,i63 BOOLEAN,i64 BOOLEAN,i65 BOOLEAN,i66 BOOLEAN,i67 BOOLEAN,i68 BOOLEAN,i69 BOOLEAN,i70 BOOLEAN,i71 BOOLEAN,i72 BOOLEAN,i73 BOOLEAN,i74 BOOLEAN,i75 BOOLEAN,i76 BOOLEAN,i77 BOOLEAN,i78 BOOLEAN,i79 BOOLEAN,i80 BOOLEAN,i81 BOOLEAN,i82 BOOLEAN,i83 BOOLEAN,i84 BOOLEAN,i85 BOOLEAN,i86 BOOLEAN,i87 BOOLEAN,i88 BOOLEAN,i89 BOOLEAN,i90 BOOLEAN,i91 BOOLEAN,i92 BOOLEAN,i93 BOOLEAN,i94 BOOLEAN,i95 BOOLEAN,i96 BOOLEAN,i97 BOOLEAN,i98 BOOLEAN,i99 BOOLEAN)"}

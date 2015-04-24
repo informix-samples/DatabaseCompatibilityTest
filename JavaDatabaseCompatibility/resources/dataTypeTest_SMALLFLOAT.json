@@ -1,7 +1,7 @@
 # start of test: float datatype test
 {"resource":"credentials","action":"create","credentialId":"test"}
 # ---- Testing CRUD operations ----
-{"resource":"session","action":"create","sessionId":"testCRUD","className":"com.informix.jdbc.IfxDriver"}
+{"resource":"session","action":"create","sessionId":"testCRUD"}
 # creating table
 {"resource":"statement","action":"execute","statementId":"ddl","sql":"DROP TABLE IF EXISTS float_test"}
 {"resource":"statement","action":"execute","statementId":"ddl","sql":"CREATE TABLE float_test (i0 SMALLFLOAT)"}
@@ -28,7 +28,7 @@
 {"resource":"statement","action":"execute","statementId":"ddl","sql":"DROP TABLE IF EXISTS float_test"}
 {"resource":"statement","action":"close","statementId":"ddl"}
 # ---- Testing query and insert prepared statement reuse ----
-{"resource":"session","action":"create","sessionId":"testPstmt","className":"com.informix.jdbc.IfxDriver"}
+{"resource":"session","action":"create","sessionId":"testPstmt"}
 # creating table
 {"resource":"statement","action":"execute","statementId":"ddl","sql":"DROP TABLE IF EXISTS float_test"}
 {"resource":"statement","action":"execute","statementId":"ddl","sql":"CREATE TABLE float_test (i0 SMALLFLOAT)"}
@@ -56,7 +56,7 @@
 {"resource":"statement","action":"execute","statementId":"ddl","sql":"DROP TABLE IF EXISTS float_test"}
 {"resource":"statement","action":"close","statementId":"ddl"}
 # ---- Testing query and insert prepared statement reuse ----
-{"resource":"session","action":"create","sessionId":"testPstmt","className":"com.informix.jdbc.IfxDriver"}
+{"resource":"session","action":"create","sessionId":"testPstmt"}
 # creating table
 {"resource":"statement","action":"execute","statementId":"ddl","sql":"DROP TABLE IF EXISTS float_test"}
 {"resource":"statement","action":"execute","statementId":"ddl","sql":"CREATE TABLE float_test (i0 SMALLFLOAT,i1 SMALLFLOAT,i2 SMALLFLOAT,i3 SMALLFLOAT,i4 SMALLFLOAT,i5 SMALLFLOAT,i6 SMALLFLOAT,i7 SMALLFLOAT,i8 SMALLFLOAT,i9 SMALLFLOAT,i10 SMALLFLOAT,i11 SMALLFLOAT,i12 SMALLFLOAT,i13 SMALLFLOAT,i14 SMALLFLOAT,i15 SMALLFLOAT,i16 SMALLFLOAT,i17 SMALLFLOAT,i18 SMALLFLOAT,i19 SMALLFLOAT,i20 SMALLFLOAT,i21 SMALLFLOAT,i22 SMALLFLOAT,i23 SMALLFLOAT,i24 SMALLFLOAT,i25 SMALLFLOAT,i26 SMALLFLOAT,i27 SMALLFLOAT,i28 SMALLFLOAT,i29 SMALLFLOAT,i30 SMALLFLOAT,i31 SMALLFLOAT,i32 SMALLFLOAT,i33 SMALLFLOAT,i34 SMALLFLOAT,i35 SMALLFLOAT,i36 SMALLFLOAT,i37 SMALLFLOAT,i38 SMALLFLOAT,i39 SMALLFLOAT,i40 SMALLFLOAT,i41 SMALLFLOAT,i42 SMALLFLOAT,i43 SMALLFLOAT,i44 SMALLFLOAT,i45 SMALLFLOAT,i46 SMALLFLOAT,i47 SMALLFLOAT,i48 SMALLFLOAT,i49 SMALLFLOAT)"}
@@ -84,7 +84,7 @@
 {"resource":"statement","action":"execute","statementId":"ddl","sql":"DROP TABLE IF EXISTS float_test"}
 {"resource":"statement","action":"close","statementId":"ddl"}
 # ---- Testing query and insert prepared statement reuse ----
-{"resource":"session","action":"create","sessionId":"testPstmt","className":"com.informix.jdbc.IfxDriver"}
+{"resource":"session","action":"create","sessionId":"testPstmt"}
 # creating table
 {"resource":"statement","action":"execute","statementId":"ddl","sql":"DROP TABLE IF EXISTS float_test"}
 {"resource":"statement","action":"execute","statementId":"ddl","sql":"CREATE TABLE float_test (i0 SMALLFLOAT,i1 SMALLFLOAT,i2 SMALLFLOAT,i3 SMALLFLOAT,i4 SMALLFLOAT,i5 SMALLFLOAT,i6 SMALLFLOAT,i7 SMALLFLOAT,i8 SMALLFLOAT,i9 SMALLFLOAT,i10 SMALLFLOAT,i11 SMALLFLOAT,i12 SMALLFLOAT,i13 SMALLFLOAT,i14 SMALLFLOAT,i15 SMALLFLOAT,i16 SMALLFLOAT,i17 SMALLFLOAT,i18 SMALLFLOAT,i19 SMALLFLOAT,i20 SMALLFLOAT,i21 SMALLFLOAT,i22 SMALLFLOAT,i23 SMALLFLOAT,i24 SMALLFLOAT,i25 SMALLFLOAT,i26 SMALLFLOAT,i27 SMALLFLOAT,i28 SMALLFLOAT,i29 SMALLFLOAT,i30 SMALLFLOAT,i31 SMALLFLOAT,i32 SMALLFLOAT,i33 SMALLFLOAT,i34 SMALLFLOAT,i35 SMALLFLOAT,i36 SMALLFLOAT,i37 SMALLFLOAT,i38 SMALLFLOAT,i39 SMALLFLOAT,i40 SMALLFLOAT,i41 SMALLFLOAT,i42 SMALLFLOAT,i43 SMALLFLOAT,i44 SMALLFLOAT,i45 SMALLFLOAT,i46 SMALLFLOAT,i47 SMALLFLOAT,i48 SMALLFLOAT,i49 SMALLFLOAT,i50 SMALLFLOAT,i51 SMALLFLOAT,i52 SMALLFLOAT,i53 SMALLFLOAT,i54 SMALLFLOAT,i55 SMALLFLOAT,i56 SMALLFLOAT,i57 SMALLFLOAT,i58 SMALLFLOAT,i59 SMALLFLOAT,i60 SMALLFLOAT,i61 SMALLFLOAT,i62 SMALLFLOAT,i63 SMALLFLOAT,i64 SMALLFLOAT,i65 SMALLFLOAT,i66 SMALLFLOAT,i67 SMALLFLOAT,i68 SMALLFLOAT,i69 SMALLFLOAT,i70 SMALLFLOAT,i71 SMALLFLOAT,i72 SMALLFLOAT,i73 SMALLFLOAT,i74 SMALLFLOAT,i75 SMALLFLOAT,i76 SMALLFLOAT,i77 SMALLFLOAT,i78 SMALLFLOAT,i79 SMALLFLOAT,i80 SMALLFLOAT,i81 SMALLFLOAT,i82 SMALLFLOAT,i83 SMALLFLOAT,i84 SMALLFLOAT,i85 SMALLFLOAT,i86 SMALLFLOAT,i87 SMALLFLOAT,i88 SMALLFLOAT,i89 SMALLFLOAT,i90 SMALLFLOAT,i91 SMALLFLOAT,i92 SMALLFLOAT,i93 SMALLFLOAT,i94 SMALLFLOAT,i95 SMALLFLOAT,i96 SMALLFLOAT,i97 SMALLFLOAT,i98 SMALLFLOAT,i99 SMALLFLOAT)"}

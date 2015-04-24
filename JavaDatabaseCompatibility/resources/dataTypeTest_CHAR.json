@@ -1,7 +1,7 @@
 # start of test: char datatype test
 {"resource":"credentials","action":"create","credentialId":"test"}
 # ---- Testing CRUD operations ----
-{"resource":"session","action":"create","sessionId":"testCRUD","className":"com.informix.jdbc.IfxDriver"}
+{"resource":"session","action":"create","sessionId":"testCRUD"}
 # creating table
 {"resource":"statement","action":"execute","statementId":"ddl","sql":"DROP TABLE IF EXISTS char_test"}
 {"resource":"statement","action":"execute","statementId":"ddl","sql":"CREATE TABLE char_test (i0 CHAR(1))"}
@@ -28,7 +28,7 @@
 {"resource":"statement","action":"execute","statementId":"ddl","sql":"DROP TABLE IF EXISTS char_test"}
 {"resource":"statement","action":"close","statementId":"ddl"}
 # ---- Testing query and insert prepared statement reuse ----
-{"resource":"session","action":"create","sessionId":"testPstmt","className":"com.informix.jdbc.IfxDriver"}
+{"resource":"session","action":"create","sessionId":"testPstmt"}
 # creating table
 {"resource":"statement","action":"execute","statementId":"ddl","sql":"DROP TABLE IF EXISTS char_test"}
 {"resource":"statement","action":"execute","statementId":"ddl","sql":"CREATE TABLE char_test (i0 CHAR(2))"}
@@ -56,7 +56,7 @@
 {"resource":"statement","action":"execute","statementId":"ddl","sql":"DROP TABLE IF EXISTS char_test"}
 {"resource":"statement","action":"close","statementId":"ddl"}
 # ---- Testing query and insert prepared statement reuse ----
-{"resource":"session","action":"create","sessionId":"testPstmt","className":"com.informix.jdbc.IfxDriver"}
+{"resource":"session","action":"create","sessionId":"testPstmt"}
 # creating table
 {"resource":"statement","action":"execute","statementId":"ddl","sql":"DROP TABLE IF EXISTS char_test"}
 {"resource":"statement","action":"execute","statementId":"ddl","sql":"CREATE TABLE char_test (i0 CHAR(2),i1 CHAR(2),i2 CHAR(2),i3 CHAR(2),i4 CHAR(2),i5 CHAR(2),i6 CHAR(2),i7 CHAR(2),i8 CHAR(2),i9 CHAR(2),i10 CHAR(2),i11 CHAR(2),i12 CHAR(2),i13 CHAR(2),i14 CHAR(2),i15 CHAR(2),i16 CHAR(2),i17 CHAR(2),i18 CHAR(2),i19 CHAR(2),i20 CHAR(2),i21 CHAR(2),i22 CHAR(2),i23 CHAR(2),i24 CHAR(2),i25 CHAR(2),i26 CHAR(2),i27 CHAR(2),i28 CHAR(2),i29 CHAR(2),i30 CHAR(2),i31 CHAR(2),i32 CHAR(2),i33 CHAR(2),i34 CHAR(2),i35 CHAR(2),i36 CHAR(2),i37 CHAR(2),i38 CHAR(2),i39 CHAR(2),i40 CHAR(2),i41 CHAR(2),i42 CHAR(2),i43 CHAR(2),i44 CHAR(2),i45 CHAR(2),i46 CHAR(2),i47 CHAR(2),i48 CHAR(2),i49 CHAR(2))"}
@@ -84,7 +84,7 @@
 {"resource":"statement","action":"execute","statementId":"ddl","sql":"DROP TABLE IF EXISTS char_test"}
 {"resource":"statement","action":"close","statementId":"ddl"}
 # ---- Testing query and insert prepared statement reuse ----
-{"resource":"session","action":"create","sessionId":"testPstmt","className":"com.informix.jdbc.IfxDriver"}
+{"resource":"session","action":"create","sessionId":"testPstmt"}
 # creating table
 {"resource":"statement","action":"execute","statementId":"ddl","sql":"DROP TABLE IF EXISTS char_test"}
 {"resource":"statement","action":"execute","statementId":"ddl","sql":"CREATE TABLE char_test (i0 CHAR(100))"}
@@ -112,7 +112,7 @@
 {"resource":"statement","action":"execute","statementId":"ddl","sql":"DROP TABLE IF EXISTS char_test"}
 {"resource":"statement","action":"close","statementId":"ddl"}
 # ---- Testing query and insert prepared statement reuse ----
-{"resource":"session","action":"create","sessionId":"testPstmt","className":"com.informix.jdbc.IfxDriver"}
+{"resource":"session","action":"create","sessionId":"testPstmt"}
 # creating table
 {"resource":"statement","action":"execute","statementId":"ddl","sql":"DROP TABLE IF EXISTS char_test"}
 {"resource":"statement","action":"execute","statementId":"ddl","sql":"CREATE TABLE char_test (i0 CHAR(100),i1 CHAR(100),i2 CHAR(100),i3 CHAR(100),i4 CHAR(100),i5 CHAR(100),i6 CHAR(100),i7 CHAR(100),i8 CHAR(100),i9 CHAR(100),i10 CHAR(100),i11 CHAR(100),i12 CHAR(100),i13 CHAR(100),i14 CHAR(100),i15 CHAR(100),i16 CHAR(100),i17 CHAR(100),i18 CHAR(100),i19 CHAR(100),i20 CHAR(100),i21 CHAR(100),i22 CHAR(100),i23 CHAR(100),i24 CHAR(100),i25 CHAR(100),i26 CHAR(100),i27 CHAR(100),i28 CHAR(100),i29 CHAR(100),i30 CHAR(100),i31 CHAR(100),i32 CHAR(100),i33 CHAR(100),i34 CHAR(100),i35 CHAR(100),i36 CHAR(100),i37 CHAR(100),i38 CHAR(100),i39 CHAR(100),i40 CHAR(100),i41 CHAR(100),i42 CHAR(100),i43 CHAR(100),i44 CHAR(100),i45 CHAR(100),i46 CHAR(100),i47 CHAR(100),i48 CHAR(100),i49 CHAR(100))"}
@@ -140,7 +140,7 @@
 {"resource":"statement","action":"execute","statementId":"ddl","sql":"DROP TABLE IF EXISTS char_test"}
 {"resource":"statement","action":"close","statementId":"ddl"}
 # ---- Testing query and insert prepared statement reuse ----
-{"resource":"session","action":"create","sessionId":"testPstmt","className":"com.informix.jdbc.IfxDriver"}
+{"resource":"session","action":"create","sessionId":"testPstmt"}
 # creating table
 {"resource":"statement","action":"execute","statementId":"ddl","sql":"DROP TABLE IF EXISTS char_test"}
 {"resource":"statement","action":"execute","statementId":"ddl","sql":"CREATE TABLE char_test (i0 CHAR(255))"}
@@ -168,7 +168,7 @@
 {"resource":"statement","action":"execute","statementId":"ddl","sql":"DROP TABLE IF EXISTS char_test"}
 {"resource":"statement","action":"close","statementId":"ddl"}
 # ---- Testing query and insert prepared statement reuse ----
-{"resource":"session","action":"create","sessionId":"testPstmt","className":"com.informix.jdbc.IfxDriver"}
+{"resource":"session","action":"create","sessionId":"testPstmt"}
 # creating table
 {"resource":"statement","action":"execute","statementId":"ddl","sql":"DROP TABLE IF EXISTS char_test"}
 {"resource":"statement","action":"execute","statementId":"ddl","sql":"CREATE TABLE char_test (i0 CHAR(255),i1 CHAR(255),i2 CHAR(255),i3 CHAR(255),i4 CHAR(255),i5 CHAR(255),i6 CHAR(255),i7 CHAR(255),i8 CHAR(255),i9 CHAR(255),i10 CHAR(255),i11 CHAR(255),i12 CHAR(255),i13 CHAR(255),i14 CHAR(255),i15 CHAR(255),i16 CHAR(255),i17 CHAR(255),i18 CHAR(255),i19 CHAR(255),i20 CHAR(255),i21 CHAR(255),i22 CHAR(255),i23 CHAR(255),i24 CHAR(255),i25 CHAR(255),i26 CHAR(255),i27 CHAR(255),i28 CHAR(255),i29 CHAR(255),i30 CHAR(255),i31 CHAR(255),i32 CHAR(255),i33 CHAR(255),i34 CHAR(255),i35 CHAR(255),i36 CHAR(255),i37 CHAR(255),i38 CHAR(255),i39 CHAR(255),i40 CHAR(255),i41 CHAR(255),i42 CHAR(255),i43 CHAR(255),i44 CHAR(255),i45 CHAR(255),i46 CHAR(255),i47 CHAR(255),i48 CHAR(255),i49 CHAR(255))"}
@@ -196,7 +196,7 @@
 {"resource":"statement","action":"execute","statementId":"ddl","sql":"DROP TABLE IF EXISTS char_test"}
 {"resource":"statement","action":"close","statementId":"ddl"}
 # ---- Testing query and insert prepared statement reuse ----
-{"resource":"session","action":"create","sessionId":"testPstmt","className":"com.informix.jdbc.IfxDriver"}
+{"resource":"session","action":"create","sessionId":"testPstmt"}
 # creating table
 {"resource":"statement","action":"execute","statementId":"ddl","sql":"DROP TABLE IF EXISTS char_test"}
 {"resource":"statement","action":"execute","statementId":"ddl","sql":"CREATE TABLE char_test (i0 CHAR(32767))"}

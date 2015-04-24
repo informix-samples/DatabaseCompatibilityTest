@@ -1,6 +1,6 @@
 # start of test: transaction test
 {"resource":"credentials","action":"create","credentialId":"test"}
-{"resource":"session","action":"create","sessionId":"testTxn","className":"com.informix.jdbc.IfxDriver"}
+{"resource":"session","action":"create","sessionId":"testTxn"}
 # creating table
 {"resource":"statement","action":"execute","statementId":"ddl","sql":"DROP TABLE IF EXISTS transaction_test"}
 {"resource":"statement","action":"execute","statementId":"ddl","sql":"CREATE TABLE transaction_test (int_col INT,varchar_col VARCHAR(20))"}

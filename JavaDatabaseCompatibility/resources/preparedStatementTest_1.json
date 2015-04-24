@@ -1,6 +1,6 @@
 # start of test: test for interleaving multiple prepared statements
 {"resource":"credentials","action":"create","credentialId":"test"}
-{"resource":"session","action":"create","sessionId":"testPstmt","className":"com.informix.jdbc.IfxDriver"}
+{"resource":"session","action":"create","sessionId":"testPstmt"}
 # creating tables
 {"resource":"statement","action":"execute","statementId":"ddl","sql":"DROP TABLE IF EXISTS test1"}
 {"resource":"statement","action":"execute","statementId":"ddl","sql":"CREATE TABLE test1 (int_col INT,varchar_col VARCHAR(20),char_col CHAR(20),varchar_col2 VARCHAR(20))"}

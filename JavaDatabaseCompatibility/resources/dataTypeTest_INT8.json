@@ -1,7 +1,7 @@
 # start of test: int8 datatype test
 {"resource":"credentials","action":"create","credentialId":"test"}
 # ---- Testing CRUD operations ----
-{"resource":"session","action":"create","sessionId":"testCRUD","className":"com.informix.jdbc.IfxDriver"}
+{"resource":"session","action":"create","sessionId":"testCRUD"}
 # creating table
 {"resource":"statement","action":"execute","statementId":"ddl","sql":"DROP TABLE IF EXISTS int8_test"}
 {"resource":"statement","action":"execute","statementId":"ddl","sql":"CREATE TABLE int8_test (i0 INT8)"}
@@ -28,7 +28,7 @@
 {"resource":"statement","action":"execute","statementId":"ddl","sql":"DROP TABLE IF EXISTS int8_test"}
 {"resource":"statement","action":"close","statementId":"ddl"}
 # ---- Testing query and insert prepared statement reuse ----
-{"resource":"session","action":"create","sessionId":"testPstmt","className":"com.informix.jdbc.IfxDriver"}
+{"resource":"session","action":"create","sessionId":"testPstmt"}
 # creating table
 {"resource":"statement","action":"execute","statementId":"ddl","sql":"DROP TABLE IF EXISTS int8_test"}
 {"resource":"statement","action":"execute","statementId":"ddl","sql":"CREATE TABLE int8_test (i0 INT8,i1 INT8,i2 INT8)"}

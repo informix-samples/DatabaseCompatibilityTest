@@ -1,7 +1,7 @@
 # start of test: serial8 datatype test
 {"resource":"credentials","action":"create","credentialId":"test"}
 # ---- Testing CRUD operations ----
-{"resource":"session","action":"create","sessionId":"testCRUD","className":"com.informix.jdbc.IfxDriver"}
+{"resource":"session","action":"create","sessionId":"testCRUD"}
 # creating table
 {"resource":"statement","action":"execute","statementId":"ddl","sql":"DROP TABLE IF EXISTS serial8_test"}
 {"resource":"statement","action":"execute","statementId":"ddl","sql":"CREATE TABLE serial8_test (i0 SERIAL8)"}
@@ -22,7 +22,7 @@
 {"resource":"statement","action":"execute","statementId":"ddl","sql":"DROP TABLE IF EXISTS serial8_test"}
 {"resource":"statement","action":"close","statementId":"ddl"}
 # ---- Testing query and insert prepared statement reuse ----
-{"resource":"session","action":"create","sessionId":"testPstmt","className":"com.informix.jdbc.IfxDriver"}
+{"resource":"session","action":"create","sessionId":"testPstmt"}
 # creating table
 {"resource":"statement","action":"execute","statementId":"ddl","sql":"DROP TABLE IF EXISTS serial8_test"}
 {"resource":"statement","action":"execute","statementId":"ddl","sql":"CREATE TABLE serial8_test (id SERIAL8,value VARCHAR(20))"}

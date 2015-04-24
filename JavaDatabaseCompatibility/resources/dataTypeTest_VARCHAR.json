@@ -1,7 +1,7 @@
 # start of test: varchar datatype test
 {"resource":"credentials","action":"create","credentialId":"test"}
 # ---- Testing CRUD operations ----
-{"resource":"session","action":"create","sessionId":"testCRUD","className":"com.informix.jdbc.IfxDriver"}
+{"resource":"session","action":"create","sessionId":"testCRUD"}
 # creating table
 {"resource":"statement","action":"execute","statementId":"ddl","sql":"DROP TABLE IF EXISTS varchar_test"}
 {"resource":"statement","action":"execute","statementId":"ddl","sql":"CREATE TABLE varchar_test (i0 VARCHAR(5))"}
@@ -28,7 +28,7 @@
 {"resource":"statement","action":"execute","statementId":"ddl","sql":"DROP TABLE IF EXISTS varchar_test"}
 {"resource":"statement","action":"close","statementId":"ddl"}
 # ---- Testing query and insert prepared statement reuse ----
-{"resource":"session","action":"create","sessionId":"testPstmt","className":"com.informix.jdbc.IfxDriver"}
+{"resource":"session","action":"create","sessionId":"testPstmt"}
 # creating table
 {"resource":"statement","action":"execute","statementId":"ddl","sql":"DROP TABLE IF EXISTS varchar_test"}
 {"resource":"statement","action":"execute","statementId":"ddl","sql":"CREATE TABLE varchar_test (i0 VARCHAR(2))"}
@@ -56,7 +56,7 @@
 {"resource":"statement","action":"execute","statementId":"ddl","sql":"DROP TABLE IF EXISTS varchar_test"}
 {"resource":"statement","action":"close","statementId":"ddl"}
 # ---- Testing query and insert prepared statement reuse ----
-{"resource":"session","action":"create","sessionId":"testPstmt","className":"com.informix.jdbc.IfxDriver"}
+{"resource":"session","action":"create","sessionId":"testPstmt"}
 # creating table
 {"resource":"statement","action":"execute","statementId":"ddl","sql":"DROP TABLE IF EXISTS varchar_test"}
 {"resource":"statement","action":"execute","statementId":"ddl","sql":"CREATE TABLE varchar_test (i0 VARCHAR(2),i1 VARCHAR(2),i2 VARCHAR(2),i3 VARCHAR(2),i4 VARCHAR(2),i5 VARCHAR(2),i6 VARCHAR(2),i7 VARCHAR(2),i8 VARCHAR(2),i9 VARCHAR(2),i10 VARCHAR(2),i11 VARCHAR(2),i12 VARCHAR(2),i13 VARCHAR(2),i14 VARCHAR(2),i15 VARCHAR(2),i16 VARCHAR(2),i17 VARCHAR(2),i18 VARCHAR(2),i19 VARCHAR(2),i20 VARCHAR(2),i21 VARCHAR(2),i22 VARCHAR(2),i23 VARCHAR(2),i24 VARCHAR(2),i25 VARCHAR(2),i26 VARCHAR(2),i27 VARCHAR(2),i28 VARCHAR(2),i29 VARCHAR(2),i30 VARCHAR(2),i31 VARCHAR(2),i32 VARCHAR(2),i33 VARCHAR(2),i34 VARCHAR(2),i35 VARCHAR(2),i36 VARCHAR(2),i37 VARCHAR(2),i38 VARCHAR(2),i39 VARCHAR(2),i40 VARCHAR(2),i41 VARCHAR(2),i42 VARCHAR(2),i43 VARCHAR(2),i44 VARCHAR(2),i45 VARCHAR(2),i46 VARCHAR(2),i47 VARCHAR(2),i48 VARCHAR(2),i49 VARCHAR(2))"}
@@ -84,7 +84,7 @@
 {"resource":"statement","action":"execute","statementId":"ddl","sql":"DROP TABLE IF EXISTS varchar_test"}
 {"resource":"statement","action":"close","statementId":"ddl"}
 # ---- Testing query and insert prepared statement reuse ----
-{"resource":"session","action":"create","sessionId":"testPstmt","className":"com.informix.jdbc.IfxDriver"}
+{"resource":"session","action":"create","sessionId":"testPstmt"}
 # creating table
 {"resource":"statement","action":"execute","statementId":"ddl","sql":"DROP TABLE IF EXISTS varchar_test"}
 {"resource":"statement","action":"execute","statementId":"ddl","sql":"CREATE TABLE varchar_test (i0 VARCHAR(2),i1 VARCHAR(2),i2 VARCHAR(2),i3 VARCHAR(2),i4 VARCHAR(2),i5 VARCHAR(2),i6 VARCHAR(2),i7 VARCHAR(2),i8 VARCHAR(2),i9 VARCHAR(2),i10 VARCHAR(2),i11 VARCHAR(2),i12 VARCHAR(2),i13 VARCHAR(2),i14 VARCHAR(2),i15 VARCHAR(2),i16 VARCHAR(2),i17 VARCHAR(2),i18 VARCHAR(2),i19 VARCHAR(2),i20 VARCHAR(2),i21 VARCHAR(2),i22 VARCHAR(2),i23 VARCHAR(2),i24 VARCHAR(2),i25 VARCHAR(2),i26 VARCHAR(2),i27 VARCHAR(2),i28 VARCHAR(2),i29 VARCHAR(2),i30 VARCHAR(2),i31 VARCHAR(2),i32 VARCHAR(2),i33 VARCHAR(2),i34 VARCHAR(2),i35 VARCHAR(2),i36 VARCHAR(2),i37 VARCHAR(2),i38 VARCHAR(2),i39 VARCHAR(2),i40 VARCHAR(2),i41 VARCHAR(2),i42 VARCHAR(2),i43 VARCHAR(2),i44 VARCHAR(2),i45 VARCHAR(2),i46 VARCHAR(2),i47 VARCHAR(2),i48 VARCHAR(2),i49 VARCHAR(2),i50 VARCHAR(2),i51 VARCHAR(2),i52 VARCHAR(2),i53 VARCHAR(2),i54 VARCHAR(2),i55 VARCHAR(2),i56 VARCHAR(2),i57 VARCHAR(2),i58 VARCHAR(2),i59 VARCHAR(2),i60 VARCHAR(2),i61 VARCHAR(2),i62 VARCHAR(2),i63 VARCHAR(2),i64 VARCHAR(2),i65 VARCHAR(2),i66 VARCHAR(2),i67 VARCHAR(2),i68 VARCHAR(2),i69 VARCHAR(2),i70 VARCHAR(2),i71 VARCHAR(2),i72 VARCHAR(2),i73 VARCHAR(2),i74 VARCHAR(2),i75 VARCHAR(2),i76 VARCHAR(2),i77 VARCHAR(2),i78 VARCHAR(2),i79 VARCHAR(2),i80 VARCHAR(2),i81 VARCHAR(2),i82 VARCHAR(2),i83 VARCHAR(2),i84 VARCHAR(2),i85 VARCHAR(2),i86 VARCHAR(2),i87 VARCHAR(2),i88 VARCHAR(2),i89 VARCHAR(2),i90 VARCHAR(2),i91 VARCHAR(2),i92 VARCHAR(2),i93 VARCHAR(2),i94 VARCHAR(2),i95 VARCHAR(2),i96 VARCHAR(2),i97 VARCHAR(2),i98 VARCHAR(2),i99 VARCHAR(2))"}
@@ -112,7 +112,7 @@
 {"resource":"statement","action":"execute","statementId":"ddl","sql":"DROP TABLE IF EXISTS varchar_test"}
 {"resource":"statement","action":"close","statementId":"ddl"}
 # ---- Testing query and insert prepared statement reuse ----
-{"resource":"session","action":"create","sessionId":"testPstmt","className":"com.informix.jdbc.IfxDriver"}
+{"resource":"session","action":"create","sessionId":"testPstmt"}
 # creating table
 {"resource":"statement","action":"execute","statementId":"ddl","sql":"DROP TABLE IF EXISTS varchar_test"}
 {"resource":"statement","action":"execute","statementId":"ddl","sql":"CREATE TABLE varchar_test (i0 VARCHAR(100))"}
@@ -140,7 +140,7 @@
 {"resource":"statement","action":"execute","statementId":"ddl","sql":"DROP TABLE IF EXISTS varchar_test"}
 {"resource":"statement","action":"close","statementId":"ddl"}
 # ---- Testing query and insert prepared statement reuse ----
-{"resource":"session","action":"create","sessionId":"testPstmt","className":"com.informix.jdbc.IfxDriver"}
+{"resource":"session","action":"create","sessionId":"testPstmt"}
 # creating table
 {"resource":"statement","action":"execute","statementId":"ddl","sql":"DROP TABLE IF EXISTS varchar_test"}
 {"resource":"statement","action":"execute","statementId":"ddl","sql":"CREATE TABLE varchar_test (i0 VARCHAR(100),i1 VARCHAR(100),i2 VARCHAR(100),i3 VARCHAR(100),i4 VARCHAR(100),i5 VARCHAR(100),i6 VARCHAR(100),i7 VARCHAR(100),i8 VARCHAR(100),i9 VARCHAR(100),i10 VARCHAR(100),i11 VARCHAR(100),i12 VARCHAR(100),i13 VARCHAR(100),i14 VARCHAR(100),i15 VARCHAR(100),i16 VARCHAR(100),i17 VARCHAR(100),i18 VARCHAR(100),i19 VARCHAR(100),i20 VARCHAR(100),i21 VARCHAR(100),i22 VARCHAR(100),i23 VARCHAR(100),i24 VARCHAR(100),i25 VARCHAR(100),i26 VARCHAR(100),i27 VARCHAR(100),i28 VARCHAR(100),i29 VARCHAR(100),i30 VARCHAR(100),i31 VARCHAR(100),i32 VARCHAR(100),i33 VARCHAR(100),i34 VARCHAR(100),i35 VARCHAR(100),i36 VARCHAR(100),i37 VARCHAR(100),i38 VARCHAR(100),i39 VARCHAR(100),i40 VARCHAR(100),i41 VARCHAR(100),i42 VARCHAR(100),i43 VARCHAR(100),i44 VARCHAR(100),i45 VARCHAR(100),i46 VARCHAR(100),i47 VARCHAR(100),i48 VARCHAR(100),i49 VARCHAR(100))"}
@@ -168,7 +168,7 @@
 {"resource":"statement","action":"execute","statementId":"ddl","sql":"DROP TABLE IF EXISTS varchar_test"}
 {"resource":"statement","action":"close","statementId":"ddl"}
 # ---- Testing query and insert prepared statement reuse ----
-{"resource":"session","action":"create","sessionId":"testPstmt","className":"com.informix.jdbc.IfxDriver"}
+{"resource":"session","action":"create","sessionId":"testPstmt"}
 # creating table
 {"resource":"statement","action":"execute","statementId":"ddl","sql":"DROP TABLE IF EXISTS varchar_test"}
 {"resource":"statement","action":"execute","statementId":"ddl","sql":"CREATE TABLE varchar_test (i0 VARCHAR(100),i1 VARCHAR(100),i2 VARCHAR(100),i3 VARCHAR(100),i4 VARCHAR(100),i5 VARCHAR(100),i6 VARCHAR(100),i7 VARCHAR(100),i8 VARCHAR(100),i9 VARCHAR(100),i10 VARCHAR(100),i11 VARCHAR(100),i12 VARCHAR(100),i13 VARCHAR(100),i14 VARCHAR(100),i15 VARCHAR(100),i16 VARCHAR(100),i17 VARCHAR(100),i18 VARCHAR(100),i19 VARCHAR(100),i20 VARCHAR(100),i21 VARCHAR(100),i22 VARCHAR(100),i23 VARCHAR(100),i24 VARCHAR(100),i25 VARCHAR(100),i26 VARCHAR(100),i27 VARCHAR(100),i28 VARCHAR(100),i29 VARCHAR(100),i30 VARCHAR(100),i31 VARCHAR(100),i32 VARCHAR(100),i33 VARCHAR(100),i34 VARCHAR(100),i35 VARCHAR(100),i36 VARCHAR(100),i37 VARCHAR(100),i38 VARCHAR(100),i39 VARCHAR(100),i40 VARCHAR(100),i41 VARCHAR(100),i42 VARCHAR(100),i43 VARCHAR(100),i44 VARCHAR(100),i45 VARCHAR(100),i46 VARCHAR(100),i47 VARCHAR(100),i48 VARCHAR(100),i49 VARCHAR(100),i50 VARCHAR(100),i51 VARCHAR(100),i52 VARCHAR(100),i53 VARCHAR(100),i54 VARCHAR(100),i55 VARCHAR(100),i56 VARCHAR(100),i57 VARCHAR(100),i58 VARCHAR(100),i59 VARCHAR(100),i60 VARCHAR(100),i61 VARCHAR(100),i62 VARCHAR(100),i63 VARCHAR(100),i64 VARCHAR(100),i65 VARCHAR(100),i66 VARCHAR(100),i67 VARCHAR(100),i68 VARCHAR(100),i69 VARCHAR(100),i70 VARCHAR(100),i71 VARCHAR(100),i72 VARCHAR(100),i73 VARCHAR(100),i74 VARCHAR(100),i75 VARCHAR(100),i76 VARCHAR(100),i77 VARCHAR(100),i78 VARCHAR(100),i79 VARCHAR(100),i80 VARCHAR(100),i81 VARCHAR(100),i82 VARCHAR(100),i83 VARCHAR(100),i84 VARCHAR(100),i85 VARCHAR(100),i86 VARCHAR(100),i87 VARCHAR(100),i88 VARCHAR(100),i89 VARCHAR(100),i90 VARCHAR(100),i91 VARCHAR(100),i92 VARCHAR(100),i93 VARCHAR(100),i94 VARCHAR(100),i95 VARCHAR(100),i96 VARCHAR(100),i97 VARCHAR(100),i98 VARCHAR(100),i99 VARCHAR(100))"}
@@ -196,7 +196,7 @@
 {"resource":"statement","action":"execute","statementId":"ddl","sql":"DROP TABLE IF EXISTS varchar_test"}
 {"resource":"statement","action":"close","statementId":"ddl"}
 # ---- Testing query and insert prepared statement reuse ----
-{"resource":"session","action":"create","sessionId":"testPstmt","className":"com.informix.jdbc.IfxDriver"}
+{"resource":"session","action":"create","sessionId":"testPstmt"}
 # creating table
 {"resource":"statement","action":"execute","statementId":"ddl","sql":"DROP TABLE IF EXISTS varchar_test"}
 {"resource":"statement","action":"execute","statementId":"ddl","sql":"CREATE TABLE varchar_test (i0 VARCHAR(255))"}
@@ -224,7 +224,7 @@
 {"resource":"statement","action":"execute","statementId":"ddl","sql":"DROP TABLE IF EXISTS varchar_test"}
 {"resource":"statement","action":"close","statementId":"ddl"}
 # ---- Testing query and insert prepared statement reuse ----
-{"resource":"session","action":"create","sessionId":"testPstmt","className":"com.informix.jdbc.IfxDriver"}
+{"resource":"session","action":"create","sessionId":"testPstmt"}
 # creating table
 {"resource":"statement","action":"execute","statementId":"ddl","sql":"DROP TABLE IF EXISTS varchar_test"}
 {"resource":"statement","action":"execute","statementId":"ddl","sql":"CREATE TABLE varchar_test (i0 VARCHAR(255),i1 VARCHAR(255),i2 VARCHAR(255),i3 VARCHAR(255),i4 VARCHAR(255),i5 VARCHAR(255),i6 VARCHAR(255),i7 VARCHAR(255),i8 VARCHAR(255),i9 VARCHAR(255),i10 VARCHAR(255),i11 VARCHAR(255),i12 VARCHAR(255),i13 VARCHAR(255),i14 VARCHAR(255),i15 VARCHAR(255),i16 VARCHAR(255),i17 VARCHAR(255),i18 VARCHAR(255),i19 VARCHAR(255),i20 VARCHAR(255),i21 VARCHAR(255),i22 VARCHAR(255),i23 VARCHAR(255),i24 VARCHAR(255),i25 VARCHAR(255),i26 VARCHAR(255),i27 VARCHAR(255),i28 VARCHAR(255),i29 VARCHAR(255),i30 VARCHAR(255),i31 VARCHAR(255),i32 VARCHAR(255),i33 VARCHAR(255),i34 VARCHAR(255),i35 VARCHAR(255),i36 VARCHAR(255),i37 VARCHAR(255),i38 VARCHAR(255),i39 VARCHAR(255),i40 VARCHAR(255),i41 VARCHAR(255),i42 VARCHAR(255),i43 VARCHAR(255),i44 VARCHAR(255),i45 VARCHAR(255),i46 VARCHAR(255),i47 VARCHAR(255),i48 VARCHAR(255),i49 VARCHAR(255))"}
@@ -252,7 +252,7 @@
 {"resource":"statement","action":"execute","statementId":"ddl","sql":"DROP TABLE IF EXISTS varchar_test"}
 {"resource":"statement","action":"close","statementId":"ddl"}
 # ---- Testing query and insert prepared statement reuse ----
-{"resource":"session","action":"create","sessionId":"testPstmt","className":"com.informix.jdbc.IfxDriver"}
+{"resource":"session","action":"create","sessionId":"testPstmt"}
 # creating table
 {"resource":"statement","action":"execute","statementId":"ddl","sql":"DROP TABLE IF EXISTS varchar_test"}
 {"resource":"statement","action":"execute","statementId":"ddl","sql":"CREATE TABLE varchar_test (i0 VARCHAR(255),i1 VARCHAR(255),i2 VARCHAR(255),i3 VARCHAR(255),i4 VARCHAR(255),i5 VARCHAR(255),i6 VARCHAR(255),i7 VARCHAR(255),i8 VARCHAR(255),i9 VARCHAR(255),i10 VARCHAR(255),i11 VARCHAR(255),i12 VARCHAR(255),i13 VARCHAR(255),i14 VARCHAR(255),i15 VARCHAR(255),i16 VARCHAR(255),i17 VARCHAR(255),i18 VARCHAR(255),i19 VARCHAR(255),i20 VARCHAR(255),i21 VARCHAR(255),i22 VARCHAR(255),i23 VARCHAR(255),i24 VARCHAR(255),i25 VARCHAR(255),i26 VARCHAR(255),i27 VARCHAR(255),i28 VARCHAR(255),i29 VARCHAR(255),i30 VARCHAR(255),i31 VARCHAR(255),i32 VARCHAR(255),i33 VARCHAR(255),i34 VARCHAR(255),i35 VARCHAR(255),i36 VARCHAR(255),i37 VARCHAR(255),i38 VARCHAR(255),i39 VARCHAR(255),i40 VARCHAR(255),i41 VARCHAR(255),i42 VARCHAR(255),i43 VARCHAR(255),i44 VARCHAR(255),i45 VARCHAR(255),i46 VARCHAR(255),i47 VARCHAR(255),i48 VARCHAR(255),i49 VARCHAR(255),i50 VARCHAR(255),i51 VARCHAR(255),i52 VARCHAR(255),i53 VARCHAR(255),i54 VARCHAR(255),i55 VARCHAR(255),i56 VARCHAR(255),i57 VARCHAR(255),i58 VARCHAR(255),i59 VARCHAR(255),i60 VARCHAR(255),i61 VARCHAR(255),i62 VARCHAR(255),i63 VARCHAR(255),i64 VARCHAR(255),i65 VARCHAR(255),i66 VARCHAR(255),i67 VARCHAR(255),i68 VARCHAR(255),i69 VARCHAR(255),i70 VARCHAR(255),i71 VARCHAR(255),i72 VARCHAR(255),i73 VARCHAR(255),i74 VARCHAR(255),i75 VARCHAR(255),i76 VARCHAR(255),i77 VARCHAR(255),i78 VARCHAR(255),i79 VARCHAR(255),i80 VARCHAR(255),i81 VARCHAR(255),i82 VARCHAR(255),i83 VARCHAR(255),i84 VARCHAR(255),i85 VARCHAR(255),i86 VARCHAR(255),i87 VARCHAR(255),i88 VARCHAR(255),i89 VARCHAR(255),i90 VARCHAR(255),i91 VARCHAR(255),i92 VARCHAR(255),i93 VARCHAR(255),i94 VARCHAR(255),i95 VARCHAR(255),i96 VARCHAR(255),i97 VARCHAR(255),i98 VARCHAR(255),i99 VARCHAR(255))"}

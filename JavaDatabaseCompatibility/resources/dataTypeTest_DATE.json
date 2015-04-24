@@ -1,7 +1,7 @@
 # start of test: date datatype test
 {"resource":"credentials","action":"create","credentialId":"test"}
 # ---- Testing CRUD operations ----
-{"resource":"session","action":"create","sessionId":"testCRUD","className":"com.informix.jdbc.IfxDriver"}
+{"resource":"session","action":"create","sessionId":"testCRUD"}
 # creating table
 {"resource":"statement","action":"execute","statementId":"ddl","sql":"DROP TABLE IF EXISTS date_test"}
 {"resource":"statement","action":"execute","statementId":"ddl","sql":"CREATE TABLE date_test (i0 DATE)"}
@@ -28,7 +28,7 @@
 {"resource":"statement","action":"execute","statementId":"ddl","sql":"DROP TABLE IF EXISTS date_test"}
 {"resource":"statement","action":"close","statementId":"ddl"}
 # ---- Testing query and insert prepared statement reuse ----
-{"resource":"session","action":"create","sessionId":"testPstmt","className":"com.informix.jdbc.IfxDriver"}
+{"resource":"session","action":"create","sessionId":"testPstmt"}
 # creating table
 {"resource":"statement","action":"execute","statementId":"ddl","sql":"DROP TABLE IF EXISTS date_test"}
 {"resource":"statement","action":"execute","statementId":"ddl","sql":"CREATE TABLE date_test (i0 DATE)"}
@@ -55,7 +55,7 @@
 {"resource":"statement","action":"execute","statementId":"ddl","sql":"DROP TABLE IF EXISTS date_test"}
 {"resource":"statement","action":"close","statementId":"ddl"}
 # ---- Testing query and insert prepared statement reuse ----
-{"resource":"session","action":"create","sessionId":"testPstmt","className":"com.informix.jdbc.IfxDriver"}
+{"resource":"session","action":"create","sessionId":"testPstmt"}
 # creating table
 {"resource":"statement","action":"execute","statementId":"ddl","sql":"DROP TABLE IF EXISTS date_test"}
 {"resource":"statement","action":"execute","statementId":"ddl","sql":"CREATE TABLE date_test (i0 DATE,i1 DATE,i2 DATE,i3 DATE,i4 DATE,i5 DATE,i6 DATE,i7 DATE,i8 DATE,i9 DATE,i10 DATE,i11 DATE,i12 DATE,i13 DATE,i14 DATE,i15 DATE,i16 DATE,i17 DATE,i18 DATE,i19 DATE,i20 DATE,i21 DATE,i22 DATE,i23 DATE,i24 DATE,i25 DATE,i26 DATE,i27 DATE,i28 DATE,i29 DATE,i30 DATE,i31 DATE,i32 DATE,i33 DATE,i34 DATE,i35 DATE,i36 DATE,i37 DATE,i38 DATE,i39 DATE,i40 DATE,i41 DATE,i42 DATE,i43 DATE,i44 DATE,i45 DATE,i46 DATE,i47 DATE,i48 DATE,i49 DATE)"}
@@ -82,7 +82,7 @@
 {"resource":"statement","action":"execute","statementId":"ddl","sql":"DROP TABLE IF EXISTS date_test"}
 {"resource":"statement","action":"close","statementId":"ddl"}
 # ---- Testing query and insert prepared statement reuse ----
-{"resource":"session","action":"create","sessionId":"testPstmt","className":"com.informix.jdbc.IfxDriver"}
+{"resource":"session","action":"create","sessionId":"testPstmt"}
 # creating table
 {"resource":"statement","action":"execute","statementId":"ddl","sql":"DROP TABLE IF EXISTS date_test"}
 {"resource":"statement","action":"execute","statementId":"ddl","sql":"CREATE TABLE date_test (i0 DATE,i1 DATE,i2 DATE,i3 DATE,i4 DATE,i5 DATE,i6 DATE,i7 DATE,i8 DATE,i9 DATE,i10 DATE,i11 DATE,i12 DATE,i13 DATE,i14 DATE,i15 DATE,i16 DATE,i17 DATE,i18 DATE,i19 DATE,i20 DATE,i21 DATE,i22 DATE,i23 DATE,i24 DATE,i25 DATE,i26 DATE,i27 DATE,i28 DATE,i29 DATE,i30 DATE,i31 DATE,i32 DATE,i33 DATE,i34 DATE,i35 DATE,i36 DATE,i37 DATE,i38 DATE,i39 DATE,i40 DATE,i41 DATE,i42 DATE,i43 DATE,i44 DATE,i45 DATE,i46 DATE,i47 DATE,i48 DATE,i49 DATE,i50 DATE,i51 DATE,i52 DATE,i53 DATE,i54 DATE,i55 DATE,i56 DATE,i57 DATE,i58 DATE,i59 DATE,i60 DATE,i61 DATE,i62 DATE,i63 DATE,i64 DATE,i65 DATE,i66 DATE,i67 DATE,i68 DATE,i69 DATE,i70 DATE,i71 DATE,i72 DATE,i73 DATE,i74 DATE,i75 DATE,i76 DATE,i77 DATE,i78 DATE,i79 DATE,i80 DATE,i81 DATE,i82 DATE,i83 DATE,i84 DATE,i85 DATE,i86 DATE,i87 DATE,i88 DATE,i89 DATE,i90 DATE,i91 DATE,i92 DATE,i93 DATE,i94 DATE,i95 DATE,i96 DATE,i97 DATE,i98 DATE,i99 DATE)"}

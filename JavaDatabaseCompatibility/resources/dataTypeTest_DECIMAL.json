@@ -1,7 +1,7 @@
 # start of test: decimal datatype test
 {"resource":"credentials","action":"create","credentialId":"test"}
 # ---- Testing CRUD operations ----
-{"resource":"session","action":"create","sessionId":"testCRUD","className":"com.informix.jdbc.IfxDriver"}
+{"resource":"session","action":"create","sessionId":"testCRUD"}
 # creating table
 {"resource":"statement","action":"execute","statementId":"ddl","sql":"DROP TABLE IF EXISTS decimal_test"}
 {"resource":"statement","action":"execute","statementId":"ddl","sql":"CREATE TABLE decimal_test (i0 DECIMAL)"}
@@ -28,7 +28,7 @@
 {"resource":"statement","action":"execute","statementId":"ddl","sql":"DROP TABLE IF EXISTS decimal_test"}
 {"resource":"statement","action":"close","statementId":"ddl"}
 # ---- Testing query and insert prepared statement reuse ----
-{"resource":"session","action":"create","sessionId":"testPstmt","className":"com.informix.jdbc.IfxDriver"}
+{"resource":"session","action":"create","sessionId":"testPstmt"}
 # creating table
 {"resource":"statement","action":"execute","statementId":"ddl","sql":"DROP TABLE IF EXISTS decimal_test"}
 {"resource":"statement","action":"execute","statementId":"ddl","sql":"CREATE TABLE decimal_test (i0 DECIMAL(20))"}
@@ -56,7 +56,7 @@
 {"resource":"statement","action":"execute","statementId":"ddl","sql":"DROP TABLE IF EXISTS decimal_test"}
 {"resource":"statement","action":"close","statementId":"ddl"}
 # ---- Testing query and insert prepared statement reuse ----
-{"resource":"session","action":"create","sessionId":"testPstmt","className":"com.informix.jdbc.IfxDriver"}
+{"resource":"session","action":"create","sessionId":"testPstmt"}
 # creating table
 {"resource":"statement","action":"execute","statementId":"ddl","sql":"DROP TABLE IF EXISTS decimal_test"}
 {"resource":"statement","action":"execute","statementId":"ddl","sql":"CREATE TABLE decimal_test (i0 DECIMAL(20),i1 DECIMAL(20),i2 DECIMAL(20),i3 DECIMAL(20),i4 DECIMAL(20),i5 DECIMAL(20),i6 DECIMAL(20),i7 DECIMAL(20),i8 DECIMAL(20),i9 DECIMAL(20),i10 DECIMAL(20),i11 DECIMAL(20),i12 DECIMAL(20),i13 DECIMAL(20),i14 DECIMAL(20),i15 DECIMAL(20),i16 DECIMAL(20),i17 DECIMAL(20),i18 DECIMAL(20),i19 DECIMAL(20),i20 DECIMAL(20),i21 DECIMAL(20),i22 DECIMAL(20),i23 DECIMAL(20),i24 DECIMAL(20),i25 DECIMAL(20),i26 DECIMAL(20),i27 DECIMAL(20),i28 DECIMAL(20),i29 DECIMAL(20),i30 DECIMAL(20),i31 DECIMAL(20),i32 DECIMAL(20),i33 DECIMAL(20),i34 DECIMAL(20),i35 DECIMAL(20),i36 DECIMAL(20),i37 DECIMAL(20),i38 DECIMAL(20),i39 DECIMAL(20),i40 DECIMAL(20),i41 DECIMAL(20),i42 DECIMAL(20),i43 DECIMAL(20),i44 DECIMAL(20),i45 DECIMAL(20),i46 DECIMAL(20),i47 DECIMAL(20),i48 DECIMAL(20),i49 DECIMAL(20))"}
@@ -84,7 +84,7 @@
 {"resource":"statement","action":"execute","statementId":"ddl","sql":"DROP TABLE IF EXISTS decimal_test"}
 {"resource":"statement","action":"close","statementId":"ddl"}
 # ---- Testing query and insert prepared statement reuse ----
-{"resource":"session","action":"create","sessionId":"testPstmt","className":"com.informix.jdbc.IfxDriver"}
+{"resource":"session","action":"create","sessionId":"testPstmt"}
 # creating table
 {"resource":"statement","action":"execute","statementId":"ddl","sql":"DROP TABLE IF EXISTS decimal_test"}
 {"resource":"statement","action":"execute","statementId":"ddl","sql":"CREATE TABLE decimal_test (i0 DECIMAL(20),i1 DECIMAL(20),i2 DECIMAL(20),i3 DECIMAL(20),i4 DECIMAL(20),i5 DECIMAL(20),i6 DECIMAL(20),i7 DECIMAL(20),i8 DECIMAL(20),i9 DECIMAL(20),i10 DECIMAL(20),i11 DECIMAL(20),i12 DECIMAL(20),i13 DECIMAL(20),i14 DECIMAL(20),i15 DECIMAL(20),i16 DECIMAL(20),i17 DECIMAL(20),i18 DECIMAL(20),i19 DECIMAL(20),i20 DECIMAL(20),i21 DECIMAL(20),i22 DECIMAL(20),i23 DECIMAL(20),i24 DECIMAL(20),i25 DECIMAL(20),i26 DECIMAL(20),i27 DECIMAL(20),i28 DECIMAL(20),i29 DECIMAL(20),i30 DECIMAL(20),i31 DECIMAL(20),i32 DECIMAL(20),i33 DECIMAL(20),i34 DECIMAL(20),i35 DECIMAL(20),i36 DECIMAL(20),i37 DECIMAL(20),i38 DECIMAL(20),i39 DECIMAL(20),i40 DECIMAL(20),i41 DECIMAL(20),i42 DECIMAL(20),i43 DECIMAL(20),i44 DECIMAL(20),i45 DECIMAL(20),i46 DECIMAL(20),i47 DECIMAL(20),i48 DECIMAL(20),i49 DECIMAL(20),i50 DECIMAL(20),i51 DECIMAL(20),i52 DECIMAL(20),i53 DECIMAL(20),i54 DECIMAL(20),i55 DECIMAL(20),i56 DECIMAL(20),i57 DECIMAL(20),i58 DECIMAL(20),i59 DECIMAL(20),i60 DECIMAL(20),i61 DECIMAL(20),i62 DECIMAL(20),i63 DECIMAL(20),i64 DECIMAL(20),i65 DECIMAL(20),i66 DECIMAL(20),i67 DECIMAL(20),i68 DECIMAL(20),i69 DECIMAL(20),i70 DECIMAL(20),i71 DECIMAL(20),i72 DECIMAL(20),i73 DECIMAL(20),i74 DECIMAL(20),i75 DECIMAL(20),i76 DECIMAL(20),i77 DECIMAL(20),i78 DECIMAL(20),i79 DECIMAL(20),i80 DECIMAL(20),i81 DECIMAL(20),i82 DECIMAL(20),i83 DECIMAL(20),i84 DECIMAL(20),i85 DECIMAL(20),i86 DECIMAL(20),i87 DECIMAL(20),i88 DECIMAL(20),i89 DECIMAL(20),i90 DECIMAL(20),i91 DECIMAL(20),i92 DECIMAL(20),i93 DECIMAL(20),i94 DECIMAL(20),i95 DECIMAL(20),i96 DECIMAL(20),i97 DECIMAL(20),i98 DECIMAL(20),i99 DECIMAL(20))"}

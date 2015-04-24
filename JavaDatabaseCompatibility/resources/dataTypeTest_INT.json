@@ -1,7 +1,7 @@
 # start of test: int datatype test
 {"resource":"credentials","action":"create","credentialId":"test"}
 # ---- Testing CRUD operations ----
-{"resource":"session","action":"create","sessionId":"testCRUD","className":"com.informix.jdbc.IfxDriver"}
+{"resource":"session","action":"create","sessionId":"testCRUD"}
 # creating table
 {"resource":"statement","action":"execute","statementId":"ddl","sql":"DROP TABLE IF EXISTS int_test"}
 {"resource":"statement","action":"execute","statementId":"ddl","sql":"CREATE TABLE int_test (i0 INT)"}
@@ -28,7 +28,7 @@
 {"resource":"statement","action":"execute","statementId":"ddl","sql":"DROP TABLE IF EXISTS int_test"}
 {"resource":"statement","action":"close","statementId":"ddl"}
 # ---- Testing query and insert prepared statement reuse ----
-{"resource":"session","action":"create","sessionId":"testPstmt","className":"com.informix.jdbc.IfxDriver"}
+{"resource":"session","action":"create","sessionId":"testPstmt"}
 # creating table
 {"resource":"statement","action":"execute","statementId":"ddl","sql":"DROP TABLE IF EXISTS int_test"}
 {"resource":"statement","action":"execute","statementId":"ddl","sql":"CREATE TABLE int_test (i0 INT,i1 INT,i2 INT)"}
@@ -56,7 +56,7 @@
 {"resource":"statement","action":"execute","statementId":"ddl","sql":"DROP TABLE IF EXISTS int_test"}
 {"resource":"statement","action":"close","statementId":"ddl"}
 # ---- Testing query and insert prepared statement reuse ----
-{"resource":"session","action":"create","sessionId":"testPstmt","className":"com.informix.jdbc.IfxDriver"}
+{"resource":"session","action":"create","sessionId":"testPstmt"}
 # creating table
 {"resource":"statement","action":"execute","statementId":"ddl","sql":"DROP TABLE IF EXISTS int_test"}
 {"resource":"statement","action":"execute","statementId":"ddl","sql":"CREATE TABLE int_test (i0 INT,i1 INT,i2 INT,i3 INT,i4 INT,i5 INT,i6 INT,i7 INT,i8 INT,i9 INT,i10 INT,i11 INT,i12 INT,i13 INT,i14 INT,i15 INT,i16 INT,i17 INT,i18 INT,i19 INT,i20 INT,i21 INT,i22 INT,i23 INT,i24 INT,i25 INT,i26 INT,i27 INT,i28 INT,i29 INT,i30 INT,i31 INT,i32 INT,i33 INT,i34 INT,i35 INT,i36 INT,i37 INT,i38 INT,i39 INT,i40 INT,i41 INT,i42 INT,i43 INT,i44 INT,i45 INT,i46 INT,i47 INT,i48 INT,i49 INT)"}
@@ -84,7 +84,7 @@
 {"resource":"statement","action":"execute","statementId":"ddl","sql":"DROP TABLE IF EXISTS int_test"}
 {"resource":"statement","action":"close","statementId":"ddl"}
 # ---- Testing query and insert prepared statement reuse ----
-{"resource":"session","action":"create","sessionId":"testPstmt","className":"com.informix.jdbc.IfxDriver"}
+{"resource":"session","action":"create","sessionId":"testPstmt"}
 # creating table
 {"resource":"statement","action":"execute","statementId":"ddl","sql":"DROP TABLE IF EXISTS int_test"}
 {"resource":"statement","action":"execute","statementId":"ddl","sql":"CREATE TABLE int_test (i0 INT,i1 INT,i2 INT,i3 INT,i4 INT,i5 INT,i6 INT,i7 INT,i8 INT,i9 INT,i10 INT,i11 INT,i12 INT,i13 INT,i14 INT,i15 INT,i16 INT,i17 INT,i18 INT,i19 INT,i20 INT,i21 INT,i22 INT,i23 INT,i24 INT,i25 INT,i26 INT,i27 INT,i28 INT,i29 INT,i30 INT,i31 INT,i32 INT,i33 INT,i34 INT,i35 INT,i36 INT,i37 INT,i38 INT,i39 INT,i40 INT,i41 INT,i42 INT,i43 INT,i44 INT,i45 INT,i46 INT,i47 INT,i48 INT,i49 INT,i50 INT,i51 INT,i52 INT,i53 INT,i54 INT,i55 INT,i56 INT,i57 INT,i58 INT,i59 INT,i60 INT,i61 INT,i62 INT,i63 INT,i64 INT,i65 INT,i66 INT,i67 INT,i68 INT,i69 INT,i70 INT,i71 INT,i72 INT,i73 INT,i74 INT,i75 INT,i76 INT,i77 INT,i78 INT,i79 INT,i80 INT,i81 INT,i82 INT,i83 INT,i84 INT,i85 INT,i86 INT,i87 INT,i88 INT,i89 INT,i90 INT,i91 INT,i92 INT,i93 INT,i94 INT,i95 INT,i96 INT,i97 INT,i98 INT,i99 INT)"}
