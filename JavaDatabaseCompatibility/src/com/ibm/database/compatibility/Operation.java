@@ -32,7 +32,6 @@ public class Operation {
 	private String credentialId = null;
 	private String sessionId = null;
 	private String statementId = null;
-	private String className = null;
 	private String sql = null;
 	private Integer nfetch = null;
 	private Binding[] bindings = null;
@@ -51,7 +50,6 @@ public class Operation {
 		private String credentialId = null;
 		private String sessionId = null;
 		private String statementId = null;
-		private String className = null;
 		private String sql = null;
 		private Integer nfetch = null;
 		private Binding[] bindings = null;
@@ -64,7 +62,6 @@ public class Operation {
 			op.credentialId = credentialId;
 			op.sessionId = sessionId;
 			op.statementId = statementId;
-			op.className = className;
 			op.sql = sql;
 			op.nfetch = nfetch;
 			op.bindings = bindings;
@@ -94,11 +91,6 @@ public class Operation {
 
 		public Builder statementId(final String statementId) {
 			this.statementId = statementId;
-			return this;
-		}
-
-		public Builder className(final String className) {
-			this.className = className;
 			return this;
 		}
 
@@ -149,14 +141,6 @@ public class Operation {
 			}
 		} else if (resource.equalsIgnoreCase("session")) {
 			if (action.equalsIgnoreCase("create")) {
-				// { resource: "createSession" , credentialsId , className = "com.informix.jdbc.IfxDriver" }
-				if (className != null) {
-					try {
-						Class.forName(className);
-					} catch (ClassNotFoundException e) {
-						throw new RuntimeException(MessageFormat.format("Unable to load class {0}", className), e);
-					}
-				}
 				JdbcSession session = client.newSession(sessionId);
 				logger.debug("created new session id {}", session.getId());
 			} else if (action.equalsIgnoreCase("close")) {

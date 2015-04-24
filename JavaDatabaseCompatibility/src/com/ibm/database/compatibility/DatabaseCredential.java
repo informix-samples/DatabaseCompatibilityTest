@@ -1,8 +1,17 @@
 package com.ibm.database.compatibility;
 
+import java.text.MessageFormat;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 public class DatabaseCredential {
-	//private static final Logger logger = LoggerFactory.getLogger(DatabaseCredential.class);
+	private static final Logger logger = LoggerFactory.getLogger(DatabaseCredential.class);
 	
+	public static String DB2_JCC_CLASSNAME = "com.ibm.db2.jcc.DB2Driver";
+	public static String INFORMIX_JDBC_CLASSNAME = "com.informix.jdbc.IfxDriver";
+
+	private String jdbcClassName = INFORMIX_JDBC_CLASSNAME;
 	private String credentialId = null;
 	private String host = null;
 	private Integer port = null;
@@ -14,6 +23,7 @@ public class DatabaseCredential {
 	public DatabaseCredential(String credentialId) {
 		this.credentialId = credentialId;
 		getDatabaseCredentialsFromEnv();
+		loadJDBCDriver();
 	}
 	
 	private void getDatabaseCredentialsFromEnv() {
@@ -48,13 +58,46 @@ public class DatabaseCredential {
 		}
 	}
 	
+	private void loadJDBCDriver() {
+		String className = INFORMIX_JDBC_CLASSNAME;
+		if (System.getenv().containsKey("PROTOCOL") && System.getenv().get("PROTOCOL").equals("DRDA")) {
+			className = DB2_JCC_CLASSNAME;
+		}
+		logger.info(MessageFormat.format("Loading JDBC class: {0}", className));
+		try {
+			Class.forName(className);
+		} catch (ClassNotFoundException e) {
+			throw new RuntimeException(MessageFormat.format("Unable to load class {0}", className), e);
+		}
+	}
+	
 	public synchronized String getCredentialId() {
 		return this.credentialId;
 	}
 	
+	public synchronized String getJdbcClassName() {
+		return jdbcClassName;
+	}
+	
 	public synchronized String getUrl() {
-		final String jdbcUrl = "jdbc:informix-sqli://" + this.host + ":" + this.port + "/" + this.databaseName + ":USER=" + this.user + ";PASSWORD=" + this.password + ";" + this.additionalConnectionProperties;
+		String jdbcUrl;
+		if (jdbcClassName.equals(DB2_JCC_CLASSNAME)) {
+			jdbcUrl = "jdbc:ids://" + this.host + ":" + this.port + "/" + this.databaseName;
+			if (this.additionalConnectionProperties != null && this.additionalConnectionProperties.length() > 0) {
+				jdbcUrl += ":" + this.additionalConnectionProperties;
+			}
+		} else {
+			jdbcUrl = "jdbc:informix-sqli://" + this.host + ":" + this.port + "/" + this.databaseName + ":USER=" + this.user + ";PASSWORD=" + this.password + ";" + this.additionalConnectionProperties;;
+		}
 		return jdbcUrl;
+	}
+	
+	public synchronized String getUser() {
+		return user;
+	}
+
+	public synchronized String getPassword() {
+		return password;
 	}
 	
 	@Override

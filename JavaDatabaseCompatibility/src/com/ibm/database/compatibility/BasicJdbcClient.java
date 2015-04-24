@@ -13,12 +13,12 @@ import java.util.Map;
  * 
  */
 public class BasicJdbcClient implements JdbcClient {
-
+	
 	private final Map<String, DatabaseCredential> credentials = new HashMap<String, DatabaseCredential>();
 	private final Map<String, JdbcSession> sessions = new HashMap<String, JdbcSession>();
 	private String lastCredentialId = "default";
 	private String lastSessionId = "default";
-
+	
 	@Override
 	public JdbcSession newSession(String id) throws SQLException {
 		if (id != null) {
@@ -57,8 +57,8 @@ public class BasicJdbcClient implements JdbcClient {
 	}
 
 	@Override
-	public Connection newConnection(String url) throws SQLException {
-		return DriverManager.getConnection(url);
+	public Connection newConnection(String url, String user, String password) throws SQLException {
+		return DriverManager.getConnection(url, user, password);
 	}
 
 	@Override

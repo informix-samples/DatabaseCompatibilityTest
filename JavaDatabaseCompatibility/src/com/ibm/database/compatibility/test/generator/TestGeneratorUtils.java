@@ -21,7 +21,7 @@ public class TestGeneratorUtils {
 	}
 	
 	public static Operation getCreateSessionOperation(String sessionId) {
-		return new Operation.Builder().resource("session").action("create").sessionId(sessionId).className("com.informix.jdbc.IfxDriver").build();
+		return new Operation.Builder().resource("session").action("create").sessionId(sessionId).build();
 	}
 
 	public static Operation getStartTxnSessionOperation(String sessionId) {

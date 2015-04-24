@@ -59,10 +59,12 @@ public interface JdbcClient {
 	 * 
 	 * @param url
 	 *            the JDBC url to connect to
+	 * @param user
+	 * @param password
 	 * @return
 	 * @throws SQLException
 	 */
-	public Connection newConnection(String url) throws SQLException;
+	public Connection newConnection(String url, String user, String password) throws SQLException;
 
 	/**
 	 * Creates a new database credential object.

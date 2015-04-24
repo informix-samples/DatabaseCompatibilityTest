@@ -34,7 +34,7 @@ public class BasicJdbcSession implements JdbcSession {
 	public synchronized Connection getConnection() throws SQLException {
 		if (connection == null) {
 			final DatabaseCredential credentials = client.getDatabaseCredential(this.credentialsId);
-			this.connection = client.newConnection(credentials.getUrl());
+			this.connection = client.newConnection(credentials.getUrl(), credentials.getUser(), credentials.getPassword());
 		}
 		return this.connection;
 	}
