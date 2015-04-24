@@ -1,15 +1,15 @@
 # initialize the default session
-{"resource":"credentials","action":"create","credentialId":"mydb","host":"10.168.8.130","port":40000,"databaseName":"mydb","user":"informix","password":"informix","additionalConnectionProperties":"CLIENT_LOCALE=en_us.utf8;DB_LOCALE=en_us.utf8"}
+{"resource":"credentials","action":"create","credentialId":"mydb"}
 {"resource":"session","action":"create","credentialId":"mydb","className":"com.informix.jdbc.IfxDriver"}
 # run some simple count statements
 {"resource":"statement","action":"execute","sql":"select count(tabname) as count from systables where tabid > 99"}
 {"resource":"statement","action":"create","statementId":"test"}
 {"resource":"statement","action":"execute","statementId":"test","sql":"select count(tabname) as count from systables where tabid > 99"}
 {"resource":"statement","action":"close","statementId":"test"}
-{"resource":"preparedStatement","action":"create","statementId":"test","sql":"select count(tabname) as count from systables where tabid > ?"}
-{"resource":"preparedStatement","action":"execute","statementId":"test","bindings":[99],"expectedResults":[{"count":0}]}
-{"resource":"preparedStatement","action":"execute","statementId":"test","bindings":[100],"expectedResults":[{"count":0}]}
-{"resource":"preparedStatement","action":"execute","statementId":"test","bindings":[101],"expectedResults":[{"count":0}]}
+{"resource":"preparedStatement","action":"create","statementId":"test","sql":"select count(tabname) as count from systables where tabid < ?"}
+{"resource":"preparedStatement","action":"execute","statementId":"test","bindings":[99],"expectedResults":[{"count":69}]}
+{"resource":"preparedStatement","action":"execute","statementId":"test","bindings":[10],"expectedResults":[{"count":9}]}
+{"resource":"preparedStatement","action":"execute","statementId":"test","bindings":[11],"expectedResults":[{"count":10}]}
 {"resource":"preparedStatement","action":"close","statementId":"test"}
 # Test DDL
 {"resource":"statement","action":"execute","statementId":"createPeopleTable","sql":"drop table if exists people"}
