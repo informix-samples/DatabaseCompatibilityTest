@@ -187,8 +187,7 @@ public class PreparedStatementTest {
 		jow.write(TestGeneratorUtils.getFetchPstmtOperation("query1", null, expectedResults));
 		expectedResults = new JsonArray();
 		expectedResults.add(table2Data.get(9));
-		jow.write(TestGeneratorUtils.getFetchPstmtOperation("query2", 2, expectedResults));
-		jow.write(TestGeneratorUtils.getFetchPstmtOperation("query2", null, new JsonArray()));
+		jow.write(TestGeneratorUtils.getFetchPstmtOperation("query2", null, expectedResults));
 		
 		jow.writeComment("re-execute the queries with more interwoven fetches");
 		expectedResults = new JsonArray();
