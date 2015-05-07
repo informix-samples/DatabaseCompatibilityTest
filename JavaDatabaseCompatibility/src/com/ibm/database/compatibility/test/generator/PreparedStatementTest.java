@@ -207,7 +207,7 @@ public class PreparedStatementTest {
 		jow.write(TestGeneratorUtils.getExecutePstmtOperation("query2", table2Data));
 		expectedResults = new JsonArray();
 		expectedResults.add(table2Data.get(0));
-		jow.write(TestGeneratorUtils.getExecutePstmtOperation("query2", 1, table2Data));
+		jow.write(TestGeneratorUtils.getExecutePstmtOperation("query2", 1, expectedResults));
 		expectedResults = new JsonArray();
 		expectedResults.add(table1Data.get(7));
 		jow.write(TestGeneratorUtils.getFetchPstmtOperation("query1", 1, expectedResults));
