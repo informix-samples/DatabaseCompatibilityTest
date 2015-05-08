@@ -1,6 +1,5 @@
 package com.ibm.database.compatibility.test.generator.datatypes;
 
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
@@ -9,7 +8,7 @@ import com.ibm.database.compatibility.SqlDataType;
 
 public class DateColumn extends AbstractColumn implements Column {
 
-	protected List<Long> dataValues = new ArrayList<Long>();
+	protected List<String> dataValues = new ArrayList<String>();
 	protected final SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
 	protected final int nunique;
 	
@@ -20,22 +19,17 @@ public class DateColumn extends AbstractColumn implements Column {
 	}
 	
 	public void initializeData() {
-		try {
-			dataValues.add(format.parse("2014-10-15").getTime());
-			dataValues.add(format.parse("2014-10-24").getTime());
-			dataValues.add(format.parse("2014-11-30").getTime());
-			dataValues.add(format.parse("2014-12-01").getTime());
-			dataValues.add(format.parse("2014-12-22").getTime());
-			dataValues.add(format.parse("2015-01-01").getTime());
-			dataValues.add(format.parse("2015-01-14").getTime());
-			dataValues.add(format.parse("2015-01-31").getTime());
-			dataValues.add(format.parse("2015-03-07").getTime());
-			dataValues.add(format.parse("2015-03-09").getTime());
-			dataValues.add(format.parse("2015-03-20").getTime());
-		}
-		catch(ParseException e) {
-			throw new RuntimeException(e);
-		}
+		dataValues.add("2014-10-15");
+		dataValues.add("2014-10-24");
+		dataValues.add("2014-11-30");
+		dataValues.add("2014-12-01");
+		dataValues.add("2014-12-22");
+		dataValues.add("2015-01-01");
+		dataValues.add("2015-01-14");
+		dataValues.add("2015-01-31");
+		dataValues.add("2015-03-07");
+		dataValues.add("2015-03-09");
+		dataValues.add("2015-03-20");
 	}
 
 	public Object getValue(int i) {
@@ -43,6 +37,6 @@ public class DateColumn extends AbstractColumn implements Column {
 	}
 	
 	public Class<?> getJavaClassName() {
-		return Long.class;
+		return String.class;
 	}
 }

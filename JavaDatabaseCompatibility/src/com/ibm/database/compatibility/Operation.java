@@ -321,24 +321,25 @@ public class Operation {
 				Object value = rs.getObject(i);
 				if(value instanceof java.sql.Timestamp) {
 					value = rs.getTimestamp(i);
-					Timestamp ts = (java.sql.Timestamp) value;
 					DateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-					if (rsmd.getColumnTypeName(i).equalsIgnoreCase("datetime year to fraction(4)")) {
-						String nanosString = Integer.toString(ts.getNanos() / 100000);
-						while (nanosString.length() < 4) {
-							nanosString = "0" + nanosString;
-						}
-						value = df.format(ts) + "." + nanosString;
-					} else if (rsmd.getColumnTypeName(i).equalsIgnoreCase("datetime year to fraction(5)")) {
-						String nanosString = Integer.toString(ts.getNanos() / 10000);
-						while (nanosString.length() < 5) {
-							nanosString = "0" + nanosString;
-						}
-						value = df.format(ts) + "." + nanosString;
+					Timestamp ts = (java.sql.Timestamp) value;
+					String columnType = rsmd.getColumnTypeName(i);
+					int fractionSize = 0;
+					if (columnType.contains("fraction")) {
+						fractionSize = Integer.parseInt(columnType.substring(26, 27));
 					}
-				}
-				if(value instanceof java.util.Date) {
-					value = rs.getDate(i).getTime();
+					if (fractionSize == 0) {
+						value = df.format(ts);
+					} else {
+						String fractionString = Integer.toString(ts.getNanos() / ((Double) Math.pow(10, 9 - fractionSize)).intValue());
+						while (fractionString.length() < fractionSize) {
+							fractionString = "0" + fractionString;
+						}
+						value = df.format(ts) + "." + fractionString;
+					}
+				} else if(value instanceof java.util.Date) {
+					DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+					value = df.format(rs.getDate(i));
 				}
 				GsonUtils.newGson().toJson(value, value.getClass(), jw);
 			}

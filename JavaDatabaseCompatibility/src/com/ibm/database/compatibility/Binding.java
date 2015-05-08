@@ -9,6 +9,7 @@ import java.text.DateFormat;
 import java.text.MessageFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
@@ -72,6 +73,14 @@ public class Binding {
 		case DATE:
 			if(getValue() == null) {
 				ps.setDate(getIndex(), null);
+			} else if (getValue() instanceof String){
+				DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+				try {
+					Date d = df.parse((String) getValue());
+					ps.setDate(getIndex(), new java.sql.Date(d.getTime()));
+				} catch (ParseException e) {
+					throw new RuntimeException("Cannot parse date string");
+				}
 			} else {
 				ps.setDate(getIndex(), new java.sql.Date((Long)getValue()));
 			}
@@ -81,8 +90,14 @@ public class Binding {
 				ps.setTimestamp(getIndex(), null);
 			} else if (getValue() instanceof String) {
 				String dateString = (String) getValue();
-				if (dateString.length() > 23) {
+				if (dateString.length() == 19) {
+					dateString += ".000";
+				} else if (dateString.length() > 23) {
 					dateString = dateString.substring(0,23);
+				} else {
+					while (dateString.length() < 23) {
+						dateString += "0";
+					}
 				}
 				DateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
 				java.util.Date d = null;

@@ -12,8 +12,9 @@ import com.ibm.database.compatibility.SqlDataType;
 
 public class DateTimeColumn extends AbstractColumn implements Column {
 	private final int fractionSize;
+	private final SimpleDateFormat format_nofraction = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 	private final SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
-	private final List<Object> dataValues = new ArrayList<Object>();
+	private final List<String> dataValues = new ArrayList<String>();
 	private final int nunique;
 	
 	public DateTimeColumn(String colName, int fractionSize, int seed) {
@@ -60,20 +61,18 @@ public class DateTimeColumn extends AbstractColumn implements Column {
 				}
 				Date d = format.parse(sb.toString());
 				Timestamp ts = new Timestamp(d.getTime());
-				if(fractionSize > 3) {
-					if (fractionSize == 4) {
-						ts.setNanos(ts.getNanos() + (r.nextInt(9) * 100000));
-					} else {
-						ts.setNanos(ts.getNanos() + (r.nextInt(99) * 10000));
-					}
-				}
-				//System.out.println(sb);
-				//System.out.println(ts);
-				if (fractionSize <= 3) {
-					dataValues.add(ts.getTime());
+				if (fractionSize == 0) {
+					dataValues.add(format_nofraction.format(d));
 				} else {
+					if(fractionSize > 3) {
+						if (fractionSize == 4) {
+							ts.setNanos(ts.getNanos() + (r.nextInt(9) * 100000));
+						} else {
+							ts.setNanos(ts.getNanos() + (r.nextInt(99) * 10000));
+						}
+					}
 					String tsString = ts.toString();
-					while (tsString.substring(tsString.indexOf(".") + 1).length() != fractionSize) {
+					while (tsString.substring(tsString.indexOf(".") + 1).length() < fractionSize) {
 						tsString = tsString + "0";
 					}
 					dataValues.add(tsString);
@@ -101,10 +100,6 @@ public class DateTimeColumn extends AbstractColumn implements Column {
 
 	@Override
 	public Class<?> getJavaClassName() {
-		if (fractionSize <=3) {
-			return Long.class;
-		} else {
-			return String.class;
-		}
+		return String.class;
 	}
 }
