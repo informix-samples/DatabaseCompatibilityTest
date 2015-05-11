@@ -57,5 +57,5 @@
 {"resource":"statement","action":"close","statementId":"query2"}
 {"resource":"statement","action":"execute","statementId":"ddl","sql":"DROP TABLE IF EXISTS test1"}
 {"resource":"statement","action":"execute","statementId":"ddl","sql":"DROP TABLE IF EXISTS test2"}
-{"resource":"preparedStatement","action":"close","statementId":"ddl"}
+{"resource":"statement","action":"close","statementId":"ddl"}
 # end of test: test for running multiple prepared statements with query cursors
