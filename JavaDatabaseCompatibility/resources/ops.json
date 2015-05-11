@@ -1,6 +1,6 @@
 # initialize the default session
 {"resource":"credentials","action":"create","credentialId":"mydb"}
-{"resource":"session","action":"create","credentialId":"mydb","className":"com.informix.jdbc.IfxDriver"}
+{"resource":"session","action":"create","credentialId":"mydb"}
 # run some simple count statements
 {"resource":"statement","action":"execute","sql":"select count(tabname) as count from systables where tabid > 99"}
 {"resource":"statement","action":"create","statementId":"test"}
