@@ -16,3 +16,6 @@ hs_err_pid*
 .DS_Store
 bin/
 *.prefs
+
+# test files in non java-directory
+PHPDatabaseCompatibility/tests/*json
