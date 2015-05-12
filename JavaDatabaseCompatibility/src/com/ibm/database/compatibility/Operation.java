@@ -13,6 +13,8 @@ import java.sql.Timestamp;
 import java.text.DateFormat;
 import java.text.MessageFormat;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -37,7 +39,7 @@ public class Operation {
 	private Binding[] bindings = null;
 	private JsonArray expectedResults = null;
 	
-	private Integer errorCount = null;
+	private List<String> errorMessages = null;
 	private Integer line = null;
 	
 	private Operation() {
@@ -117,7 +119,7 @@ public class Operation {
 	}
 
 	public void invoke(JdbcClient client) throws IOException, SQLException {
-		this.errorCount = 0;
+		this.errorMessages = new ArrayList<String>();
 		if (resource.equalsIgnoreCase("credentials")) {
 			if(action.equalsIgnoreCase("create"))	{
 				/*-
@@ -474,13 +476,17 @@ public class Operation {
 	}
 	
 	private void logError(final String message) {
+		this.errorMessages.add(message);
 		logger.error("Message: " + message);
 		logger.error(toString());
-		errorCount++;
 	}
 	
 	public int getErrorCount() {
-		return errorCount;
+		return errorMessages.size();
+	}
+	
+	public List<String> getErrorMessages() {
+		return errorMessages;
 	}
 
 	public static Operation fromJson(String line) {

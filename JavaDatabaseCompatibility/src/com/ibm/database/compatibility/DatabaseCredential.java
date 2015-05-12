@@ -58,11 +58,16 @@ public class DatabaseCredential {
 		}
 	}
 	
-	private void loadJDBCDriver() {
+	public static String getJDBCDriverClassName() {
 		String className = INFORMIX_JDBC_CLASSNAME;
 		if (System.getenv().containsKey("PROTOCOL") && System.getenv().get("PROTOCOL").equals("DRDA")) {
 			className = DB2_JCC_CLASSNAME;
 		}
+		return className;
+	}
+	
+	private void loadJDBCDriver() {
+		final String className = getJDBCDriverClassName();
 		logger.info(MessageFormat.format("Loading JDBC class: {0}", className));
 		try {
 			Class.forName(className);
