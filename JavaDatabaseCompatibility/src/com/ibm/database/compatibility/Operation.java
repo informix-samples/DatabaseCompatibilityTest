@@ -127,7 +127,7 @@ public class Operation {
 				 * Actual server credential info should be picked up from the environment, e.g. VCAP services.
 				 */
 				DatabaseCredential credential = client.newCredential(credentialId);
-				logger.debug("creating credential: id = {}, url = {}", credential.getCredentialId(), credential.getUrl());
+				logger.debug("creating credential: id = {}", credential.getCredentialId());//, credential.getUrl());
 			}
 			if(action.equalsIgnoreCase("close")) {
 				/*
