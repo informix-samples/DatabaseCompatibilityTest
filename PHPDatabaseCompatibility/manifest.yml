@@ -1,0 +1,9 @@
+applications:
+- disk_quota: 1024M
+  buildpack: php_buildpack
+  host: PHPCompatibility
+  name: PHPCompatibility
+  path: .
+  domain: stage1.mybluemix.net
+  instances: 1
+  memory: 128M
