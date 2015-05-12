@@ -9,7 +9,7 @@
   </appender>
   
   <appender name="FILE" class="ch.qos.logback.core.FileAppender">
-    <file>results.log</file>
+    <file>results/results.log</file>
     <append>false</append>
     <filter class="com.ibm.database.compatibility.SummaryFilter" />
 
@@ -18,9 +18,17 @@
     </encoder>
   </appender>
 
+  <appender name="FILE_DEBUG" class="ch.qos.logback.core.FileAppender">
+    <file>results/results.debug.log</file>
+    <append>false</append>
+    <encoder>
+      <pattern>%date %level [%thread] %logger{10} [%file:%line] %msg%n</pattern>
+    </encoder>
+  </appender>
 
   <root level="debug">
     <appender-ref ref="STDOUT" />
-        <appender-ref ref="FILE" />
+    <appender-ref ref="FILE" />
+    <appender-ref ref="FILE_DEBUG" />
   </root>
 </configuration>
