@@ -58,7 +58,7 @@ class OperationReaderRunner {
 		$result['test'] = $this->opReader->getTestName();
 		$result['result'] = ($nonFatalErrors == 0 && $fatalErrors == 0);
 		if ($nonFatalErrors > 0 || $fatalErrors > 0) {
-			$result['detail'] = $errors;
+			$result['detail'] = $errors[0];
 		}
 		fwrite($this->opReader->getResultFileHandle(), json_encode($result) . PHP_EOL);
 	}
