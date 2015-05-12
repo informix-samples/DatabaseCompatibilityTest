@@ -11,7 +11,6 @@ import com.ibm.database.compatibility.Binding.BindingsBuilder;
 import com.ibm.database.compatibility.JsonOperationWriter;
 import com.ibm.database.compatibility.test.generator.datatypes.CharColumn;
 import com.ibm.database.compatibility.test.generator.datatypes.Column;
-import com.ibm.database.compatibility.test.generator.datatypes.FloatColumn;
 import com.ibm.database.compatibility.test.generator.datatypes.IntColumn;
 import com.ibm.database.compatibility.test.generator.datatypes.VarcharColumn;
 
@@ -34,7 +33,7 @@ public class PreparedStatementTest {
 		String tabName2 = "test2";
 		List<Column> table2Columns = new ArrayList<Column>();
 		table2Columns.add(new IntColumn("int_col",88));
-		table2Columns.add(new FloatColumn("float_col", 88));
+		table2Columns.add(new IntColumn("int_col2", 79));
 		table2Columns.add(new VarcharColumn("varchar_col", 20, 91, false));
 
 		jow.write(TestGeneratorUtils.getCreateSessionOperation(sessionId));
@@ -123,7 +122,7 @@ public class PreparedStatementTest {
 		String tabName2 = "test2";
 		List<Column> table2Columns = new ArrayList<Column>();
 		table2Columns.add(new IntColumn("id", 11));
-		table2Columns.add(new FloatColumn("price", 88));
+		table2Columns.add(new IntColumn("price", 88));
 		table2Columns.add(new VarcharColumn("notes", 20, 91, false));
 
 		jow.write(TestGeneratorUtils.getCreateSessionOperation(sessionId));
