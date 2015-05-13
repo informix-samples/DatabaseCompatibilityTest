@@ -19,6 +19,7 @@ executing prepared statement (id: delete)
 executing prepared statement (id: query)
 executing statement ( sql: DROP TABLE IF EXISTS bigint_test)
 ignoring action close on statement. php only supports executing a statement
+closed session id testCRUD
 created new session id testPstmt
 executing statement ( sql: DROP TABLE IF EXISTS bigint_test)
 executing statement ( sql: CREATE TABLE bigint_test (i0 BIGINT,i1 BIGINT,i2 BIGINT))
@@ -45,8 +46,10 @@ comparing results : success
 closed prepared statement id query
 executing statement ( sql: DROP TABLE IF EXISTS bigint_test)
 ignoring action close on statement. php only supports executing a statement
+closed session id testPstmt
+closing credential: id =  test, url =  informix:host=gama.lenexa.ibm.com;service=9200;database=test;server=gama_serv1;protocol=onsoctcp;DB_LOCALE=en_US.utf8;CLIENT_LOCALE=en_US.utf8
 TEST PASSED
-successful operations: 41
+successful operations: 44
 errors: 0
 fatal errors: 0
 ------------------------------------
@@ -67,6 +70,7 @@ executing prepared statement (id: delete)
 executing prepared statement (id: query)
 executing statement ( sql: DROP TABLE IF EXISTS bigserial_test)
 ignoring action close on statement. php only supports executing a statement
+closed session id testCRUD
 created new session id testPstmt
 executing statement ( sql: DROP TABLE IF EXISTS bigserial_test)
 executing statement ( sql: CREATE TABLE bigserial_test (id BIGSERIAL,value VARCHAR(20)))
@@ -90,8 +94,10 @@ executing prepared statement (id: query)
 closed prepared statement id query
 executing statement ( sql: DROP TABLE IF EXISTS bigserial_test)
 ignoring action close on statement. php only supports executing a statement
+closed session id testPstmt
+closing credential: id =  test, url =  informix:host=gama.lenexa.ibm.com;service=9200;database=test;server=gama_serv1;protocol=onsoctcp;DB_LOCALE=en_US.utf8;CLIENT_LOCALE=en_US.utf8
 TEST PASSED
-successful operations: 37
+successful operations: 40
 errors: 0
 fatal errors: 0
 ------------------------------------
@@ -142,6 +148,7 @@ executing prepared statement (id: delete)
 executing prepared statement (id: query)
 executing statement ( sql: DROP TABLE IF EXISTS boolean_test)
 ignoring action close on statement. php only supports executing a statement
+closed session id testCRUD
 created new session id testPstmt
 executing statement ( sql: DROP TABLE IF EXISTS boolean_test)
 executing statement ( sql: CREATE TABLE boolean_test (i0 BOOLEAN))
@@ -195,6 +202,7 @@ FAIL: prepared statement execution returned false. array (
 closed prepared statement id query
 executing statement ( sql: DROP TABLE IF EXISTS boolean_test)
 ignoring action close on statement. php only supports executing a statement
+closed session id testPstmt
 created new session id testPstmt
 executing statement ( sql: DROP TABLE IF EXISTS boolean_test)
 executing statement ( sql: CREATE TABLE boolean_test (i0 BOOLEAN,i1 BOOLEAN,i2 BOOLEAN,i3 BOOLEAN,i4 BOOLEAN,i5 BOOLEAN,i6 BOOLEAN,i7 BOOLEAN,i8 BOOLEAN,i9 BOOLEAN,i10 BOOLEAN,i11 BOOLEAN,i12 BOOLEAN,i13 BOOLEAN,i14 BOOLEAN,i15 BOOLEAN,i16 BOOLEAN,i17 BOOLEAN,i18 BOOLEAN,i19 BOOLEAN,i20 BOOLEAN,i21 BOOLEAN,i22 BOOLEAN,i23 BOOLEAN,i24 BOOLEAN,i25 BOOLEAN,i26 BOOLEAN,i27 BOOLEAN,i28 BOOLEAN,i29 BOOLEAN,i30 BOOLEAN,i31 BOOLEAN,i32 BOOLEAN,i33 BOOLEAN,i34 BOOLEAN,i35 BOOLEAN,i36 BOOLEAN,i37 BOOLEAN,i38 BOOLEAN,i39 BOOLEAN,i40 BOOLEAN,i41 BOOLEAN,i42 BOOLEAN,i43 BOOLEAN,i44 BOOLEAN,i45 BOOLEAN,i46 BOOLEAN,i47 BOOLEAN,i48 BOOLEAN,i49 BOOLEAN))
@@ -540,6 +548,7 @@ FAIL: prepared statement execution returned false. array (
 closed prepared statement id query
 executing statement ( sql: DROP TABLE IF EXISTS boolean_test)
 ignoring action close on statement. php only supports executing a statement
+closed session id testPstmt
 created new session id testPstmt
 executing statement ( sql: DROP TABLE IF EXISTS boolean_test)
 executing statement ( sql: CREATE TABLE boolean_test (i0 BOOLEAN,i1 BOOLEAN,i2 BOOLEAN,i3 BOOLEAN,i4 BOOLEAN,i5 BOOLEAN,i6 BOOLEAN,i7 BOOLEAN,i8 BOOLEAN,i9 BOOLEAN,i10 BOOLEAN,i11 BOOLEAN,i12 BOOLEAN,i13 BOOLEAN,i14 BOOLEAN,i15 BOOLEAN,i16 BOOLEAN,i17 BOOLEAN,i18 BOOLEAN,i19 BOOLEAN,i20 BOOLEAN,i21 BOOLEAN,i22 BOOLEAN,i23 BOOLEAN,i24 BOOLEAN,i25 BOOLEAN,i26 BOOLEAN,i27 BOOLEAN,i28 BOOLEAN,i29 BOOLEAN,i30 BOOLEAN,i31 BOOLEAN,i32 BOOLEAN,i33 BOOLEAN,i34 BOOLEAN,i35 BOOLEAN,i36 BOOLEAN,i37 BOOLEAN,i38 BOOLEAN,i39 BOOLEAN,i40 BOOLEAN,i41 BOOLEAN,i42 BOOLEAN,i43 BOOLEAN,i44 BOOLEAN,i45 BOOLEAN,i46 BOOLEAN,i47 BOOLEAN,i48 BOOLEAN,i49 BOOLEAN,i50 BOOLEAN,i51 BOOLEAN,i52 BOOLEAN,i53 BOOLEAN,i54 BOOLEAN,i55 BOOLEAN,i56 BOOLEAN,i57 BOOLEAN,i58 BOOLEAN,i59 BOOLEAN,i60 BOOLEAN,i61 BOOLEAN,i62 BOOLEAN,i63 BOOLEAN,i64 BOOLEAN,i65 BOOLEAN,i66 BOOLEAN,i67 BOOLEAN,i68 BOOLEAN,i69 BOOLEAN,i70 BOOLEAN,i71 BOOLEAN,i72 BOOLEAN,i73 BOOLEAN,i74 BOOLEAN,i75 BOOLEAN,i76 BOOLEAN,i77 BOOLEAN,i78 BOOLEAN,i79 BOOLEAN,i80 BOOLEAN,i81 BOOLEAN,i82 BOOLEAN,i83 BOOLEAN,i84 BOOLEAN,i85 BOOLEAN,i86 BOOLEAN,i87 BOOLEAN,i88 BOOLEAN,i89 BOOLEAN,i90 BOOLEAN,i91 BOOLEAN,i92 BOOLEAN,i93 BOOLEAN,i94 BOOLEAN,i95 BOOLEAN,i96 BOOLEAN,i97 BOOLEAN,i98 BOOLEAN,i99 BOOLEAN))
@@ -1135,8 +1144,10 @@ FAIL: prepared statement execution returned false. array (
 closed prepared statement id query
 executing statement ( sql: DROP TABLE IF EXISTS boolean_test)
 ignoring action close on statement. php only supports executing a statement
+closed session id testPstmt
+closing credential: id =  test, url =  informix:host=gama.lenexa.ibm.com;service=9200;database=test;server=gama_serv1;protocol=onsoctcp;DB_LOCALE=en_US.utf8;CLIENT_LOCALE=en_US.utf8
 TEST FAILED
-successful operations: 49
+successful operations: 54
 errors: 35
 fatal errors: 0
 ------------------------------------
@@ -1162,6 +1173,7 @@ executing prepared statement (id: delete)
 executing prepared statement (id: query)
 executing statement ( sql: DROP TABLE IF EXISTS char_test)
 ignoring action close on statement. php only supports executing a statement
+closed session id testCRUD
 created new session id testPstmt
 executing statement ( sql: DROP TABLE IF EXISTS char_test)
 executing statement ( sql: CREATE TABLE char_test (i0 CHAR(2)))
@@ -1188,6 +1200,7 @@ comparing results : success
 closed prepared statement id query
 executing statement ( sql: DROP TABLE IF EXISTS char_test)
 ignoring action close on statement. php only supports executing a statement
+closed session id testPstmt
 created new session id testPstmt
 executing statement ( sql: DROP TABLE IF EXISTS char_test)
 executing statement ( sql: CREATE TABLE char_test (i0 CHAR(2),i1 CHAR(2),i2 CHAR(2),i3 CHAR(2),i4 CHAR(2),i5 CHAR(2),i6 CHAR(2),i7 CHAR(2),i8 CHAR(2),i9 CHAR(2),i10 CHAR(2),i11 CHAR(2),i12 CHAR(2),i13 CHAR(2),i14 CHAR(2),i15 CHAR(2),i16 CHAR(2),i17 CHAR(2),i18 CHAR(2),i19 CHAR(2),i20 CHAR(2),i21 CHAR(2),i22 CHAR(2),i23 CHAR(2),i24 CHAR(2),i25 CHAR(2),i26 CHAR(2),i27 CHAR(2),i28 CHAR(2),i29 CHAR(2),i30 CHAR(2),i31 CHAR(2),i32 CHAR(2),i33 CHAR(2),i34 CHAR(2),i35 CHAR(2),i36 CHAR(2),i37 CHAR(2),i38 CHAR(2),i39 CHAR(2),i40 CHAR(2),i41 CHAR(2),i42 CHAR(2),i43 CHAR(2),i44 CHAR(2),i45 CHAR(2),i46 CHAR(2),i47 CHAR(2),i48 CHAR(2),i49 CHAR(2)))
@@ -1214,6 +1227,7 @@ comparing results : success
 closed prepared statement id query
 executing statement ( sql: DROP TABLE IF EXISTS char_test)
 ignoring action close on statement. php only supports executing a statement
+closed session id testPstmt
 created new session id testPstmt
 executing statement ( sql: DROP TABLE IF EXISTS char_test)
 executing statement ( sql: CREATE TABLE char_test (i0 CHAR(100)))
@@ -1240,6 +1254,7 @@ comparing results : success
 closed prepared statement id query
 executing statement ( sql: DROP TABLE IF EXISTS char_test)
 ignoring action close on statement. php only supports executing a statement
+closed session id testPstmt
 created new session id testPstmt
 executing statement ( sql: DROP TABLE IF EXISTS char_test)
 executing statement ( sql: CREATE TABLE char_test (i0 CHAR(100),i1 CHAR(100),i2 CHAR(100),i3 CHAR(100),i4 CHAR(100),i5 CHAR(100),i6 CHAR(100),i7 CHAR(100),i8 CHAR(100),i9 CHAR(100),i10 CHAR(100),i11 CHAR(100),i12 CHAR(100),i13 CHAR(100),i14 CHAR(100),i15 CHAR(100),i16 CHAR(100),i17 CHAR(100),i18 CHAR(100),i19 CHAR(100),i20 CHAR(100),i21 CHAR(100),i22 CHAR(100),i23 CHAR(100),i24 CHAR(100),i25 CHAR(100),i26 CHAR(100),i27 CHAR(100),i28 CHAR(100),i29 CHAR(100),i30 CHAR(100),i31 CHAR(100),i32 CHAR(100),i33 CHAR(100),i34 CHAR(100),i35 CHAR(100),i36 CHAR(100),i37 CHAR(100),i38 CHAR(100),i39 CHAR(100),i40 CHAR(100),i41 CHAR(100),i42 CHAR(100),i43 CHAR(100),i44 CHAR(100),i45 CHAR(100),i46 CHAR(100),i47 CHAR(100),i48 CHAR(100),i49 CHAR(100)))
@@ -1266,6 +1281,7 @@ comparing results : success
 closed prepared statement id query
 executing statement ( sql: DROP TABLE IF EXISTS char_test)
 ignoring action close on statement. php only supports executing a statement
+closed session id testPstmt
 created new session id testPstmt
 executing statement ( sql: DROP TABLE IF EXISTS char_test)
 executing statement ( sql: CREATE TABLE char_test (i0 CHAR(255)))
@@ -1292,6 +1308,7 @@ comparing results : success
 closed prepared statement id query
 executing statement ( sql: DROP TABLE IF EXISTS char_test)
 ignoring action close on statement. php only supports executing a statement
+closed session id testPstmt
 created new session id testPstmt
 executing statement ( sql: DROP TABLE IF EXISTS char_test)
 executing statement ( sql: CREATE TABLE char_test (i0 CHAR(255),i1 CHAR(255),i2 CHAR(255),i3 CHAR(255),i4 CHAR(255),i5 CHAR(255),i6 CHAR(255),i7 CHAR(255),i8 CHAR(255),i9 CHAR(255),i10 CHAR(255),i11 CHAR(255),i12 CHAR(255),i13 CHAR(255),i14 CHAR(255),i15 CHAR(255),i16 CHAR(255),i17 CHAR(255),i18 CHAR(255),i19 CHAR(255),i20 CHAR(255),i21 CHAR(255),i22 CHAR(255),i23 CHAR(255),i24 CHAR(255),i25 CHAR(255),i26 CHAR(255),i27 CHAR(255),i28 CHAR(255),i29 CHAR(255),i30 CHAR(255),i31 CHAR(255),i32 CHAR(255),i33 CHAR(255),i34 CHAR(255),i35 CHAR(255),i36 CHAR(255),i37 CHAR(255),i38 CHAR(255),i39 CHAR(255),i40 CHAR(255),i41 CHAR(255),i42 CHAR(255),i43 CHAR(255),i44 CHAR(255),i45 CHAR(255),i46 CHAR(255),i47 CHAR(255),i48 CHAR(255),i49 CHAR(255)))
@@ -1318,6 +1335,7 @@ comparing results : success
 closed prepared statement id query
 executing statement ( sql: DROP TABLE IF EXISTS char_test)
 ignoring action close on statement. php only supports executing a statement
+closed session id testPstmt
 created new session id testPstmt
 executing statement ( sql: DROP TABLE IF EXISTS char_test)
 executing statement ( sql: CREATE TABLE char_test (i0 CHAR(32767)))
@@ -1344,8 +1362,114 @@ comparing results : success
 closed prepared statement id query
 executing statement ( sql: DROP TABLE IF EXISTS char_test)
 ignoring action close on statement. php only supports executing a statement
+closed session id testPstmt
+closing credential: id =  test, url =  informix:host=gama.lenexa.ibm.com;service=9200;database=test;server=gama_serv1;protocol=onsoctcp;DB_LOCALE=en_US.utf8;CLIENT_LOCALE=en_US.utf8
 TEST PASSED
-successful operations: 179
+successful operations: 188
+errors: 0
+fatal errors: 0
+------------------------------------
+
+starting test: dataTypeTest_DATE.json
+creating credential: id = test, url = informix:host=gama.lenexa.ibm.com;service=9200;database=test;server=gama_serv1;protocol=onsoctcp;DB_LOCALE=en_US.utf8;CLIENT_LOCALE=en_US.utf8
+created new session id testCRUD
+executing statement ( sql: DROP TABLE IF EXISTS date_test)
+executing statement ( sql: CREATE TABLE date_test (i0 DATE))
+ignoring action close on statement. php only supports executing a statement
+created prepared statement id insert
+executing prepared statement (id: insert)
+created prepared statement id query
+executing prepared statement (id: query)
+comparing results : success
+created prepared statement id update
+executing prepared statement (id: update)
+executing prepared statement (id: query)
+executing prepared statement (id: query)
+comparing results : success
+created prepared statement id delete
+executing prepared statement (id: delete)
+executing prepared statement (id: query)
+executing statement ( sql: DROP TABLE IF EXISTS date_test)
+ignoring action close on statement. php only supports executing a statement
+closed session id testCRUD
+created new session id testPstmt
+executing statement ( sql: DROP TABLE IF EXISTS date_test)
+executing statement ( sql: CREATE TABLE date_test (i0 DATE))
+ignoring action close on statement. php only supports executing a statement
+created prepared statement id insert
+executing prepared statement (id: insert)
+executing prepared statement (id: insert)
+executing prepared statement (id: insert)
+executing prepared statement (id: insert)
+executing prepared statement (id: insert)
+executing prepared statement (id: insert)
+executing prepared statement (id: insert)
+executing prepared statement (id: insert)
+executing prepared statement (id: insert)
+executing prepared statement (id: insert)
+closed prepared statement id insert
+created prepared statement id query
+executing prepared statement (id: query)
+comparing results : success
+executing prepared statement (id: query)
+comparing results : success
+closed prepared statement id query
+executing statement ( sql: DROP TABLE IF EXISTS date_test)
+ignoring action close on statement. php only supports executing a statement
+closed session id testPstmt
+created new session id testPstmt
+executing statement ( sql: DROP TABLE IF EXISTS date_test)
+executing statement ( sql: CREATE TABLE date_test (i0 DATE,i1 DATE,i2 DATE,i3 DATE,i4 DATE,i5 DATE,i6 DATE,i7 DATE,i8 DATE,i9 DATE,i10 DATE,i11 DATE,i12 DATE,i13 DATE,i14 DATE,i15 DATE,i16 DATE,i17 DATE,i18 DATE,i19 DATE,i20 DATE,i21 DATE,i22 DATE,i23 DATE,i24 DATE,i25 DATE,i26 DATE,i27 DATE,i28 DATE,i29 DATE,i30 DATE,i31 DATE,i32 DATE,i33 DATE,i34 DATE,i35 DATE,i36 DATE,i37 DATE,i38 DATE,i39 DATE,i40 DATE,i41 DATE,i42 DATE,i43 DATE,i44 DATE,i45 DATE,i46 DATE,i47 DATE,i48 DATE,i49 DATE))
+ignoring action close on statement. php only supports executing a statement
+created prepared statement id insert
+executing prepared statement (id: insert)
+executing prepared statement (id: insert)
+executing prepared statement (id: insert)
+executing prepared statement (id: insert)
+executing prepared statement (id: insert)
+executing prepared statement (id: insert)
+executing prepared statement (id: insert)
+executing prepared statement (id: insert)
+executing prepared statement (id: insert)
+executing prepared statement (id: insert)
+closed prepared statement id insert
+created prepared statement id query
+executing prepared statement (id: query)
+comparing results : success
+executing prepared statement (id: query)
+comparing results : success
+closed prepared statement id query
+executing statement ( sql: DROP TABLE IF EXISTS date_test)
+ignoring action close on statement. php only supports executing a statement
+closed session id testPstmt
+created new session id testPstmt
+executing statement ( sql: DROP TABLE IF EXISTS date_test)
+executing statement ( sql: CREATE TABLE date_test (i0 DATE,i1 DATE,i2 DATE,i3 DATE,i4 DATE,i5 DATE,i6 DATE,i7 DATE,i8 DATE,i9 DATE,i10 DATE,i11 DATE,i12 DATE,i13 DATE,i14 DATE,i15 DATE,i16 DATE,i17 DATE,i18 DATE,i19 DATE,i20 DATE,i21 DATE,i22 DATE,i23 DATE,i24 DATE,i25 DATE,i26 DATE,i27 DATE,i28 DATE,i29 DATE,i30 DATE,i31 DATE,i32 DATE,i33 DATE,i34 DATE,i35 DATE,i36 DATE,i37 DATE,i38 DATE,i39 DATE,i40 DATE,i41 DATE,i42 DATE,i43 DATE,i44 DATE,i45 DATE,i46 DATE,i47 DATE,i48 DATE,i49 DATE,i50 DATE,i51 DATE,i52 DATE,i53 DATE,i54 DATE,i55 DATE,i56 DATE,i57 DATE,i58 DATE,i59 DATE,i60 DATE,i61 DATE,i62 DATE,i63 DATE,i64 DATE,i65 DATE,i66 DATE,i67 DATE,i68 DATE,i69 DATE,i70 DATE,i71 DATE,i72 DATE,i73 DATE,i74 DATE,i75 DATE,i76 DATE,i77 DATE,i78 DATE,i79 DATE,i80 DATE,i81 DATE,i82 DATE,i83 DATE,i84 DATE,i85 DATE,i86 DATE,i87 DATE,i88 DATE,i89 DATE,i90 DATE,i91 DATE,i92 DATE,i93 DATE,i94 DATE,i95 DATE,i96 DATE,i97 DATE,i98 DATE,i99 DATE))
+ignoring action close on statement. php only supports executing a statement
+created prepared statement id insert
+executing prepared statement (id: insert)
+executing prepared statement (id: insert)
+executing prepared statement (id: insert)
+executing prepared statement (id: insert)
+executing prepared statement (id: insert)
+executing prepared statement (id: insert)
+executing prepared statement (id: insert)
+executing prepared statement (id: insert)
+executing prepared statement (id: insert)
+executing prepared statement (id: insert)
+closed prepared statement id insert
+created prepared statement id query
+executing prepared statement (id: query)
+comparing results : success
+executing prepared statement (id: query)
+comparing results : success
+closed prepared statement id query
+executing statement ( sql: DROP TABLE IF EXISTS date_test)
+ignoring action close on statement. php only supports executing a statement
+closed session id testPstmt
+closing credential: id =  test, url =  informix:host=gama.lenexa.ibm.com;service=9200;database=test;server=gama_serv1;protocol=onsoctcp;DB_LOCALE=en_US.utf8;CLIENT_LOCALE=en_US.utf8
+TEST PASSED
+successful operations: 89
 errors: 0
 fatal errors: 0
 ------------------------------------
@@ -1371,6 +1495,7 @@ executing prepared statement (id: delete)
 executing prepared statement (id: query)
 executing statement ( sql: DROP TABLE IF EXISTS date_test0)
 ignoring action close on statement. php only supports executing a statement
+closed session id testCRUD
 created new session id testPstmt
 executing statement ( sql: DROP TABLE IF EXISTS date_test0)
 executing statement ( sql: CREATE TABLE date_test0 (i0 DATETIME YEAR TO SECOND))
@@ -1395,6 +1520,7 @@ comparing results : success
 closed prepared statement id query
 executing statement ( sql: DROP TABLE IF EXISTS date_test0)
 ignoring action close on statement. php only supports executing a statement
+closed session id testPstmt
 created new session id testPstmt
 executing statement ( sql: DROP TABLE IF EXISTS date_test0)
 executing statement ( sql: CREATE TABLE date_test0 (i0 DATETIME YEAR TO SECOND,i1 DATETIME YEAR TO SECOND,i2 DATETIME YEAR TO SECOND,i3 DATETIME YEAR TO SECOND,i4 DATETIME YEAR TO SECOND,i5 DATETIME YEAR TO SECOND,i6 DATETIME YEAR TO SECOND,i7 DATETIME YEAR TO SECOND,i8 DATETIME YEAR TO SECOND,i9 DATETIME YEAR TO SECOND,i10 DATETIME YEAR TO SECOND,i11 DATETIME YEAR TO SECOND,i12 DATETIME YEAR TO SECOND,i13 DATETIME YEAR TO SECOND,i14 DATETIME YEAR TO SECOND,i15 DATETIME YEAR TO SECOND,i16 DATETIME YEAR TO SECOND,i17 DATETIME YEAR TO SECOND,i18 DATETIME YEAR TO SECOND,i19 DATETIME YEAR TO SECOND,i20 DATETIME YEAR TO SECOND,i21 DATETIME YEAR TO SECOND,i22 DATETIME YEAR TO SECOND,i23 DATETIME YEAR TO SECOND,i24 DATETIME YEAR TO SECOND,i25 DATETIME YEAR TO SECOND,i26 DATETIME YEAR TO SECOND,i27 DATETIME YEAR TO SECOND,i28 DATETIME YEAR TO SECOND,i29 DATETIME YEAR TO SECOND,i30 DATETIME YEAR TO SECOND,i31 DATETIME YEAR TO SECOND,i32 DATETIME YEAR TO SECOND,i33 DATETIME YEAR TO SECOND,i34 DATETIME YEAR TO SECOND,i35 DATETIME YEAR TO SECOND,i36 DATETIME YEAR TO SECOND,i37 DATETIME YEAR TO SECOND,i38 DATETIME YEAR TO SECOND,i39 DATETIME YEAR TO SECOND,i40 DATETIME YEAR TO SECOND,i41 DATETIME YEAR TO SECOND,i42 DATETIME YEAR TO SECOND,i43 DATETIME YEAR TO SECOND,i44 DATETIME YEAR TO SECOND,i45 DATETIME YEAR TO SECOND,i46 DATETIME YEAR TO SECOND,i47 DATETIME YEAR TO SECOND,i48 DATETIME YEAR TO SECOND,i49 DATETIME YEAR TO SECOND))
@@ -1419,6 +1545,7 @@ comparing results : success
 closed prepared statement id query
 executing statement ( sql: DROP TABLE IF EXISTS date_test0)
 ignoring action close on statement. php only supports executing a statement
+closed session id testPstmt
 created new session id testPstmt
 executing statement ( sql: DROP TABLE IF EXISTS date_test0)
 executing statement ( sql: CREATE TABLE date_test0 (i0 DATETIME YEAR TO SECOND,i1 DATETIME YEAR TO SECOND,i2 DATETIME YEAR TO SECOND,i3 DATETIME YEAR TO SECOND,i4 DATETIME YEAR TO SECOND,i5 DATETIME YEAR TO SECOND,i6 DATETIME YEAR TO SECOND,i7 DATETIME YEAR TO SECOND,i8 DATETIME YEAR TO SECOND,i9 DATETIME YEAR TO SECOND,i10 DATETIME YEAR TO SECOND,i11 DATETIME YEAR TO SECOND,i12 DATETIME YEAR TO SECOND,i13 DATETIME YEAR TO SECOND,i14 DATETIME YEAR TO SECOND,i15 DATETIME YEAR TO SECOND,i16 DATETIME YEAR TO SECOND,i17 DATETIME YEAR TO SECOND,i18 DATETIME YEAR TO SECOND,i19 DATETIME YEAR TO SECOND,i20 DATETIME YEAR TO SECOND,i21 DATETIME YEAR TO SECOND,i22 DATETIME YEAR TO SECOND,i23 DATETIME YEAR TO SECOND,i24 DATETIME YEAR TO SECOND,i25 DATETIME YEAR TO SECOND,i26 DATETIME YEAR TO SECOND,i27 DATETIME YEAR TO SECOND,i28 DATETIME YEAR TO SECOND,i29 DATETIME YEAR TO SECOND,i30 DATETIME YEAR TO SECOND,i31 DATETIME YEAR TO SECOND,i32 DATETIME YEAR TO SECOND,i33 DATETIME YEAR TO SECOND,i34 DATETIME YEAR TO SECOND,i35 DATETIME YEAR TO SECOND,i36 DATETIME YEAR TO SECOND,i37 DATETIME YEAR TO SECOND,i38 DATETIME YEAR TO SECOND,i39 DATETIME YEAR TO SECOND,i40 DATETIME YEAR TO SECOND,i41 DATETIME YEAR TO SECOND,i42 DATETIME YEAR TO SECOND,i43 DATETIME YEAR TO SECOND,i44 DATETIME YEAR TO SECOND,i45 DATETIME YEAR TO SECOND,i46 DATETIME YEAR TO SECOND,i47 DATETIME YEAR TO SECOND,i48 DATETIME YEAR TO SECOND,i49 DATETIME YEAR TO SECOND,i50 DATETIME YEAR TO SECOND,i51 DATETIME YEAR TO SECOND,i52 DATETIME YEAR TO SECOND,i53 DATETIME YEAR TO SECOND,i54 DATETIME YEAR TO SECOND,i55 DATETIME YEAR TO SECOND,i56 DATETIME YEAR TO SECOND,i57 DATETIME YEAR TO SECOND,i58 DATETIME YEAR TO SECOND,i59 DATETIME YEAR TO SECOND,i60 DATETIME YEAR TO SECOND,i61 DATETIME YEAR TO SECOND,i62 DATETIME YEAR TO SECOND,i63 DATETIME YEAR TO SECOND,i64 DATETIME YEAR TO SECOND,i65 DATETIME YEAR TO SECOND,i66 DATETIME YEAR TO SECOND,i67 DATETIME YEAR TO SECOND,i68 DATETIME YEAR TO SECOND,i69 DATETIME YEAR TO SECOND,i70 DATETIME YEAR TO SECOND,i71 DATETIME YEAR TO SECOND,i72 DATETIME YEAR TO SECOND,i73 DATETIME YEAR TO SECOND,i74 DATETIME YEAR TO SECOND,i75 DATETIME YEAR TO SECOND,i76 DATETIME YEAR TO SECOND,i77 DATETIME YEAR TO SECOND,i78 DATETIME YEAR TO SECOND,i79 DATETIME YEAR TO SECOND,i80 DATETIME YEAR TO SECOND,i81 DATETIME YEAR TO SECOND,i82 DATETIME YEAR TO SECOND,i83 DATETIME YEAR TO SECOND,i84 DATETIME YEAR TO SECOND,i85 DATETIME YEAR TO SECOND,i86 DATETIME YEAR TO SECOND,i87 DATETIME YEAR TO SECOND,i88 DATETIME YEAR TO SECOND,i89 DATETIME YEAR TO SECOND,i90 DATETIME YEAR TO SECOND,i91 DATETIME YEAR TO SECOND,i92 DATETIME YEAR TO SECOND,i93 DATETIME YEAR TO SECOND,i94 DATETIME YEAR TO SECOND,i95 DATETIME YEAR TO SECOND,i96 DATETIME YEAR TO SECOND,i97 DATETIME YEAR TO SECOND,i98 DATETIME YEAR TO SECOND,i99 DATETIME YEAR TO SECOND))
@@ -1443,8 +1570,10 @@ comparing results : success
 closed prepared statement id query
 executing statement ( sql: DROP TABLE IF EXISTS date_test0)
 ignoring action close on statement. php only supports executing a statement
+closed session id testPstmt
+closing credential: id =  test, url =  informix:host=gama.lenexa.ibm.com;service=9200;database=test;server=gama_serv1;protocol=onsoctcp;DB_LOCALE=en_US.utf8;CLIENT_LOCALE=en_US.utf8
 TEST PASSED
-successful operations: 84
+successful operations: 89
 errors: 0
 fatal errors: 0
 ------------------------------------
@@ -1470,6 +1599,7 @@ executing prepared statement (id: delete)
 executing prepared statement (id: query)
 executing statement ( sql: DROP TABLE IF EXISTS date_test1)
 ignoring action close on statement. php only supports executing a statement
+closed session id testCRUD
 created new session id testPstmt
 executing statement ( sql: DROP TABLE IF EXISTS date_test1)
 executing statement ( sql: CREATE TABLE date_test1 (i0 DATETIME YEAR TO FRACTION(1)))
@@ -1494,6 +1624,7 @@ comparing results : success
 closed prepared statement id query
 executing statement ( sql: DROP TABLE IF EXISTS date_test1)
 ignoring action close on statement. php only supports executing a statement
+closed session id testPstmt
 created new session id testPstmt
 executing statement ( sql: DROP TABLE IF EXISTS date_test1)
 executing statement ( sql: CREATE TABLE date_test1 (i0 DATETIME YEAR TO FRACTION(1),i1 DATETIME YEAR TO FRACTION(1),i2 DATETIME YEAR TO FRACTION(1),i3 DATETIME YEAR TO FRACTION(1),i4 DATETIME YEAR TO FRACTION(1),i5 DATETIME YEAR TO FRACTION(1),i6 DATETIME YEAR TO FRACTION(1),i7 DATETIME YEAR TO FRACTION(1),i8 DATETIME YEAR TO FRACTION(1),i9 DATETIME YEAR TO FRACTION(1),i10 DATETIME YEAR TO FRACTION(1),i11 DATETIME YEAR TO FRACTION(1),i12 DATETIME YEAR TO FRACTION(1),i13 DATETIME YEAR TO FRACTION(1),i14 DATETIME YEAR TO FRACTION(1),i15 DATETIME YEAR TO FRACTION(1),i16 DATETIME YEAR TO FRACTION(1),i17 DATETIME YEAR TO FRACTION(1),i18 DATETIME YEAR TO FRACTION(1),i19 DATETIME YEAR TO FRACTION(1),i20 DATETIME YEAR TO FRACTION(1),i21 DATETIME YEAR TO FRACTION(1),i22 DATETIME YEAR TO FRACTION(1),i23 DATETIME YEAR TO FRACTION(1),i24 DATETIME YEAR TO FRACTION(1),i25 DATETIME YEAR TO FRACTION(1),i26 DATETIME YEAR TO FRACTION(1),i27 DATETIME YEAR TO FRACTION(1),i28 DATETIME YEAR TO FRACTION(1),i29 DATETIME YEAR TO FRACTION(1),i30 DATETIME YEAR TO FRACTION(1),i31 DATETIME YEAR TO FRACTION(1),i32 DATETIME YEAR TO FRACTION(1),i33 DATETIME YEAR TO FRACTION(1),i34 DATETIME YEAR TO FRACTION(1),i35 DATETIME YEAR TO FRACTION(1),i36 DATETIME YEAR TO FRACTION(1),i37 DATETIME YEAR TO FRACTION(1),i38 DATETIME YEAR TO FRACTION(1),i39 DATETIME YEAR TO FRACTION(1),i40 DATETIME YEAR TO FRACTION(1),i41 DATETIME YEAR TO FRACTION(1),i42 DATETIME YEAR TO FRACTION(1),i43 DATETIME YEAR TO FRACTION(1),i44 DATETIME YEAR TO FRACTION(1),i45 DATETIME YEAR TO FRACTION(1),i46 DATETIME YEAR TO FRACTION(1),i47 DATETIME YEAR TO FRACTION(1),i48 DATETIME YEAR TO FRACTION(1),i49 DATETIME YEAR TO FRACTION(1)))
@@ -1518,6 +1649,7 @@ comparing results : success
 closed prepared statement id query
 executing statement ( sql: DROP TABLE IF EXISTS date_test1)
 ignoring action close on statement. php only supports executing a statement
+closed session id testPstmt
 created new session id testPstmt
 executing statement ( sql: DROP TABLE IF EXISTS date_test1)
 executing statement ( sql: CREATE TABLE date_test1 (i0 DATETIME YEAR TO FRACTION(1),i1 DATETIME YEAR TO FRACTION(1),i2 DATETIME YEAR TO FRACTION(1),i3 DATETIME YEAR TO FRACTION(1),i4 DATETIME YEAR TO FRACTION(1),i5 DATETIME YEAR TO FRACTION(1),i6 DATETIME YEAR TO FRACTION(1),i7 DATETIME YEAR TO FRACTION(1),i8 DATETIME YEAR TO FRACTION(1),i9 DATETIME YEAR TO FRACTION(1),i10 DATETIME YEAR TO FRACTION(1),i11 DATETIME YEAR TO FRACTION(1),i12 DATETIME YEAR TO FRACTION(1),i13 DATETIME YEAR TO FRACTION(1),i14 DATETIME YEAR TO FRACTION(1),i15 DATETIME YEAR TO FRACTION(1),i16 DATETIME YEAR TO FRACTION(1),i17 DATETIME YEAR TO FRACTION(1),i18 DATETIME YEAR TO FRACTION(1),i19 DATETIME YEAR TO FRACTION(1),i20 DATETIME YEAR TO FRACTION(1),i21 DATETIME YEAR TO FRACTION(1),i22 DATETIME YEAR TO FRACTION(1),i23 DATETIME YEAR TO FRACTION(1),i24 DATETIME YEAR TO FRACTION(1),i25 DATETIME YEAR TO FRACTION(1),i26 DATETIME YEAR TO FRACTION(1),i27 DATETIME YEAR TO FRACTION(1),i28 DATETIME YEAR TO FRACTION(1),i29 DATETIME YEAR TO FRACTION(1),i30 DATETIME YEAR TO FRACTION(1),i31 DATETIME YEAR TO FRACTION(1),i32 DATETIME YEAR TO FRACTION(1),i33 DATETIME YEAR TO FRACTION(1),i34 DATETIME YEAR TO FRACTION(1),i35 DATETIME YEAR TO FRACTION(1),i36 DATETIME YEAR TO FRACTION(1),i37 DATETIME YEAR TO FRACTION(1),i38 DATETIME YEAR TO FRACTION(1),i39 DATETIME YEAR TO FRACTION(1),i40 DATETIME YEAR TO FRACTION(1),i41 DATETIME YEAR TO FRACTION(1),i42 DATETIME YEAR TO FRACTION(1),i43 DATETIME YEAR TO FRACTION(1),i44 DATETIME YEAR TO FRACTION(1),i45 DATETIME YEAR TO FRACTION(1),i46 DATETIME YEAR TO FRACTION(1),i47 DATETIME YEAR TO FRACTION(1),i48 DATETIME YEAR TO FRACTION(1),i49 DATETIME YEAR TO FRACTION(1),i50 DATETIME YEAR TO FRACTION(1),i51 DATETIME YEAR TO FRACTION(1),i52 DATETIME YEAR TO FRACTION(1),i53 DATETIME YEAR TO FRACTION(1),i54 DATETIME YEAR TO FRACTION(1),i55 DATETIME YEAR TO FRACTION(1),i56 DATETIME YEAR TO FRACTION(1),i57 DATETIME YEAR TO FRACTION(1),i58 DATETIME YEAR TO FRACTION(1),i59 DATETIME YEAR TO FRACTION(1),i60 DATETIME YEAR TO FRACTION(1),i61 DATETIME YEAR TO FRACTION(1),i62 DATETIME YEAR TO FRACTION(1),i63 DATETIME YEAR TO FRACTION(1),i64 DATETIME YEAR TO FRACTION(1),i65 DATETIME YEAR TO FRACTION(1),i66 DATETIME YEAR TO FRACTION(1),i67 DATETIME YEAR TO FRACTION(1),i68 DATETIME YEAR TO FRACTION(1),i69 DATETIME YEAR TO FRACTION(1),i70 DATETIME YEAR TO FRACTION(1),i71 DATETIME YEAR TO FRACTION(1),i72 DATETIME YEAR TO FRACTION(1),i73 DATETIME YEAR TO FRACTION(1),i74 DATETIME YEAR TO FRACTION(1),i75 DATETIME YEAR TO FRACTION(1),i76 DATETIME YEAR TO FRACTION(1),i77 DATETIME YEAR TO FRACTION(1),i78 DATETIME YEAR TO FRACTION(1),i79 DATETIME YEAR TO FRACTION(1),i80 DATETIME YEAR TO FRACTION(1),i81 DATETIME YEAR TO FRACTION(1),i82 DATETIME YEAR TO FRACTION(1),i83 DATETIME YEAR TO FRACTION(1),i84 DATETIME YEAR TO FRACTION(1),i85 DATETIME YEAR TO FRACTION(1),i86 DATETIME YEAR TO FRACTION(1),i87 DATETIME YEAR TO FRACTION(1),i88 DATETIME YEAR TO FRACTION(1),i89 DATETIME YEAR TO FRACTION(1),i90 DATETIME YEAR TO FRACTION(1),i91 DATETIME YEAR TO FRACTION(1),i92 DATETIME YEAR TO FRACTION(1),i93 DATETIME YEAR TO FRACTION(1),i94 DATETIME YEAR TO FRACTION(1),i95 DATETIME YEAR TO FRACTION(1),i96 DATETIME YEAR TO FRACTION(1),i97 DATETIME YEAR TO FRACTION(1),i98 DATETIME YEAR TO FRACTION(1),i99 DATETIME YEAR TO FRACTION(1)))
@@ -1542,8 +1674,10 @@ comparing results : success
 closed prepared statement id query
 executing statement ( sql: DROP TABLE IF EXISTS date_test1)
 ignoring action close on statement. php only supports executing a statement
+closed session id testPstmt
+closing credential: id =  test, url =  informix:host=gama.lenexa.ibm.com;service=9200;database=test;server=gama_serv1;protocol=onsoctcp;DB_LOCALE=en_US.utf8;CLIENT_LOCALE=en_US.utf8
 TEST PASSED
-successful operations: 84
+successful operations: 89
 errors: 0
 fatal errors: 0
 ------------------------------------
@@ -1569,6 +1703,7 @@ executing prepared statement (id: delete)
 executing prepared statement (id: query)
 executing statement ( sql: DROP TABLE IF EXISTS date_test2)
 ignoring action close on statement. php only supports executing a statement
+closed session id testCRUD
 created new session id testPstmt
 executing statement ( sql: DROP TABLE IF EXISTS date_test2)
 executing statement ( sql: CREATE TABLE date_test2 (i0 DATETIME YEAR TO FRACTION(2)))
@@ -1593,6 +1728,7 @@ comparing results : success
 closed prepared statement id query
 executing statement ( sql: DROP TABLE IF EXISTS date_test2)
 ignoring action close on statement. php only supports executing a statement
+closed session id testPstmt
 created new session id testPstmt
 executing statement ( sql: DROP TABLE IF EXISTS date_test2)
 executing statement ( sql: CREATE TABLE date_test2 (i0 DATETIME YEAR TO FRACTION(2),i1 DATETIME YEAR TO FRACTION(2),i2 DATETIME YEAR TO FRACTION(2),i3 DATETIME YEAR TO FRACTION(2),i4 DATETIME YEAR TO FRACTION(2),i5 DATETIME YEAR TO FRACTION(2),i6 DATETIME YEAR TO FRACTION(2),i7 DATETIME YEAR TO FRACTION(2),i8 DATETIME YEAR TO FRACTION(2),i9 DATETIME YEAR TO FRACTION(2),i10 DATETIME YEAR TO FRACTION(2),i11 DATETIME YEAR TO FRACTION(2),i12 DATETIME YEAR TO FRACTION(2),i13 DATETIME YEAR TO FRACTION(2),i14 DATETIME YEAR TO FRACTION(2),i15 DATETIME YEAR TO FRACTION(2),i16 DATETIME YEAR TO FRACTION(2),i17 DATETIME YEAR TO FRACTION(2),i18 DATETIME YEAR TO FRACTION(2),i19 DATETIME YEAR TO FRACTION(2),i20 DATETIME YEAR TO FRACTION(2),i21 DATETIME YEAR TO FRACTION(2),i22 DATETIME YEAR TO FRACTION(2),i23 DATETIME YEAR TO FRACTION(2),i24 DATETIME YEAR TO FRACTION(2),i25 DATETIME YEAR TO FRACTION(2),i26 DATETIME YEAR TO FRACTION(2),i27 DATETIME YEAR TO FRACTION(2),i28 DATETIME YEAR TO FRACTION(2),i29 DATETIME YEAR TO FRACTION(2),i30 DATETIME YEAR TO FRACTION(2),i31 DATETIME YEAR TO FRACTION(2),i32 DATETIME YEAR TO FRACTION(2),i33 DATETIME YEAR TO FRACTION(2),i34 DATETIME YEAR TO FRACTION(2),i35 DATETIME YEAR TO FRACTION(2),i36 DATETIME YEAR TO FRACTION(2),i37 DATETIME YEAR TO FRACTION(2),i38 DATETIME YEAR TO FRACTION(2),i39 DATETIME YEAR TO FRACTION(2),i40 DATETIME YEAR TO FRACTION(2),i41 DATETIME YEAR TO FRACTION(2),i42 DATETIME YEAR TO FRACTION(2),i43 DATETIME YEAR TO FRACTION(2),i44 DATETIME YEAR TO FRACTION(2),i45 DATETIME YEAR TO FRACTION(2),i46 DATETIME YEAR TO FRACTION(2),i47 DATETIME YEAR TO FRACTION(2),i48 DATETIME YEAR TO FRACTION(2),i49 DATETIME YEAR TO FRACTION(2)))
@@ -1617,6 +1753,7 @@ comparing results : success
 closed prepared statement id query
 executing statement ( sql: DROP TABLE IF EXISTS date_test2)
 ignoring action close on statement. php only supports executing a statement
+closed session id testPstmt
 created new session id testPstmt
 executing statement ( sql: DROP TABLE IF EXISTS date_test2)
 executing statement ( sql: CREATE TABLE date_test2 (i0 DATETIME YEAR TO FRACTION(2),i1 DATETIME YEAR TO FRACTION(2),i2 DATETIME YEAR TO FRACTION(2),i3 DATETIME YEAR TO FRACTION(2),i4 DATETIME YEAR TO FRACTION(2),i5 DATETIME YEAR TO FRACTION(2),i6 DATETIME YEAR TO FRACTION(2),i7 DATETIME YEAR TO FRACTION(2),i8 DATETIME YEAR TO FRACTION(2),i9 DATETIME YEAR TO FRACTION(2),i10 DATETIME YEAR TO FRACTION(2),i11 DATETIME YEAR TO FRACTION(2),i12 DATETIME YEAR TO FRACTION(2),i13 DATETIME YEAR TO FRACTION(2),i14 DATETIME YEAR TO FRACTION(2),i15 DATETIME YEAR TO FRACTION(2),i16 DATETIME YEAR TO FRACTION(2),i17 DATETIME YEAR TO FRACTION(2),i18 DATETIME YEAR TO FRACTION(2),i19 DATETIME YEAR TO FRACTION(2),i20 DATETIME YEAR TO FRACTION(2),i21 DATETIME YEAR TO FRACTION(2),i22 DATETIME YEAR TO FRACTION(2),i23 DATETIME YEAR TO FRACTION(2),i24 DATETIME YEAR TO FRACTION(2),i25 DATETIME YEAR TO FRACTION(2),i26 DATETIME YEAR TO FRACTION(2),i27 DATETIME YEAR TO FRACTION(2),i28 DATETIME YEAR TO FRACTION(2),i29 DATETIME YEAR TO FRACTION(2),i30 DATETIME YEAR TO FRACTION(2),i31 DATETIME YEAR TO FRACTION(2),i32 DATETIME YEAR TO FRACTION(2),i33 DATETIME YEAR TO FRACTION(2),i34 DATETIME YEAR TO FRACTION(2),i35 DATETIME YEAR TO FRACTION(2),i36 DATETIME YEAR TO FRACTION(2),i37 DATETIME YEAR TO FRACTION(2),i38 DATETIME YEAR TO FRACTION(2),i39 DATETIME YEAR TO FRACTION(2),i40 DATETIME YEAR TO FRACTION(2),i41 DATETIME YEAR TO FRACTION(2),i42 DATETIME YEAR TO FRACTION(2),i43 DATETIME YEAR TO FRACTION(2),i44 DATETIME YEAR TO FRACTION(2),i45 DATETIME YEAR TO FRACTION(2),i46 DATETIME YEAR TO FRACTION(2),i47 DATETIME YEAR TO FRACTION(2),i48 DATETIME YEAR TO FRACTION(2),i49 DATETIME YEAR TO FRACTION(2),i50 DATETIME YEAR TO FRACTION(2),i51 DATETIME YEAR TO FRACTION(2),i52 DATETIME YEAR TO FRACTION(2),i53 DATETIME YEAR TO FRACTION(2),i54 DATETIME YEAR TO FRACTION(2),i55 DATETIME YEAR TO FRACTION(2),i56 DATETIME YEAR TO FRACTION(2),i57 DATETIME YEAR TO FRACTION(2),i58 DATETIME YEAR TO FRACTION(2),i59 DATETIME YEAR TO FRACTION(2),i60 DATETIME YEAR TO FRACTION(2),i61 DATETIME YEAR TO FRACTION(2),i62 DATETIME YEAR TO FRACTION(2),i63 DATETIME YEAR TO FRACTION(2),i64 DATETIME YEAR TO FRACTION(2),i65 DATETIME YEAR TO FRACTION(2),i66 DATETIME YEAR TO FRACTION(2),i67 DATETIME YEAR TO FRACTION(2),i68 DATETIME YEAR TO FRACTION(2),i69 DATETIME YEAR TO FRACTION(2),i70 DATETIME YEAR TO FRACTION(2),i71 DATETIME YEAR TO FRACTION(2),i72 DATETIME YEAR TO FRACTION(2),i73 DATETIME YEAR TO FRACTION(2),i74 DATETIME YEAR TO FRACTION(2),i75 DATETIME YEAR TO FRACTION(2),i76 DATETIME YEAR TO FRACTION(2),i77 DATETIME YEAR TO FRACTION(2),i78 DATETIME YEAR TO FRACTION(2),i79 DATETIME YEAR TO FRACTION(2),i80 DATETIME YEAR TO FRACTION(2),i81 DATETIME YEAR TO FRACTION(2),i82 DATETIME YEAR TO FRACTION(2),i83 DATETIME YEAR TO FRACTION(2),i84 DATETIME YEAR TO FRACTION(2),i85 DATETIME YEAR TO FRACTION(2),i86 DATETIME YEAR TO FRACTION(2),i87 DATETIME YEAR TO FRACTION(2),i88 DATETIME YEAR TO FRACTION(2),i89 DATETIME YEAR TO FRACTION(2),i90 DATETIME YEAR TO FRACTION(2),i91 DATETIME YEAR TO FRACTION(2),i92 DATETIME YEAR TO FRACTION(2),i93 DATETIME YEAR TO FRACTION(2),i94 DATETIME YEAR TO FRACTION(2),i95 DATETIME YEAR TO FRACTION(2),i96 DATETIME YEAR TO FRACTION(2),i97 DATETIME YEAR TO FRACTION(2),i98 DATETIME YEAR TO FRACTION(2),i99 DATETIME YEAR TO FRACTION(2)))
@@ -1641,8 +1778,10 @@ comparing results : success
 closed prepared statement id query
 executing statement ( sql: DROP TABLE IF EXISTS date_test2)
 ignoring action close on statement. php only supports executing a statement
+closed session id testPstmt
+closing credential: id =  test, url =  informix:host=gama.lenexa.ibm.com;service=9200;database=test;server=gama_serv1;protocol=onsoctcp;DB_LOCALE=en_US.utf8;CLIENT_LOCALE=en_US.utf8
 TEST PASSED
-successful operations: 84
+successful operations: 89
 errors: 0
 fatal errors: 0
 ------------------------------------
@@ -1668,6 +1807,7 @@ executing prepared statement (id: delete)
 executing prepared statement (id: query)
 executing statement ( sql: DROP TABLE IF EXISTS date_test3)
 ignoring action close on statement. php only supports executing a statement
+closed session id testCRUD
 created new session id testPstmt
 executing statement ( sql: DROP TABLE IF EXISTS date_test3)
 executing statement ( sql: CREATE TABLE date_test3 (i0 DATETIME YEAR TO FRACTION(3)))
@@ -1692,6 +1832,7 @@ comparing results : success
 closed prepared statement id query
 executing statement ( sql: DROP TABLE IF EXISTS date_test3)
 ignoring action close on statement. php only supports executing a statement
+closed session id testPstmt
 created new session id testPstmt
 executing statement ( sql: DROP TABLE IF EXISTS date_test3)
 executing statement ( sql: CREATE TABLE date_test3 (i0 DATETIME YEAR TO FRACTION(3),i1 DATETIME YEAR TO FRACTION(3),i2 DATETIME YEAR TO FRACTION(3),i3 DATETIME YEAR TO FRACTION(3),i4 DATETIME YEAR TO FRACTION(3),i5 DATETIME YEAR TO FRACTION(3),i6 DATETIME YEAR TO FRACTION(3),i7 DATETIME YEAR TO FRACTION(3),i8 DATETIME YEAR TO FRACTION(3),i9 DATETIME YEAR TO FRACTION(3),i10 DATETIME YEAR TO FRACTION(3),i11 DATETIME YEAR TO FRACTION(3),i12 DATETIME YEAR TO FRACTION(3),i13 DATETIME YEAR TO FRACTION(3),i14 DATETIME YEAR TO FRACTION(3),i15 DATETIME YEAR TO FRACTION(3),i16 DATETIME YEAR TO FRACTION(3),i17 DATETIME YEAR TO FRACTION(3),i18 DATETIME YEAR TO FRACTION(3),i19 DATETIME YEAR TO FRACTION(3),i20 DATETIME YEAR TO FRACTION(3),i21 DATETIME YEAR TO FRACTION(3),i22 DATETIME YEAR TO FRACTION(3),i23 DATETIME YEAR TO FRACTION(3),i24 DATETIME YEAR TO FRACTION(3),i25 DATETIME YEAR TO FRACTION(3),i26 DATETIME YEAR TO FRACTION(3),i27 DATETIME YEAR TO FRACTION(3),i28 DATETIME YEAR TO FRACTION(3),i29 DATETIME YEAR TO FRACTION(3),i30 DATETIME YEAR TO FRACTION(3),i31 DATETIME YEAR TO FRACTION(3),i32 DATETIME YEAR TO FRACTION(3),i33 DATETIME YEAR TO FRACTION(3),i34 DATETIME YEAR TO FRACTION(3),i35 DATETIME YEAR TO FRACTION(3),i36 DATETIME YEAR TO FRACTION(3),i37 DATETIME YEAR TO FRACTION(3),i38 DATETIME YEAR TO FRACTION(3),i39 DATETIME YEAR TO FRACTION(3),i40 DATETIME YEAR TO FRACTION(3),i41 DATETIME YEAR TO FRACTION(3),i42 DATETIME YEAR TO FRACTION(3),i43 DATETIME YEAR TO FRACTION(3),i44 DATETIME YEAR TO FRACTION(3),i45 DATETIME YEAR TO FRACTION(3),i46 DATETIME YEAR TO FRACTION(3),i47 DATETIME YEAR TO FRACTION(3),i48 DATETIME YEAR TO FRACTION(3),i49 DATETIME YEAR TO FRACTION(3)))
@@ -1716,6 +1857,7 @@ comparing results : success
 closed prepared statement id query
 executing statement ( sql: DROP TABLE IF EXISTS date_test3)
 ignoring action close on statement. php only supports executing a statement
+closed session id testPstmt
 created new session id testPstmt
 executing statement ( sql: DROP TABLE IF EXISTS date_test3)
 executing statement ( sql: CREATE TABLE date_test3 (i0 DATETIME YEAR TO FRACTION(3),i1 DATETIME YEAR TO FRACTION(3),i2 DATETIME YEAR TO FRACTION(3),i3 DATETIME YEAR TO FRACTION(3),i4 DATETIME YEAR TO FRACTION(3),i5 DATETIME YEAR TO FRACTION(3),i6 DATETIME YEAR TO FRACTION(3),i7 DATETIME YEAR TO FRACTION(3),i8 DATETIME YEAR TO FRACTION(3),i9 DATETIME YEAR TO FRACTION(3),i10 DATETIME YEAR TO FRACTION(3),i11 DATETIME YEAR TO FRACTION(3),i12 DATETIME YEAR TO FRACTION(3),i13 DATETIME YEAR TO FRACTION(3),i14 DATETIME YEAR TO FRACTION(3),i15 DATETIME YEAR TO FRACTION(3),i16 DATETIME YEAR TO FRACTION(3),i17 DATETIME YEAR TO FRACTION(3),i18 DATETIME YEAR TO FRACTION(3),i19 DATETIME YEAR TO FRACTION(3),i20 DATETIME YEAR TO FRACTION(3),i21 DATETIME YEAR TO FRACTION(3),i22 DATETIME YEAR TO FRACTION(3),i23 DATETIME YEAR TO FRACTION(3),i24 DATETIME YEAR TO FRACTION(3),i25 DATETIME YEAR TO FRACTION(3),i26 DATETIME YEAR TO FRACTION(3),i27 DATETIME YEAR TO FRACTION(3),i28 DATETIME YEAR TO FRACTION(3),i29 DATETIME YEAR TO FRACTION(3),i30 DATETIME YEAR TO FRACTION(3),i31 DATETIME YEAR TO FRACTION(3),i32 DATETIME YEAR TO FRACTION(3),i33 DATETIME YEAR TO FRACTION(3),i34 DATETIME YEAR TO FRACTION(3),i35 DATETIME YEAR TO FRACTION(3),i36 DATETIME YEAR TO FRACTION(3),i37 DATETIME YEAR TO FRACTION(3),i38 DATETIME YEAR TO FRACTION(3),i39 DATETIME YEAR TO FRACTION(3),i40 DATETIME YEAR TO FRACTION(3),i41 DATETIME YEAR TO FRACTION(3),i42 DATETIME YEAR TO FRACTION(3),i43 DATETIME YEAR TO FRACTION(3),i44 DATETIME YEAR TO FRACTION(3),i45 DATETIME YEAR TO FRACTION(3),i46 DATETIME YEAR TO FRACTION(3),i47 DATETIME YEAR TO FRACTION(3),i48 DATETIME YEAR TO FRACTION(3),i49 DATETIME YEAR TO FRACTION(3),i50 DATETIME YEAR TO FRACTION(3),i51 DATETIME YEAR TO FRACTION(3),i52 DATETIME YEAR TO FRACTION(3),i53 DATETIME YEAR TO FRACTION(3),i54 DATETIME YEAR TO FRACTION(3),i55 DATETIME YEAR TO FRACTION(3),i56 DATETIME YEAR TO FRACTION(3),i57 DATETIME YEAR TO FRACTION(3),i58 DATETIME YEAR TO FRACTION(3),i59 DATETIME YEAR TO FRACTION(3),i60 DATETIME YEAR TO FRACTION(3),i61 DATETIME YEAR TO FRACTION(3),i62 DATETIME YEAR TO FRACTION(3),i63 DATETIME YEAR TO FRACTION(3),i64 DATETIME YEAR TO FRACTION(3),i65 DATETIME YEAR TO FRACTION(3),i66 DATETIME YEAR TO FRACTION(3),i67 DATETIME YEAR TO FRACTION(3),i68 DATETIME YEAR TO FRACTION(3),i69 DATETIME YEAR TO FRACTION(3),i70 DATETIME YEAR TO FRACTION(3),i71 DATETIME YEAR TO FRACTION(3),i72 DATETIME YEAR TO FRACTION(3),i73 DATETIME YEAR TO FRACTION(3),i74 DATETIME YEAR TO FRACTION(3),i75 DATETIME YEAR TO FRACTION(3),i76 DATETIME YEAR TO FRACTION(3),i77 DATETIME YEAR TO FRACTION(3),i78 DATETIME YEAR TO FRACTION(3),i79 DATETIME YEAR TO FRACTION(3),i80 DATETIME YEAR TO FRACTION(3),i81 DATETIME YEAR TO FRACTION(3),i82 DATETIME YEAR TO FRACTION(3),i83 DATETIME YEAR TO FRACTION(3),i84 DATETIME YEAR TO FRACTION(3),i85 DATETIME YEAR TO FRACTION(3),i86 DATETIME YEAR TO FRACTION(3),i87 DATETIME YEAR TO FRACTION(3),i88 DATETIME YEAR TO FRACTION(3),i89 DATETIME YEAR TO FRACTION(3),i90 DATETIME YEAR TO FRACTION(3),i91 DATETIME YEAR TO FRACTION(3),i92 DATETIME YEAR TO FRACTION(3),i93 DATETIME YEAR TO FRACTION(3),i94 DATETIME YEAR TO FRACTION(3),i95 DATETIME YEAR TO FRACTION(3),i96 DATETIME YEAR TO FRACTION(3),i97 DATETIME YEAR TO FRACTION(3),i98 DATETIME YEAR TO FRACTION(3),i99 DATETIME YEAR TO FRACTION(3)))
@@ -1740,8 +1882,10 @@ comparing results : success
 closed prepared statement id query
 executing statement ( sql: DROP TABLE IF EXISTS date_test3)
 ignoring action close on statement. php only supports executing a statement
+closed session id testPstmt
+closing credential: id =  test, url =  informix:host=gama.lenexa.ibm.com;service=9200;database=test;server=gama_serv1;protocol=onsoctcp;DB_LOCALE=en_US.utf8;CLIENT_LOCALE=en_US.utf8
 TEST PASSED
-successful operations: 84
+successful operations: 89
 errors: 0
 fatal errors: 0
 ------------------------------------
@@ -1767,6 +1911,7 @@ executing prepared statement (id: delete)
 executing prepared statement (id: query)
 executing statement ( sql: DROP TABLE IF EXISTS date_test4)
 ignoring action close on statement. php only supports executing a statement
+closed session id testCRUD
 created new session id testPstmt
 executing statement ( sql: DROP TABLE IF EXISTS date_test4)
 executing statement ( sql: CREATE TABLE date_test4 (i0 DATETIME YEAR TO FRACTION(4)))
@@ -1791,6 +1936,7 @@ comparing results : success
 closed prepared statement id query
 executing statement ( sql: DROP TABLE IF EXISTS date_test4)
 ignoring action close on statement. php only supports executing a statement
+closed session id testPstmt
 created new session id testPstmt
 executing statement ( sql: DROP TABLE IF EXISTS date_test4)
 executing statement ( sql: CREATE TABLE date_test4 (i0 DATETIME YEAR TO FRACTION(4),i1 DATETIME YEAR TO FRACTION(4),i2 DATETIME YEAR TO FRACTION(4),i3 DATETIME YEAR TO FRACTION(4),i4 DATETIME YEAR TO FRACTION(4),i5 DATETIME YEAR TO FRACTION(4),i6 DATETIME YEAR TO FRACTION(4),i7 DATETIME YEAR TO FRACTION(4),i8 DATETIME YEAR TO FRACTION(4),i9 DATETIME YEAR TO FRACTION(4),i10 DATETIME YEAR TO FRACTION(4),i11 DATETIME YEAR TO FRACTION(4),i12 DATETIME YEAR TO FRACTION(4),i13 DATETIME YEAR TO FRACTION(4),i14 DATETIME YEAR TO FRACTION(4),i15 DATETIME YEAR TO FRACTION(4),i16 DATETIME YEAR TO FRACTION(4),i17 DATETIME YEAR TO FRACTION(4),i18 DATETIME YEAR TO FRACTION(4),i19 DATETIME YEAR TO FRACTION(4),i20 DATETIME YEAR TO FRACTION(4),i21 DATETIME YEAR TO FRACTION(4),i22 DATETIME YEAR TO FRACTION(4),i23 DATETIME YEAR TO FRACTION(4),i24 DATETIME YEAR TO FRACTION(4),i25 DATETIME YEAR TO FRACTION(4),i26 DATETIME YEAR TO FRACTION(4),i27 DATETIME YEAR TO FRACTION(4),i28 DATETIME YEAR TO FRACTION(4),i29 DATETIME YEAR TO FRACTION(4),i30 DATETIME YEAR TO FRACTION(4),i31 DATETIME YEAR TO FRACTION(4),i32 DATETIME YEAR TO FRACTION(4),i33 DATETIME YEAR TO FRACTION(4),i34 DATETIME YEAR TO FRACTION(4),i35 DATETIME YEAR TO FRACTION(4),i36 DATETIME YEAR TO FRACTION(4),i37 DATETIME YEAR TO FRACTION(4),i38 DATETIME YEAR TO FRACTION(4),i39 DATETIME YEAR TO FRACTION(4),i40 DATETIME YEAR TO FRACTION(4),i41 DATETIME YEAR TO FRACTION(4),i42 DATETIME YEAR TO FRACTION(4),i43 DATETIME YEAR TO FRACTION(4),i44 DATETIME YEAR TO FRACTION(4),i45 DATETIME YEAR TO FRACTION(4),i46 DATETIME YEAR TO FRACTION(4),i47 DATETIME YEAR TO FRACTION(4),i48 DATETIME YEAR TO FRACTION(4),i49 DATETIME YEAR TO FRACTION(4)))
@@ -1815,6 +1961,7 @@ comparing results : success
 closed prepared statement id query
 executing statement ( sql: DROP TABLE IF EXISTS date_test4)
 ignoring action close on statement. php only supports executing a statement
+closed session id testPstmt
 created new session id testPstmt
 executing statement ( sql: DROP TABLE IF EXISTS date_test4)
 executing statement ( sql: CREATE TABLE date_test4 (i0 DATETIME YEAR TO FRACTION(4),i1 DATETIME YEAR TO FRACTION(4),i2 DATETIME YEAR TO FRACTION(4),i3 DATETIME YEAR TO FRACTION(4),i4 DATETIME YEAR TO FRACTION(4),i5 DATETIME YEAR TO FRACTION(4),i6 DATETIME YEAR TO FRACTION(4),i7 DATETIME YEAR TO FRACTION(4),i8 DATETIME YEAR TO FRACTION(4),i9 DATETIME YEAR TO FRACTION(4),i10 DATETIME YEAR TO FRACTION(4),i11 DATETIME YEAR TO FRACTION(4),i12 DATETIME YEAR TO FRACTION(4),i13 DATETIME YEAR TO FRACTION(4),i14 DATETIME YEAR TO FRACTION(4),i15 DATETIME YEAR TO FRACTION(4),i16 DATETIME YEAR TO FRACTION(4),i17 DATETIME YEAR TO FRACTION(4),i18 DATETIME YEAR TO FRACTION(4),i19 DATETIME YEAR TO FRACTION(4),i20 DATETIME YEAR TO FRACTION(4),i21 DATETIME YEAR TO FRACTION(4),i22 DATETIME YEAR TO FRACTION(4),i23 DATETIME YEAR TO FRACTION(4),i24 DATETIME YEAR TO FRACTION(4),i25 DATETIME YEAR TO FRACTION(4),i26 DATETIME YEAR TO FRACTION(4),i27 DATETIME YEAR TO FRACTION(4),i28 DATETIME YEAR TO FRACTION(4),i29 DATETIME YEAR TO FRACTION(4),i30 DATETIME YEAR TO FRACTION(4),i31 DATETIME YEAR TO FRACTION(4),i32 DATETIME YEAR TO FRACTION(4),i33 DATETIME YEAR TO FRACTION(4),i34 DATETIME YEAR TO FRACTION(4),i35 DATETIME YEAR TO FRACTION(4),i36 DATETIME YEAR TO FRACTION(4),i37 DATETIME YEAR TO FRACTION(4),i38 DATETIME YEAR TO FRACTION(4),i39 DATETIME YEAR TO FRACTION(4),i40 DATETIME YEAR TO FRACTION(4),i41 DATETIME YEAR TO FRACTION(4),i42 DATETIME YEAR TO FRACTION(4),i43 DATETIME YEAR TO FRACTION(4),i44 DATETIME YEAR TO FRACTION(4),i45 DATETIME YEAR TO FRACTION(4),i46 DATETIME YEAR TO FRACTION(4),i47 DATETIME YEAR TO FRACTION(4),i48 DATETIME YEAR TO FRACTION(4),i49 DATETIME YEAR TO FRACTION(4),i50 DATETIME YEAR TO FRACTION(4),i51 DATETIME YEAR TO FRACTION(4),i52 DATETIME YEAR TO FRACTION(4),i53 DATETIME YEAR TO FRACTION(4),i54 DATETIME YEAR TO FRACTION(4),i55 DATETIME YEAR TO FRACTION(4),i56 DATETIME YEAR TO FRACTION(4),i57 DATETIME YEAR TO FRACTION(4),i58 DATETIME YEAR TO FRACTION(4),i59 DATETIME YEAR TO FRACTION(4),i60 DATETIME YEAR TO FRACTION(4),i61 DATETIME YEAR TO FRACTION(4),i62 DATETIME YEAR TO FRACTION(4),i63 DATETIME YEAR TO FRACTION(4),i64 DATETIME YEAR TO FRACTION(4),i65 DATETIME YEAR TO FRACTION(4),i66 DATETIME YEAR TO FRACTION(4),i67 DATETIME YEAR TO FRACTION(4),i68 DATETIME YEAR TO FRACTION(4),i69 DATETIME YEAR TO FRACTION(4),i70 DATETIME YEAR TO FRACTION(4),i71 DATETIME YEAR TO FRACTION(4),i72 DATETIME YEAR TO FRACTION(4),i73 DATETIME YEAR TO FRACTION(4),i74 DATETIME YEAR TO FRACTION(4),i75 DATETIME YEAR TO FRACTION(4),i76 DATETIME YEAR TO FRACTION(4),i77 DATETIME YEAR TO FRACTION(4),i78 DATETIME YEAR TO FRACTION(4),i79 DATETIME YEAR TO FRACTION(4),i80 DATETIME YEAR TO FRACTION(4),i81 DATETIME YEAR TO FRACTION(4),i82 DATETIME YEAR TO FRACTION(4),i83 DATETIME YEAR TO FRACTION(4),i84 DATETIME YEAR TO FRACTION(4),i85 DATETIME YEAR TO FRACTION(4),i86 DATETIME YEAR TO FRACTION(4),i87 DATETIME YEAR TO FRACTION(4),i88 DATETIME YEAR TO FRACTION(4),i89 DATETIME YEAR TO FRACTION(4),i90 DATETIME YEAR TO FRACTION(4),i91 DATETIME YEAR TO FRACTION(4),i92 DATETIME YEAR TO FRACTION(4),i93 DATETIME YEAR TO FRACTION(4),i94 DATETIME YEAR TO FRACTION(4),i95 DATETIME YEAR TO FRACTION(4),i96 DATETIME YEAR TO FRACTION(4),i97 DATETIME YEAR TO FRACTION(4),i98 DATETIME YEAR TO FRACTION(4),i99 DATETIME YEAR TO FRACTION(4)))
@@ -1839,8 +1986,10 @@ comparing results : success
 closed prepared statement id query
 executing statement ( sql: DROP TABLE IF EXISTS date_test4)
 ignoring action close on statement. php only supports executing a statement
+closed session id testPstmt
+closing credential: id =  test, url =  informix:host=gama.lenexa.ibm.com;service=9200;database=test;server=gama_serv1;protocol=onsoctcp;DB_LOCALE=en_US.utf8;CLIENT_LOCALE=en_US.utf8
 TEST PASSED
-successful operations: 84
+successful operations: 89
 errors: 0
 fatal errors: 0
 ------------------------------------
@@ -1866,6 +2015,7 @@ executing prepared statement (id: delete)
 executing prepared statement (id: query)
 executing statement ( sql: DROP TABLE IF EXISTS date_test5)
 ignoring action close on statement. php only supports executing a statement
+closed session id testCRUD
 created new session id testPstmt
 executing statement ( sql: DROP TABLE IF EXISTS date_test5)
 executing statement ( sql: CREATE TABLE date_test5 (i0 DATETIME YEAR TO FRACTION(5)))
@@ -1890,6 +2040,7 @@ comparing results : success
 closed prepared statement id query
 executing statement ( sql: DROP TABLE IF EXISTS date_test5)
 ignoring action close on statement. php only supports executing a statement
+closed session id testPstmt
 created new session id testPstmt
 executing statement ( sql: DROP TABLE IF EXISTS date_test5)
 executing statement ( sql: CREATE TABLE date_test5 (i0 DATETIME YEAR TO FRACTION(5),i1 DATETIME YEAR TO FRACTION(5),i2 DATETIME YEAR TO FRACTION(5),i3 DATETIME YEAR TO FRACTION(5),i4 DATETIME YEAR TO FRACTION(5),i5 DATETIME YEAR TO FRACTION(5),i6 DATETIME YEAR TO FRACTION(5),i7 DATETIME YEAR TO FRACTION(5),i8 DATETIME YEAR TO FRACTION(5),i9 DATETIME YEAR TO FRACTION(5),i10 DATETIME YEAR TO FRACTION(5),i11 DATETIME YEAR TO FRACTION(5),i12 DATETIME YEAR TO FRACTION(5),i13 DATETIME YEAR TO FRACTION(5),i14 DATETIME YEAR TO FRACTION(5),i15 DATETIME YEAR TO FRACTION(5),i16 DATETIME YEAR TO FRACTION(5),i17 DATETIME YEAR TO FRACTION(5),i18 DATETIME YEAR TO FRACTION(5),i19 DATETIME YEAR TO FRACTION(5),i20 DATETIME YEAR TO FRACTION(5),i21 DATETIME YEAR TO FRACTION(5),i22 DATETIME YEAR TO FRACTION(5),i23 DATETIME YEAR TO FRACTION(5),i24 DATETIME YEAR TO FRACTION(5),i25 DATETIME YEAR TO FRACTION(5),i26 DATETIME YEAR TO FRACTION(5),i27 DATETIME YEAR TO FRACTION(5),i28 DATETIME YEAR TO FRACTION(5),i29 DATETIME YEAR TO FRACTION(5),i30 DATETIME YEAR TO FRACTION(5),i31 DATETIME YEAR TO FRACTION(5),i32 DATETIME YEAR TO FRACTION(5),i33 DATETIME YEAR TO FRACTION(5),i34 DATETIME YEAR TO FRACTION(5),i35 DATETIME YEAR TO FRACTION(5),i36 DATETIME YEAR TO FRACTION(5),i37 DATETIME YEAR TO FRACTION(5),i38 DATETIME YEAR TO FRACTION(5),i39 DATETIME YEAR TO FRACTION(5),i40 DATETIME YEAR TO FRACTION(5),i41 DATETIME YEAR TO FRACTION(5),i42 DATETIME YEAR TO FRACTION(5),i43 DATETIME YEAR TO FRACTION(5),i44 DATETIME YEAR TO FRACTION(5),i45 DATETIME YEAR TO FRACTION(5),i46 DATETIME YEAR TO FRACTION(5),i47 DATETIME YEAR TO FRACTION(5),i48 DATETIME YEAR TO FRACTION(5),i49 DATETIME YEAR TO FRACTION(5)))
@@ -1914,6 +2065,7 @@ comparing results : success
 closed prepared statement id query
 executing statement ( sql: DROP TABLE IF EXISTS date_test5)
 ignoring action close on statement. php only supports executing a statement
+closed session id testPstmt
 created new session id testPstmt
 executing statement ( sql: DROP TABLE IF EXISTS date_test5)
 executing statement ( sql: CREATE TABLE date_test5 (i0 DATETIME YEAR TO FRACTION(5),i1 DATETIME YEAR TO FRACTION(5),i2 DATETIME YEAR TO FRACTION(5),i3 DATETIME YEAR TO FRACTION(5),i4 DATETIME YEAR TO FRACTION(5),i5 DATETIME YEAR TO FRACTION(5),i6 DATETIME YEAR TO FRACTION(5),i7 DATETIME YEAR TO FRACTION(5),i8 DATETIME YEAR TO FRACTION(5),i9 DATETIME YEAR TO FRACTION(5),i10 DATETIME YEAR TO FRACTION(5),i11 DATETIME YEAR TO FRACTION(5),i12 DATETIME YEAR TO FRACTION(5),i13 DATETIME YEAR TO FRACTION(5),i14 DATETIME YEAR TO FRACTION(5),i15 DATETIME YEAR TO FRACTION(5),i16 DATETIME YEAR TO FRACTION(5),i17 DATETIME YEAR TO FRACTION(5),i18 DATETIME YEAR TO FRACTION(5),i19 DATETIME YEAR TO FRACTION(5),i20 DATETIME YEAR TO FRACTION(5),i21 DATETIME YEAR TO FRACTION(5),i22 DATETIME YEAR TO FRACTION(5),i23 DATETIME YEAR TO FRACTION(5),i24 DATETIME YEAR TO FRACTION(5),i25 DATETIME YEAR TO FRACTION(5),i26 DATETIME YEAR TO FRACTION(5),i27 DATETIME YEAR TO FRACTION(5),i28 DATETIME YEAR TO FRACTION(5),i29 DATETIME YEAR TO FRACTION(5),i30 DATETIME YEAR TO FRACTION(5),i31 DATETIME YEAR TO FRACTION(5),i32 DATETIME YEAR TO FRACTION(5),i33 DATETIME YEAR TO FRACTION(5),i34 DATETIME YEAR TO FRACTION(5),i35 DATETIME YEAR TO FRACTION(5),i36 DATETIME YEAR TO FRACTION(5),i37 DATETIME YEAR TO FRACTION(5),i38 DATETIME YEAR TO FRACTION(5),i39 DATETIME YEAR TO FRACTION(5),i40 DATETIME YEAR TO FRACTION(5),i41 DATETIME YEAR TO FRACTION(5),i42 DATETIME YEAR TO FRACTION(5),i43 DATETIME YEAR TO FRACTION(5),i44 DATETIME YEAR TO FRACTION(5),i45 DATETIME YEAR TO FRACTION(5),i46 DATETIME YEAR TO FRACTION(5),i47 DATETIME YEAR TO FRACTION(5),i48 DATETIME YEAR TO FRACTION(5),i49 DATETIME YEAR TO FRACTION(5),i50 DATETIME YEAR TO FRACTION(5),i51 DATETIME YEAR TO FRACTION(5),i52 DATETIME YEAR TO FRACTION(5),i53 DATETIME YEAR TO FRACTION(5),i54 DATETIME YEAR TO FRACTION(5),i55 DATETIME YEAR TO FRACTION(5),i56 DATETIME YEAR TO FRACTION(5),i57 DATETIME YEAR TO FRACTION(5),i58 DATETIME YEAR TO FRACTION(5),i59 DATETIME YEAR TO FRACTION(5),i60 DATETIME YEAR TO FRACTION(5),i61 DATETIME YEAR TO FRACTION(5),i62 DATETIME YEAR TO FRACTION(5),i63 DATETIME YEAR TO FRACTION(5),i64 DATETIME YEAR TO FRACTION(5),i65 DATETIME YEAR TO FRACTION(5),i66 DATETIME YEAR TO FRACTION(5),i67 DATETIME YEAR TO FRACTION(5),i68 DATETIME YEAR TO FRACTION(5),i69 DATETIME YEAR TO FRACTION(5),i70 DATETIME YEAR TO FRACTION(5),i71 DATETIME YEAR TO FRACTION(5),i72 DATETIME YEAR TO FRACTION(5),i73 DATETIME YEAR TO FRACTION(5),i74 DATETIME YEAR TO FRACTION(5),i75 DATETIME YEAR TO FRACTION(5),i76 DATETIME YEAR TO FRACTION(5),i77 DATETIME YEAR TO FRACTION(5),i78 DATETIME YEAR TO FRACTION(5),i79 DATETIME YEAR TO FRACTION(5),i80 DATETIME YEAR TO FRACTION(5),i81 DATETIME YEAR TO FRACTION(5),i82 DATETIME YEAR TO FRACTION(5),i83 DATETIME YEAR TO FRACTION(5),i84 DATETIME YEAR TO FRACTION(5),i85 DATETIME YEAR TO FRACTION(5),i86 DATETIME YEAR TO FRACTION(5),i87 DATETIME YEAR TO FRACTION(5),i88 DATETIME YEAR TO FRACTION(5),i89 DATETIME YEAR TO FRACTION(5),i90 DATETIME YEAR TO FRACTION(5),i91 DATETIME YEAR TO FRACTION(5),i92 DATETIME YEAR TO FRACTION(5),i93 DATETIME YEAR TO FRACTION(5),i94 DATETIME YEAR TO FRACTION(5),i95 DATETIME YEAR TO FRACTION(5),i96 DATETIME YEAR TO FRACTION(5),i97 DATETIME YEAR TO FRACTION(5),i98 DATETIME YEAR TO FRACTION(5),i99 DATETIME YEAR TO FRACTION(5)))
@@ -1938,8 +2090,10 @@ comparing results : success
 closed prepared statement id query
 executing statement ( sql: DROP TABLE IF EXISTS date_test5)
 ignoring action close on statement. php only supports executing a statement
+closed session id testPstmt
+closing credential: id =  test, url =  informix:host=gama.lenexa.ibm.com;service=9200;database=test;server=gama_serv1;protocol=onsoctcp;DB_LOCALE=en_US.utf8;CLIENT_LOCALE=en_US.utf8
 TEST PASSED
-successful operations: 84
+successful operations: 89
 errors: 0
 fatal errors: 0
 ------------------------------------
@@ -1985,6 +2139,7 @@ executing prepared statement (id: delete)
 executing prepared statement (id: query)
 executing statement ( sql: DROP TABLE IF EXISTS decimal_test)
 ignoring action close on statement. php only supports executing a statement
+closed session id testCRUD
 created new session id testPstmt
 executing statement ( sql: DROP TABLE IF EXISTS decimal_test)
 executing statement ( sql: CREATE TABLE decimal_test (i0 DECIMAL(20)))
@@ -2031,6 +2186,7 @@ comparing results : FAIL. Results are not equal. Expected: array (
 closed prepared statement id query
 executing statement ( sql: DROP TABLE IF EXISTS decimal_test)
 ignoring action close on statement. php only supports executing a statement
+closed session id testPstmt
 created new session id testPstmt
 executing statement ( sql: DROP TABLE IF EXISTS decimal_test)
 executing statement ( sql: CREATE TABLE decimal_test (i0 DECIMAL(20),i1 DECIMAL(20),i2 DECIMAL(20),i3 DECIMAL(20),i4 DECIMAL(20),i5 DECIMAL(20),i6 DECIMAL(20),i7 DECIMAL(20),i8 DECIMAL(20),i9 DECIMAL(20),i10 DECIMAL(20),i11 DECIMAL(20),i12 DECIMAL(20),i13 DECIMAL(20),i14 DECIMAL(20),i15 DECIMAL(20),i16 DECIMAL(20),i17 DECIMAL(20),i18 DECIMAL(20),i19 DECIMAL(20),i20 DECIMAL(20),i21 DECIMAL(20),i22 DECIMAL(20),i23 DECIMAL(20),i24 DECIMAL(20),i25 DECIMAL(20),i26 DECIMAL(20),i27 DECIMAL(20),i28 DECIMAL(20),i29 DECIMAL(20),i30 DECIMAL(20),i31 DECIMAL(20),i32 DECIMAL(20),i33 DECIMAL(20),i34 DECIMAL(20),i35 DECIMAL(20),i36 DECIMAL(20),i37 DECIMAL(20),i38 DECIMAL(20),i39 DECIMAL(20),i40 DECIMAL(20),i41 DECIMAL(20),i42 DECIMAL(20),i43 DECIMAL(20),i44 DECIMAL(20),i45 DECIMAL(20),i46 DECIMAL(20),i47 DECIMAL(20),i48 DECIMAL(20),i49 DECIMAL(20)))
@@ -2273,6 +2429,7 @@ comparing results : FAIL. Results are not equal. Expected: array (
 closed prepared statement id query
 executing statement ( sql: DROP TABLE IF EXISTS decimal_test)
 ignoring action close on statement. php only supports executing a statement
+closed session id testPstmt
 created new session id testPstmt
 executing statement ( sql: DROP TABLE IF EXISTS decimal_test)
 executing statement ( sql: CREATE TABLE decimal_test (i0 DECIMAL(20),i1 DECIMAL(20),i2 DECIMAL(20),i3 DECIMAL(20),i4 DECIMAL(20),i5 DECIMAL(20),i6 DECIMAL(20),i7 DECIMAL(20),i8 DECIMAL(20),i9 DECIMAL(20),i10 DECIMAL(20),i11 DECIMAL(20),i12 DECIMAL(20),i13 DECIMAL(20),i14 DECIMAL(20),i15 DECIMAL(20),i16 DECIMAL(20),i17 DECIMAL(20),i18 DECIMAL(20),i19 DECIMAL(20),i20 DECIMAL(20),i21 DECIMAL(20),i22 DECIMAL(20),i23 DECIMAL(20),i24 DECIMAL(20),i25 DECIMAL(20),i26 DECIMAL(20),i27 DECIMAL(20),i28 DECIMAL(20),i29 DECIMAL(20),i30 DECIMAL(20),i31 DECIMAL(20),i32 DECIMAL(20),i33 DECIMAL(20),i34 DECIMAL(20),i35 DECIMAL(20),i36 DECIMAL(20),i37 DECIMAL(20),i38 DECIMAL(20),i39 DECIMAL(20),i40 DECIMAL(20),i41 DECIMAL(20),i42 DECIMAL(20),i43 DECIMAL(20),i44 DECIMAL(20),i45 DECIMAL(20),i46 DECIMAL(20),i47 DECIMAL(20),i48 DECIMAL(20),i49 DECIMAL(20),i50 DECIMAL(20),i51 DECIMAL(20),i52 DECIMAL(20),i53 DECIMAL(20),i54 DECIMAL(20),i55 DECIMAL(20),i56 DECIMAL(20),i57 DECIMAL(20),i58 DECIMAL(20),i59 DECIMAL(20),i60 DECIMAL(20),i61 DECIMAL(20),i62 DECIMAL(20),i63 DECIMAL(20),i64 DECIMAL(20),i65 DECIMAL(20),i66 DECIMAL(20),i67 DECIMAL(20),i68 DECIMAL(20),i69 DECIMAL(20),i70 DECIMAL(20),i71 DECIMAL(20),i72 DECIMAL(20),i73 DECIMAL(20),i74 DECIMAL(20),i75 DECIMAL(20),i76 DECIMAL(20),i77 DECIMAL(20),i78 DECIMAL(20),i79 DECIMAL(20),i80 DECIMAL(20),i81 DECIMAL(20),i82 DECIMAL(20),i83 DECIMAL(20),i84 DECIMAL(20),i85 DECIMAL(20),i86 DECIMAL(20),i87 DECIMAL(20),i88 DECIMAL(20),i89 DECIMAL(20),i90 DECIMAL(20),i91 DECIMAL(20),i92 DECIMAL(20),i93 DECIMAL(20),i94 DECIMAL(20),i95 DECIMAL(20),i96 DECIMAL(20),i97 DECIMAL(20),i98 DECIMAL(20),i99 DECIMAL(20)))
@@ -2715,8 +2872,10 @@ comparing results : FAIL. Results are not equal. Expected: array (
 closed prepared statement id query
 executing statement ( sql: DROP TABLE IF EXISTS decimal_test)
 ignoring action close on statement. php only supports executing a statement
+closed session id testPstmt
+closing credential: id =  test, url =  informix:host=gama.lenexa.ibm.com;service=9200;database=test;server=gama_serv1;protocol=onsoctcp;DB_LOCALE=en_US.utf8;CLIENT_LOCALE=en_US.utf8
 TEST FAILED
-successful operations: 79
+successful operations: 84
 errors: 8
 fatal errors: 0
 ------------------------------------
@@ -2742,6 +2901,7 @@ executing prepared statement (id: delete)
 executing prepared statement (id: query)
 executing statement ( sql: DROP TABLE IF EXISTS int_test)
 ignoring action close on statement. php only supports executing a statement
+closed session id testCRUD
 created new session id testPstmt
 executing statement ( sql: DROP TABLE IF EXISTS int_test)
 executing statement ( sql: CREATE TABLE int_test (i0 INT,i1 INT,i2 INT))
@@ -2768,6 +2928,7 @@ comparing results : success
 closed prepared statement id query
 executing statement ( sql: DROP TABLE IF EXISTS int_test)
 ignoring action close on statement. php only supports executing a statement
+closed session id testPstmt
 created new session id testPstmt
 executing statement ( sql: DROP TABLE IF EXISTS int_test)
 executing statement ( sql: CREATE TABLE int_test (i0 INT,i1 INT,i2 INT,i3 INT,i4 INT,i5 INT,i6 INT,i7 INT,i8 INT,i9 INT,i10 INT,i11 INT,i12 INT,i13 INT,i14 INT,i15 INT,i16 INT,i17 INT,i18 INT,i19 INT,i20 INT,i21 INT,i22 INT,i23 INT,i24 INT,i25 INT,i26 INT,i27 INT,i28 INT,i29 INT,i30 INT,i31 INT,i32 INT,i33 INT,i34 INT,i35 INT,i36 INT,i37 INT,i38 INT,i39 INT,i40 INT,i41 INT,i42 INT,i43 INT,i44 INT,i45 INT,i46 INT,i47 INT,i48 INT,i49 INT))
@@ -2794,6 +2955,7 @@ comparing results : success
 closed prepared statement id query
 executing statement ( sql: DROP TABLE IF EXISTS int_test)
 ignoring action close on statement. php only supports executing a statement
+closed session id testPstmt
 created new session id testPstmt
 executing statement ( sql: DROP TABLE IF EXISTS int_test)
 executing statement ( sql: CREATE TABLE int_test (i0 INT,i1 INT,i2 INT,i3 INT,i4 INT,i5 INT,i6 INT,i7 INT,i8 INT,i9 INT,i10 INT,i11 INT,i12 INT,i13 INT,i14 INT,i15 INT,i16 INT,i17 INT,i18 INT,i19 INT,i20 INT,i21 INT,i22 INT,i23 INT,i24 INT,i25 INT,i26 INT,i27 INT,i28 INT,i29 INT,i30 INT,i31 INT,i32 INT,i33 INT,i34 INT,i35 INT,i36 INT,i37 INT,i38 INT,i39 INT,i40 INT,i41 INT,i42 INT,i43 INT,i44 INT,i45 INT,i46 INT,i47 INT,i48 INT,i49 INT,i50 INT,i51 INT,i52 INT,i53 INT,i54 INT,i55 INT,i56 INT,i57 INT,i58 INT,i59 INT,i60 INT,i61 INT,i62 INT,i63 INT,i64 INT,i65 INT,i66 INT,i67 INT,i68 INT,i69 INT,i70 INT,i71 INT,i72 INT,i73 INT,i74 INT,i75 INT,i76 INT,i77 INT,i78 INT,i79 INT,i80 INT,i81 INT,i82 INT,i83 INT,i84 INT,i85 INT,i86 INT,i87 INT,i88 INT,i89 INT,i90 INT,i91 INT,i92 INT,i93 INT,i94 INT,i95 INT,i96 INT,i97 INT,i98 INT,i99 INT))
@@ -2820,8 +2982,10 @@ comparing results : success
 closed prepared statement id query
 executing statement ( sql: DROP TABLE IF EXISTS int_test)
 ignoring action close on statement. php only supports executing a statement
+closed session id testPstmt
+closing credential: id =  test, url =  informix:host=gama.lenexa.ibm.com;service=9200;database=test;server=gama_serv1;protocol=onsoctcp;DB_LOCALE=en_US.utf8;CLIENT_LOCALE=en_US.utf8
 TEST PASSED
-successful operations: 87
+successful operations: 92
 errors: 0
 fatal errors: 0
 ------------------------------------
@@ -2847,6 +3011,7 @@ executing prepared statement (id: delete)
 executing prepared statement (id: query)
 executing statement ( sql: DROP TABLE IF EXISTS int8_test)
 ignoring action close on statement. php only supports executing a statement
+closed session id testCRUD
 created new session id testPstmt
 executing statement ( sql: DROP TABLE IF EXISTS int8_test)
 executing statement ( sql: CREATE TABLE int8_test (i0 INT8,i1 INT8,i2 INT8))
@@ -2873,8 +3038,10 @@ comparing results : success
 closed prepared statement id query
 executing statement ( sql: DROP TABLE IF EXISTS int8_test)
 ignoring action close on statement. php only supports executing a statement
+closed session id testPstmt
+closing credential: id =  test, url =  informix:host=gama.lenexa.ibm.com;service=9200;database=test;server=gama_serv1;protocol=onsoctcp;DB_LOCALE=en_US.utf8;CLIENT_LOCALE=en_US.utf8
 TEST PASSED
-successful operations: 41
+successful operations: 44
 errors: 0
 fatal errors: 0
 ------------------------------------
@@ -2920,6 +3087,7 @@ executing prepared statement (id: delete)
 executing prepared statement (id: query)
 executing statement ( sql: DROP TABLE IF EXISTS lvarchar_test)
 ignoring action close on statement. php only supports executing a statement
+closed session id testCRUD
 created new session id testPstmt
 executing statement ( sql: DROP TABLE IF EXISTS lvarchar_test)
 executing statement ( sql: CREATE TABLE lvarchar_test (i0 LVARCHAR(1024)))
@@ -2945,6 +3113,7 @@ comparing results : FAIL. Results are not equal. Expected: array (
 closed prepared statement id query
 executing statement ( sql: DROP TABLE IF EXISTS lvarchar_test)
 ignoring action close on statement. php only supports executing a statement
+closed session id testPstmt
 created new session id testPstmt
 executing statement ( sql: DROP TABLE IF EXISTS lvarchar_test)
 executing statement ( sql: CREATE TABLE lvarchar_test (i0 LVARCHAR(1024),i1 LVARCHAR(1024),i2 LVARCHAR(1024),i3 LVARCHAR(1024),i4 LVARCHAR(1024)))
@@ -2978,6 +3147,7 @@ comparing results : FAIL. Results are not equal. Expected: array (
 closed prepared statement id query
 executing statement ( sql: DROP TABLE IF EXISTS lvarchar_test)
 ignoring action close on statement. php only supports executing a statement
+closed session id testPstmt
 created new session id testPstmt
 executing statement ( sql: DROP TABLE IF EXISTS lvarchar_test)
 executing statement ( sql: CREATE TABLE lvarchar_test (i0 LVARCHAR(2048)))
@@ -2993,6 +3163,7 @@ comparing results : success
 closed prepared statement id query
 executing statement ( sql: DROP TABLE IF EXISTS lvarchar_test)
 ignoring action close on statement. php only supports executing a statement
+closed session id testPstmt
 created new session id testPstmt
 executing statement ( sql: DROP TABLE IF EXISTS lvarchar_test)
 executing statement ( sql: CREATE TABLE lvarchar_test (i0 LVARCHAR(2048),i1 LVARCHAR(2048),i2 LVARCHAR(2048),i3 LVARCHAR(2048),i4 LVARCHAR(2048)))
@@ -3026,6 +3197,7 @@ comparing results : FAIL. Results are not equal. Expected: array (
 closed prepared statement id query
 executing statement ( sql: DROP TABLE IF EXISTS lvarchar_test)
 ignoring action close on statement. php only supports executing a statement
+closed session id testPstmt
 created new session id testPstmt
 executing statement ( sql: DROP TABLE IF EXISTS lvarchar_test)
 executing statement ( sql: CREATE TABLE lvarchar_test (i0 LVARCHAR(5000)))
@@ -3051,6 +3223,7 @@ comparing results : FAIL. Results are not equal. Expected: array (
 closed prepared statement id query
 executing statement ( sql: DROP TABLE IF EXISTS lvarchar_test)
 ignoring action close on statement. php only supports executing a statement
+closed session id testPstmt
 created new session id testPstmt
 executing statement ( sql: DROP TABLE IF EXISTS lvarchar_test)
 executing statement ( sql: CREATE TABLE lvarchar_test (i0 LVARCHAR(5000),i1 LVARCHAR(5000),i2 LVARCHAR(5000),i3 LVARCHAR(5000),i4 LVARCHAR(5000)))
@@ -3084,9 +3257,202 @@ comparing results : FAIL. Results are not equal. Expected: array (
 closed prepared statement id query
 executing statement ( sql: DROP TABLE IF EXISTS lvarchar_test)
 ignoring action close on statement. php only supports executing a statement
+closed session id testPstmt
+closing credential: id =  test, url =  informix:host=gama.lenexa.ibm.com;service=9200;database=test;server=gama_serv1;protocol=onsoctcp;DB_LOCALE=en_US.utf8;CLIENT_LOCALE=en_US.utf8
 TEST FAILED
-successful operations: 95
+successful operations: 103
 errors: 7
+fatal errors: 0
+------------------------------------
+
+starting test: dataTypeTest_NVARCHAR.json
+creating credential: id = test, url = informix:host=gama.lenexa.ibm.com;service=9200;database=test;server=gama_serv1;protocol=onsoctcp;DB_LOCALE=en_US.utf8;CLIENT_LOCALE=en_US.utf8
+created new session id testCRUD
+executing statement ( sql: DROP TABLE IF EXISTS nchar_test)
+executing statement ( sql: CREATE TABLE nchar_test (i0 NVARCHAR(10)))
+ignoring action close on statement. php only supports executing a statement
+created prepared statement id insert
+executing prepared statement (id: insert)
+created prepared statement id query
+executing prepared statement (id: query)
+comparing results : success
+created prepared statement id update
+executing prepared statement (id: update)
+executing prepared statement (id: query)
+executing prepared statement (id: query)
+comparing results : success
+created prepared statement id delete
+executing prepared statement (id: delete)
+executing prepared statement (id: query)
+executing statement ( sql: DROP TABLE IF EXISTS nchar_test)
+ignoring action close on statement. php only supports executing a statement
+closed session id testCRUD
+created new session id testPstmt
+executing statement ( sql: DROP TABLE IF EXISTS nchar_test)
+executing statement ( sql: CREATE TABLE nchar_test (i0 NVARCHAR(50)))
+ignoring action close on statement. php only supports executing a statement
+created prepared statement id insert
+executing prepared statement (id: insert)
+executing prepared statement (id: insert)
+executing prepared statement (id: insert)
+executing prepared statement (id: insert)
+executing prepared statement (id: insert)
+executing prepared statement (id: insert)
+executing prepared statement (id: insert)
+executing prepared statement (id: insert)
+executing prepared statement (id: insert)
+executing prepared statement (id: insert)
+closed prepared statement id insert
+created prepared statement id query
+executing prepared statement (id: query)
+comparing results : success
+executing prepared statement (id: query)
+comparing results : success
+executing prepared statement (id: query)
+comparing results : success
+closed prepared statement id query
+executing statement ( sql: DROP TABLE IF EXISTS nchar_test)
+ignoring action close on statement. php only supports executing a statement
+closed session id testPstmt
+created new session id testPstmt
+executing statement ( sql: DROP TABLE IF EXISTS nchar_test)
+executing statement ( sql: CREATE TABLE nchar_test (i0 NVARCHAR(50),i1 NVARCHAR(50),i2 NVARCHAR(50),i3 NVARCHAR(50),i4 NVARCHAR(50),i5 NVARCHAR(50),i6 NVARCHAR(50),i7 NVARCHAR(50),i8 NVARCHAR(50),i9 NVARCHAR(50),i10 NVARCHAR(50),i11 NVARCHAR(50),i12 NVARCHAR(50),i13 NVARCHAR(50),i14 NVARCHAR(50),i15 NVARCHAR(50),i16 NVARCHAR(50),i17 NVARCHAR(50),i18 NVARCHAR(50),i19 NVARCHAR(50),i20 NVARCHAR(50),i21 NVARCHAR(50),i22 NVARCHAR(50),i23 NVARCHAR(50),i24 NVARCHAR(50),i25 NVARCHAR(50),i26 NVARCHAR(50),i27 NVARCHAR(50),i28 NVARCHAR(50),i29 NVARCHAR(50),i30 NVARCHAR(50),i31 NVARCHAR(50),i32 NVARCHAR(50),i33 NVARCHAR(50),i34 NVARCHAR(50),i35 NVARCHAR(50),i36 NVARCHAR(50),i37 NVARCHAR(50),i38 NVARCHAR(50),i39 NVARCHAR(50),i40 NVARCHAR(50),i41 NVARCHAR(50),i42 NVARCHAR(50),i43 NVARCHAR(50),i44 NVARCHAR(50),i45 NVARCHAR(50),i46 NVARCHAR(50),i47 NVARCHAR(50),i48 NVARCHAR(50),i49 NVARCHAR(50)))
+ignoring action close on statement. php only supports executing a statement
+created prepared statement id insert
+executing prepared statement (id: insert)
+executing prepared statement (id: insert)
+executing prepared statement (id: insert)
+executing prepared statement (id: insert)
+executing prepared statement (id: insert)
+executing prepared statement (id: insert)
+executing prepared statement (id: insert)
+executing prepared statement (id: insert)
+executing prepared statement (id: insert)
+executing prepared statement (id: insert)
+closed prepared statement id insert
+created prepared statement id query
+executing prepared statement (id: query)
+comparing results : success
+executing prepared statement (id: query)
+comparing results : success
+executing prepared statement (id: query)
+comparing results : success
+closed prepared statement id query
+executing statement ( sql: DROP TABLE IF EXISTS nchar_test)
+ignoring action close on statement. php only supports executing a statement
+closed session id testPstmt
+created new session id testPstmt
+executing statement ( sql: DROP TABLE IF EXISTS nchar_test)
+executing statement ( sql: CREATE TABLE nchar_test (i0 NVARCHAR(50),i1 NVARCHAR(50),i2 NVARCHAR(50),i3 NVARCHAR(50),i4 NVARCHAR(50),i5 NVARCHAR(50),i6 NVARCHAR(50),i7 NVARCHAR(50),i8 NVARCHAR(50),i9 NVARCHAR(50),i10 NVARCHAR(50),i11 NVARCHAR(50),i12 NVARCHAR(50),i13 NVARCHAR(50),i14 NVARCHAR(50),i15 NVARCHAR(50),i16 NVARCHAR(50),i17 NVARCHAR(50),i18 NVARCHAR(50),i19 NVARCHAR(50),i20 NVARCHAR(50),i21 NVARCHAR(50),i22 NVARCHAR(50),i23 NVARCHAR(50),i24 NVARCHAR(50),i25 NVARCHAR(50),i26 NVARCHAR(50),i27 NVARCHAR(50),i28 NVARCHAR(50),i29 NVARCHAR(50),i30 NVARCHAR(50),i31 NVARCHAR(50),i32 NVARCHAR(50),i33 NVARCHAR(50),i34 NVARCHAR(50),i35 NVARCHAR(50),i36 NVARCHAR(50),i37 NVARCHAR(50),i38 NVARCHAR(50),i39 NVARCHAR(50),i40 NVARCHAR(50),i41 NVARCHAR(50),i42 NVARCHAR(50),i43 NVARCHAR(50),i44 NVARCHAR(50),i45 NVARCHAR(50),i46 NVARCHAR(50),i47 NVARCHAR(50),i48 NVARCHAR(50),i49 NVARCHAR(50),i50 NVARCHAR(50),i51 NVARCHAR(50),i52 NVARCHAR(50),i53 NVARCHAR(50),i54 NVARCHAR(50),i55 NVARCHAR(50),i56 NVARCHAR(50),i57 NVARCHAR(50),i58 NVARCHAR(50),i59 NVARCHAR(50),i60 NVARCHAR(50),i61 NVARCHAR(50),i62 NVARCHAR(50),i63 NVARCHAR(50),i64 NVARCHAR(50),i65 NVARCHAR(50),i66 NVARCHAR(50),i67 NVARCHAR(50),i68 NVARCHAR(50),i69 NVARCHAR(50),i70 NVARCHAR(50),i71 NVARCHAR(50),i72 NVARCHAR(50),i73 NVARCHAR(50),i74 NVARCHAR(50),i75 NVARCHAR(50),i76 NVARCHAR(50),i77 NVARCHAR(50),i78 NVARCHAR(50),i79 NVARCHAR(50),i80 NVARCHAR(50),i81 NVARCHAR(50),i82 NVARCHAR(50),i83 NVARCHAR(50),i84 NVARCHAR(50),i85 NVARCHAR(50),i86 NVARCHAR(50),i87 NVARCHAR(50),i88 NVARCHAR(50),i89 NVARCHAR(50),i90 NVARCHAR(50),i91 NVARCHAR(50),i92 NVARCHAR(50),i93 NVARCHAR(50),i94 NVARCHAR(50),i95 NVARCHAR(50),i96 NVARCHAR(50),i97 NVARCHAR(50),i98 NVARCHAR(50),i99 NVARCHAR(50)))
+ignoring action close on statement. php only supports executing a statement
+created prepared statement id insert
+executing prepared statement (id: insert)
+executing prepared statement (id: insert)
+executing prepared statement (id: insert)
+executing prepared statement (id: insert)
+executing prepared statement (id: insert)
+executing prepared statement (id: insert)
+executing prepared statement (id: insert)
+executing prepared statement (id: insert)
+executing prepared statement (id: insert)
+executing prepared statement (id: insert)
+closed prepared statement id insert
+created prepared statement id query
+executing prepared statement (id: query)
+comparing results : success
+executing prepared statement (id: query)
+comparing results : success
+executing prepared statement (id: query)
+comparing results : success
+closed prepared statement id query
+executing statement ( sql: DROP TABLE IF EXISTS nchar_test)
+ignoring action close on statement. php only supports executing a statement
+closed session id testPstmt
+created new session id testPstmt
+executing statement ( sql: DROP TABLE IF EXISTS nchar_test)
+executing statement ( sql: CREATE TABLE nchar_test (i0 NVARCHAR(100)))
+ignoring action close on statement. php only supports executing a statement
+created prepared statement id insert
+executing prepared statement (id: insert)
+executing prepared statement (id: insert)
+executing prepared statement (id: insert)
+executing prepared statement (id: insert)
+executing prepared statement (id: insert)
+executing prepared statement (id: insert)
+executing prepared statement (id: insert)
+executing prepared statement (id: insert)
+executing prepared statement (id: insert)
+executing prepared statement (id: insert)
+closed prepared statement id insert
+created prepared statement id query
+executing prepared statement (id: query)
+comparing results : success
+executing prepared statement (id: query)
+comparing results : success
+executing prepared statement (id: query)
+comparing results : success
+closed prepared statement id query
+executing statement ( sql: DROP TABLE IF EXISTS nchar_test)
+ignoring action close on statement. php only supports executing a statement
+closed session id testPstmt
+created new session id testPstmt
+executing statement ( sql: DROP TABLE IF EXISTS nchar_test)
+executing statement ( sql: CREATE TABLE nchar_test (i0 NVARCHAR(100),i1 NVARCHAR(100),i2 NVARCHAR(100),i3 NVARCHAR(100),i4 NVARCHAR(100),i5 NVARCHAR(100),i6 NVARCHAR(100),i7 NVARCHAR(100),i8 NVARCHAR(100),i9 NVARCHAR(100),i10 NVARCHAR(100),i11 NVARCHAR(100),i12 NVARCHAR(100),i13 NVARCHAR(100),i14 NVARCHAR(100),i15 NVARCHAR(100),i16 NVARCHAR(100),i17 NVARCHAR(100),i18 NVARCHAR(100),i19 NVARCHAR(100),i20 NVARCHAR(100),i21 NVARCHAR(100),i22 NVARCHAR(100),i23 NVARCHAR(100),i24 NVARCHAR(100),i25 NVARCHAR(100),i26 NVARCHAR(100),i27 NVARCHAR(100),i28 NVARCHAR(100),i29 NVARCHAR(100),i30 NVARCHAR(100),i31 NVARCHAR(100),i32 NVARCHAR(100),i33 NVARCHAR(100),i34 NVARCHAR(100),i35 NVARCHAR(100),i36 NVARCHAR(100),i37 NVARCHAR(100),i38 NVARCHAR(100),i39 NVARCHAR(100),i40 NVARCHAR(100),i41 NVARCHAR(100),i42 NVARCHAR(100),i43 NVARCHAR(100),i44 NVARCHAR(100),i45 NVARCHAR(100),i46 NVARCHAR(100),i47 NVARCHAR(100),i48 NVARCHAR(100),i49 NVARCHAR(100)))
+ignoring action close on statement. php only supports executing a statement
+created prepared statement id insert
+executing prepared statement (id: insert)
+executing prepared statement (id: insert)
+executing prepared statement (id: insert)
+executing prepared statement (id: insert)
+executing prepared statement (id: insert)
+executing prepared statement (id: insert)
+executing prepared statement (id: insert)
+executing prepared statement (id: insert)
+executing prepared statement (id: insert)
+executing prepared statement (id: insert)
+closed prepared statement id insert
+created prepared statement id query
+executing prepared statement (id: query)
+comparing results : success
+executing prepared statement (id: query)
+comparing results : success
+executing prepared statement (id: query)
+comparing results : success
+closed prepared statement id query
+executing statement ( sql: DROP TABLE IF EXISTS nchar_test)
+ignoring action close on statement. php only supports executing a statement
+closed session id testPstmt
+created new session id testPstmt
+executing statement ( sql: DROP TABLE IF EXISTS nchar_test)
+executing statement ( sql: CREATE TABLE nchar_test (i0 NVARCHAR(100),i1 NVARCHAR(100),i2 NVARCHAR(100),i3 NVARCHAR(100),i4 NVARCHAR(100),i5 NVARCHAR(100),i6 NVARCHAR(100),i7 NVARCHAR(100),i8 NVARCHAR(100),i9 NVARCHAR(100),i10 NVARCHAR(100),i11 NVARCHAR(100),i12 NVARCHAR(100),i13 NVARCHAR(100),i14 NVARCHAR(100),i15 NVARCHAR(100),i16 NVARCHAR(100),i17 NVARCHAR(100),i18 NVARCHAR(100),i19 NVARCHAR(100),i20 NVARCHAR(100),i21 NVARCHAR(100),i22 NVARCHAR(100),i23 NVARCHAR(100),i24 NVARCHAR(100),i25 NVARCHAR(100),i26 NVARCHAR(100),i27 NVARCHAR(100),i28 NVARCHAR(100),i29 NVARCHAR(100),i30 NVARCHAR(100),i31 NVARCHAR(100),i32 NVARCHAR(100),i33 NVARCHAR(100),i34 NVARCHAR(100),i35 NVARCHAR(100),i36 NVARCHAR(100),i37 NVARCHAR(100),i38 NVARCHAR(100),i39 NVARCHAR(100),i40 NVARCHAR(100),i41 NVARCHAR(100),i42 NVARCHAR(100),i43 NVARCHAR(100),i44 NVARCHAR(100),i45 NVARCHAR(100),i46 NVARCHAR(100),i47 NVARCHAR(100),i48 NVARCHAR(100),i49 NVARCHAR(100),i50 NVARCHAR(100),i51 NVARCHAR(100),i52 NVARCHAR(100),i53 NVARCHAR(100),i54 NVARCHAR(100),i55 NVARCHAR(100),i56 NVARCHAR(100),i57 NVARCHAR(100),i58 NVARCHAR(100),i59 NVARCHAR(100),i60 NVARCHAR(100),i61 NVARCHAR(100),i62 NVARCHAR(100),i63 NVARCHAR(100),i64 NVARCHAR(100),i65 NVARCHAR(100),i66 NVARCHAR(100),i67 NVARCHAR(100),i68 NVARCHAR(100),i69 NVARCHAR(100),i70 NVARCHAR(100),i71 NVARCHAR(100),i72 NVARCHAR(100),i73 NVARCHAR(100),i74 NVARCHAR(100),i75 NVARCHAR(100),i76 NVARCHAR(100),i77 NVARCHAR(100),i78 NVARCHAR(100),i79 NVARCHAR(100),i80 NVARCHAR(100),i81 NVARCHAR(100),i82 NVARCHAR(100),i83 NVARCHAR(100),i84 NVARCHAR(100),i85 NVARCHAR(100),i86 NVARCHAR(100),i87 NVARCHAR(100),i88 NVARCHAR(100),i89 NVARCHAR(100),i90 NVARCHAR(100),i91 NVARCHAR(100),i92 NVARCHAR(100),i93 NVARCHAR(100),i94 NVARCHAR(100),i95 NVARCHAR(100),i96 NVARCHAR(100),i97 NVARCHAR(100),i98 NVARCHAR(100),i99 NVARCHAR(100)))
+ignoring action close on statement. php only supports executing a statement
+created prepared statement id insert
+executing prepared statement (id: insert)
+executing prepared statement (id: insert)
+executing prepared statement (id: insert)
+executing prepared statement (id: insert)
+executing prepared statement (id: insert)
+executing prepared statement (id: insert)
+executing prepared statement (id: insert)
+executing prepared statement (id: insert)
+executing prepared statement (id: insert)
+executing prepared statement (id: insert)
+closed prepared statement id insert
+created prepared statement id query
+executing prepared statement (id: query)
+comparing results : success
+executing prepared statement (id: query)
+comparing results : success
+executing prepared statement (id: query)
+comparing results : success
+closed prepared statement id query
+executing statement ( sql: DROP TABLE IF EXISTS nchar_test)
+ignoring action close on statement. php only supports executing a statement
+closed session id testPstmt
+closing credential: id =  test, url =  informix:host=gama.lenexa.ibm.com;service=9200;database=test;server=gama_serv1;protocol=onsoctcp;DB_LOCALE=en_US.utf8;CLIENT_LOCALE=en_US.utf8
+TEST PASSED
+successful operations: 164
+errors: 0
 fatal errors: 0
 ------------------------------------
 
@@ -3106,6 +3472,7 @@ executing prepared statement (id: delete)
 executing prepared statement (id: query)
 executing statement ( sql: DROP TABLE IF EXISTS serial_test)
 ignoring action close on statement. php only supports executing a statement
+closed session id testCRUD
 created new session id testPstmt
 executing statement ( sql: DROP TABLE IF EXISTS serial_test)
 executing statement ( sql: CREATE TABLE serial_test (id SERIAL,value VARCHAR(20)))
@@ -3129,8 +3496,10 @@ executing prepared statement (id: query)
 closed prepared statement id query
 executing statement ( sql: DROP TABLE IF EXISTS serial_test)
 ignoring action close on statement. php only supports executing a statement
+closed session id testPstmt
+closing credential: id =  test, url =  informix:host=gama.lenexa.ibm.com;service=9200;database=test;server=gama_serv1;protocol=onsoctcp;DB_LOCALE=en_US.utf8;CLIENT_LOCALE=en_US.utf8
 TEST PASSED
-successful operations: 37
+successful operations: 40
 errors: 0
 fatal errors: 0
 ------------------------------------
@@ -3151,6 +3520,7 @@ executing prepared statement (id: delete)
 executing prepared statement (id: query)
 executing statement ( sql: DROP TABLE IF EXISTS serial8_test)
 ignoring action close on statement. php only supports executing a statement
+closed session id testCRUD
 created new session id testPstmt
 executing statement ( sql: DROP TABLE IF EXISTS serial8_test)
 executing statement ( sql: CREATE TABLE serial8_test (id SERIAL8,value VARCHAR(20)))
@@ -3174,8 +3544,10 @@ executing prepared statement (id: query)
 closed prepared statement id query
 executing statement ( sql: DROP TABLE IF EXISTS serial8_test)
 ignoring action close on statement. php only supports executing a statement
+closed session id testPstmt
+closing credential: id =  test, url =  informix:host=gama.lenexa.ibm.com;service=9200;database=test;server=gama_serv1;protocol=onsoctcp;DB_LOCALE=en_US.utf8;CLIENT_LOCALE=en_US.utf8
 TEST PASSED
-successful operations: 37
+successful operations: 40
 errors: 0
 fatal errors: 0
 ------------------------------------
@@ -3221,6 +3593,7 @@ executing prepared statement (id: delete)
 executing prepared statement (id: query)
 executing statement ( sql: DROP TABLE IF EXISTS float_test)
 ignoring action close on statement. php only supports executing a statement
+closed session id testCRUD
 created new session id testPstmt
 executing statement ( sql: DROP TABLE IF EXISTS float_test)
 executing statement ( sql: CREATE TABLE float_test (i0 SMALLFLOAT))
@@ -3257,6 +3630,7 @@ comparing results : FAIL. Results are not equal. Expected: array (
 closed prepared statement id query
 executing statement ( sql: DROP TABLE IF EXISTS float_test)
 ignoring action close on statement. php only supports executing a statement
+closed session id testPstmt
 created new session id testPstmt
 executing statement ( sql: DROP TABLE IF EXISTS float_test)
 executing statement ( sql: CREATE TABLE float_test (i0 SMALLFLOAT,i1 SMALLFLOAT,i2 SMALLFLOAT,i3 SMALLFLOAT,i4 SMALLFLOAT,i5 SMALLFLOAT,i6 SMALLFLOAT,i7 SMALLFLOAT,i8 SMALLFLOAT,i9 SMALLFLOAT,i10 SMALLFLOAT,i11 SMALLFLOAT,i12 SMALLFLOAT,i13 SMALLFLOAT,i14 SMALLFLOAT,i15 SMALLFLOAT,i16 SMALLFLOAT,i17 SMALLFLOAT,i18 SMALLFLOAT,i19 SMALLFLOAT,i20 SMALLFLOAT,i21 SMALLFLOAT,i22 SMALLFLOAT,i23 SMALLFLOAT,i24 SMALLFLOAT,i25 SMALLFLOAT,i26 SMALLFLOAT,i27 SMALLFLOAT,i28 SMALLFLOAT,i29 SMALLFLOAT,i30 SMALLFLOAT,i31 SMALLFLOAT,i32 SMALLFLOAT,i33 SMALLFLOAT,i34 SMALLFLOAT,i35 SMALLFLOAT,i36 SMALLFLOAT,i37 SMALLFLOAT,i38 SMALLFLOAT,i39 SMALLFLOAT,i40 SMALLFLOAT,i41 SMALLFLOAT,i42 SMALLFLOAT,i43 SMALLFLOAT,i44 SMALLFLOAT,i45 SMALLFLOAT,i46 SMALLFLOAT,i47 SMALLFLOAT,i48 SMALLFLOAT,i49 SMALLFLOAT))
@@ -3499,6 +3873,7 @@ comparing results : FAIL. Results are not equal. Expected: array (
 closed prepared statement id query
 executing statement ( sql: DROP TABLE IF EXISTS float_test)
 ignoring action close on statement. php only supports executing a statement
+closed session id testPstmt
 created new session id testPstmt
 executing statement ( sql: DROP TABLE IF EXISTS float_test)
 executing statement ( sql: CREATE TABLE float_test (i0 SMALLFLOAT,i1 SMALLFLOAT,i2 SMALLFLOAT,i3 SMALLFLOAT,i4 SMALLFLOAT,i5 SMALLFLOAT,i6 SMALLFLOAT,i7 SMALLFLOAT,i8 SMALLFLOAT,i9 SMALLFLOAT,i10 SMALLFLOAT,i11 SMALLFLOAT,i12 SMALLFLOAT,i13 SMALLFLOAT,i14 SMALLFLOAT,i15 SMALLFLOAT,i16 SMALLFLOAT,i17 SMALLFLOAT,i18 SMALLFLOAT,i19 SMALLFLOAT,i20 SMALLFLOAT,i21 SMALLFLOAT,i22 SMALLFLOAT,i23 SMALLFLOAT,i24 SMALLFLOAT,i25 SMALLFLOAT,i26 SMALLFLOAT,i27 SMALLFLOAT,i28 SMALLFLOAT,i29 SMALLFLOAT,i30 SMALLFLOAT,i31 SMALLFLOAT,i32 SMALLFLOAT,i33 SMALLFLOAT,i34 SMALLFLOAT,i35 SMALLFLOAT,i36 SMALLFLOAT,i37 SMALLFLOAT,i38 SMALLFLOAT,i39 SMALLFLOAT,i40 SMALLFLOAT,i41 SMALLFLOAT,i42 SMALLFLOAT,i43 SMALLFLOAT,i44 SMALLFLOAT,i45 SMALLFLOAT,i46 SMALLFLOAT,i47 SMALLFLOAT,i48 SMALLFLOAT,i49 SMALLFLOAT,i50 SMALLFLOAT,i51 SMALLFLOAT,i52 SMALLFLOAT,i53 SMALLFLOAT,i54 SMALLFLOAT,i55 SMALLFLOAT,i56 SMALLFLOAT,i57 SMALLFLOAT,i58 SMALLFLOAT,i59 SMALLFLOAT,i60 SMALLFLOAT,i61 SMALLFLOAT,i62 SMALLFLOAT,i63 SMALLFLOAT,i64 SMALLFLOAT,i65 SMALLFLOAT,i66 SMALLFLOAT,i67 SMALLFLOAT,i68 SMALLFLOAT,i69 SMALLFLOAT,i70 SMALLFLOAT,i71 SMALLFLOAT,i72 SMALLFLOAT,i73 SMALLFLOAT,i74 SMALLFLOAT,i75 SMALLFLOAT,i76 SMALLFLOAT,i77 SMALLFLOAT,i78 SMALLFLOAT,i79 SMALLFLOAT,i80 SMALLFLOAT,i81 SMALLFLOAT,i82 SMALLFLOAT,i83 SMALLFLOAT,i84 SMALLFLOAT,i85 SMALLFLOAT,i86 SMALLFLOAT,i87 SMALLFLOAT,i88 SMALLFLOAT,i89 SMALLFLOAT,i90 SMALLFLOAT,i91 SMALLFLOAT,i92 SMALLFLOAT,i93 SMALLFLOAT,i94 SMALLFLOAT,i95 SMALLFLOAT,i96 SMALLFLOAT,i97 SMALLFLOAT,i98 SMALLFLOAT,i99 SMALLFLOAT))
@@ -3941,8 +4316,10 @@ comparing results : FAIL. Results are not equal. Expected: array (
 closed prepared statement id query
 executing statement ( sql: DROP TABLE IF EXISTS float_test)
 ignoring action close on statement. php only supports executing a statement
+closed session id testPstmt
+closing credential: id =  test, url =  informix:host=gama.lenexa.ibm.com;service=9200;database=test;server=gama_serv1;protocol=onsoctcp;DB_LOCALE=en_US.utf8;CLIENT_LOCALE=en_US.utf8
 TEST FAILED
-successful operations: 80
+successful operations: 85
 errors: 7
 fatal errors: 0
 ------------------------------------
@@ -3968,6 +4345,7 @@ executing prepared statement (id: delete)
 executing prepared statement (id: query)
 executing statement ( sql: DROP TABLE IF EXISTS smallint_test)
 ignoring action close on statement. php only supports executing a statement
+closed session id testCRUD
 created new session id testPstmt
 executing statement ( sql: DROP TABLE IF EXISTS smallint_test)
 executing statement ( sql: CREATE TABLE smallint_test (i0 SMALLINT,i1 SMALLINT,i2 SMALLINT))
@@ -3994,8 +4372,10 @@ comparing results : success
 closed prepared statement id query
 executing statement ( sql: DROP TABLE IF EXISTS smallint_test)
 ignoring action close on statement. php only supports executing a statement
+closed session id testPstmt
+closing credential: id =  test, url =  informix:host=gama.lenexa.ibm.com;service=9200;database=test;server=gama_serv1;protocol=onsoctcp;DB_LOCALE=en_US.utf8;CLIENT_LOCALE=en_US.utf8
 TEST PASSED
-successful operations: 41
+successful operations: 44
 errors: 0
 fatal errors: 0
 ------------------------------------
@@ -4021,6 +4401,7 @@ executing prepared statement (id: delete)
 executing prepared statement (id: query)
 executing statement ( sql: DROP TABLE IF EXISTS varchar_test)
 ignoring action close on statement. php only supports executing a statement
+closed session id testCRUD
 created new session id testPstmt
 executing statement ( sql: DROP TABLE IF EXISTS varchar_test)
 executing statement ( sql: CREATE TABLE varchar_test (i0 VARCHAR(2)))
@@ -4047,6 +4428,7 @@ comparing results : success
 closed prepared statement id query
 executing statement ( sql: DROP TABLE IF EXISTS varchar_test)
 ignoring action close on statement. php only supports executing a statement
+closed session id testPstmt
 created new session id testPstmt
 executing statement ( sql: DROP TABLE IF EXISTS varchar_test)
 executing statement ( sql: CREATE TABLE varchar_test (i0 VARCHAR(2),i1 VARCHAR(2),i2 VARCHAR(2),i3 VARCHAR(2),i4 VARCHAR(2),i5 VARCHAR(2),i6 VARCHAR(2),i7 VARCHAR(2),i8 VARCHAR(2),i9 VARCHAR(2),i10 VARCHAR(2),i11 VARCHAR(2),i12 VARCHAR(2),i13 VARCHAR(2),i14 VARCHAR(2),i15 VARCHAR(2),i16 VARCHAR(2),i17 VARCHAR(2),i18 VARCHAR(2),i19 VARCHAR(2),i20 VARCHAR(2),i21 VARCHAR(2),i22 VARCHAR(2),i23 VARCHAR(2),i24 VARCHAR(2),i25 VARCHAR(2),i26 VARCHAR(2),i27 VARCHAR(2),i28 VARCHAR(2),i29 VARCHAR(2),i30 VARCHAR(2),i31 VARCHAR(2),i32 VARCHAR(2),i33 VARCHAR(2),i34 VARCHAR(2),i35 VARCHAR(2),i36 VARCHAR(2),i37 VARCHAR(2),i38 VARCHAR(2),i39 VARCHAR(2),i40 VARCHAR(2),i41 VARCHAR(2),i42 VARCHAR(2),i43 VARCHAR(2),i44 VARCHAR(2),i45 VARCHAR(2),i46 VARCHAR(2),i47 VARCHAR(2),i48 VARCHAR(2),i49 VARCHAR(2)))
@@ -4073,6 +4455,7 @@ comparing results : success
 closed prepared statement id query
 executing statement ( sql: DROP TABLE IF EXISTS varchar_test)
 ignoring action close on statement. php only supports executing a statement
+closed session id testPstmt
 created new session id testPstmt
 executing statement ( sql: DROP TABLE IF EXISTS varchar_test)
 executing statement ( sql: CREATE TABLE varchar_test (i0 VARCHAR(2),i1 VARCHAR(2),i2 VARCHAR(2),i3 VARCHAR(2),i4 VARCHAR(2),i5 VARCHAR(2),i6 VARCHAR(2),i7 VARCHAR(2),i8 VARCHAR(2),i9 VARCHAR(2),i10 VARCHAR(2),i11 VARCHAR(2),i12 VARCHAR(2),i13 VARCHAR(2),i14 VARCHAR(2),i15 VARCHAR(2),i16 VARCHAR(2),i17 VARCHAR(2),i18 VARCHAR(2),i19 VARCHAR(2),i20 VARCHAR(2),i21 VARCHAR(2),i22 VARCHAR(2),i23 VARCHAR(2),i24 VARCHAR(2),i25 VARCHAR(2),i26 VARCHAR(2),i27 VARCHAR(2),i28 VARCHAR(2),i29 VARCHAR(2),i30 VARCHAR(2),i31 VARCHAR(2),i32 VARCHAR(2),i33 VARCHAR(2),i34 VARCHAR(2),i35 VARCHAR(2),i36 VARCHAR(2),i37 VARCHAR(2),i38 VARCHAR(2),i39 VARCHAR(2),i40 VARCHAR(2),i41 VARCHAR(2),i42 VARCHAR(2),i43 VARCHAR(2),i44 VARCHAR(2),i45 VARCHAR(2),i46 VARCHAR(2),i47 VARCHAR(2),i48 VARCHAR(2),i49 VARCHAR(2),i50 VARCHAR(2),i51 VARCHAR(2),i52 VARCHAR(2),i53 VARCHAR(2),i54 VARCHAR(2),i55 VARCHAR(2),i56 VARCHAR(2),i57 VARCHAR(2),i58 VARCHAR(2),i59 VARCHAR(2),i60 VARCHAR(2),i61 VARCHAR(2),i62 VARCHAR(2),i63 VARCHAR(2),i64 VARCHAR(2),i65 VARCHAR(2),i66 VARCHAR(2),i67 VARCHAR(2),i68 VARCHAR(2),i69 VARCHAR(2),i70 VARCHAR(2),i71 VARCHAR(2),i72 VARCHAR(2),i73 VARCHAR(2),i74 VARCHAR(2),i75 VARCHAR(2),i76 VARCHAR(2),i77 VARCHAR(2),i78 VARCHAR(2),i79 VARCHAR(2),i80 VARCHAR(2),i81 VARCHAR(2),i82 VARCHAR(2),i83 VARCHAR(2),i84 VARCHAR(2),i85 VARCHAR(2),i86 VARCHAR(2),i87 VARCHAR(2),i88 VARCHAR(2),i89 VARCHAR(2),i90 VARCHAR(2),i91 VARCHAR(2),i92 VARCHAR(2),i93 VARCHAR(2),i94 VARCHAR(2),i95 VARCHAR(2),i96 VARCHAR(2),i97 VARCHAR(2),i98 VARCHAR(2),i99 VARCHAR(2)))
@@ -4099,6 +4482,7 @@ comparing results : success
 closed prepared statement id query
 executing statement ( sql: DROP TABLE IF EXISTS varchar_test)
 ignoring action close on statement. php only supports executing a statement
+closed session id testPstmt
 created new session id testPstmt
 executing statement ( sql: DROP TABLE IF EXISTS varchar_test)
 executing statement ( sql: CREATE TABLE varchar_test (i0 VARCHAR(100)))
@@ -4135,6 +4519,7 @@ comparing results : FAIL. Results are not equal. Expected: array (
 closed prepared statement id query
 executing statement ( sql: DROP TABLE IF EXISTS varchar_test)
 ignoring action close on statement. php only supports executing a statement
+closed session id testPstmt
 created new session id testPstmt
 executing statement ( sql: DROP TABLE IF EXISTS varchar_test)
 executing statement ( sql: CREATE TABLE varchar_test (i0 VARCHAR(100),i1 VARCHAR(100),i2 VARCHAR(100),i3 VARCHAR(100),i4 VARCHAR(100),i5 VARCHAR(100),i6 VARCHAR(100),i7 VARCHAR(100),i8 VARCHAR(100),i9 VARCHAR(100),i10 VARCHAR(100),i11 VARCHAR(100),i12 VARCHAR(100),i13 VARCHAR(100),i14 VARCHAR(100),i15 VARCHAR(100),i16 VARCHAR(100),i17 VARCHAR(100),i18 VARCHAR(100),i19 VARCHAR(100),i20 VARCHAR(100),i21 VARCHAR(100),i22 VARCHAR(100),i23 VARCHAR(100),i24 VARCHAR(100),i25 VARCHAR(100),i26 VARCHAR(100),i27 VARCHAR(100),i28 VARCHAR(100),i29 VARCHAR(100),i30 VARCHAR(100),i31 VARCHAR(100),i32 VARCHAR(100),i33 VARCHAR(100),i34 VARCHAR(100),i35 VARCHAR(100),i36 VARCHAR(100),i37 VARCHAR(100),i38 VARCHAR(100),i39 VARCHAR(100),i40 VARCHAR(100),i41 VARCHAR(100),i42 VARCHAR(100),i43 VARCHAR(100),i44 VARCHAR(100),i45 VARCHAR(100),i46 VARCHAR(100),i47 VARCHAR(100),i48 VARCHAR(100),i49 VARCHAR(100)))
@@ -4485,6 +4870,7 @@ comparing results : FAIL. Results are not equal. Expected: array (
 closed prepared statement id query
 executing statement ( sql: DROP TABLE IF EXISTS varchar_test)
 ignoring action close on statement. php only supports executing a statement
+closed session id testPstmt
 created new session id testPstmt
 executing statement ( sql: DROP TABLE IF EXISTS varchar_test)
 executing statement ( sql: CREATE TABLE varchar_test (i0 VARCHAR(100),i1 VARCHAR(100),i2 VARCHAR(100),i3 VARCHAR(100),i4 VARCHAR(100),i5 VARCHAR(100),i6 VARCHAR(100),i7 VARCHAR(100),i8 VARCHAR(100),i9 VARCHAR(100),i10 VARCHAR(100),i11 VARCHAR(100),i12 VARCHAR(100),i13 VARCHAR(100),i14 VARCHAR(100),i15 VARCHAR(100),i16 VARCHAR(100),i17 VARCHAR(100),i18 VARCHAR(100),i19 VARCHAR(100),i20 VARCHAR(100),i21 VARCHAR(100),i22 VARCHAR(100),i23 VARCHAR(100),i24 VARCHAR(100),i25 VARCHAR(100),i26 VARCHAR(100),i27 VARCHAR(100),i28 VARCHAR(100),i29 VARCHAR(100),i30 VARCHAR(100),i31 VARCHAR(100),i32 VARCHAR(100),i33 VARCHAR(100),i34 VARCHAR(100),i35 VARCHAR(100),i36 VARCHAR(100),i37 VARCHAR(100),i38 VARCHAR(100),i39 VARCHAR(100),i40 VARCHAR(100),i41 VARCHAR(100),i42 VARCHAR(100),i43 VARCHAR(100),i44 VARCHAR(100),i45 VARCHAR(100),i46 VARCHAR(100),i47 VARCHAR(100),i48 VARCHAR(100),i49 VARCHAR(100),i50 VARCHAR(100),i51 VARCHAR(100),i52 VARCHAR(100),i53 VARCHAR(100),i54 VARCHAR(100),i55 VARCHAR(100),i56 VARCHAR(100),i57 VARCHAR(100),i58 VARCHAR(100),i59 VARCHAR(100),i60 VARCHAR(100),i61 VARCHAR(100),i62 VARCHAR(100),i63 VARCHAR(100),i64 VARCHAR(100),i65 VARCHAR(100),i66 VARCHAR(100),i67 VARCHAR(100),i68 VARCHAR(100),i69 VARCHAR(100),i70 VARCHAR(100),i71 VARCHAR(100),i72 VARCHAR(100),i73 VARCHAR(100),i74 VARCHAR(100),i75 VARCHAR(100),i76 VARCHAR(100),i77 VARCHAR(100),i78 VARCHAR(100),i79 VARCHAR(100),i80 VARCHAR(100),i81 VARCHAR(100),i82 VARCHAR(100),i83 VARCHAR(100),i84 VARCHAR(100),i85 VARCHAR(100),i86 VARCHAR(100),i87 VARCHAR(100),i88 VARCHAR(100),i89 VARCHAR(100),i90 VARCHAR(100),i91 VARCHAR(100),i92 VARCHAR(100),i93 VARCHAR(100),i94 VARCHAR(100),i95 VARCHAR(100),i96 VARCHAR(100),i97 VARCHAR(100),i98 VARCHAR(100),i99 VARCHAR(100)))
@@ -5135,6 +5521,7 @@ comparing results : FAIL. Results are not equal. Expected: array (
 closed prepared statement id query
 executing statement ( sql: DROP TABLE IF EXISTS varchar_test)
 ignoring action close on statement. php only supports executing a statement
+closed session id testPstmt
 created new session id testPstmt
 executing statement ( sql: DROP TABLE IF EXISTS varchar_test)
 executing statement ( sql: CREATE TABLE varchar_test (i0 VARCHAR(255)))
@@ -5161,6 +5548,7 @@ comparing results : success
 closed prepared statement id query
 executing statement ( sql: DROP TABLE IF EXISTS varchar_test)
 ignoring action close on statement. php only supports executing a statement
+closed session id testPstmt
 created new session id testPstmt
 executing statement ( sql: DROP TABLE IF EXISTS varchar_test)
 executing statement ( sql: CREATE TABLE varchar_test (i0 VARCHAR(255),i1 VARCHAR(255),i2 VARCHAR(255),i3 VARCHAR(255),i4 VARCHAR(255),i5 VARCHAR(255),i6 VARCHAR(255),i7 VARCHAR(255),i8 VARCHAR(255),i9 VARCHAR(255),i10 VARCHAR(255),i11 VARCHAR(255),i12 VARCHAR(255),i13 VARCHAR(255),i14 VARCHAR(255),i15 VARCHAR(255),i16 VARCHAR(255),i17 VARCHAR(255),i18 VARCHAR(255),i19 VARCHAR(255),i20 VARCHAR(255),i21 VARCHAR(255),i22 VARCHAR(255),i23 VARCHAR(255),i24 VARCHAR(255),i25 VARCHAR(255),i26 VARCHAR(255),i27 VARCHAR(255),i28 VARCHAR(255),i29 VARCHAR(255),i30 VARCHAR(255),i31 VARCHAR(255),i32 VARCHAR(255),i33 VARCHAR(255),i34 VARCHAR(255),i35 VARCHAR(255),i36 VARCHAR(255),i37 VARCHAR(255),i38 VARCHAR(255),i39 VARCHAR(255),i40 VARCHAR(255),i41 VARCHAR(255),i42 VARCHAR(255),i43 VARCHAR(255),i44 VARCHAR(255),i45 VARCHAR(255),i46 VARCHAR(255),i47 VARCHAR(255),i48 VARCHAR(255),i49 VARCHAR(255)))
@@ -5187,6 +5575,7 @@ comparing results : success
 closed prepared statement id query
 executing statement ( sql: DROP TABLE IF EXISTS varchar_test)
 ignoring action close on statement. php only supports executing a statement
+closed session id testPstmt
 created new session id testPstmt
 executing statement ( sql: DROP TABLE IF EXISTS varchar_test)
 executing statement ( sql: CREATE TABLE varchar_test (i0 VARCHAR(255),i1 VARCHAR(255),i2 VARCHAR(255),i3 VARCHAR(255),i4 VARCHAR(255),i5 VARCHAR(255),i6 VARCHAR(255),i7 VARCHAR(255),i8 VARCHAR(255),i9 VARCHAR(255),i10 VARCHAR(255),i11 VARCHAR(255),i12 VARCHAR(255),i13 VARCHAR(255),i14 VARCHAR(255),i15 VARCHAR(255),i16 VARCHAR(255),i17 VARCHAR(255),i18 VARCHAR(255),i19 VARCHAR(255),i20 VARCHAR(255),i21 VARCHAR(255),i22 VARCHAR(255),i23 VARCHAR(255),i24 VARCHAR(255),i25 VARCHAR(255),i26 VARCHAR(255),i27 VARCHAR(255),i28 VARCHAR(255),i29 VARCHAR(255),i30 VARCHAR(255),i31 VARCHAR(255),i32 VARCHAR(255),i33 VARCHAR(255),i34 VARCHAR(255),i35 VARCHAR(255),i36 VARCHAR(255),i37 VARCHAR(255),i38 VARCHAR(255),i39 VARCHAR(255),i40 VARCHAR(255),i41 VARCHAR(255),i42 VARCHAR(255),i43 VARCHAR(255),i44 VARCHAR(255),i45 VARCHAR(255),i46 VARCHAR(255),i47 VARCHAR(255),i48 VARCHAR(255),i49 VARCHAR(255),i50 VARCHAR(255),i51 VARCHAR(255),i52 VARCHAR(255),i53 VARCHAR(255),i54 VARCHAR(255),i55 VARCHAR(255),i56 VARCHAR(255),i57 VARCHAR(255),i58 VARCHAR(255),i59 VARCHAR(255),i60 VARCHAR(255),i61 VARCHAR(255),i62 VARCHAR(255),i63 VARCHAR(255),i64 VARCHAR(255),i65 VARCHAR(255),i66 VARCHAR(255),i67 VARCHAR(255),i68 VARCHAR(255),i69 VARCHAR(255),i70 VARCHAR(255),i71 VARCHAR(255),i72 VARCHAR(255),i73 VARCHAR(255),i74 VARCHAR(255),i75 VARCHAR(255),i76 VARCHAR(255),i77 VARCHAR(255),i78 VARCHAR(255),i79 VARCHAR(255),i80 VARCHAR(255),i81 VARCHAR(255),i82 VARCHAR(255),i83 VARCHAR(255),i84 VARCHAR(255),i85 VARCHAR(255),i86 VARCHAR(255),i87 VARCHAR(255),i88 VARCHAR(255),i89 VARCHAR(255),i90 VARCHAR(255),i91 VARCHAR(255),i92 VARCHAR(255),i93 VARCHAR(255),i94 VARCHAR(255),i95 VARCHAR(255),i96 VARCHAR(255),i97 VARCHAR(255),i98 VARCHAR(255),i99 VARCHAR(255)))
@@ -5213,8 +5602,10 @@ comparing results : success
 closed prepared statement id query
 executing statement ( sql: DROP TABLE IF EXISTS varchar_test)
 ignoring action close on statement. php only supports executing a statement
+closed session id testPstmt
+closing credential: id =  test, url =  informix:host=gama.lenexa.ibm.com;service=9200;database=test;server=gama_serv1;protocol=onsoctcp;DB_LOCALE=en_US.utf8;CLIENT_LOCALE=en_US.utf8
 TEST FAILED
-successful operations: 218
+successful operations: 229
 errors: 7
 fatal errors: 0
 ------------------------------------
@@ -5310,8 +5701,10 @@ closed prepared statement id pstmt3
 executing statement ( sql: DROP TABLE IF EXISTS test1)
 executing statement ( sql: DROP TABLE IF EXISTS test2)
 ignoring action close on statement. php only supports executing a statement
+closed session id testPstmt
+closing credential: id =  test, url =  informix:host=gama.lenexa.ibm.com;service=9200;database=test;server=gama_serv1;protocol=onsoctcp;DB_LOCALE=en_US.utf8;CLIENT_LOCALE=en_US.utf8
 TEST PASSED
-successful operations: 53
+successful operations: 55
 errors: 0
 fatal errors: 0
 ------------------------------------
@@ -5389,8 +5782,10 @@ ignoring action close on statement. php only supports executing a statement
 executing statement ( sql: DROP TABLE IF EXISTS test1)
 executing statement ( sql: DROP TABLE IF EXISTS test2)
 ignoring action close on statement. php only supports executing a statement
+closed session id testPstmt
+closing credential: id =  test, url =  informix:host=gama.lenexa.ibm.com;service=9200;database=test;server=gama_serv1;protocol=onsoctcp;DB_LOCALE=en_US.utf8;CLIENT_LOCALE=en_US.utf8
 TEST PASSED
-successful operations: 55
+successful operations: 57
 errors: 0
 fatal errors: 0
 ------------------------------------
@@ -5419,8 +5814,10 @@ executing prepared statement (id: query)
 comparing results : success
 executing statement ( sql: DROP TABLE IF EXISTS transaction_test)
 ignoring action close on statement. php only supports executing a statement
+closed session id testTxn
+closing credential: id =  test, url =  informix:host=gama.lenexa.ibm.com;service=9200;database=test;server=gama_serv1;protocol=onsoctcp;DB_LOCALE=en_US.utf8;CLIENT_LOCALE=en_US.utf8
 TEST PASSED
-successful operations: 20
+successful operations: 22
 errors: 0
 fatal errors: 0
 ------------------------------------

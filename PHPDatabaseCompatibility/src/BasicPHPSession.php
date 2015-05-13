@@ -13,8 +13,6 @@ class BasicPHPSession implements PHPSession {
 // 	private $statements = array();
 	private $lastPreparedStatementId = self::DEFAULT_ID;
 	private $preparedStatements = array();
-	private $lastResultSetId = self::DEFAULT_ID;
-	private $resultSets = array();
 	
 	function __construct($client, $sessionId, $credentialsId) {
 		$this->client = $client;
@@ -145,44 +143,9 @@ class BasicPHPSession implements PHPSession {
 		return $ps;
 	}
 
-	public function getResultSet($id) {
-		if ($id == null) {
-			$id = $this->lastResultSetId;
-		} else {
-			$this->lastResultSetId = $id;
-		}
-		return $this->resultSets[$id];
-	}
 
-	public function putResultSet($id, $resultSet) {
-		if ($id == null) {
-			$id = $this->lastResultSetId;
-		} else {
-			$this->lastResultSetId = $id;
-		}
-		return $this->resultSets[$id] = $resultSet;
-	}
-
-	public function removeResultSet($id) {
-		if ($id == null) {
-			$id = $this->lastResultSetId;
-		} else {
-			$this->lastResultSetId = $id;
-		}
-		$rs = $this->resultSets[$id];
-		unset($this->resultsSets[$id]);
-		if ($rs != null) {
-			try {
-				$rs.close();
-			} catch (Exception $e) {
-				// do nothing
-			}
-		}
-		return $rs;
-	}
-
-	public function close(){
-		$this->connection.close();
+	public function close() {
+		$this->connection = null;
 	}
 	
 // 	public function getLastStatementId() {
@@ -193,7 +156,4 @@ class BasicPHPSession implements PHPSession {
 		return $this->lastPreparedStatementId;
 	}
 
-	public function getLastResultSetId() {
-		return $this->lastResultSetId;
-	}
 }

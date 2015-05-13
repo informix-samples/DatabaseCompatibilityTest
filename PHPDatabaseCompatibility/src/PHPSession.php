@@ -21,15 +21,14 @@ interface PHPSession {
 	 *
 	 * @return the id of the last prepared statement used by this session
 	*/
-	
 	public function getLastPreparedStatementId();
-	/**
-	 * Returns the id of the last result set used by this session.
-	 *
-	 * @return the id of the last result set used by this session
-	*/
 	
-	public function getLastResultSetId();
+// 	/**
+// 	 * Returns the id of the last result set used by this session.
+// 	 *
+// 	 * @return the id of the last result set used by this session
+// 	*/
+// 	public function getLastResultSetId();
 	
 	/**
 	 * Returns the connection associated with this session.
@@ -103,24 +102,24 @@ interface PHPSession {
 	*/
 	public function removePreparedStatement($id);
 	
-	/**
-	 * Returns the result set associated with the specified id.
-	 *
-	 * @param id
-	 * @return
-	*/
-	public function getResultSet($id);
-	public function putResultSet($id, $resultSet);
+// 	/**
+// 	 * Returns the result set associated with the specified id.
+// 	 *
+// 	 * @param id
+// 	 * @return
+// 	*/
+// 	public function getResultSet($id);
+// 	public function putResultSet($id, $resultSet);
 	
-	/**
-	 * Dissociates the result set referenced by the specified id from this
-	 * session. This automatically closes the result set.
-	 *
-	 * @param id
-	 * the result set to remove from this session
-	 * @return the result set that was removed or <code>null</code> if there was
-	 * no result set with the specified id
-	*/
-	public function removeResultSet($id);
+// 	/**
+// 	 * Dissociates the result set referenced by the specified id from this
+// 	 * session. This automatically closes the result set.
+// 	 *
+// 	 * @param id
+// 	 * the result set to remove from this session
+// 	 * @return the result set that was removed or <code>null</code> if there was
+// 	 * no result set with the specified id
+// 	*/
+// 	public function removeResultSet($id);
 }
 ?>

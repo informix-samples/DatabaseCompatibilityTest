@@ -57,7 +57,7 @@ class BasicPHPClient {
 	public function removeCredential($credentialId) {
 		$dc = $this->credentials[$credentialId];
 		unset($this->credentials[$credentialId]);
-		return dc;
+		return $dc;
 	}
 
 	public function getDatabaseCredential($credentialId) {
