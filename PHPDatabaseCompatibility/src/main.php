@@ -31,7 +31,7 @@
 		
 		// Get log file handles
 		$driver = (DatabaseCredentials::getProtocol() == "DRDA")? "pdo_ibm" : "pdo_informix";
-		$resultFilePrefix =  $output_dir . "/" . "results_php_" . $driver . ".debug";
+		$resultFilePrefix =  $output_dir . "/" . "results_php_" . $driver;
 		$logFilePath = $resultFilePrefix . ".log";
 		$logFileHandle = fopen($logFilePath, "w");
 		if ($logFileHandle == null || empty($logFileHandle)) {

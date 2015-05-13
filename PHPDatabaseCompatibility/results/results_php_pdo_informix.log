@@ -1350,105 +1350,6 @@ errors: 0
 fatal errors: 0
 ------------------------------------
 
-starting test: dataTypeTest_DATE.json
-creating credential: id = test, url = informix:host=gama.lenexa.ibm.com;service=9200;database=test;server=gama_serv1;protocol=onsoctcp;DB_LOCALE=en_US.utf8;CLIENT_LOCALE=en_US.utf8
-created new session id testCRUD
-executing statement ( sql: DROP TABLE IF EXISTS date_test)
-executing statement ( sql: CREATE TABLE date_test (i0 DATE))
-ignoring action close on statement. php only supports executing a statement
-created prepared statement id insert
-executing prepared statement (id: insert)
-created prepared statement id query
-executing prepared statement (id: query)
-comparing results : success
-created prepared statement id update
-executing prepared statement (id: update)
-executing prepared statement (id: query)
-executing prepared statement (id: query)
-comparing results : success
-created prepared statement id delete
-executing prepared statement (id: delete)
-executing prepared statement (id: query)
-executing statement ( sql: DROP TABLE IF EXISTS date_test)
-ignoring action close on statement. php only supports executing a statement
-created new session id testPstmt
-executing statement ( sql: DROP TABLE IF EXISTS date_test)
-executing statement ( sql: CREATE TABLE date_test (i0 DATE))
-ignoring action close on statement. php only supports executing a statement
-created prepared statement id insert
-executing prepared statement (id: insert)
-executing prepared statement (id: insert)
-executing prepared statement (id: insert)
-executing prepared statement (id: insert)
-executing prepared statement (id: insert)
-executing prepared statement (id: insert)
-executing prepared statement (id: insert)
-executing prepared statement (id: insert)
-executing prepared statement (id: insert)
-executing prepared statement (id: insert)
-closed prepared statement id insert
-created prepared statement id query
-executing prepared statement (id: query)
-comparing results : success
-executing prepared statement (id: query)
-comparing results : success
-closed prepared statement id query
-executing statement ( sql: DROP TABLE IF EXISTS date_test)
-ignoring action close on statement. php only supports executing a statement
-created new session id testPstmt
-executing statement ( sql: DROP TABLE IF EXISTS date_test)
-executing statement ( sql: CREATE TABLE date_test (i0 DATE,i1 DATE,i2 DATE,i3 DATE,i4 DATE,i5 DATE,i6 DATE,i7 DATE,i8 DATE,i9 DATE,i10 DATE,i11 DATE,i12 DATE,i13 DATE,i14 DATE,i15 DATE,i16 DATE,i17 DATE,i18 DATE,i19 DATE,i20 DATE,i21 DATE,i22 DATE,i23 DATE,i24 DATE,i25 DATE,i26 DATE,i27 DATE,i28 DATE,i29 DATE,i30 DATE,i31 DATE,i32 DATE,i33 DATE,i34 DATE,i35 DATE,i36 DATE,i37 DATE,i38 DATE,i39 DATE,i40 DATE,i41 DATE,i42 DATE,i43 DATE,i44 DATE,i45 DATE,i46 DATE,i47 DATE,i48 DATE,i49 DATE))
-ignoring action close on statement. php only supports executing a statement
-created prepared statement id insert
-executing prepared statement (id: insert)
-executing prepared statement (id: insert)
-executing prepared statement (id: insert)
-executing prepared statement (id: insert)
-executing prepared statement (id: insert)
-executing prepared statement (id: insert)
-executing prepared statement (id: insert)
-executing prepared statement (id: insert)
-executing prepared statement (id: insert)
-executing prepared statement (id: insert)
-closed prepared statement id insert
-created prepared statement id query
-executing prepared statement (id: query)
-comparing results : success
-executing prepared statement (id: query)
-comparing results : success
-closed prepared statement id query
-executing statement ( sql: DROP TABLE IF EXISTS date_test)
-ignoring action close on statement. php only supports executing a statement
-created new session id testPstmt
-executing statement ( sql: DROP TABLE IF EXISTS date_test)
-executing statement ( sql: CREATE TABLE date_test (i0 DATE,i1 DATE,i2 DATE,i3 DATE,i4 DATE,i5 DATE,i6 DATE,i7 DATE,i8 DATE,i9 DATE,i10 DATE,i11 DATE,i12 DATE,i13 DATE,i14 DATE,i15 DATE,i16 DATE,i17 DATE,i18 DATE,i19 DATE,i20 DATE,i21 DATE,i22 DATE,i23 DATE,i24 DATE,i25 DATE,i26 DATE,i27 DATE,i28 DATE,i29 DATE,i30 DATE,i31 DATE,i32 DATE,i33 DATE,i34 DATE,i35 DATE,i36 DATE,i37 DATE,i38 DATE,i39 DATE,i40 DATE,i41 DATE,i42 DATE,i43 DATE,i44 DATE,i45 DATE,i46 DATE,i47 DATE,i48 DATE,i49 DATE,i50 DATE,i51 DATE,i52 DATE,i53 DATE,i54 DATE,i55 DATE,i56 DATE,i57 DATE,i58 DATE,i59 DATE,i60 DATE,i61 DATE,i62 DATE,i63 DATE,i64 DATE,i65 DATE,i66 DATE,i67 DATE,i68 DATE,i69 DATE,i70 DATE,i71 DATE,i72 DATE,i73 DATE,i74 DATE,i75 DATE,i76 DATE,i77 DATE,i78 DATE,i79 DATE,i80 DATE,i81 DATE,i82 DATE,i83 DATE,i84 DATE,i85 DATE,i86 DATE,i87 DATE,i88 DATE,i89 DATE,i90 DATE,i91 DATE,i92 DATE,i93 DATE,i94 DATE,i95 DATE,i96 DATE,i97 DATE,i98 DATE,i99 DATE))
-ignoring action close on statement. php only supports executing a statement
-created prepared statement id insert
-executing prepared statement (id: insert)
-executing prepared statement (id: insert)
-executing prepared statement (id: insert)
-executing prepared statement (id: insert)
-executing prepared statement (id: insert)
-executing prepared statement (id: insert)
-executing prepared statement (id: insert)
-executing prepared statement (id: insert)
-executing prepared statement (id: insert)
-executing prepared statement (id: insert)
-closed prepared statement id insert
-created prepared statement id query
-executing prepared statement (id: query)
-comparing results : success
-executing prepared statement (id: query)
-comparing results : success
-closed prepared statement id query
-executing statement ( sql: DROP TABLE IF EXISTS date_test)
-ignoring action close on statement. php only supports executing a statement
-TEST PASSED
-successful operations: 84
-errors: 0
-fatal errors: 0
-------------------------------------
-
 starting test: dataTypeTest_DATETIME0.json
 creating credential: id = test, url = informix:host=gama.lenexa.ibm.com;service=9200;database=test;server=gama_serv1;protocol=onsoctcp;DB_LOCALE=en_US.utf8;CLIENT_LOCALE=en_US.utf8
 created new session id testCRUD
@@ -3189,30 +3090,25 @@ errors: 7
 fatal errors: 0
 ------------------------------------
 
-starting test: dataTypeTest_NVARCHAR.json
+starting test: dataTypeTest_SERIAL.json
 creating credential: id = test, url = informix:host=gama.lenexa.ibm.com;service=9200;database=test;server=gama_serv1;protocol=onsoctcp;DB_LOCALE=en_US.utf8;CLIENT_LOCALE=en_US.utf8
 created new session id testCRUD
-executing statement ( sql: DROP TABLE IF EXISTS nchar_test)
-executing statement ( sql: CREATE TABLE nchar_test (i0 NVARCHAR(10)))
+executing statement ( sql: DROP TABLE IF EXISTS serial_test)
+executing statement ( sql: CREATE TABLE serial_test (i0 SERIAL))
 ignoring action close on statement. php only supports executing a statement
 created prepared statement id insert
 executing prepared statement (id: insert)
 created prepared statement id query
-executing prepared statement (id: query)
-comparing results : success
-created prepared statement id update
-executing prepared statement (id: update)
-executing prepared statement (id: query)
 executing prepared statement (id: query)
 comparing results : success
 created prepared statement id delete
 executing prepared statement (id: delete)
 executing prepared statement (id: query)
-executing statement ( sql: DROP TABLE IF EXISTS nchar_test)
+executing statement ( sql: DROP TABLE IF EXISTS serial_test)
 ignoring action close on statement. php only supports executing a statement
 created new session id testPstmt
-executing statement ( sql: DROP TABLE IF EXISTS nchar_test)
-executing statement ( sql: CREATE TABLE nchar_test (i0 NVARCHAR(50)))
+executing statement ( sql: DROP TABLE IF EXISTS serial_test)
+executing statement ( sql: CREATE TABLE serial_test (id SERIAL,value VARCHAR(20)))
 ignoring action close on statement. php only supports executing a statement
 created prepared statement id insert
 executing prepared statement (id: insert)
@@ -3228,146 +3124,13 @@ executing prepared statement (id: insert)
 closed prepared statement id insert
 created prepared statement id query
 executing prepared statement (id: query)
-comparing results : success
 executing prepared statement (id: query)
-comparing results : success
 executing prepared statement (id: query)
-comparing results : success
 closed prepared statement id query
-executing statement ( sql: DROP TABLE IF EXISTS nchar_test)
-ignoring action close on statement. php only supports executing a statement
-created new session id testPstmt
-executing statement ( sql: DROP TABLE IF EXISTS nchar_test)
-executing statement ( sql: CREATE TABLE nchar_test (i0 NVARCHAR(50),i1 NVARCHAR(50),i2 NVARCHAR(50),i3 NVARCHAR(50),i4 NVARCHAR(50),i5 NVARCHAR(50),i6 NVARCHAR(50),i7 NVARCHAR(50),i8 NVARCHAR(50),i9 NVARCHAR(50),i10 NVARCHAR(50),i11 NVARCHAR(50),i12 NVARCHAR(50),i13 NVARCHAR(50),i14 NVARCHAR(50),i15 NVARCHAR(50),i16 NVARCHAR(50),i17 NVARCHAR(50),i18 NVARCHAR(50),i19 NVARCHAR(50),i20 NVARCHAR(50),i21 NVARCHAR(50),i22 NVARCHAR(50),i23 NVARCHAR(50),i24 NVARCHAR(50),i25 NVARCHAR(50),i26 NVARCHAR(50),i27 NVARCHAR(50),i28 NVARCHAR(50),i29 NVARCHAR(50),i30 NVARCHAR(50),i31 NVARCHAR(50),i32 NVARCHAR(50),i33 NVARCHAR(50),i34 NVARCHAR(50),i35 NVARCHAR(50),i36 NVARCHAR(50),i37 NVARCHAR(50),i38 NVARCHAR(50),i39 NVARCHAR(50),i40 NVARCHAR(50),i41 NVARCHAR(50),i42 NVARCHAR(50),i43 NVARCHAR(50),i44 NVARCHAR(50),i45 NVARCHAR(50),i46 NVARCHAR(50),i47 NVARCHAR(50),i48 NVARCHAR(50),i49 NVARCHAR(50)))
-ignoring action close on statement. php only supports executing a statement
-created prepared statement id insert
-executing prepared statement (id: insert)
-executing prepared statement (id: insert)
-executing prepared statement (id: insert)
-executing prepared statement (id: insert)
-executing prepared statement (id: insert)
-executing prepared statement (id: insert)
-executing prepared statement (id: insert)
-executing prepared statement (id: insert)
-executing prepared statement (id: insert)
-executing prepared statement (id: insert)
-closed prepared statement id insert
-created prepared statement id query
-executing prepared statement (id: query)
-comparing results : success
-executing prepared statement (id: query)
-comparing results : success
-executing prepared statement (id: query)
-comparing results : success
-closed prepared statement id query
-executing statement ( sql: DROP TABLE IF EXISTS nchar_test)
-ignoring action close on statement. php only supports executing a statement
-created new session id testPstmt
-executing statement ( sql: DROP TABLE IF EXISTS nchar_test)
-executing statement ( sql: CREATE TABLE nchar_test (i0 NVARCHAR(50),i1 NVARCHAR(50),i2 NVARCHAR(50),i3 NVARCHAR(50),i4 NVARCHAR(50),i5 NVARCHAR(50),i6 NVARCHAR(50),i7 NVARCHAR(50),i8 NVARCHAR(50),i9 NVARCHAR(50),i10 NVARCHAR(50),i11 NVARCHAR(50),i12 NVARCHAR(50),i13 NVARCHAR(50),i14 NVARCHAR(50),i15 NVARCHAR(50),i16 NVARCHAR(50),i17 NVARCHAR(50),i18 NVARCHAR(50),i19 NVARCHAR(50),i20 NVARCHAR(50),i21 NVARCHAR(50),i22 NVARCHAR(50),i23 NVARCHAR(50),i24 NVARCHAR(50),i25 NVARCHAR(50),i26 NVARCHAR(50),i27 NVARCHAR(50),i28 NVARCHAR(50),i29 NVARCHAR(50),i30 NVARCHAR(50),i31 NVARCHAR(50),i32 NVARCHAR(50),i33 NVARCHAR(50),i34 NVARCHAR(50),i35 NVARCHAR(50),i36 NVARCHAR(50),i37 NVARCHAR(50),i38 NVARCHAR(50),i39 NVARCHAR(50),i40 NVARCHAR(50),i41 NVARCHAR(50),i42 NVARCHAR(50),i43 NVARCHAR(50),i44 NVARCHAR(50),i45 NVARCHAR(50),i46 NVARCHAR(50),i47 NVARCHAR(50),i48 NVARCHAR(50),i49 NVARCHAR(50),i50 NVARCHAR(50),i51 NVARCHAR(50),i52 NVARCHAR(50),i53 NVARCHAR(50),i54 NVARCHAR(50),i55 NVARCHAR(50),i56 NVARCHAR(50),i57 NVARCHAR(50),i58 NVARCHAR(50),i59 NVARCHAR(50),i60 NVARCHAR(50),i61 NVARCHAR(50),i62 NVARCHAR(50),i63 NVARCHAR(50),i64 NVARCHAR(50),i65 NVARCHAR(50),i66 NVARCHAR(50),i67 NVARCHAR(50),i68 NVARCHAR(50),i69 NVARCHAR(50),i70 NVARCHAR(50),i71 NVARCHAR(50),i72 NVARCHAR(50),i73 NVARCHAR(50),i74 NVARCHAR(50),i75 NVARCHAR(50),i76 NVARCHAR(50),i77 NVARCHAR(50),i78 NVARCHAR(50),i79 NVARCHAR(50),i80 NVARCHAR(50),i81 NVARCHAR(50),i82 NVARCHAR(50),i83 NVARCHAR(50),i84 NVARCHAR(50),i85 NVARCHAR(50),i86 NVARCHAR(50),i87 NVARCHAR(50),i88 NVARCHAR(50),i89 NVARCHAR(50),i90 NVARCHAR(50),i91 NVARCHAR(50),i92 NVARCHAR(50),i93 NVARCHAR(50),i94 NVARCHAR(50),i95 NVARCHAR(50),i96 NVARCHAR(50),i97 NVARCHAR(50),i98 NVARCHAR(50),i99 NVARCHAR(50)))
-ignoring action close on statement. php only supports executing a statement
-created prepared statement id insert
-executing prepared statement (id: insert)
-executing prepared statement (id: insert)
-executing prepared statement (id: insert)
-executing prepared statement (id: insert)
-executing prepared statement (id: insert)
-executing prepared statement (id: insert)
-executing prepared statement (id: insert)
-executing prepared statement (id: insert)
-executing prepared statement (id: insert)
-executing prepared statement (id: insert)
-closed prepared statement id insert
-created prepared statement id query
-executing prepared statement (id: query)
-comparing results : success
-executing prepared statement (id: query)
-comparing results : success
-executing prepared statement (id: query)
-comparing results : success
-closed prepared statement id query
-executing statement ( sql: DROP TABLE IF EXISTS nchar_test)
-ignoring action close on statement. php only supports executing a statement
-created new session id testPstmt
-executing statement ( sql: DROP TABLE IF EXISTS nchar_test)
-executing statement ( sql: CREATE TABLE nchar_test (i0 NVARCHAR(100)))
-ignoring action close on statement. php only supports executing a statement
-created prepared statement id insert
-executing prepared statement (id: insert)
-executing prepared statement (id: insert)
-executing prepared statement (id: insert)
-executing prepared statement (id: insert)
-executing prepared statement (id: insert)
-executing prepared statement (id: insert)
-executing prepared statement (id: insert)
-executing prepared statement (id: insert)
-executing prepared statement (id: insert)
-executing prepared statement (id: insert)
-closed prepared statement id insert
-created prepared statement id query
-executing prepared statement (id: query)
-comparing results : success
-executing prepared statement (id: query)
-comparing results : success
-executing prepared statement (id: query)
-comparing results : success
-closed prepared statement id query
-executing statement ( sql: DROP TABLE IF EXISTS nchar_test)
-ignoring action close on statement. php only supports executing a statement
-created new session id testPstmt
-executing statement ( sql: DROP TABLE IF EXISTS nchar_test)
-executing statement ( sql: CREATE TABLE nchar_test (i0 NVARCHAR(100),i1 NVARCHAR(100),i2 NVARCHAR(100),i3 NVARCHAR(100),i4 NVARCHAR(100),i5 NVARCHAR(100),i6 NVARCHAR(100),i7 NVARCHAR(100),i8 NVARCHAR(100),i9 NVARCHAR(100),i10 NVARCHAR(100),i11 NVARCHAR(100),i12 NVARCHAR(100),i13 NVARCHAR(100),i14 NVARCHAR(100),i15 NVARCHAR(100),i16 NVARCHAR(100),i17 NVARCHAR(100),i18 NVARCHAR(100),i19 NVARCHAR(100),i20 NVARCHAR(100),i21 NVARCHAR(100),i22 NVARCHAR(100),i23 NVARCHAR(100),i24 NVARCHAR(100),i25 NVARCHAR(100),i26 NVARCHAR(100),i27 NVARCHAR(100),i28 NVARCHAR(100),i29 NVARCHAR(100),i30 NVARCHAR(100),i31 NVARCHAR(100),i32 NVARCHAR(100),i33 NVARCHAR(100),i34 NVARCHAR(100),i35 NVARCHAR(100),i36 NVARCHAR(100),i37 NVARCHAR(100),i38 NVARCHAR(100),i39 NVARCHAR(100),i40 NVARCHAR(100),i41 NVARCHAR(100),i42 NVARCHAR(100),i43 NVARCHAR(100),i44 NVARCHAR(100),i45 NVARCHAR(100),i46 NVARCHAR(100),i47 NVARCHAR(100),i48 NVARCHAR(100),i49 NVARCHAR(100)))
-ignoring action close on statement. php only supports executing a statement
-created prepared statement id insert
-executing prepared statement (id: insert)
-executing prepared statement (id: insert)
-executing prepared statement (id: insert)
-executing prepared statement (id: insert)
-executing prepared statement (id: insert)
-executing prepared statement (id: insert)
-executing prepared statement (id: insert)
-executing prepared statement (id: insert)
-executing prepared statement (id: insert)
-executing prepared statement (id: insert)
-closed prepared statement id insert
-created prepared statement id query
-executing prepared statement (id: query)
-comparing results : success
-executing prepared statement (id: query)
-comparing results : success
-executing prepared statement (id: query)
-comparing results : success
-closed prepared statement id query
-executing statement ( sql: DROP TABLE IF EXISTS nchar_test)
-ignoring action close on statement. php only supports executing a statement
-created new session id testPstmt
-executing statement ( sql: DROP TABLE IF EXISTS nchar_test)
-executing statement ( sql: CREATE TABLE nchar_test (i0 NVARCHAR(100),i1 NVARCHAR(100),i2 NVARCHAR(100),i3 NVARCHAR(100),i4 NVARCHAR(100),i5 NVARCHAR(100),i6 NVARCHAR(100),i7 NVARCHAR(100),i8 NVARCHAR(100),i9 NVARCHAR(100),i10 NVARCHAR(100),i11 NVARCHAR(100),i12 NVARCHAR(100),i13 NVARCHAR(100),i14 NVARCHAR(100),i15 NVARCHAR(100),i16 NVARCHAR(100),i17 NVARCHAR(100),i18 NVARCHAR(100),i19 NVARCHAR(100),i20 NVARCHAR(100),i21 NVARCHAR(100),i22 NVARCHAR(100),i23 NVARCHAR(100),i24 NVARCHAR(100),i25 NVARCHAR(100),i26 NVARCHAR(100),i27 NVARCHAR(100),i28 NVARCHAR(100),i29 NVARCHAR(100),i30 NVARCHAR(100),i31 NVARCHAR(100),i32 NVARCHAR(100),i33 NVARCHAR(100),i34 NVARCHAR(100),i35 NVARCHAR(100),i36 NVARCHAR(100),i37 NVARCHAR(100),i38 NVARCHAR(100),i39 NVARCHAR(100),i40 NVARCHAR(100),i41 NVARCHAR(100),i42 NVARCHAR(100),i43 NVARCHAR(100),i44 NVARCHAR(100),i45 NVARCHAR(100),i46 NVARCHAR(100),i47 NVARCHAR(100),i48 NVARCHAR(100),i49 NVARCHAR(100),i50 NVARCHAR(100),i51 NVARCHAR(100),i52 NVARCHAR(100),i53 NVARCHAR(100),i54 NVARCHAR(100),i55 NVARCHAR(100),i56 NVARCHAR(100),i57 NVARCHAR(100),i58 NVARCHAR(100),i59 NVARCHAR(100),i60 NVARCHAR(100),i61 NVARCHAR(100),i62 NVARCHAR(100),i63 NVARCHAR(100),i64 NVARCHAR(100),i65 NVARCHAR(100),i66 NVARCHAR(100),i67 NVARCHAR(100),i68 NVARCHAR(100),i69 NVARCHAR(100),i70 NVARCHAR(100),i71 NVARCHAR(100),i72 NVARCHAR(100),i73 NVARCHAR(100),i74 NVARCHAR(100),i75 NVARCHAR(100),i76 NVARCHAR(100),i77 NVARCHAR(100),i78 NVARCHAR(100),i79 NVARCHAR(100),i80 NVARCHAR(100),i81 NVARCHAR(100),i82 NVARCHAR(100),i83 NVARCHAR(100),i84 NVARCHAR(100),i85 NVARCHAR(100),i86 NVARCHAR(100),i87 NVARCHAR(100),i88 NVARCHAR(100),i89 NVARCHAR(100),i90 NVARCHAR(100),i91 NVARCHAR(100),i92 NVARCHAR(100),i93 NVARCHAR(100),i94 NVARCHAR(100),i95 NVARCHAR(100),i96 NVARCHAR(100),i97 NVARCHAR(100),i98 NVARCHAR(100),i99 NVARCHAR(100)))
-ignoring action close on statement. php only supports executing a statement
-created prepared statement id insert
-executing prepared statement (id: insert)
-executing prepared statement (id: insert)
-executing prepared statement (id: insert)
-executing prepared statement (id: insert)
-executing prepared statement (id: insert)
-executing prepared statement (id: insert)
-executing prepared statement (id: insert)
-executing prepared statement (id: insert)
-executing prepared statement (id: insert)
-executing prepared statement (id: insert)
-closed prepared statement id insert
-created prepared statement id query
-executing prepared statement (id: query)
-comparing results : success
-executing prepared statement (id: query)
-comparing results : success
-executing prepared statement (id: query)
-comparing results : success
-closed prepared statement id query
-executing statement ( sql: DROP TABLE IF EXISTS nchar_test)
+executing statement ( sql: DROP TABLE IF EXISTS serial_test)
 ignoring action close on statement. php only supports executing a statement
 TEST PASSED
-successful operations: 156
+successful operations: 37
 errors: 0
 fatal errors: 0
 ------------------------------------
