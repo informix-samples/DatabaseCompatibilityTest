@@ -138,18 +138,7 @@ class Operation {
 					}
 				}
 				if ($pstmt->execute()) {
-					if ($this->nfetch == null) {
-						$actualResults = $pstmt->fetchAll(PDO::FETCH_ASSOC);
-					} else {
-						$actualResults = array();
-						for ($i = 0; $i < $this->nfetch; $i++) {
-							$row = $pstmt->fetch(PDO::FETCH_ASSOC);
-							if ($row === false) {
-								break;
-							}
-							$actualResults[] = $row;
-						}
-					}
+					$actualResults = $this->fetchRows($pstmt, $this->nfetch);
 					if ($this->expectedResults != null) {
 						$this->compareResults($this->expectedResults, $actualResults);
 					}
@@ -163,22 +152,7 @@ class Operation {
 					throw new Exception("Cannot run fetch on an empty prepared statement: statement id " . $this->statementId);
 				}
 				$this->logMessage("running fetch on prepared statement (id: {$this->statementId})");
-				$actualResults = array();
-				if ($this->nfetch == null) {
-					$row = $pstmt->fetch(PDO::FETCH_ASSOC);
-					while ($row !== false) {
-						$actualResults[] = $row;
-						$row = $pstmt->fetch(PDO::FETCH_ASSOC);
-					}
-				} else {
-					for ($i = 0; $i < $this->nfetch; $i++) {
-						$row = $pstmt->fetch(PDO::FETCH_ASSOC);
-						if ($row === false) {
-							break;
-						}
-						$actualResults[] = $row;
-					}
-				}
+				$actualResults = $this->fetchRows($pstmt, $this->nfetch);
 				if ($this->expectedResults != null) {
 					$this->compareResults($this->expectedResults, $actualResults);
 				}
@@ -194,14 +168,75 @@ class Operation {
 		}
 	}
 	
+	function fetchRows($stmt, $nfetch = null) {
+		$results = array();
+		if ($nfetch == null) {
+			$row = $stmt->fetch(PDO::FETCH_ASSOC);
+			while ($row !== false) {
+				$results[] = $row;
+				$row = $stmt->fetch(PDO::FETCH_ASSOC);
+			}
+		} else {
+			for ($i = 0; $i < $nfetch; $i++) {
+				$row = $stmt->fetch(PDO::FETCH_ASSOC);
+				if ($row === false) {
+					break;
+				}
+				$results[] = $row;
+			}
+		}
+		return $results;
+	}
+	
 	function compareResults($expectedResult, $actualResult)  {
-		$comparison = $expectedResult == $actualResult;
+		$comparison = $this->doCompareResults($expectedResult, $actualResult);
 		if ($comparison) {
 			$this->logMessage("comparing results : success");
 		} else {
 			$this->logError("comparing results : FAIL. Results are not equal. Expected: " . var_export($expectedResult, true) . " Actual: " . var_export($actualResult, true));
 		}
 		return $comparison;
+	}
+	
+	function doCompareResults($expectedResult, $actualResult) {
+		if ($expectedResult == $actualResult) {
+			// if equality comparison returns true, return true
+			return true;
+		}
+		
+		// else to a more in depth comparison
+		if (sizeof($expectedResult) != sizeof($actualResult)) {
+			return false;
+		}
+		for ($i = 0; $i < sizeof($actualResult); $i++) {
+			$actualRow = $actualResult[$i];
+			$expectedRow = $expectedResult[$i];
+			foreach ($actualRow as $name => $value) {
+				if ($value != $expectedRow[$name]) {
+					// Values are not equal. 
+					
+					// Check if values are datetime strings
+					try {
+						$actualDateTime = DateTime::createFromFormat("Y-m-d H:j:s.u", $value);
+						$expectedDatetime = DateTime::createFromFormat((strlen($expectedRow[$name]) == 19)? "Y-m-d H:j:s" : "Y-m-d H:j:s.u", $expectedRow[$name]);
+						if ($actualDateTime && $expectedDatetime) {
+							// They are valid datetimes, try to compare them again after conversion to datetime objects
+							if ($actualDateTime->format("Y-m-d H:j:s.u") != $expectedDatetime->format("Y-m-d H:j:s.u")) {
+								// datetime objects are not equal
+								return false;
+							}
+						} else {
+							// They are not datetimes, return false (objects are not equal)
+							return false;
+						}
+					} catch (Exception $e) {
+						// Exception trying to convert object to datetime, return false (objects are not equal)
+						return false;
+					}
+				}
+			}
+		}
+		return true;
 	}
 	
 	private function logMessage($msg) {
