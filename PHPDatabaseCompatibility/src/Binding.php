@@ -36,7 +36,9 @@ class Binding {
 			case SQLDataType::BOOLEAN:
 				$ps->bindParam($this->index, $this->value, PDO::PARAM_BOOL);
 				break;
+			case SQLDataType::BIGINT:
 			case SQLDataType::INT:
+			case SQLDataType::INT8:
 				$ps->bindParam($this->index, $this->value, PDO::PARAM_INT);
 				break;
 			case SQLDataType::CHAR:

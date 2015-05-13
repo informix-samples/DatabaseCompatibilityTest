@@ -8,6 +8,7 @@
 	$output_dir = "../results";
 	
 	date_default_timezone_set("UTC");
+	ini_set("precision", 17);
 
 	echo "main: starting compatibility test <br/>";
 	$client = new BasicPHPClient();
