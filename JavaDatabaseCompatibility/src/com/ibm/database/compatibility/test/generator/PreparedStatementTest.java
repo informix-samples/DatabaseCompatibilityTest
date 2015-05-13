@@ -101,6 +101,7 @@ public class PreparedStatementTest {
 		jow.write(TestGeneratorUtils.getDropTableOperation("ddl", tabName1));
 		jow.write(TestGeneratorUtils.getDropTableOperation("ddl", tabName2));
 		jow.write(TestGeneratorUtils.getCloseStatementOperation("ddl"));
+		jow.write(TestGeneratorUtils.getCloseSessionOperation(sessionId));
 
 		TestGeneratorUtils.writeEndTestInfo(jow, testName);
 		jow.flush();
@@ -220,7 +221,8 @@ public class PreparedStatementTest {
 		jow.write(TestGeneratorUtils.getDropTableOperation("ddl", tabName1));
 		jow.write(TestGeneratorUtils.getDropTableOperation("ddl", tabName2));
 		jow.write(TestGeneratorUtils.getCloseStatementOperation("ddl"));
-		
+		jow.write(TestGeneratorUtils.getCloseSessionOperation(sessionId));
+
 		TestGeneratorUtils.writeEndTestInfo(jow, testName);
 		jow.flush();
 		jow.close();

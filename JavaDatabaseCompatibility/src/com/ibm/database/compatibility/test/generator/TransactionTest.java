@@ -64,6 +64,7 @@ public class TransactionTest {
 		jow.writeComment("drop table");
 		jow.write(TestGeneratorUtils.getDropTableOperation("ddl", tabName));
 		jow.write(TestGeneratorUtils.getCloseStatementOperation("ddl"));
+		jow.write(TestGeneratorUtils.getCloseSessionOperation(sessionId));
 
 		TestGeneratorUtils.writeEndTestInfo(jow, testName);
 		jow.flush();

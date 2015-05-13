@@ -123,6 +123,7 @@ public class DataTypeTest {
 		jow.writeComment("dropping table");
 		jow.write(TestGeneratorUtils.getDropTableOperation("ddl", tabName));
 		jow.write(TestGeneratorUtils.getCloseStatementOperation("ddl"));
+		jow.write(TestGeneratorUtils.getCloseSessionOperation("testCRUD"));
 	}
 	
 	
@@ -165,6 +166,7 @@ public class DataTypeTest {
 		jow.writeComment("dropping table");
 		jow.write(TestGeneratorUtils.getDropTableOperation("ddl", tabName));
 		jow.write(TestGeneratorUtils.getCloseStatementOperation("ddl"));
+		jow.write(TestGeneratorUtils.getCloseSessionOperation("testPstmt"));
 	}
 	
 	public static JsonArray getMatchingRows(JsonArray tableData, Column column, Object queryValue) {

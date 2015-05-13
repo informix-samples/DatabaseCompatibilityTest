@@ -19,7 +19,11 @@ public class TestGeneratorUtils {
 	public static Operation getCreateCredentialsOperation(String credentialId) {
 		return new Operation.Builder().resource("credentials").action("create").credentialId(credentialId).build();
 	}
-	
+
+	public static Operation getCloseCredentialsOperation(String credentialId) {
+		return new Operation.Builder().resource("credentials").action("close").credentialId(credentialId).build();
+	}
+
 	public static Operation getCreateSessionOperation(String sessionId) {
 		return new Operation.Builder().resource("session").action("create").sessionId(sessionId).build();
 	}
@@ -199,6 +203,7 @@ public class TestGeneratorUtils {
 	}
 	
 	public static void writeEndTestInfo(JsonOperationWriter jow, String testName) throws IOException {
+		jow.write(getCloseCredentialsOperation("test"));
 		jow.writeComment("end of test: " + testName);
 	}
 	

@@ -27,6 +27,7 @@
 # dropping table
 {"resource":"statement","action":"execute","statementId":"ddl","sql":"DROP TABLE IF EXISTS lvarchar_test"}
 {"resource":"statement","action":"close","statementId":"ddl"}
+{"resource":"session","action":"close","sessionId":"testCRUD"}
 # ---- Testing query and insert prepared statement reuse ----
 {"resource":"session","action":"create","sessionId":"testPstmt"}
 # creating table
@@ -46,6 +47,7 @@
 # dropping table
 {"resource":"statement","action":"execute","statementId":"ddl","sql":"DROP TABLE IF EXISTS lvarchar_test"}
 {"resource":"statement","action":"close","statementId":"ddl"}
+{"resource":"session","action":"close","sessionId":"testPstmt"}
 # ---- Testing query and insert prepared statement reuse ----
 {"resource":"session","action":"create","sessionId":"testPstmt"}
 # creating table
@@ -65,6 +67,7 @@
 # dropping table
 {"resource":"statement","action":"execute","statementId":"ddl","sql":"DROP TABLE IF EXISTS lvarchar_test"}
 {"resource":"statement","action":"close","statementId":"ddl"}
+{"resource":"session","action":"close","sessionId":"testPstmt"}
 # ---- Testing query and insert prepared statement reuse ----
 {"resource":"session","action":"create","sessionId":"testPstmt"}
 # creating table
@@ -84,6 +87,7 @@
 # dropping table
 {"resource":"statement","action":"execute","statementId":"ddl","sql":"DROP TABLE IF EXISTS lvarchar_test"}
 {"resource":"statement","action":"close","statementId":"ddl"}
+{"resource":"session","action":"close","sessionId":"testPstmt"}
 # ---- Testing query and insert prepared statement reuse ----
 {"resource":"session","action":"create","sessionId":"testPstmt"}
 # creating table
@@ -103,6 +107,7 @@
 # dropping table
 {"resource":"statement","action":"execute","statementId":"ddl","sql":"DROP TABLE IF EXISTS lvarchar_test"}
 {"resource":"statement","action":"close","statementId":"ddl"}
+{"resource":"session","action":"close","sessionId":"testPstmt"}
 # ---- Testing query and insert prepared statement reuse ----
 {"resource":"session","action":"create","sessionId":"testPstmt"}
 # creating table
@@ -122,6 +127,7 @@
 # dropping table
 {"resource":"statement","action":"execute","statementId":"ddl","sql":"DROP TABLE IF EXISTS lvarchar_test"}
 {"resource":"statement","action":"close","statementId":"ddl"}
+{"resource":"session","action":"close","sessionId":"testPstmt"}
 # ---- Testing query and insert prepared statement reuse ----
 {"resource":"session","action":"create","sessionId":"testPstmt"}
 # creating table
@@ -141,4 +147,6 @@
 # dropping table
 {"resource":"statement","action":"execute","statementId":"ddl","sql":"DROP TABLE IF EXISTS lvarchar_test"}
 {"resource":"statement","action":"close","statementId":"ddl"}
+{"resource":"session","action":"close","sessionId":"testPstmt"}
+{"resource":"credentials","action":"close","credentialId":"test"}
 # end of test: lvarchar datatype test
