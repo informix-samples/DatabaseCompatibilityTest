@@ -1,4 +1,4 @@
-{"language":"php","client":"pdo_ibm","server":"Informix","test":"dataTypeTest_BIGINT.json","result":false,"detail":"comparing results : FAIL. Results are not equal. Expected: array (\n  0 => \n  array (\n    'I0' => 4294967296,\n    'I1' => 2.3058430092137E+18,\n    'I2' => 1.1529215046068E+18,\n  ),\n) Actual: array (\n  0 => \n  array (\n    'I0' => '4294967296',\n    'I1' => '2305843009213700000',\n    'I2' => '1152921504606800000',\n  ),\n)"}
+{"language":"php","client":"pdo_ibm","server":"Informix","test":"dataTypeTest_BIGINT.json","result":true}
 {"language":"php","client":"pdo_ibm","server":"Informix","test":"dataTypeTest_BIGSERIAL.json","result":true}
 {"language":"php","client":"pdo_ibm","server":"Informix","test":"dataTypeTest_BOOLEAN.json","result":false,"detail":"FAIL: prepared statement execution returned false. array (\n  0 => '22005',\n  1 => -99999,\n  2 => '[IBM][CLI Driver] CLI0112E  Error in assignment. SQLSTATE=22005 (SQLExecute[-99999] at ext\\\\PDO_IBM-1.3.3\\\\ibm_statement.c:1007)',\n)"}
 {"language":"php","client":"pdo_ibm","server":"Informix","test":"dataTypeTest_CHAR.json","result":true}
@@ -9,14 +9,14 @@
 {"language":"php","client":"pdo_ibm","server":"Informix","test":"dataTypeTest_DATETIME3.json","result":true}
 {"language":"php","client":"pdo_ibm","server":"Informix","test":"dataTypeTest_DATETIME4.json","result":true}
 {"language":"php","client":"pdo_ibm","server":"Informix","test":"dataTypeTest_DATETIME5.json","result":true}
-{"language":"php","client":"pdo_ibm","server":"Informix","test":"dataTypeTest_DECIMAL.json","result":false,"detail":"comparing results : FAIL. Results are not equal. Expected: array (\n  0 => \n  array (\n    'I0' => 7.151717102158E+14,\n  ),\n) Actual: array (\n  0 => \n  array (\n    'I0' => '7.15171710215800E+014',\n  ),\n)"}
+{"language":"php","client":"pdo_ibm","server":"Informix","test":"dataTypeTest_DECIMAL.json","result":false,"detail":"comparing results : FAIL. Results are not equal. Expected: array (\n  0 => \n  array (\n    'I0' => 715171710215797.25,\n  ),\n) Actual: array (\n  0 => \n  array (\n    'I0' => '7.15171710215797E+014',\n  ),\n)"}
 {"language":"php","client":"pdo_ibm","server":"Informix","test":"dataTypeTest_INT.json","result":true}
-{"language":"php","client":"pdo_ibm","server":"Informix","test":"dataTypeTest_INT8.json","result":false,"detail":"comparing results : FAIL. Results are not equal. Expected: array (\n  0 => \n  array (\n    'I0' => 2.3058430092137E+18,\n    'I1' => 1.1529215046068E+18,\n    'I2' => 5.7646075230342E+17,\n  ),\n) Actual: array (\n  0 => \n  array (\n    'I0' => '2305843009213700000',\n    'I1' => '1152921504606800000',\n    'I2' => '576460752303420000',\n  ),\n)"}
+{"language":"php","client":"pdo_ibm","server":"Informix","test":"dataTypeTest_INT8.json","result":true}
 {"language":"php","client":"pdo_ibm","server":"Informix","test":"dataTypeTest_LVARCHAR.json","result":true}
 {"language":"php","client":"pdo_ibm","server":"Informix","test":"dataTypeTest_NVARCHAR.json","result":true}
 {"language":"php","client":"pdo_ibm","server":"Informix","test":"dataTypeTest_SERIAL.json","result":true}
 {"language":"php","client":"pdo_ibm","server":"Informix","test":"dataTypeTest_SERIAL8.json","result":true}
-{"language":"php","client":"pdo_ibm","server":"Informix","test":"dataTypeTest_SMALLFLOAT.json","result":false,"detail":"comparing results : FAIL. Results are not equal. Expected: array (\n  0 => \n  array (\n    'I0' => 84.823006,\n  ),\n) Actual: array (\n  0 => \n  array (\n    'I0' => '8.482301E+01',\n  ),\n)"}
+{"language":"php","client":"pdo_ibm","server":"Informix","test":"dataTypeTest_SMALLFLOAT.json","result":false,"detail":"comparing results : FAIL. Results are not equal. Expected: array (\n  0 => \n  array (\n    'I0' => 84.823006000000007,\n  ),\n) Actual: array (\n  0 => \n  array (\n    'I0' => '8.482301E+01',\n  ),\n)"}
 {"language":"php","client":"pdo_ibm","server":"Informix","test":"dataTypeTest_SMALLINT.json","result":true}
 {"language":"php","client":"pdo_ibm","server":"Informix","test":"dataTypeTest_VARCHAR.json","result":true}
 {"language":"php","client":"pdo_ibm","server":"Informix","test":"ops.json","result":true}
