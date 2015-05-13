@@ -1,50 +1,50 @@
-13:13:40 - TEST [dataTypeTest_BIGINT.json] PASSED
-13:13:40 - TEST successful operations: 41
-13:13:40 - TEST [dataTypeTest_BIGSERIAL.json] PASSED
-13:13:40 - TEST successful operations: 37
-13:13:41 - TEST [dataTypeTest_BOOLEAN.json] PASSED
-13:13:41 - TEST successful operations: 84
-13:13:42 - TEST [dataTypeTest_CHAR.json] PASSED
-13:13:42 - TEST successful operations: 179
-13:13:43 - TEST [dataTypeTest_DATE.json] PASSED
-13:13:43 - TEST successful operations: 84
-13:13:44 - TEST [dataTypeTest_DATETIME0.json] PASSED
-13:13:44 - TEST successful operations: 84
-13:13:44 - TEST [dataTypeTest_DATETIME1.json] PASSED
-13:13:44 - TEST successful operations: 84
-13:13:45 - TEST [dataTypeTest_DATETIME2.json] PASSED
-13:13:45 - TEST successful operations: 84
-13:13:45 - TEST [dataTypeTest_DATETIME3.json] PASSED
-13:13:45 - TEST successful operations: 84
-13:13:45 - TEST [dataTypeTest_DATETIME4.json] PASSED
-13:13:45 - TEST successful operations: 84
-13:13:46 - TEST [dataTypeTest_DATETIME5.json] PASSED
-13:13:46 - TEST successful operations: 84
-13:13:46 - TEST [dataTypeTest_DECIMAL.json] PASSED
-13:13:46 - TEST successful operations: 87
-13:13:46 - TEST [dataTypeTest_INT.json] PASSED
-13:13:46 - TEST successful operations: 87
-13:13:47 - TEST [dataTypeTest_INT8.json] PASSED
-13:13:47 - TEST successful operations: 41
-13:13:47 - TEST [dataTypeTest_LVARCHAR.json] PASSED
-13:13:47 - TEST successful operations: 102
-13:13:49 - TEST [dataTypeTest_NVARCHAR.json] PASSED
-13:13:49 - TEST successful operations: 156
-13:13:50 - TEST [dataTypeTest_SERIAL.json] PASSED
-13:13:50 - TEST successful operations: 37
-13:13:50 - TEST [dataTypeTest_SERIAL8.json] PASSED
-13:13:50 - TEST successful operations: 37
-13:13:50 - TEST [dataTypeTest_SMALLFLOAT.json] PASSED
-13:13:50 - TEST successful operations: 87
-13:13:50 - TEST [dataTypeTest_SMALLINT.json] PASSED
-13:13:50 - TEST successful operations: 41
-13:13:52 - TEST [dataTypeTest_VARCHAR.json] PASSED
-13:13:52 - TEST successful operations: 225
-13:13:52 - TEST [ops.json] PASSED
-13:13:52 - TEST successful operations: 20
-13:13:52 - TEST [preparedStatementTest_1.json] PASSED
-13:13:52 - TEST successful operations: 53
-13:13:52 - TEST [preparedStatementTest_2.json] PASSED
-13:13:52 - TEST successful operations: 55
-13:13:52 - TEST [transactionTest.json] PASSED
-13:13:52 - TEST successful operations: 20
+TEST [dataTypeTest_BIGINT.json] PASSED
+TEST successful operations: 44
+TEST [dataTypeTest_BIGSERIAL.json] PASSED
+TEST successful operations: 40
+TEST [dataTypeTest_BOOLEAN.json] PASSED
+TEST successful operations: 89
+TEST [dataTypeTest_CHAR.json] PASSED
+TEST successful operations: 188
+TEST [dataTypeTest_DATE.json] PASSED
+TEST successful operations: 89
+TEST [dataTypeTest_DATETIME0.json] PASSED
+TEST successful operations: 89
+TEST [dataTypeTest_DATETIME1.json] PASSED
+TEST successful operations: 89
+TEST [dataTypeTest_DATETIME2.json] PASSED
+TEST successful operations: 89
+TEST [dataTypeTest_DATETIME3.json] PASSED
+TEST successful operations: 89
+TEST [dataTypeTest_DATETIME4.json] PASSED
+TEST successful operations: 89
+TEST [dataTypeTest_DATETIME5.json] PASSED
+TEST successful operations: 89
+TEST [dataTypeTest_DECIMAL.json] PASSED
+TEST successful operations: 92
+TEST [dataTypeTest_INT.json] PASSED
+TEST successful operations: 92
+TEST [dataTypeTest_INT8.json] PASSED
+TEST successful operations: 44
+TEST [dataTypeTest_LVARCHAR.json] PASSED
+TEST successful operations: 110
+TEST [dataTypeTest_NVARCHAR.json] PASSED
+TEST successful operations: 164
+TEST [dataTypeTest_SERIAL.json] PASSED
+TEST successful operations: 40
+TEST [dataTypeTest_SERIAL8.json] PASSED
+TEST successful operations: 40
+TEST [dataTypeTest_SMALLFLOAT.json] PASSED
+TEST successful operations: 92
+TEST [dataTypeTest_SMALLINT.json] PASSED
+TEST successful operations: 44
+TEST [dataTypeTest_VARCHAR.json] PASSED
+TEST successful operations: 236
+TEST [ops.json] PASSED
+TEST successful operations: 20
+TEST [preparedStatementTest_1.json] PASSED
+TEST successful operations: 55
+TEST [preparedStatementTest_2.json] PASSED
+TEST successful operations: 57
+TEST [transactionTest.json] PASSED
+TEST successful operations: 22

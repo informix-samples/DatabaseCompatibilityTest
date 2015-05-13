@@ -14,7 +14,7 @@
     <filter class="com.ibm.database.compatibility.SummaryFilter" />
 
     <encoder>
-      <pattern>%d{HH:mm:ss} - %msg%n</pattern>
+      <pattern>%msg%n</pattern>
     </encoder>
   </appender>
 
@@ -22,7 +22,7 @@
     <file>results/results.debug.log</file>
     <append>false</append>
     <encoder>
-      <pattern>%date %level [%thread] %logger{10} [%file:%line] %msg%n</pattern>
+      <pattern>%level [%thread] %logger{10} [%file:%line] %msg%n</pattern>
     </encoder>
   </appender>
 
