@@ -8,7 +8,6 @@
 	$output_dir = "../results";
 	
 	date_default_timezone_set("UTC");
-	ini_set("precision", 17);
 
 	echo "main: starting compatibility test <br/>";
 	$client = new BasicPHPClient();
@@ -47,6 +46,11 @@
 		// Run each test
 		foreach($files as $file) {
 			echo "<br/> test case: " . $file . "<br/>";
+			if (strpos($file,"BIGINT") || strpos($file, "INT8")) {
+				ini_set("precision", 17); // need a bigger precision to handle big integers
+			} else {
+				ini_set("precision", 14); // php's default precision
+			}
 			fwrite($logFileHandle, "starting test: " . $file . PHP_EOL);
 			$or = new JsonOperationReader($input_dir, $file, $logFileHandle, $resultFileHandle);
 			$osr = new OperationReaderRunner($client, $or);

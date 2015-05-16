@@ -213,28 +213,40 @@ class Operation {
 			$expectedRow = $expectedResult[$i];
 			foreach ($actualRow as $name => $value) {
 				if ($value != $expectedRow[$name]) {
-					// Values are not equal. 
-					
-					// Check if values are datetime strings
-					try {
-						$actualDateTime = DateTime::createFromFormat("Y-m-d H:j:s.u", $value);
-						$expectedDatetime = DateTime::createFromFormat((strlen($expectedRow[$name]) == 19)? "Y-m-d H:j:s" : "Y-m-d H:j:s.u", $expectedRow[$name]);
-						if ($actualDateTime && $expectedDatetime) {
-							// They are valid datetimes, try to compare them again after conversion to datetime objects
-							if ($actualDateTime->format("Y-m-d H:j:s.u") != $expectedDatetime->format("Y-m-d H:j:s.u")) {
-								// datetime objects are not equal
-								return false;
-							}
+					// Values are not equal. But there are some special checks to try.
+					// If one or both numbers are floats, compare with error tolerance
+					if (is_float($value) || is_float($expectedRow[$name])) {
+						$precision = ini_get('precision');
+ 						$errorTolerance = pow(10, floor(log10($value) - ($precision - 1)));
+						$diff = abs($value - $expectedRow[$name]);
+						if ($diff < $errorTolerance) {
+							$this->logMessage("Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance");
+							$this->logMessage("Float comparison details: returned value = $value, expected value = $expectedRow[$name], precision = $precision, difference = $diff, error tolerance = $errorTolerance");
 						} else {
-							// They are not datetimes, return false (objects are not equal)
 							return false;
 						}
-					} catch (Exception $e) {
-						// Exception trying to convert object to datetime, return false (objects are not equal)
-						return false;
+					}  else {
+						// Check if values are datetime strings
+						try {
+							$actualDateTime = DateTime::createFromFormat("Y-m-d H:j:s.u", $value);
+							$expectedDatetime = DateTime::createFromFormat((strlen($expectedRow[$name]) == 19)? "Y-m-d H:j:s" : "Y-m-d H:j:s.u", $expectedRow[$name]);
+							if ($actualDateTime && $expectedDatetime) {
+								// They are valid datetimes, try to compare them again after conversion to datetime objects
+								if ($actualDateTime->format("Y-m-d H:j:s.u") != $expectedDatetime->format("Y-m-d H:j:s.u")) {
+									// datetime objects are not equal
+									return false;
+								}
+							} else {
+								// They are not datetimes, return false (objects are not equal)
+								return false;
+							}
+						} catch (Exception $e) {
+							// Exception trying to convert object to datetime, return false (objects are not equal)
+							return false;
+						}
 					}
 				}
-			}
+			} 
 		}
 		return true;
 	}
