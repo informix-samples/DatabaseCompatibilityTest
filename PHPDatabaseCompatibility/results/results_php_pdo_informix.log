@@ -2108,32 +2108,16 @@ created prepared statement id insert
 executing prepared statement (id: insert)
 created prepared statement id query
 executing prepared statement (id: query)
-comparing results : FAIL. Results are not equal. Expected: array (
-  0 => 
-  array (
-    'I0' => 7.151717102158E+14,
-  ),
-) Actual: array (
-  0 => 
-  array (
-    'I0' => '715171710215800.0',
-  ),
-)
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 715171710215800.0, expected value = 7.151717102158E+14, precision = 14, difference = 2.75, error tolerance = 10
+comparing results : success
 created prepared statement id update
 executing prepared statement (id: update)
 executing prepared statement (id: query)
 executing prepared statement (id: query)
-comparing results : FAIL. Results are not equal. Expected: array (
-  0 => 
-  array (
-    'I0' => 4.9393689715768E+45,
-  ),
-) Actual: array (
-  0 => 
-  array (
-    'I0' => '4.9393689715768e45',
-  ),
-)
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 4.9393689715768e45, expected value = 4.9393689715768E+45, precision = 14, difference = 5.704427701027E+30, error tolerance = 1.0E+32
+comparing results : success
 created prepared statement id delete
 executing prepared statement (id: delete)
 executing prepared statement (id: query)
@@ -2160,29 +2144,13 @@ created prepared statement id query
 executing prepared statement (id: query)
 comparing results : success
 executing prepared statement (id: query)
-comparing results : FAIL. Results are not equal. Expected: array (
-  0 => 
-  array (
-    'I0' => 93.018830040899,
-  ),
-) Actual: array (
-  0 => 
-  array (
-    'I0' => '93.018830040899',
-  ),
-)
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 93.018830040899, expected value = 93.018830040899, precision = 14, difference = 4.4053649617126E-13, error tolerance = 1.0E-12
+comparing results : success
 executing prepared statement (id: query)
-comparing results : FAIL. Results are not equal. Expected: array (
-  0 => 
-  array (
-    'I0' => 5768.3351614518,
-  ),
-) Actual: array (
-  0 => 
-  array (
-    'I0' => '5768.3351614518',
-  ),
-)
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 5768.3351614518, expected value = 5768.3351614518, precision = 14, difference = 2.5465851649642E-11, error tolerance = 1.0E-10
+comparing results : success
 closed prepared statement id query
 executing statement ( sql: DROP TABLE IF EXISTS decimal_test)
 ignoring action close on statement. php only supports executing a statement
@@ -2207,225 +2175,209 @@ created prepared statement id query
 executing prepared statement (id: query)
 comparing results : success
 executing prepared statement (id: query)
-comparing results : FAIL. Results are not equal. Expected: array (
-  0 => 
-  array (
-    'I0' => 93.018830040899,
-    'I1' => 213.11960353301,
-    'I2' => 407.76904478974,
-    'I3' => 694.96715381109,
-    'I4' => 1092.713930597,
-    'I5' => 1619.0093751476,
-    'I6' => 2291.8534874628,
-    'I7' => 3129.2462675426,
-    'I8' => 4149.1877153871,
-    'I9' => 5369.6778309961,
-    'I10' => 6808.7166143698,
-    'I11' => 8484.304065508,
-    'I12' => 10414.440184411,
-    'I13' => 12617.124971078,
-    'I14' => 15110.358425511,
-    'I15' => 17912.140547707,
-    'I16' => 21040.471337669,
-    'I17' => 24513.350795395,
-    'I18' => 28348.778920885,
-    'I19' => 32564.75571414,
-    'I20' => 37179.28117516,
-    'I21' => 42210.355303945,
-    'I22' => 47675.978100494,
-    'I23' => 53594.149564807,
-    'I24' => 59982.869696886,
-    'I25' => 66860.138496729,
-    'I26' => 74243.955964336,
-    'I27' => 82152.322099708,
-    'I28' => 90603.236902845,
-    'I29' => 99614.700373746,
-    'I30' => 109204.71251241,
-    'I31' => 119391.27331884,
-    'I32' => 130192.38279304,
-    'I33' => 141626.040935,
-    'I34' => 153710.24774472,
-    'I35' => 166463.00322221,
-    'I36' => 179902.30736747,
-    'I37' => 194046.16018048,
-    'I38' => 208912.56166127,
-    'I39' => 224519.51180981,
-    'I40' => 240885.01062613,
-    'I41' => 258027.0581102,
-    'I42' => 275963.65426204,
-    'I43' => 294712.79908165,
-    'I44' => 314292.49256902,
-    'I45' => 334720.73472416,
-    'I46' => 356015.52554706,
-    'I47' => 378194.86503772,
-    'I48' => 401276.75319615,
-    'I49' => 425279.19002234,
-  ),
-) Actual: array (
-  0 => 
-  array (
-    'I0' => '93.018830040899',
-    'I1' => '213.11960353301',
-    'I2' => '407.76904478974',
-    'I3' => '694.96715381109',
-    'I4' => '1092.713930597',
-    'I5' => '1619.0093751476',
-    'I6' => '2291.8534874628',
-    'I7' => '3129.2462675426',
-    'I8' => '4149.1877153871',
-    'I9' => '5369.6778309961',
-    'I10' => '6808.7166143698',
-    'I11' => '8484.304065508',
-    'I12' => '10414.440184411',
-    'I13' => '12617.124971078',
-    'I14' => '15110.358425511',
-    'I15' => '17912.140547707',
-    'I16' => '21040.471337669',
-    'I17' => '24513.350795395',
-    'I18' => '28348.778920885',
-    'I19' => '32564.75571414',
-    'I20' => '37179.28117516',
-    'I21' => '42210.355303945',
-    'I22' => '47675.978100494',
-    'I23' => '53594.149564807',
-    'I24' => '59982.869696886',
-    'I25' => '66860.138496729',
-    'I26' => '74243.955964336',
-    'I27' => '82152.322099708',
-    'I28' => '90603.236902845',
-    'I29' => '99614.700373746',
-    'I30' => '109204.71251241',
-    'I31' => '119391.27331884',
-    'I32' => '130192.38279304',
-    'I33' => '141626.040935',
-    'I34' => '153710.24774472',
-    'I35' => '166463.00322221',
-    'I36' => '179902.30736747',
-    'I37' => '194046.16018048',
-    'I38' => '208912.56166127',
-    'I39' => '224519.51180981',
-    'I40' => '240885.01062613',
-    'I41' => '258027.0581102',
-    'I42' => '275963.65426204',
-    'I43' => '294712.79908165',
-    'I44' => '314292.49256902',
-    'I45' => '334720.73472416',
-    'I46' => '356015.52554706',
-    'I47' => '378194.86503772',
-    'I48' => '401276.75319615',
-    'I49' => '425279.19002234',
-  ),
-)
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 93.018830040899, expected value = 93.018830040899, precision = 14, difference = 4.4053649617126E-13, error tolerance = 1.0E-12
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 213.11960353301, expected value = 213.11960353301, precision = 14, difference = 1.7905676941155E-12, error tolerance = 1.0E-11
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 407.76904478974, expected value = 407.76904478974, precision = 14, difference = 3.9790393202566E-13, error tolerance = 1.0E-11
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 694.96715381109, expected value = 694.96715381109, precision = 14, difference = 4.6611603465863E-12, error tolerance = 1.0E-11
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 1092.713930597, expected value = 1092.713930597, precision = 14, difference = 4.6611603465863E-11, error tolerance = 1.0E-10
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 1619.0093751476, expected value = 1619.0093751476, precision = 14, difference = 2.4101609596983E-11, error tolerance = 1.0E-10
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 2291.8534874628, expected value = 2291.8534874628, precision = 14, difference = 1.7735146684572E-11, error tolerance = 1.0E-10
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 3129.2462675426, expected value = 3129.2462675426, precision = 14, difference = 2.7739588404074E-11, error tolerance = 1.0E-10
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 4149.1877153871, expected value = 4149.1877153871, precision = 14, difference = 4.6384229790419E-11, error tolerance = 1.0E-10
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 5369.6778309961, expected value = 5369.6778309961, precision = 14, difference = 2.7284841053188E-12, error tolerance = 1.0E-10
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 6808.7166143698, expected value = 6808.7166143698, precision = 14, difference = 4.3655745685101E-11, error tolerance = 1.0E-10
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 8484.304065508, expected value = 8484.304065508, precision = 14, difference = 3.092281986028E-11, error tolerance = 1.0E-10
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 10414.440184411, expected value = 10414.440184411, precision = 14, difference = 7.8216544352472E-11, error tolerance = 1.0E-9
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 12617.124971078, expected value = 12617.124971078, precision = 14, difference = 4.3110048864037E-10, error tolerance = 1.0E-9
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 15110.358425511, expected value = 15110.358425511, precision = 14, difference = 4.4747139327228E-10, error tolerance = 1.0E-9
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 17912.140547707, expected value = 17912.140547707, precision = 14, difference = 2.9103830456734E-10, error tolerance = 1.0E-9
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 21040.471337669, expected value = 21040.471337669, precision = 14, difference = 3.528839442879E-10, error tolerance = 1.0E-9
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 24513.350795395, expected value = 24513.350795395, precision = 14, difference = 3.7471181713045E-10, error tolerance = 1.0E-9
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 28348.778920885, expected value = 28348.778920885, precision = 14, difference = 2.1100277081132E-10, error tolerance = 1.0E-9
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 32564.75571414, expected value = 32564.75571414, precision = 14, difference = 4.1472958400846E-10, error tolerance = 1.0E-9
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 37179.28117516, expected value = 37179.28117516, precision = 14, difference = 2.4010660126805E-10, error tolerance = 1.0E-9
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 42210.355303945, expected value = 42210.355303945, precision = 14, difference = 3.2014213502407E-10, error tolerance = 1.0E-9
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 47675.978100494, expected value = 47675.978100494, precision = 14, difference = 2.6921043172479E-10, error tolerance = 1.0E-9
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 53594.149564807, expected value = 53594.149564807, precision = 14, difference = 4.0017766878009E-10, error tolerance = 1.0E-9
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 59982.869696886, expected value = 59982.869696886, precision = 14, difference = 3.2014213502407E-10, error tolerance = 1.0E-9
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 66860.138496729, expected value = 66860.138496729, precision = 14, difference = 4.2200554162264E-10, error tolerance = 1.0E-9
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 74243.955964336, expected value = 74243.955964336, precision = 14, difference = 1.1641532182693E-10, error tolerance = 1.0E-9
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 82152.322099708, expected value = 82152.322099708, precision = 14, difference = 2.4738255888224E-10, error tolerance = 1.0E-9
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 90603.236902845, expected value = 90603.236902845, precision = 14, difference = 1.4551915228367E-11, error tolerance = 1.0E-9
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 99614.700373746, expected value = 99614.700373746, precision = 14, difference = 3.929017111659E-10, error tolerance = 1.0E-9
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 109204.71251241, expected value = 109204.71251241, precision = 14, difference = 2.4010660126805E-9, error tolerance = 1.0E-8
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 119391.27331884, expected value = 119391.27331884, precision = 14, difference = 2.9831426218152E-9, error tolerance = 1.0E-8
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 130192.38279304, expected value = 130192.38279304, precision = 14, difference = 1.7898855730891E-9, error tolerance = 1.0E-8
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 141626.040935, expected value = 141626.040935, precision = 14, difference = 1.9499566406012E-9, error tolerance = 1.0E-8
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 153710.24774472, expected value = 153710.24774472, precision = 14, difference = 2.5029294192791E-9, error tolerance = 1.0E-8
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 166463.00322221, expected value = 166463.00322221, precision = 14, difference = 1.5425030142069E-9, error tolerance = 1.0E-8
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 179902.30736747, expected value = 179902.30736747, precision = 14, difference = 4.7439243644476E-9, error tolerance = 1.0E-8
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 194046.16018048, expected value = 194046.16018048, precision = 14, difference = 3.5506673157215E-9, error tolerance = 1.0E-8
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 208912.56166127, expected value = 208912.56166127, precision = 14, difference = 3.5506673157215E-9, error tolerance = 1.0E-8
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 224519.51180981, expected value = 224519.51180981, precision = 14, difference = 3.9872247725725E-9, error tolerance = 1.0E-8
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 240885.01062613, expected value = 240885.01062613, precision = 14, difference = 3.8708094507456E-9, error tolerance = 1.0E-8
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 258027.0581102, expected value = 258027.0581102, precision = 14, difference = 2.8812792152166E-9, error tolerance = 1.0E-8
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 275963.65426204, expected value = 275963.65426204, precision = 14, difference = 4.3073669075966E-9, error tolerance = 1.0E-8
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 294712.79908165, expected value = 294712.79908165, precision = 14, difference = 2.9103830456734E-10, error tolerance = 1.0E-8
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 314292.49256902, expected value = 314292.49256902, precision = 14, difference = 9.3132257461548E-10, error tolerance = 1.0E-8
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 334720.73472416, expected value = 334720.73472416, precision = 14, difference = 3.8999132812023E-9, error tolerance = 1.0E-8
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 356015.52554706, expected value = 356015.52554706, precision = 14, difference = 4.0163286030293E-9, error tolerance = 1.0E-8
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 378194.86503772, expected value = 378194.86503772, precision = 14, difference = 4.0745362639427E-10, error tolerance = 1.0E-8
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 401276.75319615, expected value = 401276.75319615, precision = 14, difference = 4.0745362639427E-10, error tolerance = 1.0E-8
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 425279.19002234, expected value = 425279.19002234, precision = 14, difference = 3.2014213502407E-9, error tolerance = 1.0E-8
+comparing results : success
 executing prepared statement (id: query)
-comparing results : FAIL. Results are not equal. Expected: array (
-  0 => 
-  array (
-    'I0' => 5768.3351614518,
-    'I1' => 30279.976940045,
-    'I2' => 110850.39592582,
-    'I3' => 321986.22991752,
-    'I4' => 796015.82274723,
-    'I5' => 1747460.9045439,
-    'I6' => 3501728.271997,
-    'I7' => 6528121.4686196,
-    'I8' => 11477172.465013,
-    'I9' => 19222293.339127,
-    'I10' => 30905747.95653,
-    'I11' => 47988943.650664,
-    'I12' => 72307042.903115,
-    'I13' => 106127895.02387,
-    'I14' => 152215287.8316,
-    'I15' => 213896519.33388,
-    'I16' => 295134289.4075,
-    'I17' => 400602911.47872,
-    'I18' => 535768844.20348,
-    'I19' => 706975543.14776,
-    'I20' => 921532632.46775,
-    'I21' => 1187809396.5902,
-    'I22' => 1515332591.8925,
-    'I23' => 1914888578.3833,
-    'I24' => 2398629771.3824,
-    'I25' => 2980185413.2012,
-    'I26' => 3674776664.8229,
-    'I27' => 4499336017.5828,
-    'I28' => 5472631024.8487,
-    'I29' => 6615392353.7008,
-    'I30' => 7950446156.6124,
-    'I31' => 9502850763.1298,
-    'I32' => 11300037691.553,
-    'I33' => 13371956980.614,
-    'I34' => 15751226841.163,
-    'I35' => 18473287627.839,
-    'I36' => 21576560130.759,
-    'I37' => 25102608187.193,
-    'I38' => 29096305613.248,
-    'I39' => 33606007455.545,
-    'I40' => 38683725562.899,
-    'I41' => 44385308478.004,
-    'I42' => 50770625649.107,
-    'I43' => 57903755961.694,
-    'I44' => 65853180590.165,
-    'I45' => 74691980169.519,
-    'I46' => 84498036287.031,
-    'I47' => 95354237293.933,
-    'I48' => 107348688437.1,
-    'I49' => 120574926310.71,
-  ),
-) Actual: array (
-  0 => 
-  array (
-    'I0' => '5768.3351614518',
-    'I1' => '30279.976940045',
-    'I2' => '110850.39592582',
-    'I3' => '321986.22991752',
-    'I4' => '796015.82274723',
-    'I5' => '1747460.9045439',
-    'I6' => '3501728.271997',
-    'I7' => '6528121.4686196',
-    'I8' => '11477172.465013',
-    'I9' => '19222293.339127',
-    'I10' => '30905747.95653',
-    'I11' => '47988943.650664',
-    'I12' => '72307042.903115',
-    'I13' => '106127895.02387',
-    'I14' => '152215287.8316',
-    'I15' => '213896519.33388',
-    'I16' => '295134289.4075',
-    'I17' => '400602911.47872',
-    'I18' => '535768844.20348',
-    'I19' => '706975543.14776',
-    'I20' => '921532632.46775',
-    'I21' => '1187809396.5902',
-    'I22' => '1515332591.8925',
-    'I23' => '1914888578.3833',
-    'I24' => '2398629771.3824',
-    'I25' => '2980185413.2012',
-    'I26' => '3674776664.8229',
-    'I27' => '4499336017.5828',
-    'I28' => '5472631024.8487',
-    'I29' => '6615392353.7008',
-    'I30' => '7950446156.6124',
-    'I31' => '9502850763.1298',
-    'I32' => '11300037691.553',
-    'I33' => '13371956980.614',
-    'I34' => '15751226841.163',
-    'I35' => '18473287627.839',
-    'I36' => '21576560130.759',
-    'I37' => '25102608187.193',
-    'I38' => '29096305613.248',
-    'I39' => '33606007455.545',
-    'I40' => '38683725562.899',
-    'I41' => '44385308478.004',
-    'I42' => '50770625649.107',
-    'I43' => '57903755961.694',
-    'I44' => '65853180590.165',
-    'I45' => '74691980169.519',
-    'I46' => '84498036287.031',
-    'I47' => '95354237293.933',
-    'I48' => '107348688437.1',
-    'I49' => '120574926310.71',
-  ),
-)
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 5768.3351614518, expected value = 5768.3351614518, precision = 14, difference = 2.5465851649642E-11, error tolerance = 1.0E-10
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 30279.976940045, expected value = 30279.976940045, precision = 14, difference = 4.2928149923682E-10, error tolerance = 1.0E-9
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 110850.39592582, expected value = 110850.39592582, precision = 14, difference = 4.9039954319596E-9, error tolerance = 1.0E-8
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 321986.22991752, expected value = 321986.22991752, precision = 14, difference = 4.6566128730774E-10, error tolerance = 1.0E-8
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 796015.82274723, expected value = 796015.82274723, precision = 14, difference = 1.3969838619232E-9, error tolerance = 1.0E-8
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 1747460.9045439, expected value = 1747460.9045439, precision = 14, difference = 3.3527612686157E-8, error tolerance = 1.0E-7
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 3501728.271997, expected value = 3501728.271997, precision = 14, difference = 1.3038516044617E-8, error tolerance = 1.0E-7
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 6528121.4686196, expected value = 6528121.4686196, precision = 14, difference = 4.4703483581543E-8, error tolerance = 1.0E-7
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 11477172.465013, expected value = 11477172.465013, precision = 14, difference = 4.3772161006927E-7, error tolerance = 1.0E-6
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 19222293.339127, expected value = 19222293.339127, precision = 14, difference = 2.9429793357849E-7, error tolerance = 1.0E-6
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 30905747.95653, expected value = 30905747.95653, precision = 14, difference = 1.7136335372925E-7, error tolerance = 1.0E-6
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 47988943.650664, expected value = 47988943.650664, precision = 14, difference = 5.9604644775391E-8, error tolerance = 1.0E-6
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 72307042.903115, expected value = 72307042.903115, precision = 14, difference = 3.2782554626465E-7, error tolerance = 1.0E-6
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 106127895.02387, expected value = 106127895.02387, precision = 14, difference = 3.9190053939819E-6, error tolerance = 1.0E-5
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 152215287.8316, expected value = 152215287.8316, precision = 14, difference = 1.4901161193848E-6, error tolerance = 1.0E-5
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 213896519.33388, expected value = 213896519.33388, precision = 14, difference = 1.7881393432617E-7, error tolerance = 1.0E-5
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 295134289.4075, expected value = 295134289.4075, precision = 14, difference = 3.9935111999512E-6, error tolerance = 1.0E-5
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 400602911.47872, expected value = 400602911.47872, precision = 14, difference = 3.8743019104004E-6, error tolerance = 1.0E-5
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 535768844.20348, expected value = 535768844.20348, precision = 14, difference = 3.8743019104004E-6, error tolerance = 1.0E-5
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 706975543.14776, expected value = 706975543.14776, precision = 14, difference = 5.9604644775391E-7, error tolerance = 1.0E-5
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 921532632.46775, expected value = 921532632.46775, precision = 14, difference = 2.3841857910156E-7, error tolerance = 1.0E-5
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 1187809396.5902, expected value = 1187809396.5902, precision = 14, difference = 3.2901763916016E-5, error tolerance = 0.0001
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 1515332591.8925, expected value = 1515332591.8925, precision = 14, difference = 5.2452087402344E-6, error tolerance = 0.0001
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 1914888578.3833, expected value = 1914888578.3833, precision = 14, difference = 3.0994415283203E-6, error tolerance = 0.0001
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 2398629771.3824, expected value = 2398629771.3824, precision = 14, difference = 2.1934509277344E-5, error tolerance = 0.0001
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 2980185413.2012, expected value = 2980185413.2012, precision = 14, difference = 4.7683715820312E-5, error tolerance = 0.0001
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 3674776664.8229, expected value = 3674776664.8229, precision = 14, difference = 4.7206878662109E-5, error tolerance = 0.0001
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 4499336017.5828, expected value = 4499336017.5828, precision = 14, difference = 7.62939453125E-6, error tolerance = 0.0001
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 5472631024.8487, expected value = 5472631024.8487, precision = 14, difference = 2.8610229492188E-6, error tolerance = 0.0001
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 6615392353.7008, expected value = 6615392353.7008, precision = 14, difference = 4.6730041503906E-5, error tolerance = 0.0001
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 7950446156.6124, expected value = 7950446156.6124, precision = 14, difference = 2.5749206542969E-5, error tolerance = 0.0001
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 9502850763.1298, expected value = 9502850763.1298, precision = 14, difference = 2.0980834960938E-5, error tolerance = 0.0001
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 11300037691.553, expected value = 11300037691.553, precision = 14, difference = 0.00033950805664062, error tolerance = 0.001
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 13371956980.614, expected value = 13371956980.614, precision = 14, difference = 0.00049400329589844, error tolerance = 0.001
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 15751226841.163, expected value = 15751226841.163, precision = 14, difference = 0.00035667419433594, error tolerance = 0.001
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 18473287627.839, expected value = 18473287627.839, precision = 14, difference = 0.00032424926757812, error tolerance = 0.001
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 21576560130.759, expected value = 21576560130.759, precision = 14, difference = 0.00037002563476562, error tolerance = 0.001
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 25102608187.193, expected value = 25102608187.193, precision = 14, difference = 0.00025177001953125, error tolerance = 0.001
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 29096305613.248, expected value = 29096305613.248, precision = 14, difference = 0.00030517578125, error tolerance = 0.001
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 33606007455.545, expected value = 33606007455.545, precision = 14, difference = 0.00019073486328125, error tolerance = 0.001
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 38683725562.899, expected value = 38683725562.899, precision = 14, difference = 0.000274658203125, error tolerance = 0.001
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 44385308478.004, expected value = 44385308478.004, precision = 14, difference = 2.288818359375E-5, error tolerance = 0.001
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 50770625649.107, expected value = 50770625649.107, precision = 14, difference = 0.0004119873046875, error tolerance = 0.001
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 57903755961.694, expected value = 57903755961.694, precision = 14, difference = 0.0001220703125, error tolerance = 0.001
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 65853180590.165, expected value = 65853180590.165, precision = 14, difference = 0.0003814697265625, error tolerance = 0.001
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 74691980169.519, expected value = 74691980169.519, precision = 14, difference = 0.0002593994140625, error tolerance = 0.001
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 84498036287.031, expected value = 84498036287.031, precision = 14, difference = 3.0517578125E-5, error tolerance = 0.001
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 95354237293.933, expected value = 95354237293.933, precision = 14, difference = 6.103515625E-5, error tolerance = 0.001
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 107348688437.1, expected value = 107348688437.1, precision = 14, difference = 0.00433349609375, error tolerance = 0.01
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 120574926310.71, expected value = 120574926310.71, precision = 14, difference = 0.0031280517578125, error tolerance = 0.01
+comparing results : success
 closed prepared statement id query
 executing statement ( sql: DROP TABLE IF EXISTS decimal_test)
 ignoring action close on statement. php only supports executing a statement
@@ -2450,433 +2402,415 @@ created prepared statement id query
 executing prepared statement (id: query)
 comparing results : success
 executing prepared statement (id: query)
-comparing results : FAIL. Results are not equal. Expected: array (
-  0 => 
-  array (
-    'I0' => 93.018830040899,
-    'I1' => 213.11960353301,
-    'I2' => 407.76904478974,
-    'I3' => 694.96715381109,
-    'I4' => 1092.713930597,
-    'I5' => 1619.0093751476,
-    'I6' => 2291.8534874628,
-    'I7' => 3129.2462675426,
-    'I8' => 4149.1877153871,
-    'I9' => 5369.6778309961,
-    'I10' => 6808.7166143698,
-    'I11' => 8484.304065508,
-    'I12' => 10414.440184411,
-    'I13' => 12617.124971078,
-    'I14' => 15110.358425511,
-    'I15' => 17912.140547707,
-    'I16' => 21040.471337669,
-    'I17' => 24513.350795395,
-    'I18' => 28348.778920885,
-    'I19' => 32564.75571414,
-    'I20' => 37179.28117516,
-    'I21' => 42210.355303945,
-    'I22' => 47675.978100494,
-    'I23' => 53594.149564807,
-    'I24' => 59982.869696886,
-    'I25' => 66860.138496729,
-    'I26' => 74243.955964336,
-    'I27' => 82152.322099708,
-    'I28' => 90603.236902845,
-    'I29' => 99614.700373746,
-    'I30' => 109204.71251241,
-    'I31' => 119391.27331884,
-    'I32' => 130192.38279304,
-    'I33' => 141626.040935,
-    'I34' => 153710.24774472,
-    'I35' => 166463.00322221,
-    'I36' => 179902.30736747,
-    'I37' => 194046.16018048,
-    'I38' => 208912.56166127,
-    'I39' => 224519.51180981,
-    'I40' => 240885.01062613,
-    'I41' => 258027.0581102,
-    'I42' => 275963.65426204,
-    'I43' => 294712.79908165,
-    'I44' => 314292.49256902,
-    'I45' => 334720.73472416,
-    'I46' => 356015.52554706,
-    'I47' => 378194.86503772,
-    'I48' => 401276.75319615,
-    'I49' => 425279.19002234,
-    'I50' => 450220.1755163,
-    'I51' => 476117.70967802,
-    'I52' => 502989.79250751,
-    'I53' => 530854.42400476,
-    'I54' => 559729.60416978,
-    'I55' => 589633.33300256,
-    'I56' => 620583.61050311,
-    'I57' => 652598.43667142,
-    'I58' => 685695.81150749,
-    'I59' => 719893.73501133,
-    'I60' => 755210.20718294,
-    'I61' => 791663.22802231,
-    'I62' => 829270.79752944,
-    'I63' => 868050.91570434,
-    'I64' => 908021.582547,
-    'I65' => 949200.79805743,
-    'I66' => 991606.56223562,
-    'I67' => 1035256.8750816,
-    'I68' => 1080169.7365953,
-    'I69' => 1126363.1467768,
-    'I70' => 1173855.105626,
-    'I71' => 1222663.6131431,
-    'I72' => 1272806.6693278,
-    'I73' => 1324302.2741804,
-    'I74' => 1377168.4277007,
-    'I75' => 1431423.1298888,
-    'I76' => 1487084.3807446,
-    'I77' => 1544170.1802682,
-    'I78' => 1602698.5284596,
-    'I79' => 1662687.4253187,
-    'I80' => 1724154.8708456,
-    'I81' => 1787118.8650403,
-    'I82' => 1851597.4079027,
-    'I83' => 1917608.4994329,
-    'I84' => 1985170.1396308,
-    'I85' => 2054300.3284966,
-    'I86' => 2125017.06603,
-    'I87' => 2197338.3522313,
-    'I88' => 2271282.1871003,
-    'I89' => 2346866.5706371,
-    'I90' => 2424109.5028416,
-    'I91' => 2503028.9837139,
-    'I92' => 2583643.013254,
-    'I93' => 2665969.5914618,
-    'I94' => 2750026.7183374,
-    'I95' => 2835832.3938808,
-    'I96' => 2923404.6180919,
-    'I97' => 3012761.3909708,
-    'I98' => 3103920.7125175,
-    'I99' => 3196900.5827319,
-  ),
-) Actual: array (
-  0 => 
-  array (
-    'I0' => '93.018830040899',
-    'I1' => '213.11960353301',
-    'I2' => '407.76904478974',
-    'I3' => '694.96715381109',
-    'I4' => '1092.713930597',
-    'I5' => '1619.0093751476',
-    'I6' => '2291.8534874628',
-    'I7' => '3129.2462675426',
-    'I8' => '4149.1877153871',
-    'I9' => '5369.6778309961',
-    'I10' => '6808.7166143698',
-    'I11' => '8484.304065508',
-    'I12' => '10414.440184411',
-    'I13' => '12617.124971078',
-    'I14' => '15110.358425511',
-    'I15' => '17912.140547707',
-    'I16' => '21040.471337669',
-    'I17' => '24513.350795395',
-    'I18' => '28348.778920885',
-    'I19' => '32564.75571414',
-    'I20' => '37179.28117516',
-    'I21' => '42210.355303945',
-    'I22' => '47675.978100494',
-    'I23' => '53594.149564807',
-    'I24' => '59982.869696886',
-    'I25' => '66860.138496729',
-    'I26' => '74243.955964336',
-    'I27' => '82152.322099708',
-    'I28' => '90603.236902845',
-    'I29' => '99614.700373746',
-    'I30' => '109204.71251241',
-    'I31' => '119391.27331884',
-    'I32' => '130192.38279304',
-    'I33' => '141626.040935',
-    'I34' => '153710.24774472',
-    'I35' => '166463.00322221',
-    'I36' => '179902.30736747',
-    'I37' => '194046.16018048',
-    'I38' => '208912.56166127',
-    'I39' => '224519.51180981',
-    'I40' => '240885.01062613',
-    'I41' => '258027.0581102',
-    'I42' => '275963.65426204',
-    'I43' => '294712.79908165',
-    'I44' => '314292.49256902',
-    'I45' => '334720.73472416',
-    'I46' => '356015.52554706',
-    'I47' => '378194.86503772',
-    'I48' => '401276.75319615',
-    'I49' => '425279.19002234',
-    'I50' => '450220.1755163',
-    'I51' => '476117.70967802',
-    'I52' => '502989.79250751',
-    'I53' => '530854.42400476',
-    'I54' => '559729.60416978',
-    'I55' => '589633.33300256',
-    'I56' => '620583.61050311',
-    'I57' => '652598.43667142',
-    'I58' => '685695.81150749',
-    'I59' => '719893.73501133',
-    'I60' => '755210.20718294',
-    'I61' => '791663.22802231',
-    'I62' => '829270.79752944',
-    'I63' => '868050.91570434',
-    'I64' => '908021.582547',
-    'I65' => '949200.79805743',
-    'I66' => '991606.56223562',
-    'I67' => '1035256.8750816',
-    'I68' => '1080169.7365953',
-    'I69' => '1126363.1467768',
-    'I70' => '1173855.105626',
-    'I71' => '1222663.6131431',
-    'I72' => '1272806.6693278',
-    'I73' => '1324302.2741804',
-    'I74' => '1377168.4277007',
-    'I75' => '1431423.1298888',
-    'I76' => '1487084.3807446',
-    'I77' => '1544170.1802682',
-    'I78' => '1602698.5284596',
-    'I79' => '1662687.4253187',
-    'I80' => '1724154.8708456',
-    'I81' => '1787118.8650403',
-    'I82' => '1851597.4079027',
-    'I83' => '1917608.4994329',
-    'I84' => '1985170.1396308',
-    'I85' => '2054300.3284966',
-    'I86' => '2125017.06603',
-    'I87' => '2197338.3522313',
-    'I88' => '2271282.1871003',
-    'I89' => '2346866.5706371',
-    'I90' => '2424109.5028416',
-    'I91' => '2503028.9837139',
-    'I92' => '2583643.013254',
-    'I93' => '2665969.5914618',
-    'I94' => '2750026.7183374',
-    'I95' => '2835832.3938808',
-    'I96' => '2923404.6180919',
-    'I97' => '3012761.3909708',
-    'I98' => '3103920.7125175',
-    'I99' => '3196900.5827319',
-  ),
-)
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 93.018830040899, expected value = 93.018830040899, precision = 14, difference = 4.4053649617126E-13, error tolerance = 1.0E-12
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 213.11960353301, expected value = 213.11960353301, precision = 14, difference = 1.7905676941155E-12, error tolerance = 1.0E-11
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 407.76904478974, expected value = 407.76904478974, precision = 14, difference = 3.9790393202566E-13, error tolerance = 1.0E-11
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 694.96715381109, expected value = 694.96715381109, precision = 14, difference = 4.6611603465863E-12, error tolerance = 1.0E-11
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 1092.713930597, expected value = 1092.713930597, precision = 14, difference = 4.6611603465863E-11, error tolerance = 1.0E-10
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 1619.0093751476, expected value = 1619.0093751476, precision = 14, difference = 2.4101609596983E-11, error tolerance = 1.0E-10
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 2291.8534874628, expected value = 2291.8534874628, precision = 14, difference = 1.7735146684572E-11, error tolerance = 1.0E-10
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 3129.2462675426, expected value = 3129.2462675426, precision = 14, difference = 2.7739588404074E-11, error tolerance = 1.0E-10
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 4149.1877153871, expected value = 4149.1877153871, precision = 14, difference = 4.6384229790419E-11, error tolerance = 1.0E-10
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 5369.6778309961, expected value = 5369.6778309961, precision = 14, difference = 2.7284841053188E-12, error tolerance = 1.0E-10
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 6808.7166143698, expected value = 6808.7166143698, precision = 14, difference = 4.3655745685101E-11, error tolerance = 1.0E-10
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 8484.304065508, expected value = 8484.304065508, precision = 14, difference = 3.092281986028E-11, error tolerance = 1.0E-10
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 10414.440184411, expected value = 10414.440184411, precision = 14, difference = 7.8216544352472E-11, error tolerance = 1.0E-9
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 12617.124971078, expected value = 12617.124971078, precision = 14, difference = 4.3110048864037E-10, error tolerance = 1.0E-9
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 15110.358425511, expected value = 15110.358425511, precision = 14, difference = 4.4747139327228E-10, error tolerance = 1.0E-9
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 17912.140547707, expected value = 17912.140547707, precision = 14, difference = 2.9103830456734E-10, error tolerance = 1.0E-9
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 21040.471337669, expected value = 21040.471337669, precision = 14, difference = 3.528839442879E-10, error tolerance = 1.0E-9
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 24513.350795395, expected value = 24513.350795395, precision = 14, difference = 3.7471181713045E-10, error tolerance = 1.0E-9
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 28348.778920885, expected value = 28348.778920885, precision = 14, difference = 2.1100277081132E-10, error tolerance = 1.0E-9
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 32564.75571414, expected value = 32564.75571414, precision = 14, difference = 4.1472958400846E-10, error tolerance = 1.0E-9
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 37179.28117516, expected value = 37179.28117516, precision = 14, difference = 2.4010660126805E-10, error tolerance = 1.0E-9
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 42210.355303945, expected value = 42210.355303945, precision = 14, difference = 3.2014213502407E-10, error tolerance = 1.0E-9
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 47675.978100494, expected value = 47675.978100494, precision = 14, difference = 2.6921043172479E-10, error tolerance = 1.0E-9
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 53594.149564807, expected value = 53594.149564807, precision = 14, difference = 4.0017766878009E-10, error tolerance = 1.0E-9
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 59982.869696886, expected value = 59982.869696886, precision = 14, difference = 3.2014213502407E-10, error tolerance = 1.0E-9
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 66860.138496729, expected value = 66860.138496729, precision = 14, difference = 4.2200554162264E-10, error tolerance = 1.0E-9
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 74243.955964336, expected value = 74243.955964336, precision = 14, difference = 1.1641532182693E-10, error tolerance = 1.0E-9
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 82152.322099708, expected value = 82152.322099708, precision = 14, difference = 2.4738255888224E-10, error tolerance = 1.0E-9
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 90603.236902845, expected value = 90603.236902845, precision = 14, difference = 1.4551915228367E-11, error tolerance = 1.0E-9
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 99614.700373746, expected value = 99614.700373746, precision = 14, difference = 3.929017111659E-10, error tolerance = 1.0E-9
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 109204.71251241, expected value = 109204.71251241, precision = 14, difference = 2.4010660126805E-9, error tolerance = 1.0E-8
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 119391.27331884, expected value = 119391.27331884, precision = 14, difference = 2.9831426218152E-9, error tolerance = 1.0E-8
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 130192.38279304, expected value = 130192.38279304, precision = 14, difference = 1.7898855730891E-9, error tolerance = 1.0E-8
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 141626.040935, expected value = 141626.040935, precision = 14, difference = 1.9499566406012E-9, error tolerance = 1.0E-8
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 153710.24774472, expected value = 153710.24774472, precision = 14, difference = 2.5029294192791E-9, error tolerance = 1.0E-8
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 166463.00322221, expected value = 166463.00322221, precision = 14, difference = 1.5425030142069E-9, error tolerance = 1.0E-8
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 179902.30736747, expected value = 179902.30736747, precision = 14, difference = 4.7439243644476E-9, error tolerance = 1.0E-8
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 194046.16018048, expected value = 194046.16018048, precision = 14, difference = 3.5506673157215E-9, error tolerance = 1.0E-8
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 208912.56166127, expected value = 208912.56166127, precision = 14, difference = 3.5506673157215E-9, error tolerance = 1.0E-8
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 224519.51180981, expected value = 224519.51180981, precision = 14, difference = 3.9872247725725E-9, error tolerance = 1.0E-8
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 240885.01062613, expected value = 240885.01062613, precision = 14, difference = 3.8708094507456E-9, error tolerance = 1.0E-8
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 258027.0581102, expected value = 258027.0581102, precision = 14, difference = 2.8812792152166E-9, error tolerance = 1.0E-8
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 275963.65426204, expected value = 275963.65426204, precision = 14, difference = 4.3073669075966E-9, error tolerance = 1.0E-8
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 294712.79908165, expected value = 294712.79908165, precision = 14, difference = 2.9103830456734E-10, error tolerance = 1.0E-8
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 314292.49256902, expected value = 314292.49256902, precision = 14, difference = 9.3132257461548E-10, error tolerance = 1.0E-8
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 334720.73472416, expected value = 334720.73472416, precision = 14, difference = 3.8999132812023E-9, error tolerance = 1.0E-8
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 356015.52554706, expected value = 356015.52554706, precision = 14, difference = 4.0163286030293E-9, error tolerance = 1.0E-8
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 378194.86503772, expected value = 378194.86503772, precision = 14, difference = 4.0745362639427E-10, error tolerance = 1.0E-8
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 401276.75319615, expected value = 401276.75319615, precision = 14, difference = 4.0745362639427E-10, error tolerance = 1.0E-8
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 425279.19002234, expected value = 425279.19002234, precision = 14, difference = 3.2014213502407E-9, error tolerance = 1.0E-8
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 450220.1755163, expected value = 450220.1755163, precision = 14, difference = 1.5133991837502E-9, error tolerance = 1.0E-8
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 476117.70967802, expected value = 476117.70967802, precision = 14, difference = 4.5401975512505E-9, error tolerance = 1.0E-8
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 502989.79250751, expected value = 502989.79250751, precision = 14, difference = 2.0372681319714E-9, error tolerance = 1.0E-8
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 530854.42400476, expected value = 530854.42400476, precision = 14, difference = 4.1909515857697E-9, error tolerance = 1.0E-8
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 559729.60416978, expected value = 559729.60416978, precision = 14, difference = 9.3132257461548E-10, error tolerance = 1.0E-8
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 589633.33300256, expected value = 589633.33300256, precision = 14, difference = 2.4447217583656E-9, error tolerance = 1.0E-8
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 620583.61050311, expected value = 620583.61050311, precision = 14, difference = 1.6298145055771E-9, error tolerance = 1.0E-8
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 652598.43667142, expected value = 652598.43667142, precision = 14, difference = 9.3132257461548E-10, error tolerance = 1.0E-8
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 685695.81150749, expected value = 685695.81150749, precision = 14, difference = 4.1909515857697E-9, error tolerance = 1.0E-8
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 719893.73501133, expected value = 719893.73501133, precision = 14, difference = 4.0745362639427E-9, error tolerance = 1.0E-8
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 755210.20718294, expected value = 755210.20718294, precision = 14, difference = 1.3969838619232E-9, error tolerance = 1.0E-8
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 791663.22802231, expected value = 791663.22802231, precision = 14, difference = 2.3283064365387E-9, error tolerance = 1.0E-8
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 829270.79752944, expected value = 829270.79752944, precision = 14, difference = 1.2805685400963E-9, error tolerance = 1.0E-8
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 868050.91570434, expected value = 868050.91570434, precision = 14, difference = 2.3283064365387E-10, error tolerance = 1.0E-8
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 908021.582547, expected value = 908021.582547, precision = 14, difference = 2.5611370801926E-9, error tolerance = 1.0E-8
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 949200.79805743, expected value = 949200.79805743, precision = 14, difference = 2.3283064365387E-10, error tolerance = 1.0E-8
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 991606.56223562, expected value = 991606.56223562, precision = 14, difference = 2.3283064365387E-9, error tolerance = 1.0E-8
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 1035256.8750816, expected value = 1035256.8750816, precision = 14, difference = 2.0838342607021E-8, error tolerance = 1.0E-7
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 1080169.7365953, expected value = 1080169.7365953, precision = 14, difference = 4.6566128730774E-10, error tolerance = 1.0E-7
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 1126363.1467768, expected value = 1126363.1467768, precision = 14, difference = 1.3504177331924E-8, error tolerance = 1.0E-7
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 1173855.105626, expected value = 1173855.105626, precision = 14, difference = 3.7252902984619E-8, error tolerance = 1.0E-7
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 1222663.6131431, expected value = 1222663.6131431, precision = 14, difference = 4.7497451305389E-8, error tolerance = 1.0E-7
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 1272806.6693278, expected value = 1272806.6693278, precision = 14, difference = 3.2363459467888E-8, error tolerance = 1.0E-7
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 1324302.2741804, expected value = 1324302.2741804, precision = 14, difference = 2.3050233721733E-8, error tolerance = 1.0E-7
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 1377168.4277007, expected value = 1377168.4277007, precision = 14, difference = 1.3969838619232E-8, error tolerance = 1.0E-7
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 1431423.1298888, expected value = 1431423.1298888, precision = 14, difference = 4.0279701352119E-8, error tolerance = 1.0E-7
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 1487084.3807446, expected value = 1487084.3807446, precision = 14, difference = 2.0954757928848E-9, error tolerance = 1.0E-7
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 1544170.1802682, expected value = 1544170.1802682, precision = 14, difference = 9.3132257461548E-10, error tolerance = 1.0E-7
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 1602698.5284596, expected value = 1602698.5284596, precision = 14, difference = 3.1432136893272E-8, error tolerance = 1.0E-7
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 1662687.4253187, expected value = 1662687.4253187, precision = 14, difference = 6.9849193096161E-10, error tolerance = 1.0E-7
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 1724154.8708456, expected value = 1724154.8708456, precision = 14, difference = 2.3283064365387E-9, error tolerance = 1.0E-7
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 1787118.8650403, expected value = 1787118.8650403, precision = 14, difference = 4.0978193283081E-8, error tolerance = 1.0E-7
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 1851597.4079027, expected value = 1851597.4079027, precision = 14, difference = 1.4901161193848E-8, error tolerance = 1.0E-7
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 1917608.4994329, expected value = 1917608.4994329, precision = 14, difference = 2.4214386940002E-8, error tolerance = 1.0E-7
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 1985170.1396308, expected value = 1985170.1396308, precision = 14, difference = 3.0733644962311E-8, error tolerance = 1.0E-7
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 2054300.3284966, expected value = 2054300.3284966, precision = 14, difference = 4.936009645462E-8, error tolerance = 1.0E-7
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 2125017.06603, expected value = 2125017.06603, precision = 14, difference = 3.5855919122696E-8, error tolerance = 1.0E-7
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 2197338.3522313, expected value = 2197338.3522313, precision = 14, difference = 1.5366822481155E-8, error tolerance = 1.0E-7
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 2271282.1871003, expected value = 2271282.1871003, precision = 14, difference = 1.862645149231E-9, error tolerance = 1.0E-7
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 2346866.5706371, expected value = 2346866.5706371, precision = 14, difference = 2.3748725652695E-8, error tolerance = 1.0E-7
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 2424109.5028416, expected value = 2424109.5028416, precision = 14, difference = 1.9557774066925E-8, error tolerance = 1.0E-7
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 2503028.9837139, expected value = 2503028.9837139, precision = 14, difference = 2.7008354663849E-8, error tolerance = 1.0E-7
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 2583643.013254, expected value = 2583643.013254, precision = 14, difference = 4.6566128730774E-10, error tolerance = 1.0E-7
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 2665969.5914618, expected value = 2665969.5914618, precision = 14, difference = 3.6321580410004E-8, error tolerance = 1.0E-7
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 2750026.7183374, expected value = 2750026.7183374, precision = 14, difference = 3.7252902984619E-8, error tolerance = 1.0E-7
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 2835832.3938808, expected value = 2835832.3938808, precision = 14, difference = 3.7252902984619E-9, error tolerance = 1.0E-7
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 2923404.6180919, expected value = 2923404.6180919, precision = 14, difference = 3.4458935260773E-8, error tolerance = 1.0E-7
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 3012761.3909708, expected value = 3012761.3909708, precision = 14, difference = 2.9802322387695E-8, error tolerance = 1.0E-7
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 3103920.7125175, expected value = 3103920.7125175, precision = 14, difference = 1.0710209608078E-8, error tolerance = 1.0E-7
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 3196900.5827319, expected value = 3196900.5827319, precision = 14, difference = 1.443549990654E-8, error tolerance = 1.0E-7
+comparing results : success
 executing prepared statement (id: query)
-comparing results : FAIL. Results are not equal. Expected: array (
-  0 => 
-  array (
-    'I0' => 5768.3351614518,
-    'I1' => 30279.976940045,
-    'I2' => 110850.39592582,
-    'I3' => 321986.22991752,
-    'I4' => 796015.82274723,
-    'I5' => 1747460.9045439,
-    'I6' => 3501728.271997,
-    'I7' => 6528121.4686196,
-    'I8' => 11477172.465013,
-    'I9' => 19222293.339127,
-    'I10' => 30905747.95653,
-    'I11' => 47988943.650664,
-    'I12' => 72307042.903115,
-    'I13' => 106127895.02387,
-    'I14' => 152215287.8316,
-    'I15' => 213896519.33388,
-    'I16' => 295134289.4075,
-    'I17' => 400602911.47872,
-    'I18' => 535768844.20348,
-    'I19' => 706975543.14776,
-    'I20' => 921532632.46775,
-    'I21' => 1187809396.5902,
-    'I22' => 1515332591.8925,
-    'I23' => 1914888578.3833,
-    'I24' => 2398629771.3824,
-    'I25' => 2980185413.2012,
-    'I26' => 3674776664.8229,
-    'I27' => 4499336017.5828,
-    'I28' => 5472631024.8487,
-    'I29' => 6615392353.7008,
-    'I30' => 7950446156.6124,
-    'I31' => 9502850763.1298,
-    'I32' => 11300037691.553,
-    'I33' => 13371956980.614,
-    'I34' => 15751226841.163,
-    'I35' => 18473287627.839,
-    'I36' => 21576560130.759,
-    'I37' => 25102608187.193,
-    'I38' => 29096305613.248,
-    'I39' => 33606007455.545,
-    'I40' => 38683725562.899,
-    'I41' => 44385308478.004,
-    'I42' => 50770625649.107,
-    'I43' => 57903755961.694,
-    'I44' => 65853180590.165,
-    'I45' => 74691980169.519,
-    'I46' => 84498036287.031,
-    'I47' => 95354237293.933,
-    'I48' => 107348688437.1,
-    'I49' => 120574926310.71,
-    'I50' => 135132137627.95,
-    'I51' => 151125382312.7,
-    'I52' => 168665820911.17,
-    'I53' => 187870946323.62,
-    'I54' => 208864819856.04,
-    'I55' => 231778311591.81,
-    'I56' => 256749345083.38,
-    'I57' => 283923146363.99,
-    'I58' => 313452497279.28,
-    'I59' => 345497993139.05,
-    'I60' => 380228304688.86,
-    'I61' => 417820444401.8,
-    'I62' => 458460037090.08,
-    'I63' => 502341594836.76,
-    'I64' => 549668796247.44,
-    'I65' => 600654770021.91,
-    'I66' => 655522382845.83,
-    'I67' => 714504531602.45,
-    'I68' => 777844439904.24,
-    'I69' => 845795958944.6,
-    'I70' => 918623872669.54,
-    'I71' => 996604207269.35,
-    'I72' => 1080024544990.3,
-    'I73' => 1169184342266.2,
-    'I74' => 1264395252170.4,
-    'I75' => 1365981451187,
-    'I76' => 1474279970303,
-    'I77' => 1589641030419.7,
-    'I78' => 1712428382084.3,
-    'I79' => 1843019649542,
-    'I80' => 1981806679107.1,
-    'I81' => 2129195891855.2,
-    'I82' => 2285608640634.6,
-    'I83' => 2451481571398.1,
-    'I84' => 2627266988854.6,
-    'I85' => 2813433226440.7,
-    'I86' => 3010465020612.6,
-    'I87' => 3218863889457.7,
-    'I88' => 3439148515626.1,
-    'I89' => 3671855133582.6,
-    'I90' => 3917537921178,
-    'I91' => 4176769395541.3,
-    'I92' => 4450140813290.8,
-    'I93' => 4738262575066.1,
-    'I94' => 5041764634379.9,
-    'I95' => 5361296910789.2,
-    'I96' => 5697529707387.5,
-    'I97' => 6051154132616.3,
-    'I98' => 6422882526396.7,
-    'I99' => 6813448890581.1,
-  ),
-) Actual: array (
-  0 => 
-  array (
-    'I0' => '5768.3351614518',
-    'I1' => '30279.976940045',
-    'I2' => '110850.39592582',
-    'I3' => '321986.22991752',
-    'I4' => '796015.82274723',
-    'I5' => '1747460.9045439',
-    'I6' => '3501728.271997',
-    'I7' => '6528121.4686196',
-    'I8' => '11477172.465013',
-    'I9' => '19222293.339127',
-    'I10' => '30905747.95653',
-    'I11' => '47988943.650664',
-    'I12' => '72307042.903115',
-    'I13' => '106127895.02387',
-    'I14' => '152215287.8316',
-    'I15' => '213896519.33388',
-    'I16' => '295134289.4075',
-    'I17' => '400602911.47872',
-    'I18' => '535768844.20348',
-    'I19' => '706975543.14776',
-    'I20' => '921532632.46775',
-    'I21' => '1187809396.5902',
-    'I22' => '1515332591.8925',
-    'I23' => '1914888578.3833',
-    'I24' => '2398629771.3824',
-    'I25' => '2980185413.2012',
-    'I26' => '3674776664.8229',
-    'I27' => '4499336017.5828',
-    'I28' => '5472631024.8487',
-    'I29' => '6615392353.7008',
-    'I30' => '7950446156.6124',
-    'I31' => '9502850763.1298',
-    'I32' => '11300037691.553',
-    'I33' => '13371956980.614',
-    'I34' => '15751226841.163',
-    'I35' => '18473287627.839',
-    'I36' => '21576560130.759',
-    'I37' => '25102608187.193',
-    'I38' => '29096305613.248',
-    'I39' => '33606007455.545',
-    'I40' => '38683725562.899',
-    'I41' => '44385308478.004',
-    'I42' => '50770625649.107',
-    'I43' => '57903755961.694',
-    'I44' => '65853180590.165',
-    'I45' => '74691980169.519',
-    'I46' => '84498036287.031',
-    'I47' => '95354237293.933',
-    'I48' => '107348688437.1',
-    'I49' => '120574926310.71',
-    'I50' => '135132137627.95',
-    'I51' => '151125382312.7',
-    'I52' => '168665820911.17',
-    'I53' => '187870946323.62',
-    'I54' => '208864819856.04',
-    'I55' => '231778311591.81',
-    'I56' => '256749345083.38',
-    'I57' => '283923146363.99',
-    'I58' => '313452497279.28',
-    'I59' => '345497993139.05',
-    'I60' => '380228304688.86',
-    'I61' => '417820444401.8',
-    'I62' => '458460037090.08',
-    'I63' => '502341594836.76',
-    'I64' => '549668796247.44',
-    'I65' => '600654770021.91',
-    'I66' => '655522382845.83',
-    'I67' => '714504531602.45',
-    'I68' => '777844439904.24',
-    'I69' => '845795958944.6',
-    'I70' => '918623872669.54',
-    'I71' => '996604207269.35',
-    'I72' => '1080024544990.3',
-    'I73' => '1169184342266.2',
-    'I74' => '1264395252170.4',
-    'I75' => '1365981451187.0',
-    'I76' => '1474279970303.0',
-    'I77' => '1589641030419.7',
-    'I78' => '1712428382084.3',
-    'I79' => '1843019649542.0',
-    'I80' => '1981806679107.1',
-    'I81' => '2129195891855.2',
-    'I82' => '2285608640634.6',
-    'I83' => '2451481571398.1',
-    'I84' => '2627266988854.6',
-    'I85' => '2813433226440.7',
-    'I86' => '3010465020612.6',
-    'I87' => '3218863889457.7',
-    'I88' => '3439148515626.1',
-    'I89' => '3671855133582.6',
-    'I90' => '3917537921178.0',
-    'I91' => '4176769395541.3',
-    'I92' => '4450140813290.8',
-    'I93' => '4738262575066.1',
-    'I94' => '5041764634379.9',
-    'I95' => '5361296910789.2',
-    'I96' => '5697529707387.5',
-    'I97' => '6051154132616.3',
-    'I98' => '6422882526396.7',
-    'I99' => '6813448890581.1',
-  ),
-)
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 5768.3351614518, expected value = 5768.3351614518, precision = 14, difference = 2.5465851649642E-11, error tolerance = 1.0E-10
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 30279.976940045, expected value = 30279.976940045, precision = 14, difference = 4.2928149923682E-10, error tolerance = 1.0E-9
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 110850.39592582, expected value = 110850.39592582, precision = 14, difference = 4.9039954319596E-9, error tolerance = 1.0E-8
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 321986.22991752, expected value = 321986.22991752, precision = 14, difference = 4.6566128730774E-10, error tolerance = 1.0E-8
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 796015.82274723, expected value = 796015.82274723, precision = 14, difference = 1.3969838619232E-9, error tolerance = 1.0E-8
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 1747460.9045439, expected value = 1747460.9045439, precision = 14, difference = 3.3527612686157E-8, error tolerance = 1.0E-7
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 3501728.271997, expected value = 3501728.271997, precision = 14, difference = 1.3038516044617E-8, error tolerance = 1.0E-7
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 6528121.4686196, expected value = 6528121.4686196, precision = 14, difference = 4.4703483581543E-8, error tolerance = 1.0E-7
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 11477172.465013, expected value = 11477172.465013, precision = 14, difference = 4.3772161006927E-7, error tolerance = 1.0E-6
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 19222293.339127, expected value = 19222293.339127, precision = 14, difference = 2.9429793357849E-7, error tolerance = 1.0E-6
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 30905747.95653, expected value = 30905747.95653, precision = 14, difference = 1.7136335372925E-7, error tolerance = 1.0E-6
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 47988943.650664, expected value = 47988943.650664, precision = 14, difference = 5.9604644775391E-8, error tolerance = 1.0E-6
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 72307042.903115, expected value = 72307042.903115, precision = 14, difference = 3.2782554626465E-7, error tolerance = 1.0E-6
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 106127895.02387, expected value = 106127895.02387, precision = 14, difference = 3.9190053939819E-6, error tolerance = 1.0E-5
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 152215287.8316, expected value = 152215287.8316, precision = 14, difference = 1.4901161193848E-6, error tolerance = 1.0E-5
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 213896519.33388, expected value = 213896519.33388, precision = 14, difference = 1.7881393432617E-7, error tolerance = 1.0E-5
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 295134289.4075, expected value = 295134289.4075, precision = 14, difference = 3.9935111999512E-6, error tolerance = 1.0E-5
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 400602911.47872, expected value = 400602911.47872, precision = 14, difference = 3.8743019104004E-6, error tolerance = 1.0E-5
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 535768844.20348, expected value = 535768844.20348, precision = 14, difference = 3.8743019104004E-6, error tolerance = 1.0E-5
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 706975543.14776, expected value = 706975543.14776, precision = 14, difference = 5.9604644775391E-7, error tolerance = 1.0E-5
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 921532632.46775, expected value = 921532632.46775, precision = 14, difference = 2.3841857910156E-7, error tolerance = 1.0E-5
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 1187809396.5902, expected value = 1187809396.5902, precision = 14, difference = 3.2901763916016E-5, error tolerance = 0.0001
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 1515332591.8925, expected value = 1515332591.8925, precision = 14, difference = 5.2452087402344E-6, error tolerance = 0.0001
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 1914888578.3833, expected value = 1914888578.3833, precision = 14, difference = 3.0994415283203E-6, error tolerance = 0.0001
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 2398629771.3824, expected value = 2398629771.3824, precision = 14, difference = 2.1934509277344E-5, error tolerance = 0.0001
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 2980185413.2012, expected value = 2980185413.2012, precision = 14, difference = 4.7683715820312E-5, error tolerance = 0.0001
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 3674776664.8229, expected value = 3674776664.8229, precision = 14, difference = 4.7206878662109E-5, error tolerance = 0.0001
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 4499336017.5828, expected value = 4499336017.5828, precision = 14, difference = 7.62939453125E-6, error tolerance = 0.0001
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 5472631024.8487, expected value = 5472631024.8487, precision = 14, difference = 2.8610229492188E-6, error tolerance = 0.0001
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 6615392353.7008, expected value = 6615392353.7008, precision = 14, difference = 4.6730041503906E-5, error tolerance = 0.0001
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 7950446156.6124, expected value = 7950446156.6124, precision = 14, difference = 2.5749206542969E-5, error tolerance = 0.0001
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 9502850763.1298, expected value = 9502850763.1298, precision = 14, difference = 2.0980834960938E-5, error tolerance = 0.0001
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 11300037691.553, expected value = 11300037691.553, precision = 14, difference = 0.00033950805664062, error tolerance = 0.001
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 13371956980.614, expected value = 13371956980.614, precision = 14, difference = 0.00049400329589844, error tolerance = 0.001
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 15751226841.163, expected value = 15751226841.163, precision = 14, difference = 0.00035667419433594, error tolerance = 0.001
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 18473287627.839, expected value = 18473287627.839, precision = 14, difference = 0.00032424926757812, error tolerance = 0.001
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 21576560130.759, expected value = 21576560130.759, precision = 14, difference = 0.00037002563476562, error tolerance = 0.001
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 25102608187.193, expected value = 25102608187.193, precision = 14, difference = 0.00025177001953125, error tolerance = 0.001
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 29096305613.248, expected value = 29096305613.248, precision = 14, difference = 0.00030517578125, error tolerance = 0.001
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 33606007455.545, expected value = 33606007455.545, precision = 14, difference = 0.00019073486328125, error tolerance = 0.001
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 38683725562.899, expected value = 38683725562.899, precision = 14, difference = 0.000274658203125, error tolerance = 0.001
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 44385308478.004, expected value = 44385308478.004, precision = 14, difference = 2.288818359375E-5, error tolerance = 0.001
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 50770625649.107, expected value = 50770625649.107, precision = 14, difference = 0.0004119873046875, error tolerance = 0.001
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 57903755961.694, expected value = 57903755961.694, precision = 14, difference = 0.0001220703125, error tolerance = 0.001
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 65853180590.165, expected value = 65853180590.165, precision = 14, difference = 0.0003814697265625, error tolerance = 0.001
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 74691980169.519, expected value = 74691980169.519, precision = 14, difference = 0.0002593994140625, error tolerance = 0.001
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 84498036287.031, expected value = 84498036287.031, precision = 14, difference = 3.0517578125E-5, error tolerance = 0.001
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 95354237293.933, expected value = 95354237293.933, precision = 14, difference = 6.103515625E-5, error tolerance = 0.001
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 107348688437.1, expected value = 107348688437.1, precision = 14, difference = 0.00433349609375, error tolerance = 0.01
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 120574926310.71, expected value = 120574926310.71, precision = 14, difference = 0.0031280517578125, error tolerance = 0.01
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 135132137627.95, expected value = 135132137627.95, precision = 14, difference = 0.0029144287109375, error tolerance = 0.01
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 151125382312.7, expected value = 151125382312.7, precision = 14, difference = 0.001617431640625, error tolerance = 0.01
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 168665820911.17, expected value = 168665820911.17, precision = 14, difference = 0.00335693359375, error tolerance = 0.01
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 208864819856.04, expected value = 208864819856.04, precision = 14, difference = 0.000213623046875, error tolerance = 0.01
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 231778311591.81, expected value = 231778311591.81, precision = 14, difference = 0.002960205078125, error tolerance = 0.01
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 256749345083.38, expected value = 256749345083.38, precision = 14, difference = 0.002471923828125, error tolerance = 0.01
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 283923146363.99, expected value = 283923146363.99, precision = 14, difference = 0.0032958984375, error tolerance = 0.01
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 313452497279.28, expected value = 313452497279.28, precision = 14, difference = 0.00067138671875, error tolerance = 0.01
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 345497993139.05, expected value = 345497993139.05, precision = 14, difference = 0.0040283203125, error tolerance = 0.01
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 380228304688.86, expected value = 380228304688.86, precision = 14, difference = 0.004638671875, error tolerance = 0.01
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 417820444401.8, expected value = 417820444401.8, precision = 14, difference = 0.00018310546875, error tolerance = 0.01
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 458460037090.08, expected value = 458460037090.08, precision = 14, difference = 0.0028076171875, error tolerance = 0.01
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 502341594836.76, expected value = 502341594836.76, precision = 14, difference = 0.00177001953125, error tolerance = 0.01
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 549668796247.44, expected value = 549668796247.44, precision = 14, difference = 0.00213623046875, error tolerance = 0.01
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 600654770021.91, expected value = 600654770021.91, precision = 14, difference = 0.0018310546875, error tolerance = 0.01
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 655522382845.83, expected value = 655522382845.83, precision = 14, difference = 0.0028076171875, error tolerance = 0.01
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 714504531602.45, expected value = 714504531602.45, precision = 14, difference = 0.0009765625, error tolerance = 0.01
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 777844439904.24, expected value = 777844439904.24, precision = 14, difference = 0.000732421875, error tolerance = 0.01
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 845795958944.6, expected value = 845795958944.6, precision = 14, difference = 0.0032958984375, error tolerance = 0.01
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 918623872669.54, expected value = 918623872669.54, precision = 14, difference = 0.00341796875, error tolerance = 0.01
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 996604207269.35, expected value = 996604207269.35, precision = 14, difference = 0.0006103515625, error tolerance = 0.01
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 1080024544990.3, expected value = 1080024544990.3, precision = 14, difference = 0.0267333984375, error tolerance = 0.1
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 1169184342266.2, expected value = 1169184342266.2, precision = 14, difference = 0.011962890625, error tolerance = 0.1
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 1264395252170.4, expected value = 1264395252170.4, precision = 14, difference = 0.013671875, error tolerance = 0.1
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 1365981451187.0, expected value = 1365981451187, precision = 14, difference = 0.02197265625, error tolerance = 0.1
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 1474279970303.0, expected value = 1474279970303, precision = 14, difference = 0.02978515625, error tolerance = 0.1
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 1589641030419.7, expected value = 1589641030419.7, precision = 14, difference = 0.014404296875, error tolerance = 0.1
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 1712428382084.3, expected value = 1712428382084.3, precision = 14, difference = 0.0107421875, error tolerance = 0.1
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 1843019649542.0, expected value = 1843019649542, precision = 14, difference = 0.046630859375, error tolerance = 0.1
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 1981806679107.1, expected value = 1981806679107.1, precision = 14, difference = 0.0341796875, error tolerance = 0.1
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 2129195891855.2, expected value = 2129195891855.2, precision = 14, difference = 0.010986328125, error tolerance = 0.1
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 2285608640634.6, expected value = 2285608640634.6, precision = 14, difference = 0.02783203125, error tolerance = 0.1
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 2451481571398.1, expected value = 2451481571398.1, precision = 14, difference = 0.03662109375, error tolerance = 0.1
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 2627266988854.6, expected value = 2627266988854.6, precision = 14, difference = 0.0048828125, error tolerance = 0.1
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 2813433226440.7, expected value = 2813433226440.7, precision = 14, difference = 0.00927734375, error tolerance = 0.1
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 3010465020612.6, expected value = 3010465020612.6, precision = 14, difference = 0.00048828125, error tolerance = 0.1
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 3218863889457.7, expected value = 3218863889457.7, precision = 14, difference = 0.0361328125, error tolerance = 0.1
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 3439148515626.1, expected value = 3439148515626.1, precision = 14, difference = 0.02392578125, error tolerance = 0.1
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 3671855133582.6, expected value = 3671855133582.6, precision = 14, difference = 0.04541015625, error tolerance = 0.1
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 3917537921178.0, expected value = 3917537921178, precision = 14, difference = 0.029296875, error tolerance = 0.1
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 4176769395541.3, expected value = 4176769395541.3, precision = 14, difference = 0.0166015625, error tolerance = 0.1
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 4450140813290.8, expected value = 4450140813290.8, precision = 14, difference = 0.00390625, error tolerance = 0.1
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 4738262575066.1, expected value = 4738262575066.1, precision = 14, difference = 0.02734375, error tolerance = 0.1
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 5041764634379.9, expected value = 5041764634379.9, precision = 14, difference = 0.0498046875, error tolerance = 0.1
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 5361296910789.2, expected value = 5361296910789.2, precision = 14, difference = 0.0478515625, error tolerance = 0.1
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 5697529707387.5, expected value = 5697529707387.5, precision = 14, difference = 0.001953125, error tolerance = 0.1
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 6051154132616.3, expected value = 6051154132616.3, precision = 14, difference = 0.0244140625, error tolerance = 0.1
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 6422882526396.7, expected value = 6422882526396.7, precision = 14, difference = 0.0185546875, error tolerance = 0.1
+Float comparison: values are not strictly equal, but comparison succeeding because difference is less than error tolerance
+Float comparison details: returned value = 6813448890581.1, expected value = 6813448890581.1, precision = 14, difference = 0.0009765625, error tolerance = 0.1
+comparing results : success
 closed prepared statement id query
 executing statement ( sql: DROP TABLE IF EXISTS decimal_test)
 ignoring action close on statement. php only supports executing a statement
 closed session id testPstmt
 closing credential: id =  test, url =  informix:host=gama.lenexa.ibm.com;service=9200;database=test;server=gama_serv1;protocol=onsoctcp;DB_LOCALE=en_US.utf8;CLIENT_LOCALE=en_US.utf8
-TEST FAILED
-successful operations: 84
-errors: 8
+TEST PASSED
+successful operations: 92
+errors: 0
 fatal errors: 0
 ------------------------------------
 

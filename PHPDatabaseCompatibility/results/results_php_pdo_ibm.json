@@ -9,14 +9,14 @@
 {"language":"php","client":"pdo_ibm","server":"Informix","test":"dataTypeTest_DATETIME3.json","result":true}
 {"language":"php","client":"pdo_ibm","server":"Informix","test":"dataTypeTest_DATETIME4.json","result":true}
 {"language":"php","client":"pdo_ibm","server":"Informix","test":"dataTypeTest_DATETIME5.json","result":true}
-{"language":"php","client":"pdo_ibm","server":"Informix","test":"dataTypeTest_DECIMAL.json","result":false,"detail":"comparing results : FAIL. Results are not equal. Expected: array (\n  0 => \n  array (\n    'I0' => 715171710215797.25,\n  ),\n) Actual: array (\n  0 => \n  array (\n    'I0' => '7.15171710215797E+014',\n  ),\n)"}
+{"language":"php","client":"pdo_ibm","server":"Informix","test":"dataTypeTest_DECIMAL.json","result":true}
 {"language":"php","client":"pdo_ibm","server":"Informix","test":"dataTypeTest_INT.json","result":true}
 {"language":"php","client":"pdo_ibm","server":"Informix","test":"dataTypeTest_INT8.json","result":true}
 {"language":"php","client":"pdo_ibm","server":"Informix","test":"dataTypeTest_LVARCHAR.json","result":true}
 {"language":"php","client":"pdo_ibm","server":"Informix","test":"dataTypeTest_NVARCHAR.json","result":true}
 {"language":"php","client":"pdo_ibm","server":"Informix","test":"dataTypeTest_SERIAL.json","result":true}
 {"language":"php","client":"pdo_ibm","server":"Informix","test":"dataTypeTest_SERIAL8.json","result":true}
-{"language":"php","client":"pdo_ibm","server":"Informix","test":"dataTypeTest_SMALLFLOAT.json","result":false,"detail":"comparing results : FAIL. Results are not equal. Expected: array (\n  0 => \n  array (\n    'I0' => 84.823006000000007,\n  ),\n) Actual: array (\n  0 => \n  array (\n    'I0' => '8.482301E+01',\n  ),\n)"}
+{"language":"php","client":"pdo_ibm","server":"Informix","test":"dataTypeTest_SMALLFLOAT.json","result":false,"detail":"comparing results : FAIL. Results are not equal. Expected: array (\n  0 => \n  array (\n    'I0' => 84.823006,\n  ),\n) Actual: array (\n  0 => \n  array (\n    'I0' => '8.482301E+01',\n  ),\n)"}
 {"language":"php","client":"pdo_ibm","server":"Informix","test":"dataTypeTest_SMALLINT.json","result":true}
 {"language":"php","client":"pdo_ibm","server":"Informix","test":"dataTypeTest_VARCHAR.json","result":true}
 {"language":"php","client":"pdo_ibm","server":"Informix","test":"ops.json","result":true}
