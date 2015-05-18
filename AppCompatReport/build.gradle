@@ -1,0 +1,178 @@
+defaultTasks = ['assemble'];	// Developer default
+task ci (dependsOn:['publish', 'runtimeDependencies']) // Jenkins target.
+
+apply plugin: 'java'
+apply plugin: 'maven'
+apply plugin: 'maven-publish'
+apply plugin: 'osgi'
+apply plugin: 'project-report'
+	
+// SET PROJECT INFO for all artifacts
+assert hasProperty('version')	// See version in gradle.properties.
+group = 'com.ibm'
+// However ArtifactId set per artifact in publishing.publications
+
+// Establish build date
+def BuildDate = new Date();
+
+dependencies {
+	compile group: 'com.google.code.gson' , name: 'gson' , version: '2.+'
+	compile group: 'com.informix', name: 'jdbc', version: '4.1.0-SNAPSHOT'
+	compile group: 'org.slf4j', name: 'slf4j-api', version: '1.7.5'
+	compile group: 'ch.qos.logback' , name: 'logback-core' , version: '1.+'
+	compile group: 'ch.qos.logback' , name: 'logback-classic' , version: '1.+'
+}
+
+// Java component configuration for plugin:'java'
+sourceCompatibility = 1.6
+targetCompatibility = 1.6
+
+
+sourceSets {
+	main {
+		java {
+			srcDir 'src'
+		}
+	}
+}
+
+
+// Create sourceJar with the main source.
+task sourceJar(type: Jar) {
+	from sourceSets.main.allJava
+	classifier = 'sources'
+}
+
+task javadocJar(type: Jar, dependsOn: 'javadoc') {
+	from javadoc.destinationDir
+	classifier = 'javadoc'
+}
+
+// Add the dependencies to the libs directory when we before we assemble
+// Need to merge into main jar
+/*
+tasks.assemble.dependsOn('copyDependentLibs')
+task copyDependentLibs( type: Copy ) {
+	from configurations.runtime
+	into "$buildDir/libs"
+}
+*/
+
+
+// Add additional manifest information
+jar {
+	manifest {
+		name = 'IBM Database Compatibility'
+		attributes 	'Implementation-Title': 'IBM Database Compatibility',
+					'Implementation-Version': version,
+					'Built-Date': BuildDate.format('yyyy-MM-dd HH:mm:ss')
+		instruction 'Bundle-Vendor', 'IBM'
+		instruction 'Bundle-Description', name
+		instruction 'Bundle-DocURL', 'http://www.ibm.com'
+	}
+}
+
+publishing {
+	publications {
+		mavenJava(MavenPublication) {
+			from components.java
+			
+			artifactId =  'database.compatibility'
+			
+			pom.withXml {
+				asNode().children().last() + {
+					resolveStrategy = Closure.DELEGATE_FIRST
+					licenses
+					{
+						license
+						{
+						   //name 'IBM Public License Version 1.0 (IPL-1.0)'
+						   //url 'http://opensource.org/licenses/IPL-1.0'
+						   distribution 'manual'  // repo means download from Central repo.
+						}
+					}
+				}
+			}
+
+			artifact sourceJar
+			artifact javadocJar
+		}
+	}
+}
+
+/*
+ * STANDARD REPOSITORY INFO AND TASKS
+ */
+//Define Extra properties in the Project (current) object.
+//  ext allows setting new properties (and updating existing) in the parent object
+ext {
+	baseRepositoryUrl = 'http://raka.lenexa.ibm.com:8080/archiva/repository'
+	centralRepositoryUrl = "${baseRepositoryUrl}/internal"
+	snapshotRepositoryUrl = "${baseRepositoryUrl}/snapshot"
+	releaseRepositoryUrl = "${baseRepositoryUrl}/release"
+}
+
+// Repositories to search
+repositories {
+		maven { url centralRepositoryUrl }  //Proxy includes mavenCentral()
+		maven { url releaseRepositoryUrl }
+		maven { url snapshotRepositoryUrl }
+		//mavenLocal()
+}
+
+// Publish Repositories
+publishing {
+	repositories {
+		maven {
+			credentials {
+				username "${mvn_username}"
+				password "${mvn_password}"
+			}
+			
+			if (version.endsWith("-SNAPSHOT"))
+				url snapshotRepositoryUrl
+			else
+				url releaseRepositoryUrl
+		}
+	}
+}
+
+// Automatically report runtimeDependencies when we compileJava
+tasks.compileJava.dependsOn('runtimeDependencies');
+
+// runtimeDependencies supplies configuration for DependencyReportTask
+task runtimeDependencies(type: DependencyReportTask) {
+	configurations = [project.configurations.runtime]
+	doLast() {
+		println "\n------------------------------------------------------------\n";
+	}
+}
+
+// Programatic access to all declared dependencies, and resolved dependencies
+task showdep << {
+	
+	println("\nRequested and transitive Dependencies:");
+	configurations['runtime'].incoming.dependencies.each
+	{
+		println "\t ${it.group}:${it.name}:${it.version}";
+	}
+	
+	println "\nResolved Dependencies:"
+	configurations.runtime.incoming.resolutionResult.allComponents.each {
+		// Skip the root/project component
+		if (it == configurations.runtime.incoming.resolutionResult.root)
+			return;
+			
+		// Get version info
+		def versionId = it.moduleVersion;
+		println "\t${versionId.group}:${versionId.name}:${versionId.version}";
+		}
+	
+	println "\nResolvable Dependencies file path:"
+	configurations.runtime.resolvedConfiguration.resolvedArtifacts.each {
+		//println "\t${it.moduleVersion.id}"
+		println "\t${it.file.absolutePath}"
+	}
+
+	println()
+}
