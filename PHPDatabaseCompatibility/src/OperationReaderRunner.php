@@ -30,6 +30,7 @@ class OperationReaderRunner {
 			}
 		} catch (Exception $e) {
 			$fatalErrors = 1;
+			$errors[] = $e->getMessage();
 			echo ("exception in operation reader runner: " . $e);
 			fwrite($this->opReader->getLogFileHandle(), "exception in operation reader runner: " . $e . PHP_EOL);
 		}

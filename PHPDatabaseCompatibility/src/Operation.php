@@ -81,17 +81,29 @@ class Operation {
 				$session = $client->getPHPSession($this->sessionId);
 				$conn = $session->getConnection();
 				$this->logMessage("starting transaction on session id " . $session->getId());
-				$conn->beginTransaction();
+				$ret = $conn->beginTransaction();
+				if (!$ret) {
+					$this->logError("Start transaction failed: " . var_export($conn->errorInfo(), true));
+					throw new Exception("Could not start transaction");
+				}
 			} else if ($this->action == "commitTransaction") {
 				$session = $client->getPHPSession($this->sessionId);
 				$conn = $session->getConnection();
 				$this->logMessage("committing transaction on session id " . $session->getId());
-				$conn->commit();
+				$ret = $conn->commit();
+				if (!$ret) {
+					$this->logError("Commit transaction failed: " . var_export($conn->errorInfo(), true));
+					throw new Exception("Could not commit transaction");
+				}
 			} else if ($this->action == "rollbackTransaction") {
 				$session = $client->getPHPSession($this->sessionId);
 				$conn = $session->getConnection();
 				$this->logMessage("rolling back transaction on session id " . $session->getId());
-				$conn->rollback();
+				$ret = $conn->rollback();
+				if (!$ret) {
+					$this->logError("Rollback transaction failed: " . var_export($conn->errorInfo(), true));
+					throw new Exception("Could not rollback transaction");
+				}
 			} else {
 				throw new Exception("Unsupported session action " . $this->action);
 			}
