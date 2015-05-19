@@ -104,8 +104,15 @@ public class Report {
 				} else {
 					sb.append("<td>");
 				}
+				sb.append("<font color=\"");
+				if (Boolean.parseBoolean(tr.getResult())) {
+					sb.append("green");
+				} else {
+					sb.append("red");
+				}
+				sb.append("\">");
 				sb.append(tr.getResult());
-				sb.append("</td>\n");				
+				sb.append("</font></td>\n");				
 			}
 			sb.append("</tr>\n");
 		}
