@@ -1,0 +1,25 @@
+{"client": "IBM DB2 ODBC DRIVER", "server": "Informix 12.10", "detail": null, "language": "python", "test": "dataTypeTest_BIGINT.json", "result": true}
+{"client": "IBM DB2 ODBC DRIVER", "server": "Informix 12.10", "detail": null, "language": "python", "test": "dataTypeTest_BIGSERIAL.json", "result": true}
+{"client": "IBM DB2 ODBC DRIVER", "server": "Informix 12.10", "detail": null, "language": "python", "test": "dataTypeTest_BOOLEAN.json", "result": false}
+{"client": "IBM DB2 ODBC DRIVER", "server": "Informix 12.10", "detail": null, "language": "python", "test": "dataTypeTest_CHAR.json", "result": true}
+{"client": "IBM DB2 ODBC DRIVER", "server": "Informix 12.10", "detail": null, "language": "python", "test": "dataTypeTest_DATE.json", "result": true}
+{"client": "IBM DB2 ODBC DRIVER", "server": "Informix 12.10", "detail": null, "language": "python", "test": "dataTypeTest_DATETIME0.json", "result": true}
+{"client": "IBM DB2 ODBC DRIVER", "server": "Informix 12.10", "detail": null, "language": "python", "test": "dataTypeTest_DATETIME1.json", "result": true}
+{"client": "IBM DB2 ODBC DRIVER", "server": "Informix 12.10", "detail": null, "language": "python", "test": "dataTypeTest_DATETIME2.json", "result": true}
+{"client": "IBM DB2 ODBC DRIVER", "server": "Informix 12.10", "detail": null, "language": "python", "test": "dataTypeTest_DATETIME3.json", "result": true}
+{"client": "IBM DB2 ODBC DRIVER", "server": "Informix 12.10", "detail": null, "language": "python", "test": "dataTypeTest_DATETIME4.json", "result": true}
+{"client": "IBM DB2 ODBC DRIVER", "server": "Informix 12.10", "detail": null, "language": "python", "test": "dataTypeTest_DATETIME5.json", "result": true}
+{"client": "IBM DB2 ODBC DRIVER", "server": "Informix 12.10", "detail": null, "language": "python", "test": "dataTypeTest_DECIMAL.json", "result": true}
+{"client": "IBM DB2 ODBC DRIVER", "server": "Informix 12.10", "detail": null, "language": "python", "test": "dataTypeTest_INT.json", "result": true}
+{"client": "IBM DB2 ODBC DRIVER", "server": "Informix 12.10", "detail": null, "language": "python", "test": "dataTypeTest_LVARCHAR.json", "result": true}
+{"client": "IBM DB2 ODBC DRIVER", "server": "Informix 12.10", "detail": null, "language": "python", "test": "dataTypeTest_NVARCHAR.json", "result": true}
+{"client": "IBM DB2 ODBC DRIVER", "server": "Informix 12.10", "detail": null, "language": "python", "test": "dataTypeTest_SERIAL.json", "result": true}
+{"client": "IBM DB2 ODBC DRIVER", "server": "Informix 12.10", "detail": null, "language": "python", "test": "dataTypeTest_SMALLFLOAT.json", "result": false}
+{"client": "IBM DB2 ODBC DRIVER", "server": "Informix 12.10", "detail": null, "language": "python", "test": "dataTypeTest_SMALLINT.json", "result": true}
+{"client": "IBM DB2 ODBC DRIVER", "server": "Informix 12.10", "detail": null, "language": "python", "test": "dataTypeTest_VARCHAR.json", "result": true}
+{"client": "IBM DB2 ODBC DRIVER", "server": "Informix 12.10", "detail": null, "language": "python", "test": "preparedStatementTest_1.json", "result": true}
+{"client": "IBM DB2 ODBC DRIVER", "server": "Informix 12.10", "detail": null, "language": "python", "test": "preparedStatementTest_2.json", "result": true}
+{"client": "IBM DB2 ODBC DRIVER", "server": "Informix 12.10", "detail": null, "language": "python", "test": "transactionTest.json", "result": true}
+{"client": "IBM DB2 ODBC DRIVER", "server": "Informix 12.10", "detail": "int8 not compatible", "language": "python", "test": "dataTypeTest_INT8.json", "result": false}
+{"client": "IBM DB2 ODBC DRIVER", "server": "Informix 12.10", "detail": "serial8 not compatible", "language": "python", "test": "dataTypeTest_SERIAL8.json", "result": false}
+{"client": "IBM DB2 ODBC DRIVER", "server": "Informix 12.10", "detail": "format of test is different than others, but operations performed in other tests", "language": "python", "test": "ops.json", "result": true}

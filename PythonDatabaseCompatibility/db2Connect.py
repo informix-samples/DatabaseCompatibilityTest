@@ -19,21 +19,25 @@ import preparedStatement
 import sys 
 import varMethods
 import traceback
-import tableStats
 import os
+
 
 
  
 
 if __name__ == "__main__": 
-    totalResultsFile = open("totalResults.json", 'w')
-    for file in os.listdir("dataTypeTestFiles"):
+    totalResultsFile = open(os.path.join("results", "results_python_drda.json"), 'w', encoding='utf-8')
+    testDir = varMethods.getJsonTestDirectory()
+    for file in os.listdir(testDir):
+        
         print (file)
+        if "INT8" in file or "SERIAL8" in file or "ops.json" in file:
+            continue
+        
         try:
             # open result file to print remarks/results
-            #os.chdir('resultFiles')
-            resultFile = file.replace("json", "txt")
-            outFile = open(resultFile, "w")
+            resultFile = os.path.join("testSpecificResults", file.replace("json", "txt"))
+            outFile = open(resultFile, "w", encoding='utf-8')
             outFile.write("File open. Starting tests. \n")  
             '''
             # get credential info from VCAP_SERVICES and connect to db
@@ -55,8 +59,8 @@ if __name__ == "__main__":
             preparedStmtList = []
             tableStatsList = []
             # iterate through json file and perform appropriate operations
-            filePath = os.path.join("dataTypeTestFiles", file)
-            with open(filePath, 'r') as f:
+            filePath = os.path.join(testDir, file)
+            with open(filePath, 'r', encoding='utf-8') as f:
                 for line in f:
                     if(line[0] != '#'):
                         # convert jsonLine to dict data
@@ -96,22 +100,48 @@ if __name__ == "__main__":
                                 outFile.write("Creating prepared statement: {} \n".format(jLine.sql))
                             if jLine.action == "execute":
                                 if jLine.hasBindings:
-                                    varMethods.prepareBindings(dbconn, outFile, jLine, preparedStmtList)
-                                varMethods.performPreparedStmt(dbconn, outFile, jLine, preparedStmtList)
+                                    try:
+                                        varMethods.prepareBindings(dbconn, outFile, jLine, preparedStmtList)
+                                    except Exception as err:
+                                        e = sys.exc_info()
+                                        print(e)
+                                        traceback.print_tb(err.__traceback__)
+                                        outFile.write("FAILED with exception \n")
+                                try:
+                                    varMethods.performPreparedStmt(dbconn, outFile, jLine, preparedStmtList)
+                                except Exception as err:
+                                    e = sys.exc_info()
+                                    print(e)
+                                    traceback.print_tb(err.__traceback__)
+                                    outFile.write("FAILED with exception \n")
                                 if (jLine.hasResults and varMethods.getPreparedStmtObj(jLine.statementId, preparedStmtList).isSelect):
                                     currentHdl = varMethods.getPreparedStmtHdl(jLine.statementId, preparedStmtList)
                                     isOrdered = varMethods.getPreparedStmtObj(jLine.statementId, preparedStmtList).resultSetOrdered
-                                    if varMethods.expectedEqualsActual(currentHdl, jLine, isOrdered, outFile):
+                                    try:
+                                        stmt = varMethods.expectedEqualsActual(currentHdl, jLine, isOrdered, outFile)
+                                    except Exception as err:
+                                        e = sys.exc_info()
+                                        print(e)
+                                        traceback.print_tb(err.__traceback__)
+                                        outFile.write("FAILED with exception \n")
+                                    if stmt:
                                         outFile.write("PASS \n")
                                     else:
                                         outFile.write("FAILED \n")                                    
                             if jLine.action == "fetch":
                                 currentHdl = varMethods.getPreparedStmtHdl(jLine.statementId, preparedStmtList)
-                                isOrdered = varMethods.getPreparedStmtObj(jLine.statementId, preparedStmtList).resultSetOrdered  
-                                if varMethods.expectedEqualsActual(currentHdl, jLine, isOrdered, outFile):
+                                isOrdered = varMethods.getPreparedStmtObj(jLine.statementId, preparedStmtList).resultSetOrdered 
+                                try:
+                                    stmt = varMethods.expectedEqualsActual(currentHdl, jLine, isOrdered, outFile)
+                                except Exception as err:
+                                    e = sys.exc_info()
+                                    print(e)
+                                    traceback.print_tb(err.__traceback__)
+                                    outFile.write("FAILED with exception \n")
+                                if stmt:
                                     outFile.write("PASS \n")
                                 else:
-                                    outFile.write("FAILED \n")                            
+                                    outFile.write("FAILED \n")                              
                             if jLine.action == "close":
                                 varMethods.removePreparedStmtFromList(jLine.statementId, preparedStmtList)
                                 outFile.write("closing prepared statement {}\n".format(varMethods.getPreparedStmtSql(jLine.statementId, preparedStmtList)))
@@ -125,7 +155,7 @@ if __name__ == "__main__":
             print(e)
             traceback.print_tb(err.__traceback__)
             outFile.write("FAILED with exception \n")
-            raise
+            
         finally:
             result = False
             outFile.close()
@@ -142,6 +172,7 @@ if __name__ == "__main__":
             f.close()
     varMethods.enterExtraDataToJsonFile(totalResultsFile)
     totalResultsFile.close()
+    print("Done with Test Files")
                 
             
     

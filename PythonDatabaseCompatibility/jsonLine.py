@@ -3,9 +3,7 @@ Created on Mar 13, 2015
 
 @author: GregN
 '''
-import json
-import io, sys
-import ibm_db
+
 import datetime
 import tableStats
 
@@ -91,36 +89,20 @@ class JsonLine:
 
     def __modifyBindings(self):
         for bindDict in self.bindings:
-            '''
-            if "DATE" in bindDict.values(): # change from unix timestamp to python date
-                providedDate = bindDict["value"]
-                bindDict["value"] = datetime.date.fromtimestamp(float (providedDate) / 1000) # requires in seconds
-                self.modified = True
+            if "DATE" in bindDict.values():
                 self.modifiedDate = True
-            if "BOOLEAN" in bindDict.values():# change to char type since ibm_db converts bool to long 0/1
-                if bindDict["value"] == True:
-                    bindDict["value"] = 't'
-                else:
-                    bindDict["value"] = 'f'
-                # not setting self.modified to true since result does not need modified in this case
-                '''
+                self.modified = True
             if "DATETIME" in bindDict.values(): 
                 self.modifiedDateTime = True
                 self.modified = True
-                '''
-                if isinstance(bindDict["value"], int): # only modify if not already in dateTime format
-                    bindDict["value"] = self.__convertToDateTime(bindDict["value"])
-                    '''
+                
                     
 
     def __modifyResults(self, preparedStmtList): 
-        '''
         if self.modifiedDate: # assuming all results are of date type, if this changes, need to change
             for resultDict in self.expectedResults: 
                 for key in resultDict: 
-                    providedResult = resultDict[key] 
-                    resultDict[key] = datetime.date.fromtimestamp(float (providedResult) / 1000) 
-                    '''
+                    resultDict[key] = datetime.datetime.strptime(resultDict[key], "%Y-%m-%d").date()
         if self.modifiedDateTime: 
             timeFlag = self.__getTimeFlag(preparedStmtList)
             if timeFlag == "seconds":
@@ -131,12 +113,6 @@ class JsonLine:
                 for resultDict in self.expectedResults:
                     for key in resultDict:
                         resultDict[key] = datetime.datetime.strptime(resultDict[key], "%Y-%m-%d %H:%M:%S.%f")
-            '''
-            else:
-                for resultDict in self.expectedResults:
-                    for key in resultDict: 
-                        resultDict[key] = self.__convertToDateTime(resultDict[key])
-                        '''
 
     def __getBindTuple(self):
         valueList = []

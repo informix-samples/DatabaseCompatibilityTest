@@ -1,10 +1,9 @@
 import ibm_db
-import bindings
-import preparedStatement
-import jsonLine
-import datetime
-from test.test_popen import python
 import json
+import inspect
+import os
+import sys
+import functools
 
 def immediateOper(connection, sql, outFile):
     outFile.write("Performing immediate operation: {} \n".format(sql))
@@ -109,58 +108,6 @@ def getActualResultList(stmtHdl, fetchNum):
             resultDict = ibm_db.fetch_assoc(stmtHdl)
             resultList.append(resultDict)
         return resultList
-  
-'''      
-def checkFetchResults(stmt, jsonLine, outfile):
-    expectedResults = jsonLine.expectedResults
-    outfile.write("Expected Results: {} \n".format(expectedResults))
-    for n in range(jsonLine.nfetch):
-        found = False
-        resultDict = ibm_db.fetch_assoc(stmt)
-        outfile.write("Actual row result: {} \n".format(resultDict))
-        for dictRow in jsonLine.expectedResults:
-            if dictRow == resultDict:
-                expectedResults.remove(dictRow)
-                found = True
-                break  
-        if not found:
-            break
-    if len(expectedResults) > 0:
-        found = False
-    if found:
-        return True
-    else:
-        return False        
-
-     fetch row (as dict), iterate through expectedResults (which is a list of dicts), removing row from expectedResults list 
-    after validation, should be zero rows when done fetching. If row not found in expectedResults, then validation also fails
-    
-def checkNonFetchResults(actualResultList, expectedResultList outfile):
-    outfile.write("Expected Results: {} \n".format(expectedResultList))
-    outfile.write("Actual Results: {} \n".format(actualResultList))
-    resultDict = ibm_db.fetch_assoc(stmt)
-    if actualResultList == [] and expectedResultList == []:
-        outfile.write("Expected results is empty and nothing returned. Results equal \n")
-        return True
-    found = False
-    while resultDict:
-        outfile.write("Actual row result: {} \n".format(resultDict))
-        found = False  
-        for dictRow in jsonLine.expectedResults:
-            if dictRow == resultDict:
-                expectedResults.remove(dictRow)
-                found = True
-                break  
-        if not found:
-            break
-        resultDict = ibm_db.fetch_assoc(stmt)
-    if len(expectedResults) > 0:
-        found = False
-    if found:
-        return True
-    else:
-        return False
-        '''
    
 def getPreparedStmtSql(jLineStmtID, preparedStmtList):
     for preparedStmt in preparedStmtList:
@@ -218,9 +165,22 @@ def enterExtraDataToJsonFile(outfile):
     jsonDict['language'] = 'python'
     jsonDict['client'] = 'IBM DB2 ODBC DRIVER'
     jsonDict['server'] = 'Informix 12.10'
-    jsonDict['test'] = "dataTypeTest_NVARCHAR.json"
-    jsonDict['result'] = False
-    jsonDict['detail'] = "Need to investigate db_locale/client_locale"       
+    jsonDict['test'] = "ops.json"
+    jsonDict['result'] = True
+    jsonDict['detail'] = "format of test is different than others, but operations performed in other tests"       
     json.dump(jsonDict, outfile)
     outfile.write("\n")
     
+def getMyPath():
+    try:
+        fileName = __file__
+    except NameError: # fallback
+        fileName = inspect.getsourcefile(getMyPath)
+    return os.path.realpath(fileName)
+
+def getJsonTestDirectory():
+    myPath = getMyPath()
+    upperDirPath = functools.reduce(lambda x, f: f(x), [os.path.dirname]*2, myPath)
+    testParentPath = os.path.join(upperDirPath, "JavaDatabaseCompatibility")
+    return os.path.join(testParentPath, "resources")
+
