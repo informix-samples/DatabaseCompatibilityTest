@@ -1,0 +1,151 @@
+File open. Starting tests. 
+Connection successful using connection credentials : 
+ DRIVER=(IBM DB2 ODBC DRIVER};DATABASE=pythondb;HOSTNAME=lxvm-l165.lenexa.ibm.com;PORT=8412;PROTOCOL=TCPIP;UID=informix;PWD=Ifmx4spd 
+
+LINE NO= 2 
+resource = credentials, nothing to do 
+LINE NO= 3 
+LINE NO= 4 
+resource = session, nothing to do 
+LINE NO= 5 
+LINE NO= 6 
+Performing immediate operation: DROP TABLE IF EXISTS bigint_test 
+LINE NO= 7 
+Performing immediate operation: CREATE TABLE bigint_test (i0 BIGINT) 
+LINE NO= 8 
+Close immediate action, ignoring 
+LINE NO= 9 
+LINE NO= 10 
+Creating prepared statement: INSERT INTO bigint_test VALUES (?) 
+LINE NO= 11 
+Binding values: [{'index': 1, 'value': 549755813888, 'type': 'BIGINT'}] 
+Executing sql statement: INSERT INTO bigint_test VALUES (?) 
+LINE NO= 12 
+LINE NO= 13 
+Creating prepared statement: SELECT * FROM bigint_test WHERE i0 = ?  
+LINE NO= 14 
+Binding values: [{'index': 1, 'value': 549755813888, 'type': 'BIGINT'}] 
+Executing sql statement: SELECT * FROM bigint_test WHERE i0 = ?  
+Expected Results: [{'i0': 549755813888}] 
+Actual Results: [{'i0': 549755813888}] 
+PASS 
+LINE NO= 15 
+LINE NO= 16 
+Creating prepared statement: UPDATE bigint_test SET i0 = ? WHERE i0 = ? 
+LINE NO= 17 
+Binding values: [{'index': 1, 'value': 1099511627776, 'type': 'BIGINT'}, {'index': 2, 'value': 549755813888, 'type': 'BIGINT'}] 
+Executing sql statement: UPDATE bigint_test SET i0 = ? WHERE i0 = ? 
+LINE NO= 18 
+LINE NO= 19 
+Binding values: [{'index': 1, 'value': 549755813888, 'type': 'BIGINT'}] 
+Executing sql statement: SELECT * FROM bigint_test WHERE i0 = ?  
+Expected Results: [] 
+Actual Results: [] 
+PASS 
+LINE NO= 20 
+LINE NO= 21 
+Binding values: [{'index': 1, 'value': 1099511627776, 'type': 'BIGINT'}] 
+Executing sql statement: SELECT * FROM bigint_test WHERE i0 = ?  
+Expected Results: [{'i0': 1099511627776}] 
+Actual Results: [{'i0': 1099511627776}] 
+PASS 
+LINE NO= 22 
+LINE NO= 23 
+Creating prepared statement: DELETE FROM bigint_test WHERE i0 = ? 
+LINE NO= 24 
+Binding values: [{'index': 1, 'value': 1099511627776, 'type': 'BIGINT'}] 
+Executing sql statement: DELETE FROM bigint_test WHERE i0 = ? 
+LINE NO= 25 
+LINE NO= 26 
+Binding values: [{'index': 1, 'value': 1099511627776, 'type': 'BIGINT'}] 
+Executing sql statement: SELECT * FROM bigint_test WHERE i0 = ?  
+Expected Results: [] 
+Actual Results: [] 
+PASS 
+LINE NO= 27 
+LINE NO= 28 
+Performing immediate operation: DROP TABLE IF EXISTS bigint_test 
+LINE NO= 29 
+Close immediate action, ignoring 
+LINE NO= 30 
+resource = session, nothing to do 
+LINE NO= 31 
+LINE NO= 32 
+resource = session, nothing to do 
+LINE NO= 33 
+LINE NO= 34 
+Performing immediate operation: DROP TABLE IF EXISTS bigint_test 
+LINE NO= 35 
+Performing immediate operation: CREATE TABLE bigint_test (i0 BIGINT,i1 BIGINT,i2 BIGINT) 
+LINE NO= 36 
+Close immediate action, ignoring 
+LINE NO= 37 
+LINE NO= 38 
+Creating prepared statement: INSERT INTO bigint_test VALUES (?,?,?) 
+LINE NO= 39 
+Binding values: [{'index': 1, 'value': 4294967296, 'type': 'BIGINT'}, {'index': 2, 'value': 2305843009213693952, 'type': 'BIGINT'}, {'index': 3, 'value': 1152921504606846976, 'type': 'BIGINT'}] 
+Executing sql statement: INSERT INTO bigint_test VALUES (?,?,?) 
+LINE NO= 40 
+Binding values: [{'index': 1, 'value': 8589934592, 'type': 'BIGINT'}, {'index': 2, 'value': 4294967296, 'type': 'BIGINT'}, {'index': 3, 'value': 2305843009213693952, 'type': 'BIGINT'}] 
+Executing sql statement: INSERT INTO bigint_test VALUES (?,?,?) 
+LINE NO= 41 
+Binding values: [{'index': 1, 'value': 17179869184, 'type': 'BIGINT'}, {'index': 2, 'value': 8589934592, 'type': 'BIGINT'}, {'index': 3, 'value': 4294967296, 'type': 'BIGINT'}] 
+Executing sql statement: INSERT INTO bigint_test VALUES (?,?,?) 
+LINE NO= 42 
+Binding values: [{'index': 1, 'value': 34359738368, 'type': 'BIGINT'}, {'index': 2, 'value': 17179869184, 'type': 'BIGINT'}, {'index': 3, 'value': 8589934592, 'type': 'BIGINT'}] 
+Executing sql statement: INSERT INTO bigint_test VALUES (?,?,?) 
+LINE NO= 43 
+Binding values: [{'index': 1, 'value': 68719476736, 'type': 'BIGINT'}, {'index': 2, 'value': 34359738368, 'type': 'BIGINT'}, {'index': 3, 'value': 17179869184, 'type': 'BIGINT'}] 
+Executing sql statement: INSERT INTO bigint_test VALUES (?,?,?) 
+LINE NO= 44 
+Binding values: [{'index': 1, 'value': 137438953472, 'type': 'BIGINT'}, {'index': 2, 'value': 68719476736, 'type': 'BIGINT'}, {'index': 3, 'value': 34359738368, 'type': 'BIGINT'}] 
+Executing sql statement: INSERT INTO bigint_test VALUES (?,?,?) 
+LINE NO= 45 
+Binding values: [{'index': 1, 'value': 274877906944, 'type': 'BIGINT'}, {'index': 2, 'value': 137438953472, 'type': 'BIGINT'}, {'index': 3, 'value': 68719476736, 'type': 'BIGINT'}] 
+Executing sql statement: INSERT INTO bigint_test VALUES (?,?,?) 
+LINE NO= 46 
+Binding values: [{'index': 1, 'value': 549755813888, 'type': 'BIGINT'}, {'index': 2, 'value': 274877906944, 'type': 'BIGINT'}, {'index': 3, 'value': 137438953472, 'type': 'BIGINT'}] 
+Executing sql statement: INSERT INTO bigint_test VALUES (?,?,?) 
+LINE NO= 47 
+Binding values: [{'index': 1, 'value': 1099511627776, 'type': 'BIGINT'}, {'index': 2, 'value': 549755813888, 'type': 'BIGINT'}, {'index': 3, 'value': 274877906944, 'type': 'BIGINT'}] 
+Executing sql statement: INSERT INTO bigint_test VALUES (?,?,?) 
+LINE NO= 48 
+Binding values: [{'index': 1, 'value': 2199023255552, 'type': 'BIGINT'}, {'index': 2, 'value': 1099511627776, 'type': 'BIGINT'}, {'index': 3, 'value': 549755813888, 'type': 'BIGINT'}] 
+Executing sql statement: INSERT INTO bigint_test VALUES (?,?,?) 
+LINE NO= 49 
+closing prepared statement None
+LINE NO= 50 
+LINE NO= 51 
+Creating prepared statement: SELECT * FROM bigint_test WHERE i0 = ?  
+LINE NO= 52 
+Binding values: [{'index': 1, 'value': 4294967296, 'type': 'BIGINT'}] 
+Executing sql statement: SELECT * FROM bigint_test WHERE i0 = ?  
+Expected Results: [{'i0': 4294967296, 'i2': 1152921504606846976, 'i1': 2305843009213693952}] 
+Actual Results: [{'i0': 4294967296, 'i2': 1152921504606846976, 'i1': 2305843009213693952}] 
+PASS 
+LINE NO= 53 
+Binding values: [{'index': 1, 'value': 34359738368, 'type': 'BIGINT'}] 
+Executing sql statement: SELECT * FROM bigint_test WHERE i0 = ?  
+Expected Results: [{'i0': 34359738368, 'i2': 8589934592, 'i1': 17179869184}] 
+Actual Results: [{'i0': 34359738368, 'i2': 8589934592, 'i1': 17179869184}] 
+PASS 
+LINE NO= 54 
+Binding values: [{'index': 1, 'value': 274877906944, 'type': 'BIGINT'}] 
+Executing sql statement: SELECT * FROM bigint_test WHERE i0 = ?  
+Expected Results: [{'i0': 274877906944, 'i2': 68719476736, 'i1': 137438953472}] 
+Actual Results: [{'i0': 274877906944, 'i2': 68719476736, 'i1': 137438953472}] 
+PASS 
+LINE NO= 55 
+closing prepared statement None
+LINE NO= 56 
+LINE NO= 57 
+Performing immediate operation: DROP TABLE IF EXISTS bigint_test 
+LINE NO= 58 
+Close immediate action, ignoring 
+LINE NO= 59 
+resource = session, nothing to do 
+LINE NO= 60 
+resource = credentials, nothing to do 
+LINE NO= 61 
+LINE NO= 62 
+TEST DONE

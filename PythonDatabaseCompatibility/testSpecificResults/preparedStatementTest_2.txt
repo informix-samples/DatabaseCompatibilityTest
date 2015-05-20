@@ -1,0 +1,186 @@
+File open. Starting tests. 
+Connection successful using connection credentials : 
+ DRIVER=(IBM DB2 ODBC DRIVER};DATABASE=pythondb;HOSTNAME=lxvm-l165.lenexa.ibm.com;PORT=8412;PROTOCOL=TCPIP;UID=informix;PWD=Ifmx4spd 
+
+LINE NO= 2 
+resource = credentials, nothing to do 
+LINE NO= 3 
+resource = session, nothing to do 
+LINE NO= 4 
+LINE NO= 5 
+Performing immediate operation: DROP TABLE IF EXISTS test1 
+LINE NO= 6 
+Performing immediate operation: CREATE TABLE test1 (id INT,location CHAR(20),home CHAR(20),notes VARCHAR(20)) 
+LINE NO= 7 
+Performing immediate operation: DROP TABLE IF EXISTS test2 
+LINE NO= 8 
+Performing immediate operation: CREATE TABLE test2 (id INT,price INT,notes VARCHAR(20)) 
+LINE NO= 9 
+Close immediate action, ignoring 
+LINE NO= 10 
+LINE NO= 11 
+Creating prepared statement: INSERT INTO test1 VALUES (?,?,?,?) 
+LINE NO= 12 
+Creating prepared statement: INSERT INTO test2 VALUES (?,?,?) 
+LINE NO= 13 
+Binding values: [{'index': 1, 'value': 1, 'type': 'INT'}, {'index': 2, 'value': 'Maine               ', 'type': 'CHAR'}, {'index': 3, 'value': 'Colorado            ', 'type': 'CHAR'}, {'index': 4, 'value': 'Wisconsin', 'type': 'VARCHAR'}] 
+Executing sql statement: INSERT INTO test1 VALUES (?,?,?,?) 
+LINE NO= 14 
+Binding values: [{'index': 1, 'value': 11, 'type': 'INT'}, {'index': 2, 'value': 88, 'type': 'INT'}, {'index': 3, 'value': 'Tennessee', 'type': 'VARCHAR'}] 
+Executing sql statement: INSERT INTO test2 VALUES (?,?,?) 
+LINE NO= 15 
+Binding values: [{'index': 1, 'value': 2, 'type': 'INT'}, {'index': 2, 'value': 'Maryland            ', 'type': 'CHAR'}, {'index': 3, 'value': 'Connecticut         ', 'type': 'CHAR'}, {'index': 4, 'value': 'Wyoming', 'type': 'VARCHAR'}] 
+Executing sql statement: INSERT INTO test1 VALUES (?,?,?,?) 
+LINE NO= 16 
+Binding values: [{'index': 1, 'value': 12, 'type': 'INT'}, {'index': 2, 'value': 89, 'type': 'INT'}, {'index': 3, 'value': 'Texas', 'type': 'VARCHAR'}] 
+Executing sql statement: INSERT INTO test2 VALUES (?,?,?) 
+LINE NO= 17 
+Binding values: [{'index': 1, 'value': 3, 'type': 'INT'}, {'index': 2, 'value': 'Massachusetts       ', 'type': 'CHAR'}, {'index': 3, 'value': 'Delaware            ', 'type': 'CHAR'}, {'index': 4, 'value': 'Montana', 'type': 'VARCHAR'}] 
+Executing sql statement: INSERT INTO test1 VALUES (?,?,?,?) 
+LINE NO= 18 
+Binding values: [{'index': 1, 'value': 13, 'type': 'INT'}, {'index': 2, 'value': 90, 'type': 'INT'}, {'index': 3, 'value': 'Utah', 'type': 'VARCHAR'}] 
+Executing sql statement: INSERT INTO test2 VALUES (?,?,?) 
+LINE NO= 19 
+Binding values: [{'index': 1, 'value': 4, 'type': 'INT'}, {'index': 2, 'value': 'Michigan            ', 'type': 'CHAR'}, {'index': 3, 'value': 'Florida             ', 'type': 'CHAR'}, {'index': 4, 'value': 'Nebraska', 'type': 'VARCHAR'}] 
+Executing sql statement: INSERT INTO test1 VALUES (?,?,?,?) 
+LINE NO= 20 
+Binding values: [{'index': 1, 'value': 14, 'type': 'INT'}, {'index': 2, 'value': 91, 'type': 'INT'}, {'index': 3, 'value': 'Vermont', 'type': 'VARCHAR'}] 
+Executing sql statement: INSERT INTO test2 VALUES (?,?,?) 
+LINE NO= 21 
+Binding values: [{'index': 1, 'value': 5, 'type': 'INT'}, {'index': 2, 'value': 'Minnesota           ', 'type': 'CHAR'}, {'index': 3, 'value': 'Georgia             ', 'type': 'CHAR'}, {'index': 4, 'value': 'Nevada', 'type': 'VARCHAR'}] 
+Executing sql statement: INSERT INTO test1 VALUES (?,?,?,?) 
+LINE NO= 22 
+Binding values: [{'index': 1, 'value': 15, 'type': 'INT'}, {'index': 2, 'value': 92, 'type': 'INT'}, {'index': 3, 'value': 'Virgina', 'type': 'VARCHAR'}] 
+Executing sql statement: INSERT INTO test2 VALUES (?,?,?) 
+LINE NO= 23 
+Binding values: [{'index': 1, 'value': 6, 'type': 'INT'}, {'index': 2, 'value': 'Mississippi         ', 'type': 'CHAR'}, {'index': 3, 'value': 'Hawaii              ', 'type': 'CHAR'}, {'index': 4, 'value': 'New Hampshire', 'type': 'VARCHAR'}] 
+Executing sql statement: INSERT INTO test1 VALUES (?,?,?,?) 
+LINE NO= 24 
+Binding values: [{'index': 1, 'value': 16, 'type': 'INT'}, {'index': 2, 'value': 93, 'type': 'INT'}, {'index': 3, 'value': 'Washington', 'type': 'VARCHAR'}] 
+Executing sql statement: INSERT INTO test2 VALUES (?,?,?) 
+LINE NO= 25 
+Binding values: [{'index': 1, 'value': 7, 'type': 'INT'}, {'index': 2, 'value': 'Missouri            ', 'type': 'CHAR'}, {'index': 3, 'value': 'Idaho               ', 'type': 'CHAR'}, {'index': 4, 'value': 'New Jersey', 'type': 'VARCHAR'}] 
+Executing sql statement: INSERT INTO test1 VALUES (?,?,?,?) 
+LINE NO= 26 
+Binding values: [{'index': 1, 'value': 17, 'type': 'INT'}, {'index': 2, 'value': 94, 'type': 'INT'}, {'index': 3, 'value': 'West Virginia', 'type': 'VARCHAR'}] 
+Executing sql statement: INSERT INTO test2 VALUES (?,?,?) 
+LINE NO= 27 
+Binding values: [{'index': 1, 'value': 8, 'type': 'INT'}, {'index': 2, 'value': 'Alabama             ', 'type': 'CHAR'}, {'index': 3, 'value': 'Illinois            ', 'type': 'CHAR'}, {'index': 4, 'value': 'New Meixco', 'type': 'VARCHAR'}] 
+Executing sql statement: INSERT INTO test1 VALUES (?,?,?,?) 
+LINE NO= 28 
+Binding values: [{'index': 1, 'value': 18, 'type': 'INT'}, {'index': 2, 'value': 95, 'type': 'INT'}, {'index': 3, 'value': 'Wisconsin', 'type': 'VARCHAR'}] 
+Executing sql statement: INSERT INTO test2 VALUES (?,?,?) 
+LINE NO= 29 
+Binding values: [{'index': 1, 'value': 9, 'type': 'INT'}, {'index': 2, 'value': 'Alaska              ', 'type': 'CHAR'}, {'index': 3, 'value': 'Indiana             ', 'type': 'CHAR'}, {'index': 4, 'value': 'New York', 'type': 'VARCHAR'}] 
+Executing sql statement: INSERT INTO test1 VALUES (?,?,?,?) 
+LINE NO= 30 
+Binding values: [{'index': 1, 'value': 19, 'type': 'INT'}, {'index': 2, 'value': 96, 'type': 'INT'}, {'index': 3, 'value': 'Wyoming', 'type': 'VARCHAR'}] 
+Executing sql statement: INSERT INTO test2 VALUES (?,?,?) 
+LINE NO= 31 
+Binding values: [{'index': 1, 'value': 10, 'type': 'INT'}, {'index': 2, 'value': 'Arizona             ', 'type': 'CHAR'}, {'index': 3, 'value': 'Iowa                ', 'type': 'CHAR'}, {'index': 4, 'value': 'North Carolina', 'type': 'VARCHAR'}] 
+Executing sql statement: INSERT INTO test1 VALUES (?,?,?,?) 
+LINE NO= 32 
+Binding values: [{'index': 1, 'value': 20, 'type': 'INT'}, {'index': 2, 'value': 97, 'type': 'INT'}, {'index': 3, 'value': 'Montana', 'type': 'VARCHAR'}] 
+Executing sql statement: INSERT INTO test2 VALUES (?,?,?) 
+LINE NO= 33 
+Close immediate action, ignoring 
+LINE NO= 34 
+Close immediate action, ignoring 
+LINE NO= 35 
+LINE NO= 36 
+Creating prepared statement: select * from test1 order by id 
+LINE NO= 37 
+Creating prepared statement: select * from test2 order by id 
+LINE NO= 38 
+Executing sql statement: select * from test1 order by id 
+Expected Results: [{'home': 'Colorado            ', 'id': 1, 'notes': 'Wisconsin', 'location': 'Maine               '}, {'home': 'Connecticut         ', 'id': 2, 'notes': 'Wyoming', 'location': 'Maryland            '}] 
+Actual Results: [{'home': 'Colorado            ', 'id': 1, 'notes': 'Wisconsin', 'location': 'Maine               '}, {'home': 'Connecticut         ', 'id': 2, 'notes': 'Wyoming', 'location': 'Maryland            '}] 
+PASS 
+LINE NO= 39 
+Executing sql statement: select * from test2 order by id 
+Expected Results: [{'id': 11, 'notes': 'Tennessee', 'price': 88}, {'id': 12, 'notes': 'Texas', 'price': 89}, {'id': 13, 'notes': 'Utah', 'price': 90}] 
+Actual Results: [{'id': 11, 'notes': 'Tennessee', 'price': 88}, {'id': 12, 'notes': 'Texas', 'price': 89}, {'id': 13, 'notes': 'Utah', 'price': 90}] 
+PASS 
+LINE NO= 40 
+Expected Results: [{'home': 'Delaware            ', 'id': 3, 'notes': 'Montana', 'location': 'Massachusetts       '}] 
+Actual Results: [{'home': 'Delaware            ', 'id': 3, 'notes': 'Montana', 'location': 'Massachusetts       '}] 
+PASS 
+LINE NO= 41 
+Expected Results: [{'id': 14, 'notes': 'Vermont', 'price': 91}, {'id': 15, 'notes': 'Virgina', 'price': 92}] 
+Actual Results: [{'id': 14, 'notes': 'Vermont', 'price': 91}, {'id': 15, 'notes': 'Virgina', 'price': 92}] 
+PASS 
+LINE NO= 42 
+Expected Results: [{'home': 'Florida             ', 'id': 4, 'notes': 'Nebraska', 'location': 'Michigan            '}] 
+Actual Results: [{'home': 'Florida             ', 'id': 4, 'notes': 'Nebraska', 'location': 'Michigan            '}] 
+PASS 
+LINE NO= 43 
+Expected Results: [{'id': 16, 'notes': 'Washington', 'price': 93}, {'id': 17, 'notes': 'West Virginia', 'price': 94}, {'id': 18, 'notes': 'Wisconsin', 'price': 95}, {'id': 19, 'notes': 'Wyoming', 'price': 96}] 
+Actual Results: [{'id': 16, 'notes': 'Washington', 'price': 93}, {'id': 17, 'notes': 'West Virginia', 'price': 94}, {'id': 18, 'notes': 'Wisconsin', 'price': 95}, {'id': 19, 'notes': 'Wyoming', 'price': 96}] 
+PASS 
+LINE NO= 44 
+Expected Results: [{'home': 'Georgia             ', 'id': 5, 'notes': 'Nevada', 'location': 'Minnesota           '}, {'home': 'Hawaii              ', 'id': 6, 'notes': 'New Hampshire', 'location': 'Mississippi         '}, {'home': 'Idaho               ', 'id': 7, 'notes': 'New Jersey', 'location': 'Missouri            '}, {'home': 'Illinois            ', 'id': 8, 'notes': 'New Meixco', 'location': 'Alabama             '}, {'home': 'Indiana             ', 'id': 9, 'notes': 'New York', 'location': 'Alaska              '}, {'home': 'Iowa                ', 'id': 10, 'notes': 'North Carolina', 'location': 'Arizona             '}] 
+Actual Results: [{'home': 'Georgia             ', 'id': 5, 'notes': 'Nevada', 'location': 'Minnesota           '}, {'home': 'Hawaii              ', 'id': 6, 'notes': 'New Hampshire', 'location': 'Mississippi         '}, {'home': 'Idaho               ', 'id': 7, 'notes': 'New Jersey', 'location': 'Missouri            '}, {'home': 'Illinois            ', 'id': 8, 'notes': 'New Meixco', 'location': 'Alabama             '}, {'home': 'Indiana             ', 'id': 9, 'notes': 'New York', 'location': 'Alaska              '}, {'home': 'Iowa                ', 'id': 10, 'notes': 'North Carolina', 'location': 'Arizona             '}] 
+PASS 
+LINE NO= 45 
+Expected Results: [{'id': 20, 'notes': 'Montana', 'price': 97}] 
+Actual Results: [{'id': 20, 'notes': 'Montana', 'price': 97}] 
+PASS 
+LINE NO= 46 
+LINE NO= 47 
+Executing sql statement: select * from test1 order by id 
+Expected Results: [{'home': 'Colorado            ', 'id': 1, 'notes': 'Wisconsin', 'location': 'Maine               '}, {'home': 'Connecticut         ', 'id': 2, 'notes': 'Wyoming', 'location': 'Maryland            '}, {'home': 'Delaware            ', 'id': 3, 'notes': 'Montana', 'location': 'Massachusetts       '}, {'home': 'Florida             ', 'id': 4, 'notes': 'Nebraska', 'location': 'Michigan            '}, {'home': 'Georgia             ', 'id': 5, 'notes': 'Nevada', 'location': 'Minnesota           '}] 
+Actual Results: [{'home': 'Colorado            ', 'id': 1, 'notes': 'Wisconsin', 'location': 'Maine               '}, {'home': 'Connecticut         ', 'id': 2, 'notes': 'Wyoming', 'location': 'Maryland            '}, {'home': 'Delaware            ', 'id': 3, 'notes': 'Montana', 'location': 'Massachusetts       '}, {'home': 'Florida             ', 'id': 4, 'notes': 'Nebraska', 'location': 'Michigan            '}, {'home': 'Georgia             ', 'id': 5, 'notes': 'Nevada', 'location': 'Minnesota           '}] 
+PASS 
+LINE NO= 48 
+Executing sql statement: select * from test2 order by id 
+Expected Results: [{'id': 11, 'notes': 'Tennessee', 'price': 88}, {'id': 12, 'notes': 'Texas', 'price': 89}, {'id': 13, 'notes': 'Utah', 'price': 90}, {'id': 14, 'notes': 'Vermont', 'price': 91}, {'id': 15, 'notes': 'Virgina', 'price': 92}, {'id': 16, 'notes': 'Washington', 'price': 93}, {'id': 17, 'notes': 'West Virginia', 'price': 94}, {'id': 18, 'notes': 'Wisconsin', 'price': 95}, {'id': 19, 'notes': 'Wyoming', 'price': 96}, {'id': 20, 'notes': 'Montana', 'price': 97}] 
+Actual Results: [{'id': 11, 'notes': 'Tennessee', 'price': 88}, {'id': 12, 'notes': 'Texas', 'price': 89}, {'id': 13, 'notes': 'Utah', 'price': 90}, {'id': 14, 'notes': 'Vermont', 'price': 91}, {'id': 15, 'notes': 'Virgina', 'price': 92}, {'id': 16, 'notes': 'Washington', 'price': 93}, {'id': 17, 'notes': 'West Virginia', 'price': 94}, {'id': 18, 'notes': 'Wisconsin', 'price': 95}, {'id': 19, 'notes': 'Wyoming', 'price': 96}, {'id': 20, 'notes': 'Montana', 'price': 97}] 
+PASS 
+LINE NO= 49 
+Expected Results: [{'home': 'Hawaii              ', 'id': 6, 'notes': 'New Hampshire', 'location': 'Mississippi         '}] 
+Actual Results: [{'home': 'Hawaii              ', 'id': 6, 'notes': 'New Hampshire', 'location': 'Mississippi         '}] 
+PASS 
+LINE NO= 50 
+Expected Results: [{'home': 'Idaho               ', 'id': 7, 'notes': 'New Jersey', 'location': 'Missouri            '}] 
+Actual Results: [{'home': 'Idaho               ', 'id': 7, 'notes': 'New Jersey', 'location': 'Missouri            '}] 
+PASS 
+LINE NO= 51 
+Executing sql statement: select * from test2 order by id 
+Expected Results: [{'id': 11, 'notes': 'Tennessee', 'price': 88}, {'id': 12, 'notes': 'Texas', 'price': 89}, {'id': 13, 'notes': 'Utah', 'price': 90}, {'id': 14, 'notes': 'Vermont', 'price': 91}, {'id': 15, 'notes': 'Virgina', 'price': 92}, {'id': 16, 'notes': 'Washington', 'price': 93}, {'id': 17, 'notes': 'West Virginia', 'price': 94}, {'id': 18, 'notes': 'Wisconsin', 'price': 95}, {'id': 19, 'notes': 'Wyoming', 'price': 96}, {'id': 20, 'notes': 'Montana', 'price': 97}] 
+Actual Results: [{'id': 11, 'notes': 'Tennessee', 'price': 88}, {'id': 12, 'notes': 'Texas', 'price': 89}, {'id': 13, 'notes': 'Utah', 'price': 90}, {'id': 14, 'notes': 'Vermont', 'price': 91}, {'id': 15, 'notes': 'Virgina', 'price': 92}, {'id': 16, 'notes': 'Washington', 'price': 93}, {'id': 17, 'notes': 'West Virginia', 'price': 94}, {'id': 18, 'notes': 'Wisconsin', 'price': 95}, {'id': 19, 'notes': 'Wyoming', 'price': 96}, {'id': 20, 'notes': 'Montana', 'price': 97}] 
+PASS 
+LINE NO= 52 
+Executing sql statement: select * from test2 order by id 
+Expected Results: [{'id': 11, 'notes': 'Tennessee', 'price': 88}] 
+Actual Results: [{'id': 11, 'notes': 'Tennessee', 'price': 88}] 
+PASS 
+LINE NO= 53 
+Expected Results: [{'home': 'Illinois            ', 'id': 8, 'notes': 'New Meixco', 'location': 'Alabama             '}] 
+Actual Results: [{'home': 'Illinois            ', 'id': 8, 'notes': 'New Meixco', 'location': 'Alabama             '}] 
+PASS 
+LINE NO= 54 
+Executing sql statement: select * from test2 order by id 
+Expected Results: [{'id': 11, 'notes': 'Tennessee', 'price': 88}, {'id': 12, 'notes': 'Texas', 'price': 89}, {'id': 13, 'notes': 'Utah', 'price': 90}, {'id': 14, 'notes': 'Vermont', 'price': 91}, {'id': 15, 'notes': 'Virgina', 'price': 92}, {'id': 16, 'notes': 'Washington', 'price': 93}, {'id': 17, 'notes': 'West Virginia', 'price': 94}, {'id': 18, 'notes': 'Wisconsin', 'price': 95}, {'id': 19, 'notes': 'Wyoming', 'price': 96}, {'id': 20, 'notes': 'Montana', 'price': 97}] 
+Actual Results: [{'id': 11, 'notes': 'Tennessee', 'price': 88}, {'id': 12, 'notes': 'Texas', 'price': 89}, {'id': 13, 'notes': 'Utah', 'price': 90}, {'id': 14, 'notes': 'Vermont', 'price': 91}, {'id': 15, 'notes': 'Virgina', 'price': 92}, {'id': 16, 'notes': 'Washington', 'price': 93}, {'id': 17, 'notes': 'West Virginia', 'price': 94}, {'id': 18, 'notes': 'Wisconsin', 'price': 95}, {'id': 19, 'notes': 'Wyoming', 'price': 96}, {'id': 20, 'notes': 'Montana', 'price': 97}] 
+PASS 
+LINE NO= 55 
+Expected Results: [{'home': 'Indiana             ', 'id': 9, 'notes': 'New York', 'location': 'Alaska              '}] 
+Actual Results: [{'home': 'Indiana             ', 'id': 9, 'notes': 'New York', 'location': 'Alaska              '}] 
+PASS 
+LINE NO= 56 
+Close immediate action, ignoring 
+LINE NO= 57 
+Close immediate action, ignoring 
+LINE NO= 58 
+Performing immediate operation: DROP TABLE IF EXISTS test1 
+LINE NO= 59 
+Performing immediate operation: DROP TABLE IF EXISTS test2 
+LINE NO= 60 
+Close immediate action, ignoring 
+LINE NO= 61 
+resource = session, nothing to do 
+LINE NO= 62 
+resource = credentials, nothing to do 
+LINE NO= 63 
+LINE NO= 64 
+TEST DONE

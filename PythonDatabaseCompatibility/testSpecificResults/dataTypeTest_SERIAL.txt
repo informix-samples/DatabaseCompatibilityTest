@@ -1,0 +1,132 @@
+File open. Starting tests. 
+Connection successful using connection credentials : 
+ DRIVER=(IBM DB2 ODBC DRIVER};DATABASE=pythondb;HOSTNAME=lxvm-l165.lenexa.ibm.com;PORT=8412;PROTOCOL=TCPIP;UID=informix;PWD=Ifmx4spd 
+
+LINE NO= 2 
+resource = credentials, nothing to do 
+LINE NO= 3 
+LINE NO= 4 
+resource = session, nothing to do 
+LINE NO= 5 
+LINE NO= 6 
+Performing immediate operation: DROP TABLE IF EXISTS serial_test 
+LINE NO= 7 
+Performing immediate operation: CREATE TABLE serial_test (i0 SERIAL) 
+LINE NO= 8 
+Close immediate action, ignoring 
+LINE NO= 9 
+LINE NO= 10 
+Creating prepared statement: INSERT INTO serial_test VALUES (?) 
+LINE NO= 11 
+Binding values: [{'index': 1, 'value': 82, 'type': 'SERIAL'}] 
+Executing sql statement: INSERT INTO serial_test VALUES (?) 
+LINE NO= 12 
+LINE NO= 13 
+Creating prepared statement: SELECT * FROM serial_test WHERE i0 = ?  
+LINE NO= 14 
+Binding values: [{'index': 1, 'value': 82, 'type': 'SERIAL'}] 
+Executing sql statement: SELECT * FROM serial_test WHERE i0 = ?  
+Expected Results: [{'i0': 82}] 
+Actual Results: [{'i0': 82}] 
+PASS 
+LINE NO= 15 
+LINE NO= 16 
+LINE NO= 17 
+Creating prepared statement: DELETE FROM serial_test WHERE i0 = ? 
+LINE NO= 18 
+Binding values: [{'index': 1, 'value': 82, 'type': 'SERIAL'}] 
+Executing sql statement: DELETE FROM serial_test WHERE i0 = ? 
+LINE NO= 19 
+LINE NO= 20 
+Binding values: [{'index': 1, 'value': 143, 'type': 'SERIAL'}] 
+Executing sql statement: SELECT * FROM serial_test WHERE i0 = ?  
+Expected Results: [] 
+Actual Results: [] 
+PASS 
+LINE NO= 21 
+LINE NO= 22 
+Performing immediate operation: DROP TABLE IF EXISTS serial_test 
+LINE NO= 23 
+Close immediate action, ignoring 
+LINE NO= 24 
+resource = session, nothing to do 
+LINE NO= 25 
+LINE NO= 26 
+resource = session, nothing to do 
+LINE NO= 27 
+LINE NO= 28 
+Performing immediate operation: DROP TABLE IF EXISTS serial_test 
+LINE NO= 29 
+Performing immediate operation: CREATE TABLE serial_test (id SERIAL,value VARCHAR(20)) 
+LINE NO= 30 
+Close immediate action, ignoring 
+LINE NO= 31 
+LINE NO= 32 
+Creating prepared statement: INSERT INTO serial_test VALUES (?,?) 
+LINE NO= 33 
+Binding values: [{'index': 1, 'value': 0, 'type': 'SERIAL'}, {'index': 2, 'value': 'Montana', 'type': 'VARCHAR'}] 
+Executing sql statement: INSERT INTO serial_test VALUES (?,?) 
+LINE NO= 34 
+Binding values: [{'index': 1, 'value': 1, 'type': 'SERIAL'}, {'index': 2, 'value': 'Nebraska', 'type': 'VARCHAR'}] 
+Executing sql statement: INSERT INTO serial_test VALUES (?,?) 
+LINE NO= 35 
+Binding values: [{'index': 1, 'value': 2, 'type': 'SERIAL'}, {'index': 2, 'value': 'Nevada', 'type': 'VARCHAR'}] 
+Executing sql statement: INSERT INTO serial_test VALUES (?,?) 
+LINE NO= 36 
+Binding values: [{'index': 1, 'value': 3, 'type': 'SERIAL'}, {'index': 2, 'value': 'New Hampshire', 'type': 'VARCHAR'}] 
+Executing sql statement: INSERT INTO serial_test VALUES (?,?) 
+LINE NO= 37 
+Binding values: [{'index': 1, 'value': 4, 'type': 'SERIAL'}, {'index': 2, 'value': 'New Jersey', 'type': 'VARCHAR'}] 
+Executing sql statement: INSERT INTO serial_test VALUES (?,?) 
+LINE NO= 38 
+Binding values: [{'index': 1, 'value': 5, 'type': 'SERIAL'}, {'index': 2, 'value': 'New Meixco', 'type': 'VARCHAR'}] 
+Executing sql statement: INSERT INTO serial_test VALUES (?,?) 
+LINE NO= 39 
+Binding values: [{'index': 1, 'value': 6, 'type': 'SERIAL'}, {'index': 2, 'value': 'New York', 'type': 'VARCHAR'}] 
+Executing sql statement: INSERT INTO serial_test VALUES (?,?) 
+LINE NO= 40 
+Binding values: [{'index': 1, 'value': 7, 'type': 'SERIAL'}, {'index': 2, 'value': 'North Carolina', 'type': 'VARCHAR'}] 
+Executing sql statement: INSERT INTO serial_test VALUES (?,?) 
+LINE NO= 41 
+Binding values: [{'index': 1, 'value': 8, 'type': 'SERIAL'}, {'index': 2, 'value': 'North Dakota', 'type': 'VARCHAR'}] 
+Executing sql statement: INSERT INTO serial_test VALUES (?,?) 
+LINE NO= 42 
+Binding values: [{'index': 1, 'value': 9, 'type': 'SERIAL'}, {'index': 2, 'value': 'Ohio', 'type': 'VARCHAR'}] 
+Executing sql statement: INSERT INTO serial_test VALUES (?,?) 
+LINE NO= 43 
+closing prepared statement None
+LINE NO= 44 
+LINE NO= 45 
+Creating prepared statement: SELECT * FROM serial_test WHERE id = ?  
+LINE NO= 46 
+Binding values: [{'index': 1, 'value': 10, 'type': 'SERIAL'}] 
+Executing sql statement: SELECT * FROM serial_test WHERE id = ?  
+Expected Results: [] 
+Actual Results: [] 
+PASS 
+LINE NO= 47 
+Binding values: [{'index': 1, 'value': 12, 'type': 'SERIAL'}] 
+Executing sql statement: SELECT * FROM serial_test WHERE id = ?  
+Expected Results: [] 
+Actual Results: [] 
+PASS 
+LINE NO= 48 
+Binding values: [{'index': 1, 'value': 14, 'type': 'SERIAL'}] 
+Executing sql statement: SELECT * FROM serial_test WHERE id = ?  
+Expected Results: [] 
+Actual Results: [] 
+PASS 
+LINE NO= 49 
+closing prepared statement None
+LINE NO= 50 
+LINE NO= 51 
+Performing immediate operation: DROP TABLE IF EXISTS serial_test 
+LINE NO= 52 
+Close immediate action, ignoring 
+LINE NO= 53 
+resource = session, nothing to do 
+LINE NO= 54 
+resource = credentials, nothing to do 
+LINE NO= 55 
+LINE NO= 56 
+TEST DONE

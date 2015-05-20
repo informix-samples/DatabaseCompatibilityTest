@@ -1,0 +1,151 @@
+File open. Starting tests. 
+Connection successful using connection credentials : 
+ DRIVER=(IBM DB2 ODBC DRIVER};DATABASE=pythondb;HOSTNAME=lxvm-l165.lenexa.ibm.com;PORT=8412;PROTOCOL=TCPIP;UID=informix;PWD=Ifmx4spd 
+
+LINE NO= 2 
+resource = credentials, nothing to do 
+LINE NO= 3 
+LINE NO= 4 
+resource = session, nothing to do 
+LINE NO= 5 
+LINE NO= 6 
+Performing immediate operation: DROP TABLE IF EXISTS smallint_test 
+LINE NO= 7 
+Performing immediate operation: CREATE TABLE smallint_test (i0 SMALLINT) 
+LINE NO= 8 
+Close immediate action, ignoring 
+LINE NO= 9 
+LINE NO= 10 
+Creating prepared statement: INSERT INTO smallint_test VALUES (?) 
+LINE NO= 11 
+Binding values: [{'index': 1, 'value': 38, 'type': 'SMALLINT'}] 
+Executing sql statement: INSERT INTO smallint_test VALUES (?) 
+LINE NO= 12 
+LINE NO= 13 
+Creating prepared statement: SELECT * FROM smallint_test WHERE i0 = ?  
+LINE NO= 14 
+Binding values: [{'index': 1, 'value': 38, 'type': 'SMALLINT'}] 
+Executing sql statement: SELECT * FROM smallint_test WHERE i0 = ?  
+Expected Results: [{'i0': 38}] 
+Actual Results: [{'i0': 38}] 
+PASS 
+LINE NO= 15 
+LINE NO= 16 
+Creating prepared statement: UPDATE smallint_test SET i0 = ? WHERE i0 = ? 
+LINE NO= 17 
+Binding values: [{'index': 1, 'value': 99, 'type': 'SMALLINT'}, {'index': 2, 'value': 38, 'type': 'SMALLINT'}] 
+Executing sql statement: UPDATE smallint_test SET i0 = ? WHERE i0 = ? 
+LINE NO= 18 
+LINE NO= 19 
+Binding values: [{'index': 1, 'value': 38, 'type': 'SMALLINT'}] 
+Executing sql statement: SELECT * FROM smallint_test WHERE i0 = ?  
+Expected Results: [] 
+Actual Results: [] 
+PASS 
+LINE NO= 20 
+LINE NO= 21 
+Binding values: [{'index': 1, 'value': 99, 'type': 'SMALLINT'}] 
+Executing sql statement: SELECT * FROM smallint_test WHERE i0 = ?  
+Expected Results: [{'i0': 99}] 
+Actual Results: [{'i0': 99}] 
+PASS 
+LINE NO= 22 
+LINE NO= 23 
+Creating prepared statement: DELETE FROM smallint_test WHERE i0 = ? 
+LINE NO= 24 
+Binding values: [{'index': 1, 'value': 99, 'type': 'SMALLINT'}] 
+Executing sql statement: DELETE FROM smallint_test WHERE i0 = ? 
+LINE NO= 25 
+LINE NO= 26 
+Binding values: [{'index': 1, 'value': 99, 'type': 'SMALLINT'}] 
+Executing sql statement: SELECT * FROM smallint_test WHERE i0 = ?  
+Expected Results: [] 
+Actual Results: [] 
+PASS 
+LINE NO= 27 
+LINE NO= 28 
+Performing immediate operation: DROP TABLE IF EXISTS smallint_test 
+LINE NO= 29 
+Close immediate action, ignoring 
+LINE NO= 30 
+resource = session, nothing to do 
+LINE NO= 31 
+LINE NO= 32 
+resource = session, nothing to do 
+LINE NO= 33 
+LINE NO= 34 
+Performing immediate operation: DROP TABLE IF EXISTS smallint_test 
+LINE NO= 35 
+Performing immediate operation: CREATE TABLE smallint_test (i0 SMALLINT,i1 SMALLINT,i2 SMALLINT) 
+LINE NO= 36 
+Close immediate action, ignoring 
+LINE NO= 37 
+LINE NO= 38 
+Creating prepared statement: INSERT INTO smallint_test VALUES (?,?,?) 
+LINE NO= 39 
+Binding values: [{'index': 1, 'value': 59, 'type': 'SMALLINT'}, {'index': 2, 'value': 58, 'type': 'SMALLINT'}, {'index': 3, 'value': 57, 'type': 'SMALLINT'}] 
+Executing sql statement: INSERT INTO smallint_test VALUES (?,?,?) 
+LINE NO= 40 
+Binding values: [{'index': 1, 'value': 60, 'type': 'SMALLINT'}, {'index': 2, 'value': 59, 'type': 'SMALLINT'}, {'index': 3, 'value': 58, 'type': 'SMALLINT'}] 
+Executing sql statement: INSERT INTO smallint_test VALUES (?,?,?) 
+LINE NO= 41 
+Binding values: [{'index': 1, 'value': 61, 'type': 'SMALLINT'}, {'index': 2, 'value': 60, 'type': 'SMALLINT'}, {'index': 3, 'value': 59, 'type': 'SMALLINT'}] 
+Executing sql statement: INSERT INTO smallint_test VALUES (?,?,?) 
+LINE NO= 42 
+Binding values: [{'index': 1, 'value': 62, 'type': 'SMALLINT'}, {'index': 2, 'value': 61, 'type': 'SMALLINT'}, {'index': 3, 'value': 60, 'type': 'SMALLINT'}] 
+Executing sql statement: INSERT INTO smallint_test VALUES (?,?,?) 
+LINE NO= 43 
+Binding values: [{'index': 1, 'value': 63, 'type': 'SMALLINT'}, {'index': 2, 'value': 62, 'type': 'SMALLINT'}, {'index': 3, 'value': 61, 'type': 'SMALLINT'}] 
+Executing sql statement: INSERT INTO smallint_test VALUES (?,?,?) 
+LINE NO= 44 
+Binding values: [{'index': 1, 'value': 64, 'type': 'SMALLINT'}, {'index': 2, 'value': 63, 'type': 'SMALLINT'}, {'index': 3, 'value': 62, 'type': 'SMALLINT'}] 
+Executing sql statement: INSERT INTO smallint_test VALUES (?,?,?) 
+LINE NO= 45 
+Binding values: [{'index': 1, 'value': 65, 'type': 'SMALLINT'}, {'index': 2, 'value': 64, 'type': 'SMALLINT'}, {'index': 3, 'value': 63, 'type': 'SMALLINT'}] 
+Executing sql statement: INSERT INTO smallint_test VALUES (?,?,?) 
+LINE NO= 46 
+Binding values: [{'index': 1, 'value': 66, 'type': 'SMALLINT'}, {'index': 2, 'value': 65, 'type': 'SMALLINT'}, {'index': 3, 'value': 64, 'type': 'SMALLINT'}] 
+Executing sql statement: INSERT INTO smallint_test VALUES (?,?,?) 
+LINE NO= 47 
+Binding values: [{'index': 1, 'value': 67, 'type': 'SMALLINT'}, {'index': 2, 'value': 66, 'type': 'SMALLINT'}, {'index': 3, 'value': 65, 'type': 'SMALLINT'}] 
+Executing sql statement: INSERT INTO smallint_test VALUES (?,?,?) 
+LINE NO= 48 
+Binding values: [{'index': 1, 'value': 68, 'type': 'SMALLINT'}, {'index': 2, 'value': 67, 'type': 'SMALLINT'}, {'index': 3, 'value': 66, 'type': 'SMALLINT'}] 
+Executing sql statement: INSERT INTO smallint_test VALUES (?,?,?) 
+LINE NO= 49 
+closing prepared statement None
+LINE NO= 50 
+LINE NO= 51 
+Creating prepared statement: SELECT * FROM smallint_test WHERE i0 = ?  
+LINE NO= 52 
+Binding values: [{'index': 1, 'value': 59, 'type': 'SMALLINT'}] 
+Executing sql statement: SELECT * FROM smallint_test WHERE i0 = ?  
+Expected Results: [{'i0': 59, 'i2': 57, 'i1': 58}] 
+Actual Results: [{'i0': 59, 'i2': 57, 'i1': 58}] 
+PASS 
+LINE NO= 53 
+Binding values: [{'index': 1, 'value': 62, 'type': 'SMALLINT'}] 
+Executing sql statement: SELECT * FROM smallint_test WHERE i0 = ?  
+Expected Results: [{'i0': 62, 'i2': 60, 'i1': 61}] 
+Actual Results: [{'i0': 62, 'i2': 60, 'i1': 61}] 
+PASS 
+LINE NO= 54 
+Binding values: [{'index': 1, 'value': 65, 'type': 'SMALLINT'}] 
+Executing sql statement: SELECT * FROM smallint_test WHERE i0 = ?  
+Expected Results: [{'i0': 65, 'i2': 63, 'i1': 64}] 
+Actual Results: [{'i0': 65, 'i2': 63, 'i1': 64}] 
+PASS 
+LINE NO= 55 
+closing prepared statement None
+LINE NO= 56 
+LINE NO= 57 
+Performing immediate operation: DROP TABLE IF EXISTS smallint_test 
+LINE NO= 58 
+Close immediate action, ignoring 
+LINE NO= 59 
+resource = session, nothing to do 
+LINE NO= 60 
+resource = credentials, nothing to do 
+LINE NO= 61 
+LINE NO= 62 
+TEST DONE

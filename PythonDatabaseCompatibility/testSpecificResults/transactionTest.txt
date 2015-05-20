@@ -1,0 +1,78 @@
+File open. Starting tests. 
+Connection successful using connection credentials : 
+ DRIVER=(IBM DB2 ODBC DRIVER};DATABASE=pythondb;HOSTNAME=lxvm-l165.lenexa.ibm.com;PORT=8412;PROTOCOL=TCPIP;UID=informix;PWD=Ifmx4spd 
+
+LINE NO= 2 
+resource = credentials, nothing to do 
+LINE NO= 3 
+resource = session, nothing to do 
+LINE NO= 4 
+LINE NO= 5 
+Performing immediate operation: DROP TABLE IF EXISTS transaction_test 
+LINE NO= 6 
+Performing immediate operation: CREATE TABLE transaction_test (int_col INT,varchar_col VARCHAR(20)) 
+LINE NO= 7 
+Close immediate action, ignoring 
+LINE NO= 8 
+LINE NO= 9 
+Autocommit set to off 
+LINE NO= 10 
+LINE NO= 11 
+Creating prepared statement: INSERT INTO transaction_test VALUES (?,?) 
+LINE NO= 12 
+Binding values: [{'index': 1, 'value': 93, 'type': 'INT'}, {'index': 2, 'value': 'Vermont', 'type': 'VARCHAR'}] 
+Executing sql statement: INSERT INTO transaction_test VALUES (?,?) 
+LINE NO= 13 
+LINE NO= 14 
+Creating prepared statement: SELECT * FROM transaction_test 
+LINE NO= 15 
+Executing sql statement: SELECT * FROM transaction_test 
+Expected Results: [{'varchar_col': 'Vermont', 'int_col': 93}] 
+Actual Results: [{'varchar_col': 'Vermont', 'int_col': 93}] 
+PASS 
+LINE NO= 16 
+LINE NO= 17 
+Rollback successful 
+LINE NO= 18 
+LINE NO= 19 
+Executing sql statement: SELECT * FROM transaction_test 
+Expected Results: [] 
+Actual Results: [] 
+PASS 
+LINE NO= 20 
+LINE NO= 21 
+Autocommit set to off 
+LINE NO= 22 
+LINE NO= 23 
+Binding values: [{'index': 1, 'value': 98, 'type': 'INT'}, {'index': 2, 'value': 'Wyoming', 'type': 'VARCHAR'}] 
+Executing sql statement: INSERT INTO transaction_test VALUES (?,?) 
+LINE NO= 24 
+Binding values: [{'index': 1, 'value': 15, 'type': 'INT'}, {'index': 2, 'value': 'Tennessee', 'type': 'VARCHAR'}] 
+Executing sql statement: INSERT INTO transaction_test VALUES (?,?) 
+LINE NO= 25 
+LINE NO= 26 
+Executing sql statement: SELECT * FROM transaction_test 
+Expected Results: [{'varchar_col': 'Wyoming', 'int_col': 98}, {'varchar_col': 'Tennessee', 'int_col': 15}] 
+Actual Results: [{'varchar_col': 'Wyoming', 'int_col': 98}, {'varchar_col': 'Tennessee', 'int_col': 15}] 
+PASS 
+LINE NO= 27 
+LINE NO= 28 
+Commit successful 
+LINE NO= 29 
+LINE NO= 30 
+Executing sql statement: SELECT * FROM transaction_test 
+Expected Results: [{'varchar_col': 'Wyoming', 'int_col': 98}, {'varchar_col': 'Tennessee', 'int_col': 15}] 
+Actual Results: [{'varchar_col': 'Wyoming', 'int_col': 98}, {'varchar_col': 'Tennessee', 'int_col': 15}] 
+PASS 
+LINE NO= 31 
+LINE NO= 32 
+Performing immediate operation: DROP TABLE IF EXISTS transaction_test 
+LINE NO= 33 
+Close immediate action, ignoring 
+LINE NO= 34 
+resource = session, nothing to do 
+LINE NO= 35 
+resource = credentials, nothing to do 
+LINE NO= 36 
+LINE NO= 37 
+TEST DONE
