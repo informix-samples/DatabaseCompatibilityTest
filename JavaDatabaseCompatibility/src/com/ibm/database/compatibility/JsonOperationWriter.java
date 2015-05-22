@@ -10,7 +10,6 @@ import java.io.Writer;
 
 public class JsonOperationWriter implements OperationWriter, Flushable, Closeable {
 	
-	private final Writer writer;
 	private final BufferedWriter bufferedWriter;
 	
 	public JsonOperationWriter(String pathToFile) throws IOException {
@@ -22,7 +21,6 @@ public class JsonOperationWriter implements OperationWriter, Flushable, Closeabl
 	}
 
 	public JsonOperationWriter(Writer writer) {
-		this.writer = writer;
 		this.bufferedWriter = new BufferedWriter(writer);
 	}
 	
