@@ -2,31 +2,24 @@ package com.ibm.database.compatibility;
 
 import java.io.BufferedReader;
 import java.io.Closeable;
-import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-import java.io.Reader;
+import java.io.InputStreamReader;
 
 public class JsonOperationReader implements OperationReader, Closeable {
 
-	private final Reader reader;
 	private final BufferedReader bufferedReader;
 	private String nextLine = null;
 	
 	private int lineNumber = 0;
 
 	public JsonOperationReader(String pathToFile) throws FileNotFoundException {
-		this(new FileReader(pathToFile));
-	}
-
-	public JsonOperationReader(File file) throws FileNotFoundException {
-		this(new FileReader(file));
-	}
-
-	public JsonOperationReader(Reader reader) {
-		this.reader = reader;
-		this.bufferedReader = new BufferedReader(reader);
+		if (System.getenv().containsKey("VCAP_SERVICES")) {
+			this.bufferedReader = new BufferedReader(new InputStreamReader(JsonOperationReader.class.getResourceAsStream(pathToFile)));
+		} else {
+			this.bufferedReader = new BufferedReader(new FileReader(pathToFile));
+		}
 		advanceNextLine();
 	}
 

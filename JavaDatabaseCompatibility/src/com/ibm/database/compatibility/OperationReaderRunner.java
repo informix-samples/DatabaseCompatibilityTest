@@ -80,31 +80,33 @@ public class OperationReaderRunner implements Runnable {
 	public static void main(String[] args) {
 		JdbcClient client = new BasicJdbcClient();
 		JsonOperationReader os = null;
-		if (args.length != 1) {
-			throw new RuntimeException(
-					"Must supply the json test file as an argument");
-		}
 		
 		ArrayList<File>testFiles = new ArrayList<File>();
-		File f = new File (args[0]);
-		if(f.isDirectory()) {
-			String [] files = f.list(new FilenameFilter() {
-				@Override
-				public boolean accept(File dir, String name) {
-					return name.endsWith(".json");
-					
+		for (int i = 0; i < args.length; i++) {
+			File f = new File (args[i]);
+			if(f.isDirectory()) {
+				String [] files = f.list(new FilenameFilter() {
+					@Override
+					public boolean accept(File dir, String name) {
+						return name.endsWith(".json");
+						
+					}
+				});
+				for(String file : files) {
+					testFiles.add(new File(f, file));
 				}
-			});
-			for(String file : files) {
-				testFiles.add(new File(f, file));
 			}
-		}
-		else {
-			testFiles.add(f);
+			else {
+				testFiles.add(f);
+			}
 		}
 		String driver = DatabaseCredential.getJDBCDriverClassName().equals(DatabaseCredential.DB2_JCC_CLASSNAME) ? "db2jcc" : "ifxjdbc";
 		TestResultWriter resultWriter = null;
 		try {
+			File resultDir = new File("results");
+			if (!resultDir.exists()) {
+				resultDir.mkdir();
+			}
 			resultWriter = new TestResultWriter("results/results_java_" + driver + ".json");
 			for(File testFile : testFiles) {
 				try {
