@@ -1,0 +1,25 @@
+{"language":"ruby","client":"IBM DB2 ODBC DRIVER","server":"Informix 12.10","test":"dataTypeTest_BIGINT.json","result":false,"detail":"Driver successfully places data in database, but extracts as string"}
+{"language":"ruby","client":"IBM DB2 ODBC DRIVER","server":"Informix 12.10","test":"dataTypeTest_BIGSERIAL.json","result":false,"detail":"Driver successfully places data in database, but extracts as string"}
+{"language":"ruby","client":"IBM DB2 ODBC DRIVER","server":"Informix 12.10","test":"dataTypeTest_BOOLEAN.json","result":false,"detail":"Driver uses 0/1 for true/false, causing certain operations to respond incorrectly"}
+{"language":"ruby","client":"IBM DB2 ODBC DRIVER","server":"Informix 12.10","test":"dataTypeTest_CHAR.json","result":true,"detail":null}
+{"language":"ruby","client":"IBM DB2 ODBC DRIVER","server":"Informix 12.10","test":"dataTypeTest_DATE.json","result":true,"detail":null}
+{"language":"ruby","client":"IBM DB2 ODBC DRIVER","server":"Informix 12.10","test":"dataTypeTest_DATETIME0.json","result":false,"detail":"Driver successfully places data in database, but extracts with fraction format"}
+{"language":"ruby","client":"IBM DB2 ODBC DRIVER","server":"Informix 12.10","test":"dataTypeTest_DATETIME1.json","result":false,"detail":"Driver successfully places data in database, but extracts with fraction format"}
+{"language":"ruby","client":"IBM DB2 ODBC DRIVER","server":"Informix 12.10","test":"dataTypeTest_DATETIME2.json","result":false,"detail":"Driver successfully places data in database, but extracts with fraction format"}
+{"language":"ruby","client":"IBM DB2 ODBC DRIVER","server":"Informix 12.10","test":"dataTypeTest_DATETIME3.json","result":false,"detail":"Driver successfully places data in database, but extracts with fraction format"}
+{"language":"ruby","client":"IBM DB2 ODBC DRIVER","server":"Informix 12.10","test":"dataTypeTest_DATETIME4.json","result":false,"detail":"Driver successfully places data in database, but extracts with fraction format"}
+{"language":"ruby","client":"IBM DB2 ODBC DRIVER","server":"Informix 12.10","test":"dataTypeTest_DATETIME5.json","result":false,"detail":"Driver successfully places data in database, but extracts with fraction format"}
+{"language":"ruby","client":"IBM DB2 ODBC DRIVER","server":"Informix 12.10","test":"dataTypeTest_DECIMAL.json","result":true,"detail":null}
+{"language":"ruby","client":"IBM DB2 ODBC DRIVER","server":"Informix 12.10","test":"dataTypeTest_INT.json","result":true,"detail":null}
+{"language":"ruby","client":"IBM DB2 ODBC DRIVER","server":"Informix 12.10","test":"dataTypeTest_LVARCHAR.json","result":true,"detail":null}
+{"language":"ruby","client":"IBM DB2 ODBC DRIVER","server":"Informix 12.10","test":"dataTypeTest_NVARCHAR.json","result":true,"detail":null}
+{"language":"ruby","client":"IBM DB2 ODBC DRIVER","server":"Informix 12.10","test":"dataTypeTest_SERIAL.json","result":true,"detail":null}
+{"language":"ruby","client":"IBM DB2 ODBC DRIVER","server":"Informix 12.10","test":"dataTypeTest_SMALLFLOAT.json","result":false,"detail":"Data fetched from database converted improperly"}
+{"language":"ruby","client":"IBM DB2 ODBC DRIVER","server":"Informix 12.10","test":"dataTypeTest_SMALLINT.json","result":true,"detail":null}
+{"language":"ruby","client":"IBM DB2 ODBC DRIVER","server":"Informix 12.10","test":"dataTypeTest_VARCHAR.json","result":true,"detail":null}
+{"language":"ruby","client":"IBM DB2 ODBC DRIVER","server":"Informix 12.10","test":"preparedStatementTest_1.json","result":true,"detail":null}
+{"language":"ruby","client":"IBM DB2 ODBC DRIVER","server":"Informix 12.10","test":"preparedStatementTest_2.json","result":true,"detail":null}
+{"language":"ruby","client":"IBM DB2 ODBC DRIVER","server":"Informix 12.10","test":"transactionTest.json","result":true,"detail":null}
+{"language":"Ruby","client":"IBM DB2 ODBC DRIVER","server":"Informix 12.10","test":"dataTypeTest_INT8.json","result":false,"detail":"int8 not compatible"}
+{"language":"Ruby","client":"IBM DB2 ODBC DRIVER","server":"Informix 12.10","test":"dataTypeTest_SERIAL8.json","result":false,"detail":"serial8 not compatible"}
+{"language":"Ruby","client":"IBM DB2 ODBC DRIVER","server":"Informix 12.10","test":"ops.json","result":true,"detail":"format of test is different than others, but operations performed in other tests"}

@@ -1,0 +1,257 @@
+File open. Starting Test
+line no: 2
+resource = credentials, nothing to do
+line no: 3
+line no: 4
+resource = session, nothing to do
+line no: 5
+line no: 6
+Performing immediate operation: DROP TABLE IF EXISTS int_test
+line no: 7
+Performing immediate operation: CREATE TABLE int_test (i0 INT)
+line no: 8
+Close immediate action, ignoring
+line no: 9
+line no: 10
+Creating prepared statement: INSERT INTO int_test VALUES (?)
+line no: 11
+Executing sql statement: INSERT INTO int_test VALUES (?)
+line no: 12
+line no: 13
+Creating prepared statement: SELECT * FROM int_test WHERE i0 = ? 
+line no: 14
+Executing sql statement: SELECT * FROM int_test WHERE i0 = ? 
+Expected Results: [{"i0"=>27}]
+Actual Results: [{"i0"=>27}]
+PASS
+line no: 15
+line no: 16
+Creating prepared statement: UPDATE int_test SET i0 = ? WHERE i0 = ?
+line no: 17
+Executing sql statement: UPDATE int_test SET i0 = ? WHERE i0 = ?
+line no: 18
+line no: 19
+Executing sql statement: SELECT * FROM int_test WHERE i0 = ? 
+Expected Results: []
+Actual Results: []
+PASS
+line no: 20
+line no: 21
+Executing sql statement: SELECT * FROM int_test WHERE i0 = ? 
+Expected Results: [{"i0"=>88}]
+Actual Results: [{"i0"=>88}]
+PASS
+line no: 22
+line no: 23
+Creating prepared statement: DELETE FROM int_test WHERE i0 = ?
+line no: 24
+Executing sql statement: DELETE FROM int_test WHERE i0 = ?
+line no: 25
+line no: 26
+Executing sql statement: SELECT * FROM int_test WHERE i0 = ? 
+Expected Results: []
+Actual Results: []
+PASS
+line no: 27
+line no: 28
+Performing immediate operation: DROP TABLE IF EXISTS int_test
+line no: 29
+Close immediate action, ignoring
+line no: 30
+resource = session, nothing to do
+line no: 31
+line no: 32
+resource = session, nothing to do
+line no: 33
+line no: 34
+Performing immediate operation: DROP TABLE IF EXISTS int_test
+line no: 35
+Performing immediate operation: CREATE TABLE int_test (i0 INT,i1 INT,i2 INT)
+line no: 36
+Close immediate action, ignoring
+line no: 37
+line no: 38
+Creating prepared statement: INSERT INTO int_test VALUES (?,?,?)
+line no: 39
+Executing sql statement: INSERT INTO int_test VALUES (?,?,?)
+line no: 40
+Executing sql statement: INSERT INTO int_test VALUES (?,?,?)
+line no: 41
+Executing sql statement: INSERT INTO int_test VALUES (?,?,?)
+line no: 42
+Executing sql statement: INSERT INTO int_test VALUES (?,?,?)
+line no: 43
+Executing sql statement: INSERT INTO int_test VALUES (?,?,?)
+line no: 44
+Executing sql statement: INSERT INTO int_test VALUES (?,?,?)
+line no: 45
+Executing sql statement: INSERT INTO int_test VALUES (?,?,?)
+line no: 46
+Executing sql statement: INSERT INTO int_test VALUES (?,?,?)
+line no: 47
+Executing sql statement: INSERT INTO int_test VALUES (?,?,?)
+line no: 48
+Executing sql statement: INSERT INTO int_test VALUES (?,?,?)
+line no: 49
+closing prepared statement INSERT INTO int_test VALUES (?,?,?)
+Removed: INSERT INTO int_test VALUES (?,?,?)
+line no: 50
+line no: 51
+Creating prepared statement: SELECT * FROM int_test WHERE i0 = ? 
+line no: 52
+Executing sql statement: SELECT * FROM int_test WHERE i0 = ? 
+Expected Results: [{"i0"=>0, "i1"=>1, "i2"=>2}]
+Actual Results: [{"i0"=>0, "i1"=>1, "i2"=>2}]
+PASS
+line no: 53
+Executing sql statement: SELECT * FROM int_test WHERE i0 = ? 
+Expected Results: [{"i0"=>3, "i1"=>4, "i2"=>5}]
+Actual Results: [{"i0"=>3, "i1"=>4, "i2"=>5}]
+PASS
+line no: 54
+Executing sql statement: SELECT * FROM int_test WHERE i0 = ? 
+Expected Results: [{"i0"=>6, "i1"=>7, "i2"=>8}]
+Actual Results: [{"i0"=>6, "i1"=>7, "i2"=>8}]
+PASS
+line no: 55
+closing prepared statement SELECT * FROM int_test WHERE i0 = ? 
+Removed: SELECT * FROM int_test WHERE i0 = ? 
+line no: 56
+line no: 57
+Performing immediate operation: DROP TABLE IF EXISTS int_test
+line no: 58
+Close immediate action, ignoring
+line no: 59
+resource = session, nothing to do
+line no: 60
+line no: 61
+resource = session, nothing to do
+line no: 62
+line no: 63
+Performing immediate operation: DROP TABLE IF EXISTS int_test
+line no: 64
+Performing immediate operation: CREATE TABLE int_test (i0 INT,i1 INT,i2 INT,i3 INT,i4 INT,i5 INT,i6 INT,i7 INT,i8 INT,i9 INT,i10 INT,i11 INT,i12 INT,i13 INT,i14 INT,i15 INT,i16 INT,i17 INT,i18 INT,i19 INT,i20 INT,i21 INT,i22 INT,i23 INT,i24 INT,i25 INT,i26 INT,i27 INT,i28 INT,i29 INT,i30 INT,i31 INT,i32 INT,i33 INT,i34 INT,i35 INT,i36 INT,i37 INT,i38 INT,i39 INT,i40 INT,i41 INT,i42 INT,i43 INT,i44 INT,i45 INT,i46 INT,i47 INT,i48 INT,i49 INT)
+line no: 65
+Close immediate action, ignoring
+line no: 66
+line no: 67
+Creating prepared statement: INSERT INTO int_test VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)
+line no: 68
+Executing sql statement: INSERT INTO int_test VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)
+line no: 69
+Executing sql statement: INSERT INTO int_test VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)
+line no: 70
+Executing sql statement: INSERT INTO int_test VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)
+line no: 71
+Executing sql statement: INSERT INTO int_test VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)
+line no: 72
+Executing sql statement: INSERT INTO int_test VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)
+line no: 73
+Executing sql statement: INSERT INTO int_test VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)
+line no: 74
+Executing sql statement: INSERT INTO int_test VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)
+line no: 75
+Executing sql statement: INSERT INTO int_test VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)
+line no: 76
+Executing sql statement: INSERT INTO int_test VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)
+line no: 77
+Executing sql statement: INSERT INTO int_test VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)
+line no: 78
+closing prepared statement INSERT INTO int_test VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)
+Removed: INSERT INTO int_test VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)
+line no: 79
+line no: 80
+Creating prepared statement: SELECT * FROM int_test WHERE i0 = ? 
+line no: 81
+Executing sql statement: SELECT * FROM int_test WHERE i0 = ? 
+Expected Results: [{"i0"=>0, "i1"=>1, "i2"=>2, "i3"=>3, "i4"=>4, "i5"=>5, "i6"=>6, "i7"=>7, "i8"=>8, "i9"=>9, "i10"=>10, "i11"=>11, "i12"=>12, "i13"=>13, "i14"=>14, "i15"=>15, "i16"=>16, "i17"=>17, "i18"=>18, "i19"=>19, "i20"=>20, "i21"=>21, "i22"=>22, "i23"=>23, "i24"=>24, "i25"=>25, "i26"=>26, "i27"=>27, "i28"=>28, "i29"=>29, "i30"=>30, "i31"=>31, "i32"=>32, "i33"=>33, "i34"=>34, "i35"=>35, "i36"=>36, "i37"=>37, "i38"=>38, "i39"=>39, "i40"=>40, "i41"=>41, "i42"=>42, "i43"=>43, "i44"=>44, "i45"=>45, "i46"=>46, "i47"=>47, "i48"=>48, "i49"=>49}]
+Actual Results: [{"i0"=>0, "i1"=>1, "i2"=>2, "i3"=>3, "i4"=>4, "i5"=>5, "i6"=>6, "i7"=>7, "i8"=>8, "i9"=>9, "i10"=>10, "i11"=>11, "i12"=>12, "i13"=>13, "i14"=>14, "i15"=>15, "i16"=>16, "i17"=>17, "i18"=>18, "i19"=>19, "i20"=>20, "i21"=>21, "i22"=>22, "i23"=>23, "i24"=>24, "i25"=>25, "i26"=>26, "i27"=>27, "i28"=>28, "i29"=>29, "i30"=>30, "i31"=>31, "i32"=>32, "i33"=>33, "i34"=>34, "i35"=>35, "i36"=>36, "i37"=>37, "i38"=>38, "i39"=>39, "i40"=>40, "i41"=>41, "i42"=>42, "i43"=>43, "i44"=>44, "i45"=>45, "i46"=>46, "i47"=>47, "i48"=>48, "i49"=>49}]
+PASS
+line no: 82
+Executing sql statement: SELECT * FROM int_test WHERE i0 = ? 
+Expected Results: [{"i0"=>3, "i1"=>4, "i2"=>5, "i3"=>6, "i4"=>7, "i5"=>8, "i6"=>9, "i7"=>10, "i8"=>11, "i9"=>12, "i10"=>13, "i11"=>14, "i12"=>15, "i13"=>16, "i14"=>17, "i15"=>18, "i16"=>19, "i17"=>20, "i18"=>21, "i19"=>22, "i20"=>23, "i21"=>24, "i22"=>25, "i23"=>26, "i24"=>27, "i25"=>28, "i26"=>29, "i27"=>30, "i28"=>31, "i29"=>32, "i30"=>33, "i31"=>34, "i32"=>35, "i33"=>36, "i34"=>37, "i35"=>38, "i36"=>39, "i37"=>40, "i38"=>41, "i39"=>42, "i40"=>43, "i41"=>44, "i42"=>45, "i43"=>46, "i44"=>47, "i45"=>48, "i46"=>49, "i47"=>50, "i48"=>51, "i49"=>52}]
+Actual Results: [{"i0"=>3, "i1"=>4, "i2"=>5, "i3"=>6, "i4"=>7, "i5"=>8, "i6"=>9, "i7"=>10, "i8"=>11, "i9"=>12, "i10"=>13, "i11"=>14, "i12"=>15, "i13"=>16, "i14"=>17, "i15"=>18, "i16"=>19, "i17"=>20, "i18"=>21, "i19"=>22, "i20"=>23, "i21"=>24, "i22"=>25, "i23"=>26, "i24"=>27, "i25"=>28, "i26"=>29, "i27"=>30, "i28"=>31, "i29"=>32, "i30"=>33, "i31"=>34, "i32"=>35, "i33"=>36, "i34"=>37, "i35"=>38, "i36"=>39, "i37"=>40, "i38"=>41, "i39"=>42, "i40"=>43, "i41"=>44, "i42"=>45, "i43"=>46, "i44"=>47, "i45"=>48, "i46"=>49, "i47"=>50, "i48"=>51, "i49"=>52}]
+PASS
+line no: 83
+Executing sql statement: SELECT * FROM int_test WHERE i0 = ? 
+Expected Results: [{"i0"=>6, "i1"=>7, "i2"=>8, "i3"=>9, "i4"=>10, "i5"=>11, "i6"=>12, "i7"=>13, "i8"=>14, "i9"=>15, "i10"=>16, "i11"=>17, "i12"=>18, "i13"=>19, "i14"=>20, "i15"=>21, "i16"=>22, "i17"=>23, "i18"=>24, "i19"=>25, "i20"=>26, "i21"=>27, "i22"=>28, "i23"=>29, "i24"=>30, "i25"=>31, "i26"=>32, "i27"=>33, "i28"=>34, "i29"=>35, "i30"=>36, "i31"=>37, "i32"=>38, "i33"=>39, "i34"=>40, "i35"=>41, "i36"=>42, "i37"=>43, "i38"=>44, "i39"=>45, "i40"=>46, "i41"=>47, "i42"=>48, "i43"=>49, "i44"=>50, "i45"=>51, "i46"=>52, "i47"=>53, "i48"=>54, "i49"=>55}]
+Actual Results: [{"i0"=>6, "i1"=>7, "i2"=>8, "i3"=>9, "i4"=>10, "i5"=>11, "i6"=>12, "i7"=>13, "i8"=>14, "i9"=>15, "i10"=>16, "i11"=>17, "i12"=>18, "i13"=>19, "i14"=>20, "i15"=>21, "i16"=>22, "i17"=>23, "i18"=>24, "i19"=>25, "i20"=>26, "i21"=>27, "i22"=>28, "i23"=>29, "i24"=>30, "i25"=>31, "i26"=>32, "i27"=>33, "i28"=>34, "i29"=>35, "i30"=>36, "i31"=>37, "i32"=>38, "i33"=>39, "i34"=>40, "i35"=>41, "i36"=>42, "i37"=>43, "i38"=>44, "i39"=>45, "i40"=>46, "i41"=>47, "i42"=>48, "i43"=>49, "i44"=>50, "i45"=>51, "i46"=>52, "i47"=>53, "i48"=>54, "i49"=>55}]
+PASS
+line no: 84
+closing prepared statement SELECT * FROM int_test WHERE i0 = ? 
+Removed: SELECT * FROM int_test WHERE i0 = ? 
+line no: 85
+line no: 86
+Performing immediate operation: DROP TABLE IF EXISTS int_test
+line no: 87
+Close immediate action, ignoring
+line no: 88
+resource = session, nothing to do
+line no: 89
+line no: 90
+resource = session, nothing to do
+line no: 91
+line no: 92
+Performing immediate operation: DROP TABLE IF EXISTS int_test
+line no: 93
+Performing immediate operation: CREATE TABLE int_test (i0 INT,i1 INT,i2 INT,i3 INT,i4 INT,i5 INT,i6 INT,i7 INT,i8 INT,i9 INT,i10 INT,i11 INT,i12 INT,i13 INT,i14 INT,i15 INT,i16 INT,i17 INT,i18 INT,i19 INT,i20 INT,i21 INT,i22 INT,i23 INT,i24 INT,i25 INT,i26 INT,i27 INT,i28 INT,i29 INT,i30 INT,i31 INT,i32 INT,i33 INT,i34 INT,i35 INT,i36 INT,i37 INT,i38 INT,i39 INT,i40 INT,i41 INT,i42 INT,i43 INT,i44 INT,i45 INT,i46 INT,i47 INT,i48 INT,i49 INT,i50 INT,i51 INT,i52 INT,i53 INT,i54 INT,i55 INT,i56 INT,i57 INT,i58 INT,i59 INT,i60 INT,i61 INT,i62 INT,i63 INT,i64 INT,i65 INT,i66 INT,i67 INT,i68 INT,i69 INT,i70 INT,i71 INT,i72 INT,i73 INT,i74 INT,i75 INT,i76 INT,i77 INT,i78 INT,i79 INT,i80 INT,i81 INT,i82 INT,i83 INT,i84 INT,i85 INT,i86 INT,i87 INT,i88 INT,i89 INT,i90 INT,i91 INT,i92 INT,i93 INT,i94 INT,i95 INT,i96 INT,i97 INT,i98 INT,i99 INT)
+line no: 94
+Close immediate action, ignoring
+line no: 95
+line no: 96
+Creating prepared statement: INSERT INTO int_test VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)
+line no: 97
+Executing sql statement: INSERT INTO int_test VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)
+line no: 98
+Executing sql statement: INSERT INTO int_test VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)
+line no: 99
+Executing sql statement: INSERT INTO int_test VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)
+line no: 100
+Executing sql statement: INSERT INTO int_test VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)
+line no: 101
+Executing sql statement: INSERT INTO int_test VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)
+line no: 102
+Executing sql statement: INSERT INTO int_test VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)
+line no: 103
+Executing sql statement: INSERT INTO int_test VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)
+line no: 104
+Executing sql statement: INSERT INTO int_test VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)
+line no: 105
+Executing sql statement: INSERT INTO int_test VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)
+line no: 106
+Executing sql statement: INSERT INTO int_test VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)
+line no: 107
+closing prepared statement INSERT INTO int_test VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)
+Removed: INSERT INTO int_test VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)
+line no: 108
+line no: 109
+Creating prepared statement: SELECT * FROM int_test WHERE i0 = ? 
+line no: 110
+Executing sql statement: SELECT * FROM int_test WHERE i0 = ? 
+Expected Results: [{"i0"=>0, "i1"=>1, "i2"=>2, "i3"=>3, "i4"=>4, "i5"=>5, "i6"=>6, "i7"=>7, "i8"=>8, "i9"=>9, "i10"=>10, "i11"=>11, "i12"=>12, "i13"=>13, "i14"=>14, "i15"=>15, "i16"=>16, "i17"=>17, "i18"=>18, "i19"=>19, "i20"=>20, "i21"=>21, "i22"=>22, "i23"=>23, "i24"=>24, "i25"=>25, "i26"=>26, "i27"=>27, "i28"=>28, "i29"=>29, "i30"=>30, "i31"=>31, "i32"=>32, "i33"=>33, "i34"=>34, "i35"=>35, "i36"=>36, "i37"=>37, "i38"=>38, "i39"=>39, "i40"=>40, "i41"=>41, "i42"=>42, "i43"=>43, "i44"=>44, "i45"=>45, "i46"=>46, "i47"=>47, "i48"=>48, "i49"=>49, "i50"=>50, "i51"=>51, "i52"=>52, "i53"=>53, "i54"=>54, "i55"=>55, "i56"=>56, "i57"=>57, "i58"=>58, "i59"=>59, "i60"=>60, "i61"=>61, "i62"=>62, "i63"=>63, "i64"=>64, "i65"=>65, "i66"=>66, "i67"=>67, "i68"=>68, "i69"=>69, "i70"=>70, "i71"=>71, "i72"=>72, "i73"=>73, "i74"=>74, "i75"=>75, "i76"=>76, "i77"=>77, "i78"=>78, "i79"=>79, "i80"=>80, "i81"=>81, "i82"=>82, "i83"=>83, "i84"=>84, "i85"=>85, "i86"=>86, "i87"=>87, "i88"=>88, "i89"=>89, "i90"=>90, "i91"=>91, "i92"=>92, "i93"=>93, "i94"=>94, "i95"=>95, "i96"=>96, "i97"=>97, "i98"=>98, "i99"=>99}]
+Actual Results: [{"i0"=>0, "i1"=>1, "i2"=>2, "i3"=>3, "i4"=>4, "i5"=>5, "i6"=>6, "i7"=>7, "i8"=>8, "i9"=>9, "i10"=>10, "i11"=>11, "i12"=>12, "i13"=>13, "i14"=>14, "i15"=>15, "i16"=>16, "i17"=>17, "i18"=>18, "i19"=>19, "i20"=>20, "i21"=>21, "i22"=>22, "i23"=>23, "i24"=>24, "i25"=>25, "i26"=>26, "i27"=>27, "i28"=>28, "i29"=>29, "i30"=>30, "i31"=>31, "i32"=>32, "i33"=>33, "i34"=>34, "i35"=>35, "i36"=>36, "i37"=>37, "i38"=>38, "i39"=>39, "i40"=>40, "i41"=>41, "i42"=>42, "i43"=>43, "i44"=>44, "i45"=>45, "i46"=>46, "i47"=>47, "i48"=>48, "i49"=>49, "i50"=>50, "i51"=>51, "i52"=>52, "i53"=>53, "i54"=>54, "i55"=>55, "i56"=>56, "i57"=>57, "i58"=>58, "i59"=>59, "i60"=>60, "i61"=>61, "i62"=>62, "i63"=>63, "i64"=>64, "i65"=>65, "i66"=>66, "i67"=>67, "i68"=>68, "i69"=>69, "i70"=>70, "i71"=>71, "i72"=>72, "i73"=>73, "i74"=>74, "i75"=>75, "i76"=>76, "i77"=>77, "i78"=>78, "i79"=>79, "i80"=>80, "i81"=>81, "i82"=>82, "i83"=>83, "i84"=>84, "i85"=>85, "i86"=>86, "i87"=>87, "i88"=>88, "i89"=>89, "i90"=>90, "i91"=>91, "i92"=>92, "i93"=>93, "i94"=>94, "i95"=>95, "i96"=>96, "i97"=>97, "i98"=>98, "i99"=>99}]
+PASS
+line no: 111
+Executing sql statement: SELECT * FROM int_test WHERE i0 = ? 
+Expected Results: [{"i0"=>3, "i1"=>4, "i2"=>5, "i3"=>6, "i4"=>7, "i5"=>8, "i6"=>9, "i7"=>10, "i8"=>11, "i9"=>12, "i10"=>13, "i11"=>14, "i12"=>15, "i13"=>16, "i14"=>17, "i15"=>18, "i16"=>19, "i17"=>20, "i18"=>21, "i19"=>22, "i20"=>23, "i21"=>24, "i22"=>25, "i23"=>26, "i24"=>27, "i25"=>28, "i26"=>29, "i27"=>30, "i28"=>31, "i29"=>32, "i30"=>33, "i31"=>34, "i32"=>35, "i33"=>36, "i34"=>37, "i35"=>38, "i36"=>39, "i37"=>40, "i38"=>41, "i39"=>42, "i40"=>43, "i41"=>44, "i42"=>45, "i43"=>46, "i44"=>47, "i45"=>48, "i46"=>49, "i47"=>50, "i48"=>51, "i49"=>52, "i50"=>53, "i51"=>54, "i52"=>55, "i53"=>56, "i54"=>57, "i55"=>58, "i56"=>59, "i57"=>60, "i58"=>61, "i59"=>62, "i60"=>63, "i61"=>64, "i62"=>65, "i63"=>66, "i64"=>67, "i65"=>68, "i66"=>69, "i67"=>70, "i68"=>71, "i69"=>72, "i70"=>73, "i71"=>74, "i72"=>75, "i73"=>76, "i74"=>77, "i75"=>78, "i76"=>79, "i77"=>80, "i78"=>81, "i79"=>82, "i80"=>83, "i81"=>84, "i82"=>85, "i83"=>86, "i84"=>87, "i85"=>88, "i86"=>89, "i87"=>90, "i88"=>91, "i89"=>92, "i90"=>93, "i91"=>94, "i92"=>95, "i93"=>96, "i94"=>97, "i95"=>98, "i96"=>99, "i97"=>0, "i98"=>1, "i99"=>2}]
+Actual Results: [{"i0"=>3, "i1"=>4, "i2"=>5, "i3"=>6, "i4"=>7, "i5"=>8, "i6"=>9, "i7"=>10, "i8"=>11, "i9"=>12, "i10"=>13, "i11"=>14, "i12"=>15, "i13"=>16, "i14"=>17, "i15"=>18, "i16"=>19, "i17"=>20, "i18"=>21, "i19"=>22, "i20"=>23, "i21"=>24, "i22"=>25, "i23"=>26, "i24"=>27, "i25"=>28, "i26"=>29, "i27"=>30, "i28"=>31, "i29"=>32, "i30"=>33, "i31"=>34, "i32"=>35, "i33"=>36, "i34"=>37, "i35"=>38, "i36"=>39, "i37"=>40, "i38"=>41, "i39"=>42, "i40"=>43, "i41"=>44, "i42"=>45, "i43"=>46, "i44"=>47, "i45"=>48, "i46"=>49, "i47"=>50, "i48"=>51, "i49"=>52, "i50"=>53, "i51"=>54, "i52"=>55, "i53"=>56, "i54"=>57, "i55"=>58, "i56"=>59, "i57"=>60, "i58"=>61, "i59"=>62, "i60"=>63, "i61"=>64, "i62"=>65, "i63"=>66, "i64"=>67, "i65"=>68, "i66"=>69, "i67"=>70, "i68"=>71, "i69"=>72, "i70"=>73, "i71"=>74, "i72"=>75, "i73"=>76, "i74"=>77, "i75"=>78, "i76"=>79, "i77"=>80, "i78"=>81, "i79"=>82, "i80"=>83, "i81"=>84, "i82"=>85, "i83"=>86, "i84"=>87, "i85"=>88, "i86"=>89, "i87"=>90, "i88"=>91, "i89"=>92, "i90"=>93, "i91"=>94, "i92"=>95, "i93"=>96, "i94"=>97, "i95"=>98, "i96"=>99, "i97"=>0, "i98"=>1, "i99"=>2}]
+PASS
+line no: 112
+Executing sql statement: SELECT * FROM int_test WHERE i0 = ? 
+Expected Results: [{"i0"=>6, "i1"=>7, "i2"=>8, "i3"=>9, "i4"=>10, "i5"=>11, "i6"=>12, "i7"=>13, "i8"=>14, "i9"=>15, "i10"=>16, "i11"=>17, "i12"=>18, "i13"=>19, "i14"=>20, "i15"=>21, "i16"=>22, "i17"=>23, "i18"=>24, "i19"=>25, "i20"=>26, "i21"=>27, "i22"=>28, "i23"=>29, "i24"=>30, "i25"=>31, "i26"=>32, "i27"=>33, "i28"=>34, "i29"=>35, "i30"=>36, "i31"=>37, "i32"=>38, "i33"=>39, "i34"=>40, "i35"=>41, "i36"=>42, "i37"=>43, "i38"=>44, "i39"=>45, "i40"=>46, "i41"=>47, "i42"=>48, "i43"=>49, "i44"=>50, "i45"=>51, "i46"=>52, "i47"=>53, "i48"=>54, "i49"=>55, "i50"=>56, "i51"=>57, "i52"=>58, "i53"=>59, "i54"=>60, "i55"=>61, "i56"=>62, "i57"=>63, "i58"=>64, "i59"=>65, "i60"=>66, "i61"=>67, "i62"=>68, "i63"=>69, "i64"=>70, "i65"=>71, "i66"=>72, "i67"=>73, "i68"=>74, "i69"=>75, "i70"=>76, "i71"=>77, "i72"=>78, "i73"=>79, "i74"=>80, "i75"=>81, "i76"=>82, "i77"=>83, "i78"=>84, "i79"=>85, "i80"=>86, "i81"=>87, "i82"=>88, "i83"=>89, "i84"=>90, "i85"=>91, "i86"=>92, "i87"=>93, "i88"=>94, "i89"=>95, "i90"=>96, "i91"=>97, "i92"=>98, "i93"=>99, "i94"=>0, "i95"=>1, "i96"=>2, "i97"=>3, "i98"=>4, "i99"=>5}]
+Actual Results: [{"i0"=>6, "i1"=>7, "i2"=>8, "i3"=>9, "i4"=>10, "i5"=>11, "i6"=>12, "i7"=>13, "i8"=>14, "i9"=>15, "i10"=>16, "i11"=>17, "i12"=>18, "i13"=>19, "i14"=>20, "i15"=>21, "i16"=>22, "i17"=>23, "i18"=>24, "i19"=>25, "i20"=>26, "i21"=>27, "i22"=>28, "i23"=>29, "i24"=>30, "i25"=>31, "i26"=>32, "i27"=>33, "i28"=>34, "i29"=>35, "i30"=>36, "i31"=>37, "i32"=>38, "i33"=>39, "i34"=>40, "i35"=>41, "i36"=>42, "i37"=>43, "i38"=>44, "i39"=>45, "i40"=>46, "i41"=>47, "i42"=>48, "i43"=>49, "i44"=>50, "i45"=>51, "i46"=>52, "i47"=>53, "i48"=>54, "i49"=>55, "i50"=>56, "i51"=>57, "i52"=>58, "i53"=>59, "i54"=>60, "i55"=>61, "i56"=>62, "i57"=>63, "i58"=>64, "i59"=>65, "i60"=>66, "i61"=>67, "i62"=>68, "i63"=>69, "i64"=>70, "i65"=>71, "i66"=>72, "i67"=>73, "i68"=>74, "i69"=>75, "i70"=>76, "i71"=>77, "i72"=>78, "i73"=>79, "i74"=>80, "i75"=>81, "i76"=>82, "i77"=>83, "i78"=>84, "i79"=>85, "i80"=>86, "i81"=>87, "i82"=>88, "i83"=>89, "i84"=>90, "i85"=>91, "i86"=>92, "i87"=>93, "i88"=>94, "i89"=>95, "i90"=>96, "i91"=>97, "i92"=>98, "i93"=>99, "i94"=>0, "i95"=>1, "i96"=>2, "i97"=>3, "i98"=>4, "i99"=>5}]
+PASS
+line no: 113
+closing prepared statement SELECT * FROM int_test WHERE i0 = ? 
+Removed: SELECT * FROM int_test WHERE i0 = ? 
+line no: 114
+line no: 115
+Performing immediate operation: DROP TABLE IF EXISTS int_test
+line no: 116
+Close immediate action, ignoring
+line no: 117
+resource = session, nothing to do
+line no: 118
+resource = credentials, nothing to do
+line no: 119
+line no: 120

@@ -1,0 +1,162 @@
+File open. Starting Test
+line no: 2
+resource = credentials, nothing to do
+line no: 3
+resource = session, nothing to do
+line no: 4
+line no: 5
+Performing immediate operation: DROP TABLE IF EXISTS test1
+line no: 6
+Performing immediate operation: CREATE TABLE test1 (id INT,location CHAR(20),home CHAR(20),notes VARCHAR(20))
+line no: 7
+Performing immediate operation: DROP TABLE IF EXISTS test2
+line no: 8
+Performing immediate operation: CREATE TABLE test2 (id INT,price INT,notes VARCHAR(20))
+line no: 9
+Close immediate action, ignoring
+line no: 10
+line no: 11
+Creating prepared statement: INSERT INTO test1 VALUES (?,?,?,?)
+line no: 12
+Creating prepared statement: INSERT INTO test2 VALUES (?,?,?)
+line no: 13
+Executing sql statement: INSERT INTO test1 VALUES (?,?,?,?)
+line no: 14
+Executing sql statement: INSERT INTO test2 VALUES (?,?,?)
+line no: 15
+Executing sql statement: INSERT INTO test1 VALUES (?,?,?,?)
+line no: 16
+Executing sql statement: INSERT INTO test2 VALUES (?,?,?)
+line no: 17
+Executing sql statement: INSERT INTO test1 VALUES (?,?,?,?)
+line no: 18
+Executing sql statement: INSERT INTO test2 VALUES (?,?,?)
+line no: 19
+Executing sql statement: INSERT INTO test1 VALUES (?,?,?,?)
+line no: 20
+Executing sql statement: INSERT INTO test2 VALUES (?,?,?)
+line no: 21
+Executing sql statement: INSERT INTO test1 VALUES (?,?,?,?)
+line no: 22
+Executing sql statement: INSERT INTO test2 VALUES (?,?,?)
+line no: 23
+Executing sql statement: INSERT INTO test1 VALUES (?,?,?,?)
+line no: 24
+Executing sql statement: INSERT INTO test2 VALUES (?,?,?)
+line no: 25
+Executing sql statement: INSERT INTO test1 VALUES (?,?,?,?)
+line no: 26
+Executing sql statement: INSERT INTO test2 VALUES (?,?,?)
+line no: 27
+Executing sql statement: INSERT INTO test1 VALUES (?,?,?,?)
+line no: 28
+Executing sql statement: INSERT INTO test2 VALUES (?,?,?)
+line no: 29
+Executing sql statement: INSERT INTO test1 VALUES (?,?,?,?)
+line no: 30
+Executing sql statement: INSERT INTO test2 VALUES (?,?,?)
+line no: 31
+Executing sql statement: INSERT INTO test1 VALUES (?,?,?,?)
+line no: 32
+Executing sql statement: INSERT INTO test2 VALUES (?,?,?)
+line no: 33
+Close immediate action, ignoring
+line no: 34
+Close immediate action, ignoring
+line no: 35
+line no: 36
+Creating prepared statement: select * from test1 order by id
+line no: 37
+Creating prepared statement: select * from test2 order by id
+line no: 38
+Executing sql statement: select * from test1 order by id
+Expected Results: [{"id"=>1, "location"=>"Maine               ", "home"=>"Colorado            ", "notes"=>"Wisconsin"}, {"id"=>2, "location"=>"Maryland            ", "home"=>"Connecticut         ", "notes"=>"Wyoming"}]
+Actual Results: [{"id"=>1, "location"=>"Maine               ", "home"=>"Colorado            ", "notes"=>"Wisconsin"}, {"id"=>2, "location"=>"Maryland            ", "home"=>"Connecticut         ", "notes"=>"Wyoming"}]
+PASS
+line no: 39
+Executing sql statement: select * from test2 order by id
+Expected Results: [{"id"=>11, "price"=>88, "notes"=>"Tennessee"}, {"id"=>12, "price"=>89, "notes"=>"Texas"}, {"id"=>13, "price"=>90, "notes"=>"Utah"}]
+Actual Results: [{"id"=>11, "price"=>88, "notes"=>"Tennessee"}, {"id"=>12, "price"=>89, "notes"=>"Texas"}, {"id"=>13, "price"=>90, "notes"=>"Utah"}]
+PASS
+line no: 40
+Expected Results: [{"id"=>3, "location"=>"Massachusetts       ", "home"=>"Delaware            ", "notes"=>"Montana"}]
+Actual Results: [{"id"=>3, "location"=>"Massachusetts       ", "home"=>"Delaware            ", "notes"=>"Montana"}]
+PASS
+line no: 41
+Expected Results: [{"id"=>14, "price"=>91, "notes"=>"Vermont"}, {"id"=>15, "price"=>92, "notes"=>"Virgina"}]
+Actual Results: [{"id"=>14, "price"=>91, "notes"=>"Vermont"}, {"id"=>15, "price"=>92, "notes"=>"Virgina"}]
+PASS
+line no: 42
+Expected Results: [{"id"=>4, "location"=>"Michigan            ", "home"=>"Florida             ", "notes"=>"Nebraska"}]
+Actual Results: [{"id"=>4, "location"=>"Michigan            ", "home"=>"Florida             ", "notes"=>"Nebraska"}]
+PASS
+line no: 43
+Expected Results: [{"id"=>16, "price"=>93, "notes"=>"Washington"}, {"id"=>17, "price"=>94, "notes"=>"West Virginia"}, {"id"=>18, "price"=>95, "notes"=>"Wisconsin"}, {"id"=>19, "price"=>96, "notes"=>"Wyoming"}]
+Actual Results: [{"id"=>16, "price"=>93, "notes"=>"Washington"}, {"id"=>17, "price"=>94, "notes"=>"West Virginia"}, {"id"=>18, "price"=>95, "notes"=>"Wisconsin"}, {"id"=>19, "price"=>96, "notes"=>"Wyoming"}]
+PASS
+line no: 44
+Expected Results: [{"id"=>5, "location"=>"Minnesota           ", "home"=>"Georgia             ", "notes"=>"Nevada"}, {"id"=>6, "location"=>"Mississippi         ", "home"=>"Hawaii              ", "notes"=>"New Hampshire"}, {"id"=>7, "location"=>"Missouri            ", "home"=>"Idaho               ", "notes"=>"New Jersey"}, {"id"=>8, "location"=>"Alabama             ", "home"=>"Illinois            ", "notes"=>"New Meixco"}, {"id"=>9, "location"=>"Alaska              ", "home"=>"Indiana             ", "notes"=>"New York"}, {"id"=>10, "location"=>"Arizona             ", "home"=>"Iowa                ", "notes"=>"North Carolina"}]
+Actual Results: [{"id"=>5, "location"=>"Minnesota           ", "home"=>"Georgia             ", "notes"=>"Nevada"}, {"id"=>6, "location"=>"Mississippi         ", "home"=>"Hawaii              ", "notes"=>"New Hampshire"}, {"id"=>7, "location"=>"Missouri            ", "home"=>"Idaho               ", "notes"=>"New Jersey"}, {"id"=>8, "location"=>"Alabama             ", "home"=>"Illinois            ", "notes"=>"New Meixco"}, {"id"=>9, "location"=>"Alaska              ", "home"=>"Indiana             ", "notes"=>"New York"}, {"id"=>10, "location"=>"Arizona             ", "home"=>"Iowa                ", "notes"=>"North Carolina"}]
+PASS
+line no: 45
+Expected Results: [{"id"=>20, "price"=>97, "notes"=>"Montana"}]
+Actual Results: [{"id"=>20, "price"=>97, "notes"=>"Montana"}]
+PASS
+line no: 46
+line no: 47
+Executing sql statement: select * from test1 order by id
+Expected Results: [{"id"=>1, "location"=>"Maine               ", "home"=>"Colorado            ", "notes"=>"Wisconsin"}, {"id"=>2, "location"=>"Maryland            ", "home"=>"Connecticut         ", "notes"=>"Wyoming"}, {"id"=>3, "location"=>"Massachusetts       ", "home"=>"Delaware            ", "notes"=>"Montana"}, {"id"=>4, "location"=>"Michigan            ", "home"=>"Florida             ", "notes"=>"Nebraska"}, {"id"=>5, "location"=>"Minnesota           ", "home"=>"Georgia             ", "notes"=>"Nevada"}]
+Actual Results: [{"id"=>1, "location"=>"Maine               ", "home"=>"Colorado            ", "notes"=>"Wisconsin"}, {"id"=>2, "location"=>"Maryland            ", "home"=>"Connecticut         ", "notes"=>"Wyoming"}, {"id"=>3, "location"=>"Massachusetts       ", "home"=>"Delaware            ", "notes"=>"Montana"}, {"id"=>4, "location"=>"Michigan            ", "home"=>"Florida             ", "notes"=>"Nebraska"}, {"id"=>5, "location"=>"Minnesota           ", "home"=>"Georgia             ", "notes"=>"Nevada"}]
+PASS
+line no: 48
+Executing sql statement: select * from test2 order by id
+Expected Results: [{"id"=>11, "price"=>88, "notes"=>"Tennessee"}, {"id"=>12, "price"=>89, "notes"=>"Texas"}, {"id"=>13, "price"=>90, "notes"=>"Utah"}, {"id"=>14, "price"=>91, "notes"=>"Vermont"}, {"id"=>15, "price"=>92, "notes"=>"Virgina"}, {"id"=>16, "price"=>93, "notes"=>"Washington"}, {"id"=>17, "price"=>94, "notes"=>"West Virginia"}, {"id"=>18, "price"=>95, "notes"=>"Wisconsin"}, {"id"=>19, "price"=>96, "notes"=>"Wyoming"}, {"id"=>20, "price"=>97, "notes"=>"Montana"}]
+Actual Results: [{"id"=>11, "price"=>88, "notes"=>"Tennessee"}, {"id"=>12, "price"=>89, "notes"=>"Texas"}, {"id"=>13, "price"=>90, "notes"=>"Utah"}, {"id"=>14, "price"=>91, "notes"=>"Vermont"}, {"id"=>15, "price"=>92, "notes"=>"Virgina"}, {"id"=>16, "price"=>93, "notes"=>"Washington"}, {"id"=>17, "price"=>94, "notes"=>"West Virginia"}, {"id"=>18, "price"=>95, "notes"=>"Wisconsin"}, {"id"=>19, "price"=>96, "notes"=>"Wyoming"}, {"id"=>20, "price"=>97, "notes"=>"Montana"}]
+PASS
+line no: 49
+Expected Results: [{"id"=>6, "location"=>"Mississippi         ", "home"=>"Hawaii              ", "notes"=>"New Hampshire"}]
+Actual Results: [{"id"=>6, "location"=>"Mississippi         ", "home"=>"Hawaii              ", "notes"=>"New Hampshire"}]
+PASS
+line no: 50
+Expected Results: [{"id"=>7, "location"=>"Missouri            ", "home"=>"Idaho               ", "notes"=>"New Jersey"}]
+Actual Results: [{"id"=>7, "location"=>"Missouri            ", "home"=>"Idaho               ", "notes"=>"New Jersey"}]
+PASS
+line no: 51
+Executing sql statement: select * from test2 order by id
+Expected Results: [{"id"=>11, "price"=>88, "notes"=>"Tennessee"}, {"id"=>12, "price"=>89, "notes"=>"Texas"}, {"id"=>13, "price"=>90, "notes"=>"Utah"}, {"id"=>14, "price"=>91, "notes"=>"Vermont"}, {"id"=>15, "price"=>92, "notes"=>"Virgina"}, {"id"=>16, "price"=>93, "notes"=>"Washington"}, {"id"=>17, "price"=>94, "notes"=>"West Virginia"}, {"id"=>18, "price"=>95, "notes"=>"Wisconsin"}, {"id"=>19, "price"=>96, "notes"=>"Wyoming"}, {"id"=>20, "price"=>97, "notes"=>"Montana"}]
+Actual Results: [{"id"=>11, "price"=>88, "notes"=>"Tennessee"}, {"id"=>12, "price"=>89, "notes"=>"Texas"}, {"id"=>13, "price"=>90, "notes"=>"Utah"}, {"id"=>14, "price"=>91, "notes"=>"Vermont"}, {"id"=>15, "price"=>92, "notes"=>"Virgina"}, {"id"=>16, "price"=>93, "notes"=>"Washington"}, {"id"=>17, "price"=>94, "notes"=>"West Virginia"}, {"id"=>18, "price"=>95, "notes"=>"Wisconsin"}, {"id"=>19, "price"=>96, "notes"=>"Wyoming"}, {"id"=>20, "price"=>97, "notes"=>"Montana"}]
+PASS
+line no: 52
+Executing sql statement: select * from test2 order by id
+Expected Results: [{"id"=>11, "price"=>88, "notes"=>"Tennessee"}]
+Actual Results: [{"id"=>11, "price"=>88, "notes"=>"Tennessee"}]
+PASS
+line no: 53
+Expected Results: [{"id"=>8, "location"=>"Alabama             ", "home"=>"Illinois            ", "notes"=>"New Meixco"}]
+Actual Results: [{"id"=>8, "location"=>"Alabama             ", "home"=>"Illinois            ", "notes"=>"New Meixco"}]
+PASS
+line no: 54
+Executing sql statement: select * from test2 order by id
+Expected Results: [{"id"=>11, "price"=>88, "notes"=>"Tennessee"}, {"id"=>12, "price"=>89, "notes"=>"Texas"}, {"id"=>13, "price"=>90, "notes"=>"Utah"}, {"id"=>14, "price"=>91, "notes"=>"Vermont"}, {"id"=>15, "price"=>92, "notes"=>"Virgina"}, {"id"=>16, "price"=>93, "notes"=>"Washington"}, {"id"=>17, "price"=>94, "notes"=>"West Virginia"}, {"id"=>18, "price"=>95, "notes"=>"Wisconsin"}, {"id"=>19, "price"=>96, "notes"=>"Wyoming"}, {"id"=>20, "price"=>97, "notes"=>"Montana"}]
+Actual Results: [{"id"=>11, "price"=>88, "notes"=>"Tennessee"}, {"id"=>12, "price"=>89, "notes"=>"Texas"}, {"id"=>13, "price"=>90, "notes"=>"Utah"}, {"id"=>14, "price"=>91, "notes"=>"Vermont"}, {"id"=>15, "price"=>92, "notes"=>"Virgina"}, {"id"=>16, "price"=>93, "notes"=>"Washington"}, {"id"=>17, "price"=>94, "notes"=>"West Virginia"}, {"id"=>18, "price"=>95, "notes"=>"Wisconsin"}, {"id"=>19, "price"=>96, "notes"=>"Wyoming"}, {"id"=>20, "price"=>97, "notes"=>"Montana"}]
+PASS
+line no: 55
+Expected Results: [{"id"=>9, "location"=>"Alaska              ", "home"=>"Indiana             ", "notes"=>"New York"}]
+Actual Results: [{"id"=>9, "location"=>"Alaska              ", "home"=>"Indiana             ", "notes"=>"New York"}]
+PASS
+line no: 56
+Close immediate action, ignoring
+line no: 57
+Close immediate action, ignoring
+line no: 58
+Performing immediate operation: DROP TABLE IF EXISTS test1
+line no: 59
+Performing immediate operation: DROP TABLE IF EXISTS test2
+line no: 60
+Close immediate action, ignoring
+line no: 61
+resource = session, nothing to do
+line no: 62
+resource = credentials, nothing to do
+line no: 63
+line no: 64

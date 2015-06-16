@@ -1,0 +1,71 @@
+File open. Starting Test
+line no: 2
+resource = credentials, nothing to do
+line no: 3
+resource = session, nothing to do
+line no: 4
+line no: 5
+Performing immediate operation: DROP TABLE IF EXISTS transaction_test
+line no: 6
+Performing immediate operation: CREATE TABLE transaction_test (int_col INT,varchar_col VARCHAR(20))
+line no: 7
+Close immediate action, ignoring
+line no: 8
+line no: 9
+Autocommit set to off as intended
+line no: 10
+line no: 11
+Creating prepared statement: INSERT INTO transaction_test VALUES (?,?)
+line no: 12
+Executing sql statement: INSERT INTO transaction_test VALUES (?,?)
+line no: 13
+line no: 14
+Creating prepared statement: SELECT * FROM transaction_test
+line no: 15
+Executing sql statement: SELECT * FROM transaction_test
+Expected Results: [{"int_col"=>93, "varchar_col"=>"Vermont"}]
+Actual Results: [{"int_col"=>93, "varchar_col"=>"Vermont"}]
+PASS
+line no: 16
+line no: 17
+Rollback successful
+line no: 18
+line no: 19
+Executing sql statement: SELECT * FROM transaction_test
+Expected Results: []
+Actual Results: []
+PASS
+line no: 20
+line no: 21
+Autocommit set to off as intended
+line no: 22
+line no: 23
+Executing sql statement: INSERT INTO transaction_test VALUES (?,?)
+line no: 24
+Executing sql statement: INSERT INTO transaction_test VALUES (?,?)
+line no: 25
+line no: 26
+Executing sql statement: SELECT * FROM transaction_test
+Expected Results: [{"int_col"=>98, "varchar_col"=>"Wyoming"}, {"int_col"=>15, "varchar_col"=>"Tennessee"}]
+Actual Results: [{"int_col"=>98, "varchar_col"=>"Wyoming"}, {"int_col"=>15, "varchar_col"=>"Tennessee"}]
+PASS
+line no: 27
+line no: 28
+Commit successful
+line no: 29
+line no: 30
+Executing sql statement: SELECT * FROM transaction_test
+Expected Results: [{"int_col"=>98, "varchar_col"=>"Wyoming"}, {"int_col"=>15, "varchar_col"=>"Tennessee"}]
+Actual Results: [{"int_col"=>98, "varchar_col"=>"Wyoming"}, {"int_col"=>15, "varchar_col"=>"Tennessee"}]
+PASS
+line no: 31
+line no: 32
+Performing immediate operation: DROP TABLE IF EXISTS transaction_test
+line no: 33
+Close immediate action, ignoring
+line no: 34
+resource = session, nothing to do
+line no: 35
+resource = credentials, nothing to do
+line no: 36
+line no: 37

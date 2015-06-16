@@ -1,0 +1,129 @@
+File open. Starting Test
+line no: 2
+resource = credentials, nothing to do
+line no: 3
+line no: 4
+resource = session, nothing to do
+line no: 5
+line no: 6
+Performing immediate operation: DROP TABLE IF EXISTS bigint_test
+line no: 7
+Performing immediate operation: CREATE TABLE bigint_test (i0 BIGINT)
+line no: 8
+Close immediate action, ignoring
+line no: 9
+line no: 10
+Creating prepared statement: INSERT INTO bigint_test VALUES (?)
+line no: 11
+Executing sql statement: INSERT INTO bigint_test VALUES (?)
+line no: 12
+line no: 13
+Creating prepared statement: SELECT * FROM bigint_test WHERE i0 = ? 
+line no: 14
+Executing sql statement: SELECT * FROM bigint_test WHERE i0 = ? 
+Expected Results: [{"i0"=>549755813888}]
+Actual Results: [{"i0"=>"549755813888"}]
+FAILED
+line no: 15
+line no: 16
+Creating prepared statement: UPDATE bigint_test SET i0 = ? WHERE i0 = ?
+line no: 17
+Executing sql statement: UPDATE bigint_test SET i0 = ? WHERE i0 = ?
+line no: 18
+line no: 19
+Executing sql statement: SELECT * FROM bigint_test WHERE i0 = ? 
+Expected Results: []
+Actual Results: []
+PASS
+line no: 20
+line no: 21
+Executing sql statement: SELECT * FROM bigint_test WHERE i0 = ? 
+Expected Results: [{"i0"=>1099511627776}]
+Actual Results: [{"i0"=>"1099511627776"}]
+FAILED
+line no: 22
+line no: 23
+Creating prepared statement: DELETE FROM bigint_test WHERE i0 = ?
+line no: 24
+Executing sql statement: DELETE FROM bigint_test WHERE i0 = ?
+line no: 25
+line no: 26
+Executing sql statement: SELECT * FROM bigint_test WHERE i0 = ? 
+Expected Results: []
+Actual Results: []
+PASS
+line no: 27
+line no: 28
+Performing immediate operation: DROP TABLE IF EXISTS bigint_test
+line no: 29
+Close immediate action, ignoring
+line no: 30
+resource = session, nothing to do
+line no: 31
+line no: 32
+resource = session, nothing to do
+line no: 33
+line no: 34
+Performing immediate operation: DROP TABLE IF EXISTS bigint_test
+line no: 35
+Performing immediate operation: CREATE TABLE bigint_test (i0 BIGINT,i1 BIGINT,i2 BIGINT)
+line no: 36
+Close immediate action, ignoring
+line no: 37
+line no: 38
+Creating prepared statement: INSERT INTO bigint_test VALUES (?,?,?)
+line no: 39
+Executing sql statement: INSERT INTO bigint_test VALUES (?,?,?)
+line no: 40
+Executing sql statement: INSERT INTO bigint_test VALUES (?,?,?)
+line no: 41
+Executing sql statement: INSERT INTO bigint_test VALUES (?,?,?)
+line no: 42
+Executing sql statement: INSERT INTO bigint_test VALUES (?,?,?)
+line no: 43
+Executing sql statement: INSERT INTO bigint_test VALUES (?,?,?)
+line no: 44
+Executing sql statement: INSERT INTO bigint_test VALUES (?,?,?)
+line no: 45
+Executing sql statement: INSERT INTO bigint_test VALUES (?,?,?)
+line no: 46
+Executing sql statement: INSERT INTO bigint_test VALUES (?,?,?)
+line no: 47
+Executing sql statement: INSERT INTO bigint_test VALUES (?,?,?)
+line no: 48
+Executing sql statement: INSERT INTO bigint_test VALUES (?,?,?)
+line no: 49
+closing prepared statement INSERT INTO bigint_test VALUES (?,?,?)
+Removed: INSERT INTO bigint_test VALUES (?,?,?)
+line no: 50
+line no: 51
+Creating prepared statement: SELECT * FROM bigint_test WHERE i0 = ? 
+line no: 52
+Executing sql statement: SELECT * FROM bigint_test WHERE i0 = ? 
+Expected Results: [{"i0"=>4294967296, "i1"=>2305843009213693952, "i2"=>1152921504606846976}]
+Actual Results: [{"i0"=>"4294967296", "i1"=>"2305843009213693952", "i2"=>"1152921504606846976"}]
+FAILED
+line no: 53
+Executing sql statement: SELECT * FROM bigint_test WHERE i0 = ? 
+Expected Results: [{"i0"=>34359738368, "i1"=>17179869184, "i2"=>8589934592}]
+Actual Results: [{"i0"=>"34359738368", "i1"=>"17179869184", "i2"=>"8589934592"}]
+FAILED
+line no: 54
+Executing sql statement: SELECT * FROM bigint_test WHERE i0 = ? 
+Expected Results: [{"i0"=>274877906944, "i1"=>137438953472, "i2"=>68719476736}]
+Actual Results: [{"i0"=>"274877906944", "i1"=>"137438953472", "i2"=>"68719476736"}]
+FAILED
+line no: 55
+closing prepared statement SELECT * FROM bigint_test WHERE i0 = ? 
+Removed: SELECT * FROM bigint_test WHERE i0 = ? 
+line no: 56
+line no: 57
+Performing immediate operation: DROP TABLE IF EXISTS bigint_test
+line no: 58
+Close immediate action, ignoring
+line no: 59
+resource = session, nothing to do
+line no: 60
+resource = credentials, nothing to do
+line no: 61
+line no: 62

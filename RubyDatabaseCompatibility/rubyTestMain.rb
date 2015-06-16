@@ -7,13 +7,10 @@ require_relative "varMethods"
 require_relative "preparedStatement"
 
 #  Main file for testing database compatibility with Informix and ruby language
-#$valueArray = [nil, nil, nil, nil, nil]  # used for binding values since must be global
-$stdout.reopen("out.txt", "w")
+#$stdout.reopen("out.txt", "w")
 $stderr.reopen("err.txt", "w")
 totalResultsDir = Dir.open "results"
 testSpecificResultsDir = Dir.open "testSpecificResults"
-#debugFile = File.open(File.join(testSpecificResultsDir, "debugFile.txt"), "w")
-#debugFile.puts("open and ready to write")
 totalResultsFile = File.open(File.join(totalResultsDir, "results_ruby_drda.json"), "w:UTF-8")
 testDirName = Pathname.pwd.parent + "JavaDatabaseCompatibility/resources"
 testDir = Dir.open testDirName
@@ -21,18 +18,23 @@ Dir.foreach(testDirName) do |fileName|
 	puts fileName.to_s
 	$valueArray = []
 	next if fileName == '.' or fileName == '..'
-	unless fileName.include?("NVARCHAR.json")
-		next
-	end
+	# int8 and serial8 cause server to crash, therefore ignore these tests
 	if fileName.include?("INT8") || fileName.include?("SERIAL8") || fileName.include?("ops.json")
 		next
 	end
 	resultFileName = fileName.gsub("json", "txt")
-	
 	outFile = File.open(File.join(testSpecificResultsDir, resultFileName), "w:UTF-8")
 	outFile.puts("File open. Starting Test")
-	connStr = "DRIVER={IBM DB2 ODBC DRIVER};DATABASE=rubyDb;HOSTNAME=lxvm-l165.lenexa.ibm.com;PORT=8412;PROTOCOL=TCPIP;UID=informix;PWD=Ibm4pass;"
+	# using local connection for testing, use DbCredential class for deployment to bluemix
+	connStr = "DRIVER={IBM DB2 ODBC DRIVER};DATABASE=rubyDb;HOSTNAME=lxvm-l165.lenexa.ibm.com;PORT=8412;"\
+	"PROTOCOL=TCPIP;UID=informix;PWD=Ibm4pass;"
 	dbconn = IBM_DB.connect connStr, "informix", "Ibm4pass"
+=begin  for use with bluemix
+	credentials = DbCredentials.new
+	connStr = "DATABASE=" + credentials.db + ";HOSTNAME=" + credentials.hostName + ";PORT=" + credentials.port+\
+	";UID="+credentials.uid+";PWD="+credentials.pwd"
+	dbconn = IBM_DB.connect connStr
+=end
 	unless dbconn
 		outFile.puts("Failed to get connection. Ending execution")
 		abort "Failed to get Connection"
@@ -45,7 +47,6 @@ Dir.foreach(testDirName) do |fileName|
 		fileHandle.each_line do |line|
 			
 			unless line[0] == '#'
-				p line
 				lineArray = JSON.parse(line)
 				jLine = JsonLine.new(lineArray, tableStatsArray, preparedStmtArray)
 				if jLine.resource == "session"
@@ -110,7 +111,7 @@ Dir.foreach(testDirName) do |fileName|
 							else
 								outFile.puts("FAILED")
 							end
-							exit
+
 						end
 					elsif jLine.action == "fetch"
 						currentHdl = VarMethods.getPreparedStmtHdl(jLine.statementId, preparedStmtArray)
@@ -146,7 +147,7 @@ Dir.foreach(testDirName) do |fileName|
 			puts "TEST PASSED"
 			result = true
 		end
-		comment = nil
+		comment = VarMethods.getComment(fileName)
 		VarMethods.enterResultToJsonFile(fileName, result, totalResultsFile, comment)
 	end
 

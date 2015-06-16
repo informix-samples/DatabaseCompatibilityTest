@@ -58,9 +58,6 @@ class JsonLine
 		end
 		if data.has_key?("expectedResults")
 			@expectedResults = data["expectedResults"]
-
-p @expectedResults
-
 			if @modified == true
 				modifyResults(preparedStatementList)
 			end

@@ -19,18 +19,22 @@ module VarMethods
 	end
 
 	def setAutoComOff(connection, outFile)
-		begin
-			IBM_DB.autocommit(connection, IBM_DB.SQL_AUTOCOMMIT_OFF)
-		rescue 
-			outFile.puts "#{IBM_DB.stmt_error}"
-			outFile.puts "#{IBM_DB.stmt_errormsg}"
-		end
+		IBM_DB.autocommit(connection, IBM_DB::SQL_AUTOCOMMIT_OFF)
+		
 		# verify that in correct state
 		ac = IBM_DB.autocommit(connection)
 		if ac == 0
 			outFile.puts "Autocommit set to off as intended"
 		else
 			outFile.puts "Cannot set autocommit to off.  FAIL"
+		end
+	end
+
+	def rollbackTrans(connection, outFile)
+		if IBM_DB.rollback(connection)
+			outFile.puts "Rollback successful"
+		else
+			outFile.puts "Rollback FAILED"
 		end
 	end
 
@@ -66,8 +70,6 @@ module VarMethods
 		stmt = IBM_DB::execute currentHdl
 		unless stmt
 			outFile.puts "Operation FAILED"
-			exit
-
 		end
 	end
 
@@ -219,5 +221,22 @@ module VarMethods
 	    jsonHash[:detail] = "format of test is different than others, but operations performed in other tests"       
 	    outfile.puts(jsonHash.to_json)
 	end
+
+	def getComment(fileName)
+		comment = nil
+		if fileName.include?("BIGINT") || fileName.include?("BIGSERIAL") 
+			comment = "Driver successfully places data in database, but extracts as string"
+		elsif fileName.include?("BOOLEAN")
+			comment = "Driver uses 0/1 for true/false, causing certain operations to respond incorrectly"
+		elsif fileName.include?("DATETIME")
+			comment = "Driver successfully places data in database, but extracts with fraction format"
+		elsif fileName.include?("SMALLFLOAT")
+			comment = "Data fetched from database converted improperly"
+		else
+			comment = nil
+		end
+		return comment
+	end
+
 
 end
