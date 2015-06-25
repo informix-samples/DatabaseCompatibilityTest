@@ -22,6 +22,7 @@ public class Report {
 		r.addResult("../PHPDatabaseCompatibility/results/results_php_pdo_ibm.json");
 		r.addResult("../PHPDatabaseCompatibility/results/results_php_pdo_informix.json");
 		r.addResult("../PythonDatabaseCompatibility/results/results_python_drda.json");
+		r.addResult("../RubyDatabaseCompatibility/results/results_ruby_drda.json");
 		String html = r.generateHtml();
 		FileWriter fw = new FileWriter("/tmp/file.html");
 		fw.write(html);
