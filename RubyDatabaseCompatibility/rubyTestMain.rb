@@ -26,9 +26,9 @@ Dir.foreach(testDirName) do |fileName|
 	outFile = File.open(File.join(testSpecificResultsDir, resultFileName), "w:UTF-8")
 	outFile.puts("File open. Starting Test")
 	# using local connection for testing, use DbCredential class for deployment to bluemix
-	connStr = "DRIVER={IBM DB2 ODBC DRIVER};DATABASE=rubyDb;HOSTNAME=lxvm-l165.lenexa.ibm.com;PORT=8412;"\
-	"PROTOCOL=TCPIP;UID=informix;PWD=password;"
-	dbconn = IBM_DB.connect connStr, "informix", "password"
+	connStr = "DRIVER={IBM DB2 ODBC DRIVER};DATABASE=rubyDb;HOSTNAME=hostname;PORT=8412;"\
+	"PROTOCOL=TCPIP;UID=userid;PWD=password;"
+	dbconn = IBM_DB.connect connStr, "userid", "password"
 =begin  for use with bluemix
 	credentials = DbCredentials.new
 	connStr = "DATABASE=" + credentials.db + ";HOSTNAME=" + credentials.hostName + ";PORT=" + credentials.port+\

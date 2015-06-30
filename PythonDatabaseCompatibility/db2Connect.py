@@ -45,8 +45,8 @@ if __name__ == "__main__":
             dbconn = ibm_db.connect("DATABASE=" + credentials.db + ";HOSTNAME="+credential.hostName+";PORT="+credentials.port+";UID="+credentials.uid+";PWD="+credentials.pwd+";","","")
         '''
             # using local data
-            #connectString = "DRIVER={IBM INFORMIX ODBC DRIVER (64-bit)};SERVER=atmol101;DATABASE=pythondb;HOSTNAME=lxvm-l165.lenexa.ibm.com;SERVICES=atmol101;PROTOCOL=onsoctcp;UID=informix;PWD=Ifmx4spd"
-            connectString = "DRIVER=(IBM DB2 ODBC DRIVER};DATABASE=pythondb;HOSTNAME=lxvm-l165.lenexa.ibm.com;PORT=8412;PROTOCOL=TCPIP;UID=informix;PWD=password"
+            
+            connectString = "DRIVER=(IBM DB2 ODBC DRIVER};DATABASE=pythondb;HOSTNAME=hostname;PORT=8412;PROTOCOL=TCPIP;UID=userId;PWD=password"
             dbconn = ibm_db.connect(connectString, None, None)
             
             if not dbconn:
